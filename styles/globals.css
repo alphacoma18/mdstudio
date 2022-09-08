@@ -1,12 +1,30 @@
 :root {
 	--bg-white: #ffffff;
 	--bg-black: #1a2632;
+	/* --bg-blue: #007acc; */
 	--bg-blue: #007acc;
 	--bg-yellow: #faee0f;
 
 	--input-black: #233343;
 	--error-red: #ff0000;
 	--fast-transition: all 100ms linear 0s;
+}
+::selection {
+	background: var(--bg-blue);
+	color: var(--bg-white);
+}
+::-webkit-scrollbar-track {
+	background: var(--bg-white);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--bg-blue);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #007accaa;
+}
+::-webkit-scrollbar {
+	width: 1vh;
+	height: 1vh;
 }
 *,
 html {
@@ -17,15 +35,14 @@ html {
 	scrollbar-color: var(--bg-blue) var(--bg-white);
 }
 body {
-	/* height: 200vh; */
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	z-index: unset;
 	line-height: 1.6rem;
 	scrollbar-width: thin;
-	/* overflow-y: hidden; */
+	overflow-y: hidden;
 	overflow-x: hidden;
 }
+
 button {
 	cursor: pointer;
 }

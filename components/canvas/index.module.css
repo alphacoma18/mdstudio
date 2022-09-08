@@ -1,11 +1,9 @@
 .inputMarkdown {
 	background: var(--bg-black);
-	/* font-size: 1.2rem; */
 }
 .outputMarkdown {
 	overflow-y: scroll;
 	padding: 2rem;
-	line-height: 2.2rem;
 }
 .footer {
 	grid-column: span 4;

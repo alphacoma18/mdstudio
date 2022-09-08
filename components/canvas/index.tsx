@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
 import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import Lorem from "./lorem";
 const CodeRenderer = (props: any) => {
 	return (
 		<SyntaxHighlighter language={props.language} style={vs2015}>
@@ -14,8 +15,11 @@ const CodeRenderer = (props: any) => {
 };
 
 const Canvas: React.FC = () => {
-	const [textInput, setTextInput] = useState<string>("");
+	const [textInput, setTextInput] = useState<string>(Lorem());
 	const [dimension, setDimension] = useState({ width: "50vw", height: "100%" });
+	useEffect(() => {
+
+	}, []);
 	return (
 		<>
 			<div className={styles.inputMarkdown}>
