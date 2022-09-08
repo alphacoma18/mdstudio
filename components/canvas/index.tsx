@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
@@ -18,7 +18,6 @@ const CodeRenderer = (props: any) => {
 const Canvas: React.FC = () => {
 	const [textInput, setTextInput] = useState<string>(Lorem());
 	const [dimension, setDimension] = useState({ width: "50vw", height: "100%" });
-	useEffect(() => {}, []);
 	return (
 		<>
 			<ScrollSync>
