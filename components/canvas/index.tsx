@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import GlobalContext from "../../utils/context";
 import styles from "./index.module.css";
 import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
@@ -16,6 +17,7 @@ const CodeRenderer = (props: any) => {
 };
 
 const Canvas: React.FC = () => {
+	const { handleCount } = useContext(GlobalContext);
 	const [textInput, setTextInput] = useState<string>(Lorem());
 	const [dimension, setDimension] = useState({ width: "50vw", height: "100%" });
 	return (
@@ -50,9 +52,10 @@ const Canvas: React.FC = () => {
 								className={styles.textarea}
 								value={textInput}
 								spellCheck="false"
-								autoCapitalize="off"
+								autoCapitalize="none"
 								onChange={(e) => {
 									setTextInput(e.currentTarget.value);
+									handleCount(e.currentTarget.value);
 								}}
 							></textarea>
 						</ScrollSyncPane>

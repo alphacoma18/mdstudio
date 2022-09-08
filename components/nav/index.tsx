@@ -11,6 +11,7 @@ const Nav: React.FC = () => {
 				<button className={styles.itemNavButtons}>Share</button>
 			</div>
 			<div className={styles.flexNavButton}>
+				<button className={styles.itemNavButtons}>Download</button>
 				<button className={styles.itemNavButtons}>Preview</button>
 				<button className={styles.itemNavButtons}>Publish</button>
 				<button className={styles.itemNavButtons}>Login/Signup</button>

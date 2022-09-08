@@ -20,7 +20,7 @@ const Sidebar: React.FC = () => {
 						<i className={`icon-floppy ${styles.sideBarFonts}`}></i>
 					</button>
 					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-docs ${styles.sideBarFonts}`}></i>
+						<i className={`icon-globe ${styles.sideBarFonts}`}></i>
 					</button>
 					<button className={styles.itemSidebarButtons}>
 						<i className={`icon-docs ${styles.sideBarFonts}`}></i>
@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
 						<i className={`icon-user-circle ${styles.sideBarFonts}`}></i>
 					</button>
 					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-cog-alt ${styles.sideBarFonts}`}></i>
+						<i className={`icon-toggle-off ${styles.sideBarFonts}`}></i>
 					</button>
 				</div>
 			</section>

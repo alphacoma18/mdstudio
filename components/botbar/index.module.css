@@ -1,5 +1,12 @@
-.outerBotBar {
+.botbarSection {
 	grid-column: span 4;
 	background: var(--bg-2);
 	z-index: 1;
+}
+.flexBotbar {
+	display: flex;
+	justify-content: space-between;
+}
+.itemBotbar {
+	
 }
