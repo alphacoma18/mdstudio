@@ -31,7 +31,7 @@ html {
 	padding: 0;
 	margin: 0;
 	scrollbar-width: thin;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 	scrollbar-color: var(--bg-blue) var(--bg-white);
 }
 body {
