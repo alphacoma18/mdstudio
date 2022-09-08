@@ -1,7 +1,7 @@
 :root {
 	--bg-white: #ffffff;
 	--bg-black: #1a2632;
-	--bg-blue: #0dbdfd;
+	--bg-blue: #007acc;
 	--bg-yellow: #faee0f;
 
 	--input-black: #233343;
@@ -12,11 +12,9 @@
 html {
 	padding: 0;
 	margin: 0;
-}
-html {
-	scroll-behavior: smooth;
 	scrollbar-width: thin;
-	scrollbar-color: var(--bg-yellow) var(--bg-white);
+	scroll-behavior: smooth;
+	scrollbar-color: var(--bg-blue) var(--bg-white);
 }
 body {
 	/* height: 200vh; */

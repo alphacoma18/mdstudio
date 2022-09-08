@@ -1,9 +1,10 @@
 .navbar {
 	display: flex;
 	justify-content: space-between;
-	padding: 0.4rem;
-	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+	grid-column: span 4;
+	background: var(--bg-black);
 }
 .navButtons {
 	padding: 0.4rem;
+	border: none;
 }

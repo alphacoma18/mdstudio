@@ -7,7 +7,7 @@ const Nav: React.FC = () => {
 			<div>
 				<button className={styles.navButtons}>Preview</button>
 				<button className={styles.navButtons}>Publish</button>
-				<button className={styles.navButtons}>Login / Signup</button>
+				<button className={styles.navButtons}>Login/Signup</button>
 			</div>
 		</nav>
 	);
