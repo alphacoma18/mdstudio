@@ -1,4 +1,17 @@
 .sidebar {
 	grid-row: span 1;
-	background: var(--bg-black);
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); 
+	clip-path: inset(0px -15px 0px 0px);
+	z-index: 1;
+}
+.sidebar .sideBarFonts {
+	padding: .4rem;
+	font-size: 2rem;
+}
+.sideBarButtons {
+	background: none;
+	border: none;
 }

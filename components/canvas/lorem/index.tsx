@@ -1,5 +1,5 @@
 export default function Lorem() {
-    return `# Lorem Ipsum
+	return `# Lorem Ipsum
 \
 &nbsp;
 ## What is Lorem Ipsum?

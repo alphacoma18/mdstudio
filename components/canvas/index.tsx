@@ -5,11 +5,11 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Lorem from "./lorem";
 const CodeRenderer = (props: any) => {
 	return (
-		<SyntaxHighlighter language={props.language} style={vs2015}>
+		<SyntaxHighlighter language={props.language} style={githubGist}>
 			{props.children}
 		</SyntaxHighlighter>
 	);
