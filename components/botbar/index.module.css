@@ -1,5 +1,5 @@
 .outerBotBar {
 	grid-column: span 4;
-	background: var(--bg-blue);
+	background: var(--bg-2);
 	z-index: 1;
 }

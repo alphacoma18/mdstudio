@@ -1,17 +1,11 @@
-.inputMarkdown {
-	background: var(--bg-black);
-}
 .outputMarkdown {
 	overflow-y: scroll;
 	padding: 2rem;
-}
-.footer {
-	grid-column: span 4;
-	background: var(--bg-blue);
+	background: var(--canvas-bg);
 }
 .resizableCanvas {
 	width: 100%;
-	border-right: 5px solid var(--bg-blue);
+	border-right: 5px solid var(--bg-2);
 }
 .textarea {
 	-webkit-box-sizing: border-box;
@@ -28,6 +22,7 @@
 	border: none;
 	padding: 2rem;
 	outline: none;
+	background: var(--canvas-bg);
 }
 .markdown {
 	word-wrap: break-word;

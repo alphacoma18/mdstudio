@@ -22,43 +22,41 @@ const Canvas: React.FC = () => {
 		<>
 			<ScrollSync>
 				<>
-					<div className={styles.inputMarkdown}>
-						<Resizable
-							className={styles.resizableCanvas}
-							size={{ width: dimension.width, height: dimension.height }}
-							boundsByDirection={true}
-							enable={{
-								top: false,
-								right: true,
-								bottom: false,
-								left: false,
-								topRight: false,
-								bottomRight: false,
-								bottomLeft: false,
-								topLeft: false,
-							}}
-							minWidth={"15vw"}
-							maxWidth={"80vw"}
-							onResizeStop={(e, direction, ref, d) => {
-								setDimension({
-									width: dimension.width + d.width,
-									height: dimension.height + d.height,
-								});
-							}}
-						>
-							<ScrollSyncPane>
-								<textarea
-									className={styles.textarea}
-									value={textInput}
-									spellCheck="false"
-									autoCapitalize="off"
-									onChange={(e) => {
-										setTextInput(e.currentTarget.value);
-									}}
-								></textarea>
-							</ScrollSyncPane>
-						</Resizable>
-					</div>
+					<Resizable
+						className={styles.resizableCanvas}
+						size={{ width: dimension.width, height: dimension.height }}
+						boundsByDirection={true}
+						enable={{
+							top: false,
+							right: true,
+							bottom: false,
+							left: false,
+							topRight: false,
+							bottomRight: false,
+							bottomLeft: false,
+							topLeft: false,
+						}}
+						minWidth={"15vw"}
+						maxWidth={"80vw"}
+						onResizeStop={(e, direction, ref, d) => {
+							setDimension({
+								width: dimension.width + d.width,
+								height: dimension.height + d.height,
+							});
+						}}
+					>
+						<ScrollSyncPane>
+							<textarea
+								className={styles.textarea}
+								value={textInput}
+								spellCheck="false"
+								autoCapitalize="off"
+								onChange={(e) => {
+									setTextInput(e.currentTarget.value);
+								}}
+							></textarea>
+						</ScrollSyncPane>
+					</Resizable>
 					<ScrollSyncPane>
 						<div className={styles.outputMarkdown}>
 							<ReactMarkdown

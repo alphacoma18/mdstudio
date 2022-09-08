@@ -1,6 +1,6 @@
 .flexSidebarButtons {
 	grid-row: span 1;
-	background: var(--bg-white);
+	background: var(--bg-1);
 	display: flex;
 	flex-direction: column;
 	box-shadow: var(--box-shadow);

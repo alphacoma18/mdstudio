@@ -2,8 +2,8 @@
 	display: flex;
 	justify-content: space-between;
 	grid-column: span 4;
-	background: var(--bg-white);
-	border-top: 3px solid var(--bg-blue);
+	background: var(--bg-1);
+	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);
 	z-index: 1;
 	padding: 0.4rem;
