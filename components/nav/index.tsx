@@ -4,9 +4,11 @@ const Nav: React.FC = () => {
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.flexNavButton}>
-				<button className={styles.itemNavButtons}>Preview</button>
-				<button className={styles.itemNavButtons}>Publish</button>
-				<button className={styles.itemNavButtons}>Login/Signup</button>
+				<p>Index.md</p>
+				<button className={styles.itemNavButtons}>Home</button>
+				<button className={styles.itemNavButtons}>Tools</button>
+				<button className={styles.itemNavButtons}>Help</button>
+				<button className={styles.itemNavButtons}>Share</button>
 			</div>
 			<div className={styles.flexNavButton}>
 				<button className={styles.itemNavButtons}>Preview</button>

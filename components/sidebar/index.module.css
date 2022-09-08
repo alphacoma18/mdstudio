@@ -1,11 +1,16 @@
-.flexSidebarButtons {
+.sidebarSection {
 	grid-row: span 1;
 	background: var(--bg-1);
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	box-shadow: var(--box-shadow);
 	clip-path: inset(0px -15px 0px 0px);
 	z-index: 1;
+}
+.flexSidebarButtons {
+	display: flex;
+	flex-direction: column;
 }
 .itemSidebarButtons {
 	padding: 0.4rem;

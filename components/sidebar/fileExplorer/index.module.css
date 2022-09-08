@@ -1,0 +1,22 @@
+.fileExplorerSection {
+    padding: 1rem;
+    width: 100px;
+    background: var(--bg-1);
+    height: 100%;
+    border-right: 3px solid var(--bg-2);
+}
+.headerFileExplorer {
+    font-weight: bold;
+    display: flex;
+    border-bottom: 3px solid var(--bg-2);
+}
+.headerFileExplorer .x {
+    width: 100%;
+}
+.filesList {
+	list-style-type: none;
+}
+.optionsFileExplorer  {
+    text-align: end;
+    display: flex;
+}
