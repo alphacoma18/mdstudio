@@ -3,8 +3,10 @@ import styles from "./index.module.css";
 const Credits: React.FC = () => {
 	return (
 		<div>
+			<i className="icon-rocket"></i>
 			<span className={styles.version}>Version: Dev - </span>
 			<span className={styles.credits}>
+				<i className="icon-certificate"></i>
 				MIT License Copyright (c) 2022{" "}
 				<a
 					href="https://www.linkedin.com/in/alpha-coma/"

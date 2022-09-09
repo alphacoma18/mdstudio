@@ -11,6 +11,7 @@ const BotBar: React.FC = () => {
 				<div className={styles.itemBotbar}>
 					<span>{characterCount} Characters - </span>
 					<span>{wordCount} Words</span>
+					<i className="icon-bell-alt"></i>
 				</div>
 			</div>
 		</section>

@@ -12,10 +12,7 @@ const Sidebar: React.FC = () => {
 		<>
 			<section className={styles.sidebarSection}>
 				<div className={styles.flexButtons}>
-					<button
-						className={styles.itemButtons}
-						onClick={handleFileExplorer}
-					>
+					<button className={styles.itemButtons} onClick={handleFileExplorer}>
 						<i className={`icon-docs ${styles.iFonts}`}></i>
 					</button>
 					<button className={styles.itemButtons}>
@@ -25,10 +22,10 @@ const Sidebar: React.FC = () => {
 						<i className={`icon-globe ${styles.iFonts}`}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-docs ${styles.iFonts}`}></i>
+						<i className={`icon-rocket ${styles.iFonts}`}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-docs ${styles.iFonts}`}></i>
+						<i className={`icon-info-circled ${styles.iFonts}`}></i>
 					</button>
 				</div>
 				<div className={styles.flexButtons}>
