@@ -4,7 +4,7 @@ import { Resizable } from "re-resizable";
 const FileExplorer: React.FC = () => {
 	return (
 		<Resizable
-			className={styles.fileExplorerSection}
+			className={styles.resizable}
 			enable={{
 				top: false,
 				right: true,
@@ -15,30 +15,32 @@ const FileExplorer: React.FC = () => {
 				bottomLeft: false,
 				topLeft: false,
 			}}
-			minWidth={"15vw"}
+			minWidth={"200px"}
 			maxWidth={"25vw"}
 		>
-			<div className={styles.headerFileExplorer}>
-				<div className={styles.x}>File-Explorer</div>
-				<div className={styles.optionsFileExplorer}>
-					<i className="icon-plus-squared"></i>
-					<i className="icon-arrows-cw"></i>
+			<div className={styles.itemResizable}>
+				<div className={styles.headerDiv}>
+					<div className={styles.headerParagraph}>File-Explorer</div>
+					<div className={styles.options}>
+						<i className="icon-plus-squared"></i>
+						<i className="icon-arrows-cw"></i>
+					</div>
 				</div>
+				<ul className={styles.filesList}>
+					<li>
+						<i className="icon-minus-squared"></i>
+						README.md
+					</li>
+					<li>
+						<i className="icon-minus-squared"></i>
+						alpha.md
+					</li>
+					<li>
+						<i className="icon-minus-squared"></i>
+						mymd.md
+					</li>
+				</ul>
 			</div>
-			<ul className={styles.filesList}>
-				<li>
-					<i className="icon-minus-squared"></i>
-					README.md
-				</li>
-				<li>
-					<i className="icon-minus-squared"></i>
-					alpha.md
-				</li>
-				<li>
-					<i className="icon-minus-squared"></i>
-					mymd.md
-				</li>
-			</ul>
 		</Resizable>
 	);
 };

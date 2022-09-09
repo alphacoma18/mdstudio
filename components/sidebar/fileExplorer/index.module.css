@@ -1,22 +1,26 @@
-.fileExplorerSection {
-    padding: 1rem;
-    width: 100px;
-    background: var(--bg-1);
-    height: 100%;
-    border-right: 3px solid var(--bg-2);
+.resizable {
+	width: 100px;
+	background: var(--bg-1);
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
-.headerFileExplorer {
-    font-weight: bold;
-    display: flex;
-    border-bottom: 3px solid var(--bg-2);
+.itemResizable {
+	border-right: 5px solid var(--bg-2);
+	padding: 1rem;
 }
-.headerFileExplorer .x {
-    width: 100%;
+.headerDiv {
+	display: flex;
+	font-weight: bold;
+	border-bottom: 3px solid var(--bg-2);
+}
+.headerParagraph {
+	width: 100%;
+}
+.options {
+	text-align: end;
+	display: flex;
 }
 .filesList {
 	list-style-type: none;
-}
-.optionsFileExplorer  {
-    text-align: end;
-    display: flex;
 }

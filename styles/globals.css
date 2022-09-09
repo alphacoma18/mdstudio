@@ -28,8 +28,9 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	line-height: 1.6rem;
 	scrollbar-width: thin;
-	overflow-y: hidden;
-	overflow-x: hidden;
+	position: fixed;
+	width: 100%;
+	height: 100%;
 }
 
 button {
@@ -40,4 +41,3 @@ button {
 	cursor: pointer;
 	transition: var(--fast-transition);
 }
-
