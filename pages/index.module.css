@@ -5,3 +5,12 @@
 	grid-template-columns: auto auto 1fr;
 	grid-template-rows: auto 1fr auto;
 }
+@media screen and (max-width: 1024px) { 
+
+}
+@media screen and (max-width: 768px) { 
+	
+}
+@media screen and (max-width: 480px) { 
+
+}

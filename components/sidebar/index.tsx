@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./index.module.css";
 import FileExplorer from "./fileExplorer";
+import GlobalContext from "../../utils/context";
 const Sidebar: React.FC = () => {
+	const { isLightTheme, handleTheme } = useContext(GlobalContext);
 	const [fileExplorerOpen, setFileExplorerOpen] = useState<boolean>(false);
 	function handleFileExplorer() {
 		setFileExplorerOpen((prev) => !prev);
@@ -33,8 +35,12 @@ const Sidebar: React.FC = () => {
 					<button className={styles.itemSidebarButtons}>
 						<i className={`icon-user-circle ${styles.sideBarFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-toggle-off ${styles.sideBarFonts}`}></i>
+					<button className={styles.itemSidebarButtons} onClick={handleTheme}>
+						{isLightTheme ? (
+							<i className={`icon-toggle-off ${styles.sideBarFonts}`}></i>
+						) : (
+							<i className={`icon-toggle-on ${styles.sideBarFonts}`}></i>
+						)}
 					</button>
 				</div>
 			</section>
