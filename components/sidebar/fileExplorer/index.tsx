@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import { Resizable } from "re-resizable";
 const FileExplorer: React.FC = () => {

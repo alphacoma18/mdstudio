@@ -11,35 +11,35 @@ const Sidebar: React.FC = () => {
 	return (
 		<>
 			<section className={styles.sidebarSection}>
-				<div className={styles.flexSidebarButtons}>
+				<div className={styles.flexButtons}>
 					<button
-						className={styles.itemSidebarButtons}
+						className={styles.itemButtons}
 						onClick={handleFileExplorer}
 					>
-						<i className={`icon-docs ${styles.sideBarFonts}`}></i>
+						<i className={`icon-docs ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-floppy ${styles.sideBarFonts}`}></i>
+					<button className={styles.itemButtons}>
+						<i className={`icon-floppy ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-globe ${styles.sideBarFonts}`}></i>
+					<button className={styles.itemButtons}>
+						<i className={`icon-globe ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-docs ${styles.sideBarFonts}`}></i>
+					<button className={styles.itemButtons}>
+						<i className={`icon-docs ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-docs ${styles.sideBarFonts}`}></i>
+					<button className={styles.itemButtons}>
+						<i className={`icon-docs ${styles.iFonts}`}></i>
 					</button>
 				</div>
-				<div className={styles.flexSidebarButtons}>
-					<button className={styles.itemSidebarButtons}>
-						<i className={`icon-user-circle ${styles.sideBarFonts}`}></i>
+				<div className={styles.flexButtons}>
+					<button className={styles.itemButtons}>
+						<i className={`icon-user-circle ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemSidebarButtons} onClick={handleTheme}>
+					<button className={styles.itemButtons} onClick={handleTheme}>
 						{isLightTheme ? (
-							<i className={`icon-toggle-off ${styles.sideBarFonts}`}></i>
+							<i className={`icon-toggle-off ${styles.iFonts}`}></i>
 						) : (
-							<i className={`icon-toggle-on ${styles.sideBarFonts}`}></i>
+							<i className={`icon-toggle-on ${styles.iFonts}`}></i>
 						)}
 					</button>
 				</div>

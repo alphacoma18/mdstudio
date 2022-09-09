@@ -8,23 +8,23 @@
 	clip-path: inset(0px -15px 0px 0px);
 	z-index: 1;
 }
-.flexSidebarButtons {
+.flexButtons {
 	display: flex;
 	flex-direction: column;
 }
-.itemSidebarButtons {
+.itemButtons {
 	padding: 0.4rem;
 	background: none;
 	border: none;
 }
-.itemSidebarButtons:hover i,
-.itemSidebarButtons:active i,
-.itemSidebarButtons:focus i,
-.itemSidebarButtons:focus-within i,
-.itemSidebarButtons:focus-visible i {
+.itemButtons:hover i,
+.itemButtons:active i,
+.itemButtons:focus i,
+.itemButtons:focus-within i,
+.itemButtons:focus-visible i {
 	color: var(--bg-blue);
 }
-.sideBarFonts {
+.iFonts {
 	font-size: 2rem;
 }
 @media screen and (max-width: 1024px) {

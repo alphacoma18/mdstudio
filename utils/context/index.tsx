@@ -6,7 +6,6 @@ interface IGlobalContext {
 	handleCount: (text: string) => void;
 	isLightTheme: boolean;
 	handleTheme: () => void;
-	screenWidth: number;
 }
 const GlobalContext = React.createContext<IGlobalContext>({
 	characterCount: 0,
@@ -14,26 +13,19 @@ const GlobalContext = React.createContext<IGlobalContext>({
 	handleCount() {},
 	isLightTheme: true,
 	handleTheme() {},
-	screenWidth: 0,
 });
 export default GlobalContext;
 
 interface Props {
 	children: React.ReactNode;
 }
-function getBreakpoint(width: number) {
-	if (width <= 480) return 1;
-	if (width <= 768) return 2;
-	if (width <= 1024) return 3;
-	return 4;
-}
 export const ContextProvider: React.FC<Props> = ({ children }) => {
 	const [screenWidth, setScreenWidth] = useState<number>(0);
 	let initialTheme: boolean = false;
 	useEffect(() => {
 		if (typeof window !== "undefined") {
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			initialTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-			setScreenWidth(getBreakpoint(window.innerWidth));
 		}
 	}, []);
 
@@ -46,7 +38,6 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	}
 	function handleTheme() {
 		setIsLightTheme((prev) => !prev);
-		console.log(screenWidth);
 	}
 
 	return (
@@ -57,7 +48,6 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 				handleCount,
 				isLightTheme,
 				handleTheme,
-				screenWidth,
 			}}
 		>
 			<Theme theme={isLightTheme} />

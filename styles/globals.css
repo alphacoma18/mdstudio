@@ -3,6 +3,7 @@
 	--bg-blue: #007acc;
 	--bg-black: #1a2632;
 	--bg-yellow: #faee0f;
+
 	--textarea-bg: #ffffff;
 	--input-black: #233343;
 	--error-red: #ff0000;
@@ -42,7 +43,6 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	line-height: 1.6rem;
-	scrollbar-width: thin;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -54,8 +54,5 @@ button {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	transition: var(--fast-transition);
-}
-i {
 	transition: var(--fast-transition);
 }
