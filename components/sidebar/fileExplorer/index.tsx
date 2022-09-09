@@ -18,29 +18,27 @@ const FileExplorer: React.FC = () => {
 			minWidth={"200px"}
 			maxWidth={"25vw"}
 		>
-			<div className={styles.itemResizable}>
-				<div className={styles.headerDiv}>
-					<div className={styles.headerParagraph}>File-Explorer</div>
-					<div className={styles.options}>
-						<i className="icon-plus-squared"></i>
-						<i className="icon-arrows-cw"></i>
-					</div>
+			<div className={styles.headerDiv}>
+				<div className={styles.headerParagraph}>File-Explorer</div>
+				<div className={styles.options}>
+					<i className="icon-plus-squared"></i>
+					<i className="icon-arrows-cw"></i>
 				</div>
-				<ul className={styles.filesList}>
-					<li>
-						<i className="icon-minus-squared"></i>
-						README.md
-					</li>
-					<li>
-						<i className="icon-minus-squared"></i>
-						alpha.md
-					</li>
-					<li>
-						<i className="icon-minus-squared"></i>
-						mymd.md
-					</li>
-				</ul>
 			</div>
+			<ul className={styles.filesList}>
+				<li>
+					<i className="icon-minus-squared"></i>
+					README.md
+				</li>
+				<li>
+					<i className="icon-minus-squared"></i>
+					alpha.md
+				</li>
+				<li>
+					<i className="icon-minus-squared"></i>
+					mymd.md
+				</li>
+			</ul>
 		</Resizable>
 	);
 };

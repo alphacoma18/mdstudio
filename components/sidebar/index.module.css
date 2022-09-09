@@ -17,6 +17,19 @@
 	background: none;
 	border: none;
 }
+.itemSidebarButtons:hover i,
+.itemSidebarButtons:active i,
+.itemSidebarButtons:focus i,
+.itemSidebarButtons:focus-within i,
+.itemSidebarButtons:focus-visible i {
+	color: var(--bg-blue);
+}
 .sideBarFonts {
 	font-size: 2rem;
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 480px) {
 }

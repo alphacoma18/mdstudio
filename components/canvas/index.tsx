@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import GlobalContext from "../../utils/context";
 import styles from "./index.module.css";
 import { Resizable } from "re-resizable";
@@ -17,17 +17,19 @@ const CodeRenderer = (props: any) => {
 };
 
 const Canvas: React.FC = () => {
-	const { handleCount } = useContext(GlobalContext);
+	const { handleCount, screenWidth } = useContext(GlobalContext);
 	const [textInput, setTextInput] = useState<string>(Lorem());
-	const [dimension, setDimension] = useState({ width: "50vw", height: "100%" });
 	return (
 		<>
 			<ScrollSync>
 				<>
 					<Resizable
 						className={styles.resizableCanvas}
-						size={{ width: dimension.width, height: dimension.height }}
-						boundsByDirection={true}
+						defaultSize={{
+							width: "50vw",
+							height: "100%",
+						}}
+						bounds={"parent"}
 						enable={{
 							top: false,
 							right: true,
@@ -37,14 +39,6 @@ const Canvas: React.FC = () => {
 							bottomRight: false,
 							bottomLeft: false,
 							topLeft: false,
-						}}
-						minWidth={"15vw"}
-						maxWidth={"80vw"}
-						onResizeStop={(e, direction, ref, d) => {
-							setDimension({
-								width: dimension.width + d.width,
-								height: dimension.height + d.height,
-							});
 						}}
 					>
 						<ScrollSyncPane>

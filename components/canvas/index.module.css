@@ -2,10 +2,13 @@
 	overflow-y: scroll;
 	padding: 2rem;
 	background: var(--canvas-bg);
+	display: flex;
 }
 .resizableCanvas {
-	width: 100%;
 	border-right: 5px solid var(--bg-2);
+	min-width: 15vw;
+	width: 100%;
+	max-width: 80vw;
 }
 .textarea {
 	-webkit-box-sizing: border-box;
@@ -26,4 +29,20 @@
 }
 .markdown {
 	word-wrap: break-word;
+}
+@media screen and (max-width: 768px) {
+	.outputMarkdown {
+		display: none;
+	}
+	.resizableCanvas {
+		grid-column: span 2;
+		width: 100%;
+		min-width: 100%;
+		max-width: 100%;
+	}
+	.s {
+		min-width: 100vw;
+		width: 100vw;
+		max-height: 100vw;
+	}
 }

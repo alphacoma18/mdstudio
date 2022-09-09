@@ -4,8 +4,6 @@
 	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-}
-.itemResizable {
 	border-right: 5px solid var(--bg-2);
 	padding: 1rem;
 }
