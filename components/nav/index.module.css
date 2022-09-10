@@ -2,7 +2,7 @@
 .navBarOpen {
 	display: flex;
 	justify-content: space-between;
-	grid-column: span 4;
+	grid-area: 1 / 1 / 1 / 5;
 	background: var(--bg-1);
 	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);

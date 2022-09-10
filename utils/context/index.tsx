@@ -10,6 +10,8 @@ interface IGlobalContext {
 	rightBarOpen: boolean;
 	handleLeftBarOpen: () => void;
 	handleRightBarOpen: () => void;
+	explorerOpen: boolean;
+	handleExplorerOpen: () => void;
 }
 const GlobalContext = React.createContext<IGlobalContext>({
 	characterCount: 0,
@@ -21,6 +23,8 @@ const GlobalContext = React.createContext<IGlobalContext>({
 	rightBarOpen: false,
 	handleLeftBarOpen() {},
 	handleRightBarOpen() {},
+	explorerOpen: false,
+	handleExplorerOpen() {},
 });
 export default GlobalContext;
 
@@ -30,6 +34,7 @@ interface Props {
 export const ContextProvider: React.FC<Props> = ({ children }) => {
 	const [leftBarOpen, setLeftBarOpen] = useState<boolean>(false);
 	const [rightBarOpen, setRightBarOpen] = useState<boolean>(false);
+	const [explorerOpen, setExplorerOpen] = useState<boolean>(false);
 	let initialTheme: boolean = false;
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -54,6 +59,9 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	function handleRightBarOpen() {
 		setRightBarOpen((prev) => !prev);
 	}
+	function handleExplorerOpen() {
+		setExplorerOpen((prev) => !prev);
+	}
 
 	return (
 		<GlobalContext.Provider
@@ -67,6 +75,8 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 				rightBarOpen,
 				handleLeftBarOpen,
 				handleRightBarOpen,
+				explorerOpen,
+				handleExplorerOpen,
 			}}
 		>
 			<Theme theme={isLightTheme} />
