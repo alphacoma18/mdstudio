@@ -17,14 +17,16 @@ const CodeRenderer = (props: any) => {
 };
 
 const Canvas: React.FC = () => {
-	const { handleCount } = useContext(GlobalContext);
+	const { handleCount, explorerOpen } = useContext(GlobalContext);
 	const [textInput, setTextInput] = useState<string>(Lorem());
 	return (
 		<>
 			<ScrollSync>
 				<>
 					<Resizable
-						className={styles.resizableCanvas}
+						className={
+							explorerOpen ? styles.resizableOpen : styles.resizableCanvas
+						}
 						defaultSize={{
 							width: "45vw",
 							height: "100%",

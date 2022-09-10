@@ -5,7 +5,8 @@
 	grid-row: span 2;
 	overflow-y: auto;
 }
-.resizableCanvas {
+.resizableCanvas,
+.resizableOpen {
 	display: flex;
 	grid-row: span 2;
 	border-right: 5px solid var(--bg-2);
@@ -43,20 +44,19 @@
 	}
 	.resizableCanvas {
 		grid-column: span 2;
-		width: 100%;
+
 		min-width: 100%;
 		max-width: 100%;
 	}
 }
 @media screen and (max-width: 480px) {
 	.resizableCanvas {
-		grid-row: span 1;
-		grid-area: 2 / 2 / 2 / 2;
-		z-index: 1;
-		background-color: red;
+		grid-area: 2 / 2 / 4 / 4;
 	}
-	.textarea {
-		padding: 0rem;
-		margin: 5px;
+	.resizableOpen {
+		grid-area: 3 / 3 / 4 / 4;
+		min-width: 100%;
+		width: 100%;
+		max-width: 100%;
 	}
 }

@@ -27,7 +27,6 @@
 @media screen and (max-width: 480px) {
 	.resizable {
 		max-width: 100%;
-		grid-column: span 2;
-		grid-row: span 1;
+		grid-area: 2 / 2 / 3 / 4;
 	}
 }

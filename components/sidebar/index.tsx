@@ -3,11 +3,14 @@ import styles from "./index.module.css";
 import FileExplorer from "./fileExplorer";
 import GlobalContext from "../../utils/context";
 const Sidebar: React.FC = () => {
-	const { isLightTheme, handleTheme, leftBarOpen } = useContext(GlobalContext);
-	const [fileExplorerOpen, setFileExplorerOpen] = useState<boolean>(false);
-	function handleFileExplorer() {
-		setFileExplorerOpen((prev) => !prev);
-	}
+	const {
+		isLightTheme,
+		handleTheme,
+		leftBarOpen,
+		explorerOpen,
+		handleExplorerOpen,
+	} = useContext(GlobalContext);
+
 	return (
 		<>
 			<section
@@ -16,7 +19,7 @@ const Sidebar: React.FC = () => {
 				}
 			>
 				<div className={styles.flexButtons}>
-					<button className={styles.itemButtons} onClick={handleFileExplorer}>
+					<button className={styles.itemButtons} onClick={handleExplorerOpen}>
 						<i className={`icon-docs ${styles.iFonts}`}></i>
 					</button>
 					<button className={styles.itemButtons}>
@@ -46,7 +49,7 @@ const Sidebar: React.FC = () => {
 				</div>
 			</section>
 
-			<>{fileExplorerOpen && <FileExplorer />}</>
+			<>{explorerOpen && <FileExplorer />}</>
 		</>
 	);
 };

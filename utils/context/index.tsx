@@ -61,6 +61,8 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	}
 	function handleExplorerOpen() {
 		setExplorerOpen((prev) => !prev);
+		console.log(explorerOpen);
+		
 	}
 
 	return (
