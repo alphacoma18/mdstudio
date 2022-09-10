@@ -26,7 +26,7 @@ const Canvas: React.FC = () => {
 					<Resizable
 						className={styles.resizableCanvas}
 						defaultSize={{
-							width: "50vw",
+							width: "45vw",
 							height: "100%",
 						}}
 						bounds={"parent"}

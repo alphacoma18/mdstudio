@@ -1,4 +1,5 @@
-.sidebarSection {
+.sidebarSection,
+.sidebarSectionOpen {
 	grid-row: span 1;
 	background: var(--bg-1);
 	display: flex;

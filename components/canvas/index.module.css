@@ -28,6 +28,7 @@
 	background: var(--canvas-bg);
 }
 .markdown {
+	width: 100%;
 	word-wrap: break-word;
 }
 @media screen and (max-width: 768px) {
@@ -43,6 +44,9 @@
 }
 @media screen and (max-width: 480px) {
 	.resizableCanvas {
-		grid-column: span 3;
+		grid-column: 2 /4;
+	}
+	.textarea {
+		padding: 1rem;
 	}
 }

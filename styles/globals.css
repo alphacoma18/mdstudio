@@ -59,8 +59,3 @@ button {
 	user-select: none;
 	cursor: pointer;
 }
-button:hover,
-button:active,
-button:focus {
-	color: var(--bg-blue);
-}

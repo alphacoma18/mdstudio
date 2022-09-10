@@ -1,43 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.css";
+import GlobalContext from "../../utils/context";
 const Nav: React.FC = () => {
+	const { rightBarOpen } = useContext(GlobalContext);
 	return (
-		<nav className={styles.navbar}>
+		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
+			<h1 className={styles.mymdLogo}>MyMD</h1>
 			<div className={styles.flexNavButton}>
-				<p>Index.md</p>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-home"></i>
-					Home
+					<span>Home</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-wrench"></i>
-					Tools
+					<span>Tools</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-help-circled"></i>
-					Help
+					<span>Help</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-share-squared"></i>
-					Share
+					<span>Share</span>
 				</button>
-			</div>
-			<div className={styles.flexNavButton}>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-download"></i>
-					Download
+					<span>Download</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-eye"></i>
-					Preview
+					<span>Preview</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-publish"></i>
-					Publish
+					<span>Publish</span>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className="icon-login"></i>
-					Login/Signup
+					<span>Login/Signup</span>
 				</button>
 			</div>
 		</nav>

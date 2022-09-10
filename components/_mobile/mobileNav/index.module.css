@@ -1,9 +1,27 @@
 .mobileNav {
 	display: none;
 }
-@media screen and (max-width: 1024px) {
+.menuContainer {
+	display: block;
+	background: none;
+	border: none;
+	padding: 12px 16px;
 }
-@media screen and (max-width: 768px) {
+.menuLines {
+	width: 35px;
+	height: 6px;
+	background: var(--bg-2);
+	margin: 4px 0px;
 }
 @media screen and (max-width: 480px) {
+	.mobileNav {
+		border-top: 3px solid var(--bg-2);
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		background: var(--bg-1);
+		box-shadow: var(--box-shadow);
+		grid-column: span 4;
+		z-index: 3;
+	}
 }
