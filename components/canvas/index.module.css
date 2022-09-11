@@ -36,6 +36,15 @@
 	width: 100%;
 	word-wrap: break-word;
 }
+.markdown img {
+	max-width: 100%;
+}
+.markdown ul,
+.markdown ol,
+.markdown li {
+	margin: revert;
+	padding: revert;
+}
 @media screen and (max-width: 1024px) {
 }
 @media screen and (max-width: 768px) {
@@ -48,6 +57,11 @@
 		min-width: 100%;
 		max-width: 100%;
 	}
+	.resizableOpen {
+		min-width: 100%;
+		width: 100%;
+		max-width: 100%;
+	}
 }
 @media screen and (max-width: 480px) {
 	.resizableCanvas {
@@ -55,8 +69,8 @@
 	}
 	.resizableOpen {
 		grid-area: 3 / 3 / 4 / 4;
-		min-width: 100%;
-		width: 100%;
-		max-width: 100%;
+	}
+	.textarea {
+		padding: 1rem;
 	}
 }

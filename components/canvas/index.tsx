@@ -4,17 +4,8 @@ import GlobalContext from "../../utils/context";
 import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Lorem from "./lorem";
-const CodeRenderer = (props: any) => {
-	return (
-		<SyntaxHighlighter language={props.language} style={githubGist}>
-			{props.children}
-		</SyntaxHighlighter>
-	);
-};
 
 const Canvas: React.FC = () => {
 	const { handleCount, explorerOpen } = useContext(GlobalContext);
@@ -48,7 +39,9 @@ const Canvas: React.FC = () => {
 								className={styles.textarea}
 								value={textInput}
 								spellCheck="false"
+								wrap="hard"
 								autoCapitalize="none"
+								placeholder=">>> Type or paste your markdown here"
 								onChange={(e) => {
 									setTextInput(e.currentTarget.value);
 									handleCount(e.currentTarget.value);
@@ -60,9 +53,6 @@ const Canvas: React.FC = () => {
 						<div className={styles.outputMarkdown}>
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
-								components={{
-									code: ({ node, ...props }) => <CodeRenderer {...props} />,
-								}}
 								className={styles.markdown}
 							>
 								{textInput}

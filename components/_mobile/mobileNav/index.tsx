@@ -17,7 +17,7 @@ const MobileNav: React.FC = () => {
 					<div className={styles.menuLines}></div>
 				</button>
 			</section>
-			<div>P</div>
+			<div>Logo</div>
 			<section>
 				<button
 					type="button"
