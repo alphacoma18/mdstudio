@@ -1,5 +1,7 @@
 import Theme from "../../styles/themes";
+import axios from "../axios";
 import React, { useEffect, useState } from "react";
+import { Axios } from "axios";
 interface IGlobalContext {
 	characterCount: number;
 	wordCount: number;
@@ -61,6 +63,10 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	}
 	function handleExplorerOpen() {
 		setExplorerOpen((prev) => !prev);
+	}
+	async function handleAxios(api: string, method: string, ...rest: any) {
+		if (method === "GET") return await axios.get(api);
+		if (method === "POST") return await axios.post(api, rest[0]);
 	}
 
 	return (
