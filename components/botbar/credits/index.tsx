@@ -15,8 +15,8 @@ const Credits: React.FC = () => {
 					Copyright (c) 2022{" "}
 					<a
 						href="https://www.linkedin.com/in/alpha-coma/"
-						title="Redirect to MyERL developer LinkedIn profile"
-						aria-label="Redirect to MyERL developer LinkedIn profile"
+						title="Redirect to MyMD developer LinkedIn profile"
+						aria-label="Redirect to MyMD developer LinkedIn profile"
 						rel="noopener noreferrer"
 						target={"_blank"}
 					>

@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="owner" content="Alpha Romer Coma" />
 				<meta name="target" content="all" />
 				<meta name="copyright" content="Alpha Romer Coma" />
-				<title>MyERL | Markdown Editor</title>
+				<title>MyMD | Markdown Editor</title>
 				<meta name="description" content="" />
 				<meta name="url" content="https://mymd.vercel.app" />
 				<meta
@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="twitter:image:height" content="630" />
 				<meta name="twitter:site" content="@senodesuzo" />
 				<meta name="twitter:creator" content="@senodesuzo" />
-				<link rel="canonical" href="https://myerl.vercel.app" />
+				<link rel="canonical" href="https://mymd.vercel.app" />
 
 				{/* Icons and browser stuff */}
 				<meta
@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<meta name="mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
-				<meta name="apple-mobile-web-app-title" content="MyERL" />
+				<meta name="apple-mobile-web-app-title" content="Markdown Editor" />
 				<meta name="apple-touch-fullscreen" content="yes" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="#007acc" />
 				<meta name="application-name" content="MyMD Markdown Editor" />

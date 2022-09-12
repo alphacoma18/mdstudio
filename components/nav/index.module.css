@@ -7,7 +7,6 @@
 	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);
 	z-index: 1;
-	padding: 0.4rem;
 }
 .flexNavButton {
 	display: flex;
@@ -44,7 +43,13 @@
 		flex-direction: column;
 		border-top: none;
 	}
+	.desktopLogo {
+		display: none;
+	}
 	.flexNavButton {
 		flex-direction: column;
+	}
+	.iFonts {
+		font-size: 2rem;
 	}
 }
