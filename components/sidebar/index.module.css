@@ -1,22 +1,25 @@
 .sidebarSection,
 .sidebarSectionOpen {
-	grid-area: 2 / 1 / 4 / 1;
 	background: var(--bg-1);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	box-shadow: var(--box-shadow);
 	box-shadow: var(--box-shadow);
 	clip-path: inset(0px -15px 0px 0px);
+	clip-path: inset(0px -15px 0px 0px);
+	display: flex;
+	flex-direction: column;
+	grid-area: 2 / 1 / 4 / 1;
+	justify-content: space-between;
 	z-index: 2;
+	overflow-y: auto;
 }
 .flexButtons {
 	display: flex;
 	flex-direction: column;
 }
 .itemButtons {
-	padding: 0.4rem;
 	background: none;
 	border: none;
+	padding: 0.4rem;
 }
 .itemButtons:hover i,
 .itemButtons:active i,

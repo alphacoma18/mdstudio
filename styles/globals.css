@@ -27,35 +27,36 @@
 	background: #007accaa;
 }
 ::-webkit-scrollbar {
-	width: 1vh;
 	height: 1vh;
+	width: 1vh;
 }
 *,
 html {
-	padding: 0;
-	margin: 0;
 	color: var(--color);
+	margin: 0;
+	padding: 0;
 	transition: var(--fast-transition);
 }
 html,
 textarea,
-div {
-	scrollbar-width: thin;
+div,
+section {
 	scrollbar-color: var(--bg-2) var(--bg-1);
+	scrollbar-width: thin;
 }
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	height: 100%;
 	line-height: 1.6rem;
 	position: fixed;
 	width: 100%;
-	height: 100%;
 }
 
 button {
+	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	cursor: pointer;
 }

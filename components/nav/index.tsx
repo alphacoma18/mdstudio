@@ -10,14 +10,14 @@ const Nav: React.FC = () => {
 				{isLightTheme ? (
 					<Image
 						src={"/logo/mymd_pc_logo_light.png"}
-						height={60}
-						width={120}
+						height={50}
+						width={100}
 						alt="MyMD Light Theme Desktop Logo"
 					/>
 				) : (
 					<Image
 						src={"/logo/mymd_pc_logo_dark.png"}
-						height={60}
+						height={20}
 						width={120}
 						alt="MyMD Dark Theme Desktop Logo"
 					/>

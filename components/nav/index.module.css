@@ -1,12 +1,18 @@
 .navbar,
 .navBarOpen {
-	display: flex;
-	justify-content: space-between;
-	grid-area: 1 / 1 / 1 / 5;
 	background: var(--bg-1);
 	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);
+	display: flex;
+	grid-area: 1 / 1 / 1 / 5;
+	justify-content: space-between;
 	z-index: 1;
+}
+.desktopLogo {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-left: 10px;
 }
 .flexNavButton {
 	display: flex;
@@ -14,10 +20,10 @@
 .itemNavButtons {
 	background: none;
 	border: none;
-	padding: 0.4rem;
 	border-radius: 100px;
-	text-align: center;
 	font-size: 1rem;
+	padding: 0.4rem;
+	text-align: center;
 }
 .itemNavButtons:hover {
 	color: var(--bg-2);
@@ -38,16 +44,17 @@
 		display: none;
 	}
 	.navBarOpen {
+		border-top: none;
+		flex-direction: column;
 		grid-column: 4;
 		grid-row: 2 /4;
-		flex-direction: column;
-		border-top: none;
 	}
 	.desktopLogo {
 		display: none;
 	}
 	.flexNavButton {
 		flex-direction: column;
+		overflow-y: auto;
 	}
 	.iFonts {
 		font-size: 2rem;

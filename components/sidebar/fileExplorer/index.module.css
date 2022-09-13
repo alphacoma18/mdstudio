@@ -1,32 +1,32 @@
 .resizable {
 	background: var(--bg-1);
+	border-right: 5px solid var(--bg-2);
 	grid-area: 2 / 2 / 4 / 2;
 	height: 100%;
-	width: 100%;
 	max-width: 300px;
-	overflow-y: auto;
 	overflow-x: hidden;
-	border-right: 5px solid var(--bg-2);
+	overflow-y: auto;
 	padding: 1rem;
+	width: 100%;
 }
 .headerDiv {
+	border-bottom: 3px solid var(--bg-2);
 	display: flex;
 	font-weight: bold;
-	border-bottom: 3px solid var(--bg-2);
 }
 .headerParagraph {
 	width: 100%;
 }
 .options {
-	text-align: end;
 	display: flex;
+	text-align: end;
 }
 .filesList {
 	list-style-type: none;
 }
 @media screen and (max-width: 480px) {
 	.resizable {
-		max-width: 100%;
 		grid-area: 2 / 2 / 3 / 4;
+		max-width: 100%;
 	}
 }
