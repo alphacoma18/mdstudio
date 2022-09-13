@@ -20,7 +20,7 @@ const Canvas: React.FC = () => {
 						}
 						defaultSize={{
 							width: "45vw",
-							height: "100%",
+							height: "auto",
 						}}
 						bounds={"parent"}
 						enable={{
