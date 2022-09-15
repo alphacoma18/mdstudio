@@ -16,7 +16,6 @@ const FileExplorer: React.FC = () => {
 				topLeft: false,
 			}}
 			minWidth={"200px"}
-			// maxWidth={"25vw"}
 		>
 			<div className={styles.headerDiv}>
 				<div className={styles.headerParagraph}>File-Explorer</div>

@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
-import GlobalContext from "../../utils/context";
+import React from "react";
 import styles from "./index.module.css";
 import Credits from "./credits";
-const BotBar: React.FC = () => {
-	const { characterCount, wordCount } = useContext(GlobalContext);
+interface Props {
+	props: {
+		characterCount: number;
+		wordCount: number;
+	};
+}
+const BotBar: React.FC<Props> = ({ props: { characterCount, wordCount } }) => {
 	return (
 		<section className={styles.botbarSection}>
 			<div className={styles.flexBotbar}>

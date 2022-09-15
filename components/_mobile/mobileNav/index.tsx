@@ -49,4 +49,4 @@ const MobileNav: React.FC = () => {
 	);
 };
 
-export default MobileNav;
+export default React.memo(MobileNav);

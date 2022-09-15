@@ -5,11 +5,15 @@ import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-import Lorem from "./lorem";
 
-const Canvas: React.FC = () => {
-	const { handleCount, explorerOpen } = useContext(GlobalContext);
-	const [textInput, setTextInput] = useState<string>(Lorem());
+interface Props {
+	props: {
+		handleTextInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+		textInput: string;
+	};
+}
+const Canvas: React.FC<Props> = ({ props: { handleTextInput, textInput } }) => {
+	const { explorerOpen } = useContext(GlobalContext);
 	return (
 		<>
 			<ScrollSync>
@@ -42,10 +46,7 @@ const Canvas: React.FC = () => {
 								wrap="hard"
 								autoCapitalize="none"
 								placeholder=">>> Type or paste your markdown here"
-								onChange={(e) => {
-									setTextInput(e.currentTarget.value);
-									handleCount(e.currentTarget.value);
-								}}
+								onChange={handleTextInput}
 							></textarea>
 						</ScrollSyncPane>
 					</Resizable>

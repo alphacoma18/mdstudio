@@ -1,11 +1,7 @@
 import Theme from "../../styles/themes";
 import axios from "../axios";
 import React, { useEffect, useState } from "react";
-import { Axios } from "axios";
 interface IGlobalContext {
-	characterCount: number;
-	wordCount: number;
-	handleCount: (text: string) => void;
 	isLightTheme: boolean;
 	handleTheme: () => void;
 	leftBarOpen: boolean;
@@ -16,9 +12,6 @@ interface IGlobalContext {
 	handleExplorerOpen: () => void;
 }
 const GlobalContext = React.createContext<IGlobalContext>({
-	characterCount: 0,
-	wordCount: 0,
-	handleCount() {},
 	isLightTheme: true,
 	handleTheme() {},
 	leftBarOpen: false,
@@ -45,13 +38,8 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 		}
 	}, []);
 
-	const [characterCount, setCharacterCount] = useState<number>(0);
-	const [wordCount, setWordCount] = useState<number>(0);
 	const [isLightTheme, setIsLightTheme] = useState<boolean>(initialTheme);
-	function handleCount(text: string) {
-		setCharacterCount(text.length);
-		setWordCount(text.split(/\S+/).length - 1);
-	}
+
 	function handleTheme() {
 		setIsLightTheme((prev) => !prev);
 	}
@@ -64,17 +52,10 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	function handleExplorerOpen() {
 		setExplorerOpen((prev) => !prev);
 	}
-	async function handleAxios(api: string, method: string, ...rest: any) {
-		if (method === "GET") return await axios.get(api);
-		if (method === "POST") return await axios.post(api, rest[0]);
-	}
 
 	return (
 		<GlobalContext.Provider
 			value={{
-				characterCount,
-				wordCount,
-				handleCount,
 				isLightTheme,
 				handleTheme,
 				leftBarOpen,
