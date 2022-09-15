@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GlobalContext from "../../utils/context";
 import styles from "../login/index.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import axios from "../../utils/axios";
 const ResetPassword: React.FC = () => {
 	const { isLightTheme } = useContext(GlobalContext);
+	const [newPassword, setNewPassword] = useState<string>("");
+	const [verifyNewPassword, setVerifyNewPassword] = useState<string>("");
+
+	async function handleSubmit() {
+		try {
+			await axios.post("/api/reset-password", {
+				newPassword,
+			});
+		} catch (e) {}
+	}
 	return (
 		<section className={styles.bg}>
-			<form className={styles.form}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
 					<Image
 						src={"/logo/mymd_pc_logo_light.png"}
@@ -22,28 +32,32 @@ const ResetPassword: React.FC = () => {
 					></Image>
 				)}
 				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Reset</h1>
-				<hr />	
+				<hr />
 				<input
-					type="email"
+					type="password"
 					className={styles.input}
-					placeholder=">>> Enter Your Password"
+					placeholder=">>> Enter Your New Password"
 					required
 					minLength={10}
 					maxLength={60}
+					onChange={(e) => setNewPassword(e.currentTarget.value)}
+					value={newPassword}
 				/>
 				<input
-					type="email"
+					type="password"
 					className={styles.input}
-					placeholder=">>> Re-enter Your Password"
+					placeholder=">>> Re-enter Your New Password"
 					required
 					minLength={10}
 					maxLength={60}
+					onChange={(e) => setVerifyNewPassword(e.currentTarget.value)}
+					value={verifyNewPassword}
 				/>
 
 				<div className={styles.flexButtons}>
-					<Link href={"/"}>
-						<a className={styles.itemButtons}>Continue as Guest</a>
-					</Link>
+					<button type="reset" className={styles.itemButtons}>
+						Clear Field
+					</button>
 					<button type="submit" className={styles.itemButtons}>
 						Reset Password and Login
 					</button>
