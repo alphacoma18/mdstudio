@@ -9,7 +9,7 @@ const Sidebar: React.FC = () => {
 		leftBarOpen,
 		explorerOpen,
 		handleExplorerOpen,
-	} = useContext(GlobalContext);	
+	} = useContext(GlobalContext);
 
 	return (
 		<>

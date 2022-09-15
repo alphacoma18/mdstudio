@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./index.module.css";
 import type { NextPage } from "next";
-import Nav from "../components/nav";
+import Nav from "../components/pages/index/nav";
 import Sidebar from "../components/sidebar";
 import Canvas from "../components/canvas";
 import BotBar from "../components/botbar";

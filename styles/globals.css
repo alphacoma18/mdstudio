@@ -60,13 +60,14 @@ button,
 input {
 	background: none;
 	border: none;
+	line-height: inherit;
+}
+button {
+	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
-button {
-	cursor: pointer;
 }
 a {
 	color: inherit;

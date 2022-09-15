@@ -3,9 +3,10 @@
 	background: var(--bg-1);
 	border-top: var(--border-blue);
 	display: flex;
-	height: calc(100vh);
+	height: 100vh;
 	justify-content: center;
-	width: calc(100vw);
+	overflow-y: auto;
+	width: 100vw;
 }
 .form {
 	align-items: center;
@@ -17,7 +18,7 @@
 	justify-content: center;
 	margin: auto;
 	padding: 2rem;
-	width: clamp(0px, 80%, 550px);
+	width: clamp(0px, 100%, 600px);
 }
 .header {
 	text-align: center;
@@ -27,32 +28,41 @@
 	border: var(--border-blue);
 	margin: auto;
 	padding: 17.5px 29px;
+
 	width: 100%;
 }
 .flexButtons {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 0.4rem;
+	justify-content: center;
 	width: 100%;
 }
+
 .itemButtons {
 	border: var(--border-blue);
 	border-radius: 0.6rem;
-	padding: 0.4rem;
+	box-sizing: content-box;
+	padding: 0.2rem;
 	text-align: center;
-	width: 100%;
+	width: calc(50% - 6px - 0.6rem);
 }
+
 .itemButtons:hover,
 .itemButtons:active,
 .itemButtons:focus {
 	background: var(--bg-blue);
 }
+.error {
+	background: var(--error-red);
+	border-radius: 0.6rem;
+	padding: 0.4rem;
+	text-align: center;
+	width: 100%;
+}
 @media screen and (max-width: 768px) {
 	.form {
 		padding: 1rem;
-	}
-	.itemButtons {
-		font-size: 0.8rem;
-		padding: 0.2rem;
 	}
 }
 @media screen and (max-width: 480px) {
@@ -61,6 +71,7 @@
 		width: 100%;
 	}
 	.itemButtons {
+		font-size: 0.8rem;
 		padding: 0.2rem;
 	}
 }
