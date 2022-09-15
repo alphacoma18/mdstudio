@@ -2,31 +2,43 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import styles from "./index.module.css";
 import GlobalContext from "../../utils/context";
-const Nav: React.FC = () => {
+import Link from "next/link";
+interface Props {
+	props: {
+		handleIsPreview: () => void;
+	};
+}
+const Nav: React.FC<Props> = ({ props: { handleIsPreview } }) => {
 	const { rightBarOpen, isLightTheme } = useContext(GlobalContext);
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>
 				{isLightTheme ? (
-					<Image
-						src={"/logo/mymd_pc_logo_light.png"}
-						height={50}
-						width={100}
-						alt="MyMD Light Theme Desktop Logo"
-					/>
+					<a href=".">
+						<Image
+							src={"/logo/mymd_pc_logo_light.png"}
+							height={50}
+							width={100}
+							alt="MyMD Light Theme Desktop Logo"
+						/>
+					</a>
 				) : (
-					<Image
-						src={"/logo/mymd_pc_logo_dark.png"}
-						height={50}
-						width={100}
-						alt="MyMD Dark Theme Desktop Logo"
-					/>
+					<a href=".">
+						<Image
+							src={"/logo/mymd_pc_logo_dark.png"}
+							height={50}
+							width={100}
+							alt="MyMD Dark Theme Desktop Logo"
+						/>
+					</a>
 				)}
 			</div>
 			<div className={styles.flexNavButton}>
 				<button className={styles.itemNavButtons}>
-					<i className={`icon-home ${styles.iFonts}`}></i>
-					<span>Home</span>
+					<a href="#">
+						<i className={`icon-home ${styles.iFonts}`}></i>
+						<span>Home</span>
+					</a>
 				</button>
 				<button className={styles.itemNavButtons}>
 					<i className={`icon-wrench ${styles.iFonts}`}></i>
@@ -44,7 +56,7 @@ const Nav: React.FC = () => {
 					<i className={`icon-download ${styles.iFonts}`}></i>
 					<span>Download</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemNavButtons} onClick={handleIsPreview}>
 					<i className={`icon-eye ${styles.iFonts}`}></i>
 					<span>Preview</span>
 				</button>
@@ -53,8 +65,12 @@ const Nav: React.FC = () => {
 					<span>Publish</span>
 				</button>
 				<button className={styles.itemNavButtons}>
-					<i className={`icon-login ${styles.iFonts}`}></i>
-					<span>Login/Signup</span>
+					<Link href="/login">
+						<a>
+							<i className={`icon-login ${styles.iFonts}`}></i>
+							<span>Login/Signup</span>
+						</a>
+					</Link>
 				</button>
 			</div>
 		</nav>

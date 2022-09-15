@@ -18,14 +18,17 @@
 	display: flex;
 }
 .itemNavButtons {
-	background: none;
-	border: none;
 	border-radius: 100px;
 	font-size: 1rem;
 	padding: 0.4rem;
 	text-align: center;
 }
-.itemNavButtons:hover {
+.itemNavButtons:hover i,
+.itemNavButtons:hover span,
+.itemNavButtons:active i,
+.itemNavButtons:active span,
+.itemNavButtons:focus i,
+.itemNavButtons:focus span {
 	color: var(--bg-2);
 }
 @media screen and (max-width: 768px) {

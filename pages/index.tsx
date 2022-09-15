@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./index.module.css";
 import type { NextPage } from "next";
 import Nav from "../components/nav";
@@ -9,8 +9,7 @@ import MobileNav from "../components/_mobile/mobileNav";
 import axios from "../utils/axios";
 import Lorem from "../components/canvas/lorem";
 import Loader from "../components/loader";
-import { Profiler } from "react";
-
+import GlobalContext from "../utils/context";
 /**
  *  Todo:
  * 1. Modify global context
@@ -23,9 +22,12 @@ import { Profiler } from "react";
  * 8. Check for published markdown
  */
 const App: NextPage = () => {
+	const { isLightTheme } = useContext(GlobalContext);
 	const [leftBarOpen, setLeftBarOpen] = useState<boolean>(false);
 	const [rightBarOpen, setRightBarOpen] = useState<boolean>(false);
 	const [explorerOpen, setExplorerOpen] = useState<boolean>(false);
+
+	const [isPreview, setIsPreview] = useState<boolean>(false);
 
 	const [characterCount, setCharacterCount] = useState<number>(0);
 	const [wordCount, setWordCount] = useState<number>(0);
@@ -37,45 +39,23 @@ const App: NextPage = () => {
 		setCharacterCount(textInput.length);
 		setWordCount(textInput.split(/\S+/).length - 1);
 	}, [textInput]);
-
+	function handleIsPreview() {
+		setIsPreview((prev) => !prev);
+	}
 	async function handleSubmit() {
 		await axios.post("/", {
 			user: "",
 			markdown: "",
 		});
 	}
-	// function onRenderCallback(
-	// 	id: string, // the "id" prop of the Profiler tree that has just committed
-	// 	phase: string, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
-	// 	actualDuration: number, // time spent rendering the committed update
-	// 	baseDuration: number, // estimated time to render the entire subtree without memoization
-	// 	startTime: number, // when React began rendering this update
-	// 	commitTime: number, // when React committed this update
-	// 	interactions: any // the Set of interactions belonging to this update
-	// ) {
-	// 	console.log({
-	// 		id,
-	// 		phase,
-	// 		actualDuration,
-	// 		baseDuration,
-	// 		startTime,
-	// 		commitTime,
-	// 		interactions,
-	// 	});
-
-	// 	// Aggregate or log render timings...
-	// }
 
 	return (
-		<main className={styles.main}>
+		<main className={isLightTheme ? styles.mainLight : styles.mainDark}>
 			<MobileNav />
-			<Nav />
+			<Nav props={{ handleIsPreview }} />
 			<Sidebar />
-			{/* <Profiler id="canvas" onRender={onRenderCallback}> */}
-			{/* </Profiler> */}
-			<Canvas props={{ handleTextInput, textInput }} />
+			<Canvas props={{ handleTextInput, textInput, isPreview }} />
 			<BotBar props={{ characterCount, wordCount }} />
-			<Loader />
 		</main>
 	);
 };

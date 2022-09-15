@@ -7,6 +7,8 @@
 	--color-white: #ffffff;
 	--color-black: #000000;
 
+	--border-blue: 3px solid var(--bg-blue);
+
 	--textarea-bg: #ffffff;
 	--input-black: #233343;
 	--error-red: #ff0000;
@@ -47,16 +49,40 @@ section {
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 16px;
 	height: 100%;
 	line-height: 1.6rem;
 	position: fixed;
 	width: 100%;
 }
 
-button {
-	cursor: pointer;
+button,
+input {
+	background: none;
+	border: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+button {
+	cursor: pointer;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+hr {
+	background-color: var(--bg-blue);
+	color: var(--bg-blue);
+	margin: 1rem auto;
+	width: 70%;
+}
+input,
+textarea,
+button {
+	border-radius: 0.6rem;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
 }

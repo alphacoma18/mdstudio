@@ -10,18 +10,22 @@ interface Props {
 	props: {
 		handleTextInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 		textInput: string;
+		isPreview: boolean;
 	};
 }
-const Canvas: React.FC<Props> = ({ props: { handleTextInput, textInput } }) => {
+const Canvas: React.FC<Props> = ({
+	props: { handleTextInput, textInput, isPreview },
+}) => {
 	const { explorerOpen } = useContext(GlobalContext);
 	return (
 		<>
 			<ScrollSync>
 				<>
 					<Resizable
-						className={
-							explorerOpen ? styles.resizableOpen : styles.resizableCanvas
-						}
+						className={`
+						${isPreview && styles.isPreview}
+						${explorerOpen ? styles.resizableOpen : styles.resizableCanvas}
+						`}
 						defaultSize={{
 							width: "45vw",
 							height: "auto",
@@ -51,7 +55,11 @@ const Canvas: React.FC<Props> = ({ props: { handleTextInput, textInput } }) => {
 						</ScrollSyncPane>
 					</Resizable>
 					<ScrollSyncPane>
-						<div className={styles.outputMarkdown}>
+						<div
+							className={`
+						${isPreview && styles.isPreviewShow}
+						${styles.outputMarkdown}`}
+						>
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								className={styles.markdown}

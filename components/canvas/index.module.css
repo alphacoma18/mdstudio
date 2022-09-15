@@ -24,7 +24,6 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	font-family: inherit;
 	outline: none;
 	padding: 2rem;
 	resize: none;
@@ -32,7 +31,7 @@
 }
 .markdown {
 	width: 100%;
-	word-wrap: break-word;	
+	word-wrap: break-word;
 }
 .markdown img {
 	max-width: 100%;
@@ -43,11 +42,24 @@
 	margin: revert;
 	padding: revert;
 }
+.isPreview {
+	display: none;
+	margin: auto;
+}
+div.isPreviewShow {
+	display: block;
+	width: clamp(25ch, 100%, 75ch);
+	margin: 0 auto;
+	overflow-y: scroll;
+}
 @media screen and (max-width: 1024px) {
 }
 @media screen and (max-width: 768px) {
 	.outputMarkdown {
 		display: none;
+	}
+	div.isPreviewShow {
+		width: auto;
 	}
 	.resizableCanvas {
 		grid-column: span 2;
@@ -62,6 +74,10 @@
 	}
 }
 @media screen and (max-width: 480px) {
+	.outputMarkdown {
+		display: none;
+		padding: 1rem;
+	}
 	.resizableCanvas {
 		grid-area: 2 / 2 / 4 / 4;
 	}
