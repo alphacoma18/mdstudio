@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from "./index.module.css";
 import FileExplorer from "./fileExplorer";
-import GlobalContext from "../../utils/context";
+import GlobalContext from "../../../../utils/context";
 const Sidebar: React.FC = () => {
 	const {
 		isLightTheme,

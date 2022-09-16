@@ -4,7 +4,7 @@ import Image from "next/image";
 import GlobalContext from "../../utils/context";
 import Link from "next/link";
 import axios from "../../utils/axios";
-import Loader from "../../components/loader";
+import Loader from "../../components/pages/index/loader";
 const Login = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [email, setEmail] = useState<string>("");

@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./index.module.css";
 import type { NextPage } from "next";
 import Nav from "../components/pages/index/nav";
-import Sidebar from "../components/sidebar";
-import Canvas from "../components/canvas";
-import BotBar from "../components/botbar";
+import Sidebar from "../components/pages/index/sidebar";
+import Canvas from "../components/pages/index/canvas";
+import BotBar from "../components/pages/index/botbar";
 import MobileNav from "../components/_mobile/mobileNav";
 import axios from "../utils/axios";
-import Lorem from "../components/canvas/lorem";
-import Loader from "../components/loader";
+import Lorem from "../components/pages/index/canvas/lorem";
+import Loader from "../components/pages/index/loader";
 import GlobalContext from "../utils/context";
 /**
  *  Todo:

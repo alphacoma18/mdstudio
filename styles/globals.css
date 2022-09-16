@@ -82,8 +82,11 @@ hr {
 input,
 textarea,
 button {
-	border-radius: 0.6rem;
 	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
+}
+input,
+button {
+	border-radius: 0.6rem;
 }

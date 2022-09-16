@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import styles from "./index.module.css";
-import GlobalContext from "../../utils/context";
+import GlobalContext from "../../../../utils/context";
 import { Resizable } from "re-resizable";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";

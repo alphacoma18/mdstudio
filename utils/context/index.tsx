@@ -1,5 +1,4 @@
 import Theme from "../../styles/themes";
-import axios from "../axios";
 import React, { useEffect, useState } from "react";
 interface IGlobalContext {
 	isLightTheme: boolean;
@@ -30,15 +29,15 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	const [leftBarOpen, setLeftBarOpen] = useState<boolean>(false);
 	const [rightBarOpen, setRightBarOpen] = useState<boolean>(false);
 	const [explorerOpen, setExplorerOpen] = useState<boolean>(false);
-	let initialTheme: boolean = false;
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			initialTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		}
-	}, []);
 
-	const [isLightTheme, setIsLightTheme] = useState<boolean>(initialTheme);
+	const [isLightTheme, setIsLightTheme] = useState<boolean>(() => {
+		if (typeof window !== "undefined") {
+			const theme = localStorage.getItem("theme-preference");
+			if (theme === "light") return true;
+			return false;
+		}
+		return true;
+	});
 
 	function handleTheme() {
 		setIsLightTheme((prev) => !prev);
@@ -52,6 +51,10 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	function handleExplorerOpen() {
 		setExplorerOpen((prev) => !prev);
 	}
+	useEffect(() => {
+		if (isLightTheme) return localStorage.setItem("theme-preference", "light");
+		if (!isLightTheme) return localStorage.setItem("theme-preference", "dark");
+	}, [isLightTheme]);
 
 	return (
 		<GlobalContext.Provider
