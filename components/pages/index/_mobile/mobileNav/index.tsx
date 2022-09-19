@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
-import styles from "./index.module.css";
 import Image from "next/image";
-import GlobalContext from "../../../utils/context";
+import { memo, useContext } from "react";
+import GlobalContext from "../../../../../utils/context";
+import styles from "./index.module.css";
+
 const MobileNav: React.FC = () => {
 	const { handleLeftBarOpen, handleRightBarOpen, isLightTheme } =
 		useContext(GlobalContext);
@@ -53,4 +54,4 @@ const MobileNav: React.FC = () => {
 	);
 };
 
-export default React.memo(MobileNav);
+export default memo(MobileNav);

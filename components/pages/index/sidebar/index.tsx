@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
-import styles from "./index.module.css";
-import FileExplorer from "./fileExplorer";
+import { memo, useContext } from "react";
 import GlobalContext from "../../../../utils/context";
+import FileExplorer from "./fileExplorer";
+import styles from "./index.module.css";
+
 const Sidebar: React.FC = () => {
 	const {
 		isLightTheme,
@@ -54,4 +55,4 @@ const Sidebar: React.FC = () => {
 	);
 };
 
-export default React.memo(Sidebar);
+export default memo(Sidebar);

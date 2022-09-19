@@ -1,11 +1,13 @@
-import React, { useState, useContext } from "react";
+import type { NextPage } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { memo, useContext, useState } from "react";
+import axios from "../../utils/axios";
+import GlobalContext from "../../utils/context";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
-import Image from "next/image";
-import GlobalContext from "../../utils/context";
-import Link from "next/link";
-import axios from "../../utils/axios";
-const Verify: React.FC = () => {
+
+const Verify: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [email, setEmail] = useState<string>("");
 
@@ -67,4 +69,4 @@ const Verify: React.FC = () => {
 	);
 };
 
-export default React.memo(Verify);
+export default memo(Verify);

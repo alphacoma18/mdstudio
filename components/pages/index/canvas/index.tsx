@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
-import styles from "./index.module.css";
-import GlobalContext from "../../../../utils/context";
-import { Resizable } from "re-resizable";
+import { useContext } from "react";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
+import remarkGfm from "remark-gfm";
+import GlobalContext from "../../../../utils/context";
+import styles from "./index.module.css";
 
 interface Props {
 	props: {
@@ -21,26 +20,11 @@ const Canvas: React.FC<Props> = ({
 		<>
 			<ScrollSync>
 				<>
-					<Resizable
+					<section
 						className={`
-						${isPreview && styles.isPreview}
-						${explorerOpen ? styles.resizableOpen : styles.resizableCanvas}
+						${isPreview && styles.previewHide}
+						${styles.canvasSection}
 						`}
-						defaultSize={{
-							width: "45vw",
-							height: "auto",
-						}}
-						bounds={"parent"}
-						enable={{
-							top: false,
-							right: true,
-							bottom: false,
-							left: false,
-							topRight: false,
-							bottomRight: false,
-							bottomLeft: false,
-							topLeft: false,
-						}}
 					>
 						<ScrollSyncPane>
 							<textarea
@@ -53,13 +37,12 @@ const Canvas: React.FC<Props> = ({
 								onChange={handleTextInput}
 							></textarea>
 						</ScrollSyncPane>
-					</Resizable>
+					</section>
 					<ScrollSyncPane>
-						<div
-							className={`
-						${isPreview && styles.isPreviewShow}
-						${styles.outputMarkdown}`}
-						>
+						<div className={`
+						${styles.outputMarkdown}
+						${isPreview && styles.previewShow}
+						`}>
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								className={styles.markdown}

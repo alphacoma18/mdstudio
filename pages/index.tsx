@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import styles from "./index.module.css";
 import type { NextPage } from "next";
+import { useContext, useEffect, useState } from "react";
+
+import BotBar from "../components/pages/index/botbar";
+import Canvas from "../components/pages/index/canvas";
+import Lorem from "../components/pages/index/canvas/lorem";
 import Nav from "../components/pages/index/nav";
 import Sidebar from "../components/pages/index/sidebar";
-import Canvas from "../components/pages/index/canvas";
-import BotBar from "../components/pages/index/botbar";
-import MobileNav from "../components/_mobile/mobileNav";
+import MobileNav from "../components/pages/index/_mobile/mobileNav";
 import axios from "../utils/axios";
-import Lorem from "../components/pages/index/canvas/lorem";
-import Loader from "../components/pages/index/loader";
 import GlobalContext from "../utils/context";
+import styles from "./index.module.css";
+
 /**
  *  Todo:
  * 1. Modify global context

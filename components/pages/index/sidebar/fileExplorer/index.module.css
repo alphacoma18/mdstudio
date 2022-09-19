@@ -1,13 +1,14 @@
-.resizable {
+.outerSection {
 	background: var(--bg-1);
 	border-right: 5px solid var(--bg-2);
-	grid-area: 2 / 2 / 4 / 2;
+	grid-area: 2 / 2 / 4 / 3;
 	height: 100%;
-	max-width: 300px;
-	overflow-x: hidden;
-	overflow-y: auto;
+	width: 200px;
+	overflow: auto;
+	z-index: 2;
+}
+.paddingDiv {
 	padding: 1rem;
-	width: 100%;
 }
 .headerDiv {
 	border-bottom: 3px solid var(--bg-2);
@@ -23,10 +24,11 @@
 }
 .filesList {
 	list-style-type: none;
+	white-space: nowrap;
 }
+
 @media screen and (max-width: 480px) {
-	.resizable {
-		grid-area: 2 / 2 / 3 / 4;
-		max-width: 100%;
+	.outerSection {
+		grid-area: 2 / 2 / span 2 / span 2;
 	}
 }

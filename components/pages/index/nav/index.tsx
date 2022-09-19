@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
 import Image from "next/image";
-import styles from "./index.module.css";
-import GlobalContext from "../../../../utils/context";
 import Link from "next/link";
+import { memo, useContext } from "react";
+import GlobalContext from "../../../../utils/context";
+import styles from "./index.module.css";
+
 interface Props {
 	props: {
 		handleIsPreview: () => void;
@@ -77,4 +78,4 @@ const Nav: React.FC<Props> = ({ props: { handleIsPreview } }) => {
 	);
 };
 
-export default React.memo(Nav);
+export default memo(Nav);

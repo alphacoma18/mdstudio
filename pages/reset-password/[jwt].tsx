@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import type { NextPage } from "next";
+import Image from "next/image";
+import { memo, useContext, useState } from "react";
+import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
 import styles from "../login/index.module.css";
-import Image from "next/image";
-import axios from "../../utils/axios";
-const ResetPassword: React.FC = () => {
+
+const ResetPassword: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [newPassword, setNewPassword] = useState<string>("");
 	const [verifyNewPassword, setVerifyNewPassword] = useState<string>("");
@@ -68,4 +70,4 @@ const ResetPassword: React.FC = () => {
 	);
 };
 
-export default React.memo(ResetPassword);
+export default memo(ResetPassword);

@@ -1,5 +1,7 @@
-import Theme from "../../styles/themes";
 import React, { useEffect, useState } from "react";
+
+import Theme from "../../styles/themes";
+
 interface IGlobalContext {
 	isLightTheme: boolean;
 	handleTheme: () => void;

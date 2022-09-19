@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./index.module.css";
 import Credits from "./credits";
+import styles from "./index.module.css";
+
 interface Props {
 	props: {
 		characterCount: number;

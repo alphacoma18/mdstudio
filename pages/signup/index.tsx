@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
-import styles from "../login/index.module.css";
-import styles2 from "./index.module.css";
-import GlobalContext from "../../utils/context";
+import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FormEvent, memo, useContext, useState } from "react";
 import axios from "../../utils/axios";
-const Signup: React.FC = () => {
+import GlobalContext from "../../utils/context";
+import styles from "../login/index.module.css";
+import styles2 from "./index.module.css";
+
+const Signup: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
-	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+	async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		try {
 			e.preventDefault();
 			const res = await axios.post("/signup", {
@@ -82,4 +84,4 @@ const Signup: React.FC = () => {
 	);
 };
 
-export default React.memo(Signup);
+export default memo(Signup);

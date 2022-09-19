@@ -1,5 +1,6 @@
-import React from "react";
+import { memo } from "react";
 import styles from "./index.module.css";
+
 const Loader: React.FC = () => {
 	return (
 		<>
@@ -12,4 +13,4 @@ const Loader: React.FC = () => {
 	);
 };
 
-export default React.memo(Loader);
+export default memo(Loader);

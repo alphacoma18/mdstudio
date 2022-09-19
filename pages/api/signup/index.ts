@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import MyMD from "../../../utils/db";
 interface Body {
 	email: string;
 	password: string;

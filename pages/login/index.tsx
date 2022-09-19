@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import styles from "./index.module.css";
+import type { NextPage } from "next";
 import Image from "next/image";
-import GlobalContext from "../../utils/context";
 import Link from "next/link";
-import axios from "../../utils/axios";
+import { memo, useContext, useEffect, useState } from "react";
 import Loader from "../../components/pages/index/loader";
-const Login = () => {
+import axios from "../../utils/axios";
+import GlobalContext from "../../utils/context";
+import styles from "./index.module.css";
+
+const Login: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
@@ -98,4 +100,4 @@ const Login = () => {
 	);
 };
 
-export default React.memo(Login);
+export default memo(Login);

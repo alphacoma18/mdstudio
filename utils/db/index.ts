@@ -1,5 +1,4 @@
-import mongoose, { ConnectOptions } from "mongoose";
-import { Schema, model, connect } from "mongoose";
+import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
 export interface AccountSchema {
 	email: string;

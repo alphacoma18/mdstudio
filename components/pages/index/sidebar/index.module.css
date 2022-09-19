@@ -9,8 +9,8 @@
 	flex-direction: column;
 	grid-area: 2 / 1 / 4 / 1;
 	justify-content: space-between;
-	z-index: 2;
 	overflow-y: auto;
+	z-index: 2;
 }
 .flexButtons {
 	display: flex;

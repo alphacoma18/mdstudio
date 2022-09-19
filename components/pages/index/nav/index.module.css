@@ -4,7 +4,7 @@
 	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);
 	display: flex;
-	grid-area: 1 / 1 / 1 / 5;
+	grid-area: 1 / 1 / 1 / 7;
 	justify-content: space-between;
 	z-index: 1;
 }
@@ -50,8 +50,7 @@
 	.navBarOpen {
 		border-top: none;
 		flex-direction: column;
-		grid-column: 4;
-		grid-row: 2 /4;
+		grid-area: 2 / 5 / 4 / 5;
 	}
 	.desktopLogo {
 		display: none;
