@@ -31,6 +31,7 @@
 .itemNavButtons:focus span {
 	color: var(--bg-2);
 }
+
 @media screen and (max-width: 768px) {
 	.itemNavButtons {
 		font-size: 1.4rem;

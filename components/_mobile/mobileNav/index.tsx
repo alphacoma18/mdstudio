@@ -19,19 +19,23 @@ const MobileNav: React.FC = () => {
 				</button>
 			</section>
 			{isLightTheme ? (
-				<Image
-					src={"/logo/mymd_mobile_logo_light_2.png"}
-					height={60}
-					width={60}
-					alt="MyMD Light Theme Mobile Logo"
-				/>
+				<a href="." className="imageAnchor">
+					<Image
+						src={"/logo/mymd_mobile_logo_light_2.png"}
+						height={60}
+						width={60}
+						alt="MyMD Light Theme Mobile Logo"
+					/>
+				</a>
 			) : (
-				<Image
-					src={"/logo/mymd_mobile_logo_dark_2.png"}
-					height={60}
-					width={60}
-					alt="MyMD Dark Theme Mobile Logo"
-				/>
+				<a href="." className="imageAnchor">
+					<Image
+						src={"/logo/mymd_mobile_logo_dark_2.png"}
+						height={60}
+						width={60}
+						alt="MyMD Dark Theme Mobile Logo"
+					/>
+				</a>
 			)}
 
 			<section>

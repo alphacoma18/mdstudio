@@ -50,10 +50,10 @@ const Signup: React.FC = () => {
 				<input
 					type="password"
 					className={styles.input}
-					placeholder=">>> Enter Your Password"
+					placeholder=">>> Enter Your Password (min. 10)"
 					required
-					minLength={5}
-					maxLength={60}
+					minLength={10}
+					maxLength={30}
 					onChange={(e) => setPassword(e.currentTarget.value)}
 					value={password}
 				/>

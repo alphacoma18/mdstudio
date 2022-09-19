@@ -14,7 +14,7 @@ const Nav: React.FC<Props> = ({ props: { handleIsPreview } }) => {
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>
 				{isLightTheme ? (
-					<a href=".">
+					<a href="." className="imageAnchor">
 						<Image
 							src={"/logo/mymd_pc_logo_light.png"}
 							height={50}
@@ -23,7 +23,7 @@ const Nav: React.FC<Props> = ({ props: { handleIsPreview } }) => {
 						/>
 					</a>
 				) : (
-					<a href=".">
+					<a href="." className="imageAnchor">
 						<Image
 							src={"/logo/mymd_pc_logo_dark.png"}
 							height={50}
