@@ -24,7 +24,7 @@ const accountSchema = new Schema<AccountSchema>({
 		required: true,
 	},
 });
-const MyMD =
+const DB =
 	mongoose.models.AccountSchema ||
 	model<AccountSchema>("AccountSchema", accountSchema);
 
@@ -38,4 +38,4 @@ async function run() {
 }
 run();
 
-export default MyMD;
+export default DB;

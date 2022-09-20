@@ -2,8 +2,6 @@
 .sidebarSectionOpen {
 	background: var(--bg-1);
 	box-shadow: var(--box-shadow);
-	box-shadow: var(--box-shadow);
-	clip-path: inset(0px -15px 0px 0px);
 	clip-path: inset(0px -15px 0px 0px);
 	display: flex;
 	flex-direction: column;

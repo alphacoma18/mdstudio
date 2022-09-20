@@ -3,8 +3,8 @@
 	border-right: 5px solid var(--bg-2);
 	grid-area: 2 / 2 / 4 / 3;
 	height: 100%;
-	width: 200px;
 	overflow: auto;
+	width: 200px;
 	z-index: 2;
 }
 .paddingDiv {
@@ -26,9 +26,11 @@
 	list-style-type: none;
 	white-space: nowrap;
 }
-
 @media screen and (max-width: 480px) {
-	.outerSection {
-		grid-area: 2 / 2 / span 2 / span 2;
+	section.outerSection {
+		border-right: none;
+		grid-area: 2 / 2 / 2 / 5;
+		width: auto;
+		z-index: 1;
 	}
 }

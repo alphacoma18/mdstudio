@@ -22,8 +22,9 @@ const Canvas: React.FC<Props> = ({
 				<>
 					<section
 						className={`
-						${isPreview && styles.previewHide}
 						${styles.canvasSection}
+						${isPreview && styles.previewHide}
+						${explorerOpen && styles.explorerOpen}
 						`}
 					>
 						<ScrollSyncPane>
@@ -39,17 +40,20 @@ const Canvas: React.FC<Props> = ({
 						</ScrollSyncPane>
 					</section>
 					<ScrollSyncPane>
-						<div className={`
-						${styles.outputMarkdown}
-						${isPreview && styles.previewShow}
-						`}>
+						<section
+							className={`
+							${styles.outputMarkdown}
+							${isPreview && styles.previewShow}
+							${explorerOpen && styles.explorerOpen}
+						`}
+						>
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								className={styles.markdown}
 							>
 								{textInput}
 							</ReactMarkdown>
-						</div>
+						</section>
 					</ScrollSyncPane>
 				</>
 			</ScrollSync>

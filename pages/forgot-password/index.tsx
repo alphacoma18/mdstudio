@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { memo, useContext, useState } from "react";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
+import ImageGen from "../../utils/image";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
 
@@ -22,17 +22,19 @@ const Verify: NextPage = () => {
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
-					<Image
+					<ImageGen
 						src={"/logo/mymd_pc_logo_light.png"}
 						height={80}
 						width={160}
-					></Image>
+						alt="MyMD Light Desktop Logo"
+					/>
 				) : (
-					<Image
+					<ImageGen
 						src={"/logo/mymd_pc_logo_dark.png"}
 						height={80}
 						width={160}
-					></Image>
+						alt="MyMD Dark Desktop Logo"
+					/>
 				)}
 				<h1 className={styles.header}>
 					MyMD&nbsp;Markdown Editor&nbsp;Recover

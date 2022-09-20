@@ -10,7 +10,7 @@ import MobileNav from "../components/pages/index/_mobile/mobileNav";
 import axios from "../utils/axios";
 import GlobalContext from "../utils/context";
 import styles from "./index.module.css";
-
+import Loader from "../components/pages/index/loader";
 /**
  *  Todo:
  * 1. Modify global context

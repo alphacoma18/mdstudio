@@ -17,8 +17,8 @@
 	gap: 0.4rem;
 	justify-content: center;
 	margin: auto;
+	max-width: 600px;
 	padding: 2rem;
-	width: clamp(0px, 100%, 600px);
 }
 .header {
 	text-align: center;
@@ -28,7 +28,6 @@
 	border: var(--border-blue);
 	margin: auto;
 	padding: 17.5px 29px;
-
 	width: 100%;
 }
 .flexButtons {

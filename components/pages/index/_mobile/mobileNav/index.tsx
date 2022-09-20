@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { memo, useContext } from "react";
 import GlobalContext from "../../../../../utils/context";
+import ImageGen from "../../../../../utils/image";
 import styles from "./index.module.css";
 
 const MobileNav: React.FC = () => {
@@ -21,7 +21,7 @@ const MobileNav: React.FC = () => {
 			</section>
 			{isLightTheme ? (
 				<a href="." className="imageAnchor">
-					<Image
+					<ImageGen
 						src={"/logo/mymd_mobile_logo_light_2.png"}
 						height={60}
 						width={60}
@@ -30,7 +30,7 @@ const MobileNav: React.FC = () => {
 				</a>
 			) : (
 				<a href="." className="imageAnchor">
-					<Image
+					<ImageGen
 						src={"/logo/mymd_mobile_logo_dark_2.png"}
 						height={60}
 						width={60}

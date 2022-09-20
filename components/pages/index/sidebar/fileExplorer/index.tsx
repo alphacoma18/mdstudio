@@ -14,7 +14,7 @@ const FileExplorer: React.FC = () => {
 				<ul className={styles.filesList}>
 					<li>
 						<i className="icon-minus-squared"></i>
-						README.aaaaaaaaaaaaaaaaaaaaaaaa
+						README.md
 					</li>
 					<li>
 						<i className="icon-minus-squared"></i>

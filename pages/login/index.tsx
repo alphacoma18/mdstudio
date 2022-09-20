@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { memo, useContext, useEffect, useState } from "react";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
+import ImageGen from "../../utils/image";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
@@ -39,17 +39,19 @@ const Login: NextPage = () => {
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
-					<Image
-						src={"/logo/mymd_pc_logo_light.png"}
+					<ImageGen
+						src="/logo/mymd_pc_logo_light.png"
 						height={80}
 						width={160}
-					></Image>
+						alt="MyMD Light Theme Desktop Logo"
+					/>
 				) : (
-					<Image
-						src={"/logo/mymd_pc_logo_dark.png"}
+					<ImageGen
+						src="/logo/mymd_pc_logo_dark.png"
 						height={80}
 						width={160}
-					></Image>
+						alt="MyMD Dark Theme Desktop Logo"
+					/>
 				)}
 				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Login</h1>
 				{isShowError && (
