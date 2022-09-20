@@ -8,7 +8,16 @@ interface Props {
 }
 
 const ImageGen: React.FC<Props> = ({ src, height, width, alt }) => {
-	return <Image src={src} height={height} width={width} alt={alt} title={alt} lang="en" />;
+	return (
+		<Image
+			src={src}
+			height={height}
+			width={width}
+			alt={alt}
+			title={alt}
+			lang="en"
+		/>
+	);
 };
 
 export default ImageGen;

@@ -3,14 +3,12 @@ import { useContext, useEffect, useState } from "react";
 
 import BotBar from "../components/pages/index/botbar";
 import Canvas from "../components/pages/index/canvas";
-import Lorem from "../components/pages/index/canvas/lorem";
 import Nav from "../components/pages/index/nav";
 import Sidebar from "../components/pages/index/sidebar";
 import MobileNav from "../components/pages/index/_mobile/mobileNav";
-import axios from "../utils/axios";
 import GlobalContext from "../utils/context";
+import Lorem from "../utils/lorem";
 import styles from "./index.module.css";
-import Loader from "../components/pages/index/loader";
 /**
  *  Todo:
  * 1. Modify global context
@@ -40,22 +38,26 @@ const App: NextPage = () => {
 		setCharacterCount(textInput.length);
 		setWordCount(textInput.split(/\S+/).length - 1);
 	}, [textInput]);
+
+	function handleExplorerOpen() {
+		setExplorerOpen((prev) => !prev);
+	}
 	function handleIsPreview() {
 		setIsPreview((prev) => !prev);
 	}
-	async function handleSubmit() {
-		await axios.post("/", {
-			user: "",
-			markdown: "",
-		});
+	function handleLeftBarOpen() {
+		setLeftBarOpen((prev) => !prev);
+	}
+	function handleRightBarOpen() {
+		setRightBarOpen((prev) => !prev);
 	}
 
 	return (
 		<main className={isLightTheme ? styles.mainLight : styles.mainDark}>
-			<MobileNav />
-			<Nav props={{ handleIsPreview }} />
-			<Sidebar />
-			<Canvas props={{ handleTextInput, textInput, isPreview }} />
+			<MobileNav props={{ handleLeftBarOpen, handleRightBarOpen }} />
+			<Nav props={{ rightBarOpen, handleIsPreview }} />
+			<Sidebar props={{ leftBarOpen, explorerOpen, handleExplorerOpen }} />
+			<Canvas props={{ handleTextInput, textInput, isPreview, explorerOpen }} />
 			<BotBar props={{ characterCount, wordCount }} />
 		</main>
 	);

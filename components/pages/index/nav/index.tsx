@@ -6,11 +6,12 @@ import styles from "./index.module.css";
 
 interface Props {
 	props: {
+		rightBarOpen: boolean;
 		handleIsPreview: () => void;
 	};
 }
-const Nav: React.FC<Props> = ({ props: { handleIsPreview } }) => {
-	const { rightBarOpen, isLightTheme } = useContext(GlobalContext);
+const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
+	const { isLightTheme } = useContext(GlobalContext);
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>

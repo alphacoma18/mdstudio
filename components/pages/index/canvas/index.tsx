@@ -1,8 +1,7 @@
-import { useContext } from "react";
+import { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import remarkGfm from "remark-gfm";
-import GlobalContext from "../../../../utils/context";
 import styles from "./index.module.css";
 
 interface Props {
@@ -10,12 +9,12 @@ interface Props {
 		handleTextInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 		textInput: string;
 		isPreview: boolean;
+		explorerOpen: boolean;
 	};
 }
 const Canvas: React.FC<Props> = ({
-	props: { handleTextInput, textInput, isPreview },
+	props: { handleTextInput, textInput, isPreview, explorerOpen },
 }) => {
-	const { explorerOpen } = useContext(GlobalContext);
 	return (
 		<>
 			<ScrollSync>
@@ -61,4 +60,4 @@ const Canvas: React.FC<Props> = ({
 	);
 };
 
-export default Canvas;
+export default memo(Canvas);

@@ -3,9 +3,16 @@ import GlobalContext from "../../../../../utils/context";
 import ImageGen from "../../../../../utils/image";
 import styles from "./index.module.css";
 
-const MobileNav: React.FC = () => {
-	const { handleLeftBarOpen, handleRightBarOpen, isLightTheme } =
-		useContext(GlobalContext);
+interface Props {
+	props: {
+		handleLeftBarOpen: () => void;
+		handleRightBarOpen: () => void;
+	};
+}
+const MobileNav: React.FC<Props> = ({
+	props: { handleLeftBarOpen, handleRightBarOpen },
+}) => {
+	const { isLightTheme } = useContext(GlobalContext);
 	return (
 		<nav className={styles.mobileNav}>
 			<section>

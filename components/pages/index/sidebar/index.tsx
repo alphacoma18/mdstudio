@@ -3,14 +3,17 @@ import GlobalContext from "../../../../utils/context";
 import FileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
 
-const Sidebar: React.FC = () => {
-	const {
-		isLightTheme,
-		handleTheme,
-		leftBarOpen,
-		explorerOpen,
-		handleExplorerOpen,
-	} = useContext(GlobalContext);
+interface Props {
+	props: {
+		leftBarOpen: boolean;
+		explorerOpen: boolean;
+		handleExplorerOpen: () => void;
+	};
+}
+const Sidebar: React.FC<Props> = ({
+	props: { leftBarOpen, explorerOpen, handleExplorerOpen },
+}) => {
+	const { isLightTheme, handleTheme } = useContext(GlobalContext);
 
 	return (
 		<>
