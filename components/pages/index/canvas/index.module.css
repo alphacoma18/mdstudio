@@ -9,6 +9,10 @@
 	overflow-y: auto;
 	padding: 2rem;
 }
+.grammarly {
+	height: 100%;
+	width: 100%;
+}
 .textarea {
 	background: var(--canvas-bg);
 	border: none;
@@ -16,6 +20,7 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	height: 100%;
 	outline: none;
 	padding: 2rem;
 	resize: none;

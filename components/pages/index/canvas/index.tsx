@@ -1,9 +1,9 @@
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import remarkGfm from "remark-gfm";
 import styles from "./index.module.css";
-
 interface Props {
 	props: {
 		handleTextInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -26,17 +26,22 @@ const Canvas: React.FC<Props> = ({
 						${explorerOpen && styles.explorerOpen}
 						`}
 					>
-						<ScrollSyncPane>
-							<textarea
-								className={styles.textarea}
-								value={textInput}
-								spellCheck="false"
-								wrap="hard"
-								autoCapitalize="none"
-								placeholder=">>> Type or paste your markdown here"
-								onChange={handleTextInput}
-							></textarea>
-						</ScrollSyncPane>
+						<GrammarlyEditorPlugin
+							clientId="client_XMZtCXSLph5ivsde6P8ckt"
+							className={styles.grammarly}
+						>
+							<ScrollSyncPane>
+								<textarea
+									className={styles.textarea}
+									value={textInput}
+									spellCheck="false"
+									wrap="hard"
+									autoCapitalize="none"
+									placeholder=">>> Type or paste your markdown here"
+									onChange={handleTextInput}
+								></textarea>
+							</ScrollSyncPane>
+						</GrammarlyEditorPlugin>
 					</section>
 					<ScrollSyncPane>
 						<section

@@ -21,7 +21,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		if (!username || !email || !password)
 			throw "Error: Missing Email or Password";
 		const token = generateVerificationToken({ username, email });
-		const url = `https://mymd.vercel.app/api/verify/${token}`;
+		const url = `http://localhost:3000/api/verify/${token}`;
 		const mailerHTML = await MailerHTMLSignup({ url });
 		const mailerResponse = await mailer({
 			recipient: email,

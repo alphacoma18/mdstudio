@@ -10,7 +10,7 @@ import styles from "./index.module.css";
 
 const Login: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
-	const [email, setEmail] = useState<string>("");
+	const [credential, setCredential] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
 	const [error, setError] = useState<string>("");
@@ -22,7 +22,7 @@ const Login: NextPage = () => {
 			e.preventDefault();
 			setIsLoader(true);
 			const res = await axios.post("/api/login", {
-				email,
+				email: credential,
 				password,
 			});
 			setIsLoader(false);
@@ -34,7 +34,7 @@ const Login: NextPage = () => {
 	}
 	useEffect(() => {
 		setIsError(false);
-	}, [email, password]);
+	}, [credential, password]);
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
@@ -58,15 +58,14 @@ const Login: NextPage = () => {
 				{isLoader && <Loader />}
 				<hr />
 				<input
-					type="email"
+					type="text"
 					className={styles.input}
-					placeholder=">>> Enter Your Email Address"
+					placeholder=">>> Enter Your Username or Email Address"
 					required
 					minLength={10}
 					maxLength={60}
-					pattern="^[a-z0-9]+(?!.*(?:\+{2,}|\-{2,}|\.{2,}))(?:[\.+\-]{0,1}[a-z0-9])*@gmail\.com$"
-					onChange={(e) => setEmail(e.currentTarget.value)}
-					value={email}
+					onChange={(e) => setCredential(e.currentTarget.value)}
+					value={credential}
 				/>
 				<input
 					type="password"
