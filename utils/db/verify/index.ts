@@ -1,11 +1,19 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
-export interface AccountSchema {
+export interface VerifySchema {
+	username: string;
 	email: string;
 	password: string;
 	creation_date: Date;
 }
-const accountSchema = new Schema<AccountSchema>({
+const verifySchema = new Schema<VerifySchema>({
+	username: {
+		type: String,
+		required: true,
+		minlength: 5,
+		maxlength: 60,
+		unique: true,
+	},
 	email: {
 		type: String,
 		required: true,
@@ -16,17 +24,17 @@ const accountSchema = new Schema<AccountSchema>({
 	password: {
 		type: String,
 		required: true,
-		minlength: 10,
-		maxlength: 30,
+		minlength: 60,
+		maxlength: 60,
 	},
 	creation_date: {
 		type: Date,
 		required: true,
 	},
 });
-const DB =
-	mongoose.models.AccountSchema ||
-	model<AccountSchema>("AccountSchema", accountSchema);
+const DB_VERIFY =
+	mongoose.models.VerifySchema ||
+	model<VerifySchema>("VerifySchema", verifySchema);
 
 run().catch((err) => console.log(err));
 async function run() {
@@ -38,4 +46,4 @@ async function run() {
 }
 run();
 
-export default DB;
+export default DB_VERIFY;

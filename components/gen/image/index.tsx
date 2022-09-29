@@ -7,7 +7,7 @@ interface Props {
 	alt: string;
 }
 
-const ImageGen: React.FC<Props> = ({ src, height, width, alt }) => {
+const GenImage: React.FC<Props> = ({ src, height, width, alt }) => {
 	return (
 		<Image
 			src={src}
@@ -20,4 +20,4 @@ const ImageGen: React.FC<Props> = ({ src, height, width, alt }) => {
 	);
 };
 
-export default ImageGen;
+export default GenImage;

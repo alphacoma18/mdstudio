@@ -1,6 +1,6 @@
 .bg {
 	align-items: center;
-	background: var(--bg-1);
+	background: var(--canvas-bg);
 	border-top: var(--border-blue);
 	display: flex;
 	height: 100vh;
@@ -10,8 +10,11 @@
 }
 .form {
 	align-items: center;
-	box-shadow: var(--box-shadow);
+	background: var(--bg-1);
+	border: 3px solid var(--bg-blue);
+	border-radius: 1.2rem;
 
+	box-shadow: var(--box-shadow);
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.4rem;
@@ -51,6 +54,7 @@
 .itemButtons:active,
 .itemButtons:focus {
 	background: var(--bg-blue);
+	color: var(--bg-white);
 }
 .error {
 	background: var(--error-red);

@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import GlobalContext from "../../../../../utils/context";
-import ImageGen from "../../../../../utils/image";
+import GenImage from "../../../../gen/image";
 import styles from "./index.module.css";
 
 interface Props {
@@ -28,7 +28,7 @@ const MobileNav: React.FC<Props> = ({
 			</section>
 			{isLightTheme ? (
 				<a href="." className="imageAnchor">
-					<ImageGen
+					<GenImage
 						src={"/logo/mymd_mobile_logo_light_2.png"}
 						height={60}
 						width={60}
@@ -37,7 +37,7 @@ const MobileNav: React.FC<Props> = ({
 				</a>
 			) : (
 				<a href="." className="imageAnchor">
-					<ImageGen
+					<GenImage
 						src={"/logo/mymd_mobile_logo_dark_2.png"}
 						height={60}
 						width={60}

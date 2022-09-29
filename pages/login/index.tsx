@@ -1,18 +1,20 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { memo, useContext, useEffect, useState } from "react";
+import GenError from "../../components/gen/error";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import ImageGen from "../../utils/image";
+import GenImage from "../../components/gen/image";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+
 	const [error, setError] = useState<string>("");
-	const [isShowError, setIsShowError] = useState<boolean>(false);
+	const [isError, setIsError] = useState<boolean>(false);
 	const [isLoader, setIsLoader] = useState<boolean>(false);
 
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,30 +25,28 @@ const Login: NextPage = () => {
 				email,
 				password,
 			});
-
-			setIsShowError(false);
 			setIsLoader(false);
 		} catch (err: any) {
 			setError(err);
-			setIsShowError(true);
+			setIsError(true);
 			setIsLoader(false);
 		}
 	}
 	useEffect(() => {
-		setIsShowError(false);
+		setIsError(false);
 	}, [email, password]);
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
-					<ImageGen
+					<GenImage
 						src="/logo/mymd_pc_logo_light.png"
 						height={80}
 						width={160}
 						alt="MyMD Light Theme Desktop Logo"
 					/>
 				) : (
-					<ImageGen
+					<GenImage
 						src="/logo/mymd_pc_logo_dark.png"
 						height={80}
 						width={160}
@@ -54,11 +54,7 @@ const Login: NextPage = () => {
 					/>
 				)}
 				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Login</h1>
-				{isShowError && (
-					<div className={styles.error}>
-						<h3>{error}</h3>
-					</div>
-				)}
+				<GenError props={{ isError, error }} />
 				{isLoader && <Loader />}
 				<hr />
 				<input

@@ -1,37 +1,69 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { FormEvent, memo, useContext, useState } from "react";
+import { FormEvent, memo, useContext, useEffect, useState } from "react";
+import GenError from "../../components/gen/error";
+import GenImage from "../../components/gen/image";
+import GenResponse from "../../components/gen/response";
+import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import ImageGen from "../../utils/image";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
-
 const Signup: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);
+	const [username, setUsername] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+
+	const [isError, setIsError] = useState<boolean>(false);
+	const [isResponse, setIsResponse] = useState<boolean>(false);
+	const [isLoader, setIsLoader] = useState<boolean>(false);
+
+	const [response, setResponse] = useState<string>("");
+	const [error, setError] = useState<string>("");
 	async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		try {
 			e.preventDefault();
+			setIsLoader(true);
 			const res = await axios.post("/signup", {
+				username,
 				email,
 				password,
 			});
-		} catch (e: any) {}
+			if (res.data.err) throw res.data.err;
+			handleClear();
+			setIsLoader(false);
+			setIsResponse(true);
+			setResponse(
+				"Signup successful. Please check your email to verify your account."
+			);
+		} catch (err: any) {
+			setIsLoader(false);
+			setIsError(true);
+			setError(err);
+		}
 	}
+	function handleClear() {
+		setUsername("");
+		setEmail("");
+		setPassword("");
+	}
+	useEffect(() => {
+		setIsError(false);
+	}, [username, email, password]);
+
 	return (
 		<section className={styles.bg}>
-			<form className={styles.form}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
-					<ImageGen
+					<GenImage
 						src={"/logo/mymd_pc_logo_light.png"}
 						height={80}
 						width={160}
 						alt="MyMD Light Theme Desktop Logo"
 					/>
 				) : (
-					<ImageGen
+					<GenImage
 						src={"/logo/mymd_pc_logo_dark.png"}
 						height={80}
 						width={160}
@@ -39,7 +71,21 @@ const Signup: NextPage = () => {
 					/>
 				)}
 				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Signup</h1>
+				<GenResponse props={{ isResponse, response }} />
+				<GenError props={{ isError, error }} />
+				{isLoader && <Loader />}
 				<hr />
+				<input
+					type="text"
+					className={styles.input}
+					placeholder=">>> Enter Your Username"
+					required
+					minLength={5}
+					maxLength={60}
+					pattern="^([a-zA-Z]{1})([0-9a-zA-Z-._]{9,59})$"
+					onChange={(e) => setUsername(e.currentTarget.value)}
+					value={username}
+				/>
 				<input
 					type="email"
 					className={styles.input}
@@ -47,7 +93,6 @@ const Signup: NextPage = () => {
 					required
 					minLength={10}
 					maxLength={60}
-					pattern="^[a-z0-9]+(?!.*(?:\+{2,}|\-{2,}|\.{2,}))(?:[\.+\-]{0,1}[a-z0-9])*@gmail\.com$"
 					onChange={(e) => setEmail(e.currentTarget.value)}
 					value={email}
 				/>

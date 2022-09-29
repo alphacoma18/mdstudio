@@ -11,13 +11,12 @@
 
 	--textarea-bg: #ffffff;
 	--input-black: #233343;
-	--error-red: #ff0000;
 	--box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
 	--fast-transition: color 100ms linear 0s, background 100ms linear 0s;
 }
 ::selection {
 	background: var(--bg-2);
-	color: var(--bg-1);
+	color: var(--color-white);
 }
 ::-webkit-scrollbar-track {
 	background: var(--bg-1);

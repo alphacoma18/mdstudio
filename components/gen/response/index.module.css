@@ -1,0 +1,11 @@
+.responseDiv {
+	background: #198754;
+	border-radius: 0.6rem;
+	color: var(--color-white);
+	padding: 0.4rem;
+	text-align: center;
+	width: 100%;
+}
+.response {
+	color: var(--color-white);
+}

@@ -11,14 +11,13 @@ import Lorem from "../utils/lorem";
 import styles from "./index.module.css";
 /**
  *  Todo:
- * 1. Modify global context
- * 2. Create login/signup feature and store in Global Context
- * 3. Make axios with credentials
- * 4. Create publish feature
- * 5. Make api and program to save in file system
- * 6. Make database schema
- * 7. Allow for retrieval on login based on credentials for edit
- * 8. Check for published markdown
+ * 1. Create publish feature
+ * 2. Make api and program to save in file system
+ * 3. Make database schema
+ * 4. Allow for retrieval on login based on credentials for edit
+ * 5. Check for published markdown
+ *
+ * 6. Make global component axios with loader in app
  */
 const App: NextPage = () => {
 	const { isLightTheme } = useContext(GlobalContext);

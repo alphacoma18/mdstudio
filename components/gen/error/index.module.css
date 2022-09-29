@@ -1,0 +1,11 @@
+.errorDiv {
+	background: #dc3545;
+	border-radius: 0.6rem;
+	color: var(--color-white);
+	padding: 0.4rem;
+	text-align: center;
+	width: 100%;
+}
+.error {
+	color: var(--color-white);
+}

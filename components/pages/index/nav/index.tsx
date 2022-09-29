@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
 import GlobalContext from "../../../../utils/context";
-import ImageGen from "../../../../utils/image";
+import GenImage from "../../../gen/image";
 import styles from "./index.module.css";
 
 interface Props {
@@ -17,7 +17,7 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
 			<div className={styles.desktopLogo}>
 				{isLightTheme ? (
 					<a href="." className="imageAnchor">
-						<ImageGen
+						<GenImage
 							src="/logo/mymd_pc_logo_light.png"
 							height={50}
 							width={100}
@@ -26,7 +26,7 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
 					</a>
 				) : (
 					<a href="." className="imageAnchor">
-						<ImageGen
+						<GenImage
 							src="/logo/mymd_pc_logo_dark.png"
 							height={50}
 							width={100}

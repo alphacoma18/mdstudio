@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { memo, useContext, useState } from "react";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import ImageGen from "../../utils/image";
+import GenImage from "../../components/gen/image";
 import styles from "../login/index.module.css";
 
 const ResetPassword: NextPage = () => {
@@ -21,14 +21,14 @@ const ResetPassword: NextPage = () => {
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
 				{isLightTheme ? (
-					<ImageGen
+					<GenImage
 						src="/logo/mymd_pc_logo_light.png"
 						height={80}
 						width={160}
 						alt="MyMD Light Theme Desktop Logo"
 					/>
 				) : (
-					<ImageGen
+					<GenImage
 						src="/logo/mymd_pc_logo_dark.png"
 						height={80}
 						width={160}
