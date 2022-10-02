@@ -7,8 +7,12 @@
 	width: 100%;
 }
 .editor {
-	height: 100vh;
+	height: 100%;
 	overflow-y: auto;
+}
+.dataColorMode {
+	min-height: 100%;
+	height: 100%;
 }
 @media screen and (max-width: 1024px) {
 }

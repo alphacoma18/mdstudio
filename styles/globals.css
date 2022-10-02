@@ -37,7 +37,6 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
-	/* transition: var(--fast-transition); */
 }
 html,
 textarea,
@@ -53,6 +52,7 @@ body {
 	font-size: 16px;
 	height: 100%;
 	line-height: 1.6rem;
+	overflow-y: hidden;
 	position: fixed;
 	width: 100%;
 }

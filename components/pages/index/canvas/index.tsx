@@ -1,13 +1,19 @@
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
-import dynamic from "next/dynamic";
-import { memo } from "react";
+import { memo, useContext } from "react";
+import GlobalContext from "../../../../utils/context";
 import styles from "./index.module.css";
-const SimpleMdeEditor = dynamic(() => import("react-simplemde-editor"), {
-	ssr: false,
-});
+
+import "@uiw/react-markdown-preview/markdown.css";
+import "@uiw/react-md-editor/markdown-editor.css";
+import dynamic from "next/dynamic";
+
+const MDEditor = dynamic(
+	() => import("@uiw/react-md-editor").then((mod) => mod.default),
+	{ ssr: false }
+);
 interface Props {
 	props: {
-		handleTextInput: (e: string) => void;
+		handleTextInput: (e: any) => void;
 		textInput: string;
 		explorerOpen: boolean;
 	};
@@ -15,6 +21,8 @@ interface Props {
 const Canvas: React.FC<Props> = ({
 	props: { handleTextInput, textInput, explorerOpen },
 }) => {
+
+	const { isLightTheme } = useContext(GlobalContext);
 	return (
 		<>
 			<section
@@ -27,13 +35,9 @@ const Canvas: React.FC<Props> = ({
 					clientId="client_XMZtCXSLph5ivsde6P8ckt"
 					className={styles.grammarly}
 				>
-					{/* <textarea onChange={handleTextInput} value={textInput}></textarea> */}
-					<SimpleMdeEditor
-						inputMode="text"
-						className={styles.editor}
-						value={textInput}
-						onChange={handleTextInput}
-					/>
+					<div data-color-mode={isLightTheme ? "light" : "dark"} className={styles.dataColorMode}>
+						<MDEditor height={"100%"} value={textInput} onChange={handleTextInput} style={{height: "100%"}} />
+					</div>
 				</GrammarlyEditorPlugin>
 			</section>
 		</>
