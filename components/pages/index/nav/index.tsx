@@ -7,10 +7,9 @@ import styles from "./index.module.css";
 interface Props {
 	props: {
 		rightBarOpen: boolean;
-		handleIsPreview: () => void;
 	};
 }
-const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
+const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 	const { isLightTheme } = useContext(GlobalContext);
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
@@ -36,12 +35,12 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
 				)}
 			</div>
 			<div className={styles.flexNavButton}>
-				<button className={styles.itemNavButtons}>
-					<a href="#">
+				<Link href="#">
+					<a className={styles.itemNavButtons}>
 						<i className={`icon-home ${styles.iFonts}`}></i>
 						<span>Home</span>
 					</a>
-				</button>
+				</Link>
 				<button className={styles.itemNavButtons}>
 					<i className={`icon-wrench ${styles.iFonts}`}></i>
 					<span>Tools</span>
@@ -58,22 +57,20 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen, handleIsPreview } }) => {
 					<i className={`icon-download ${styles.iFonts}`}></i>
 					<span>Download</span>
 				</button>
-				<button className={styles.itemNavButtons} onClick={handleIsPreview}>
+				<button className={styles.itemNavButtons}>
 					<i className={`icon-eye ${styles.iFonts}`}></i>
 					<span>Preview</span>
 				</button>
 				<button className={styles.itemNavButtons}>
-					<i className={`icon-publish ${styles.iFonts}"`}></i>
+					<i className={`icon-publish ${styles.iFonts}`}></i>
 					<span>Publish</span>
 				</button>
-				<button className={styles.itemNavButtons}>
-					<Link href="/login">
-						<a>
-							<i className={`icon-login ${styles.iFonts}`}></i>
-							<span>Login/Signup</span>
-						</a>
-					</Link>
-				</button>
+				<Link href="/login">
+					<a className={styles.itemNavButtons}>
+						<i className={`icon-login ${styles.iFonts}`}></i>
+						<span>Login/Signup</span>
+					</a>
+				</Link>
 			</div>
 		</nav>
 	);

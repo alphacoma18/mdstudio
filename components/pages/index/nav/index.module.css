@@ -4,9 +4,9 @@
 	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--box-shadow);
 	display: flex;
-	grid-area: 1 / 1 / 1 / 6;
+	grid-area: 1 / 1 / 1 / 5;
 	justify-content: space-between;
-	z-index: 1;
+	z-index: 10;
 }
 .desktopLogo {
 	align-items: center;
@@ -18,8 +18,7 @@
 	display: flex;
 }
 .itemNavButtons {
-	border-radius: 100px;
-	font-size: 1rem;
+	margin: auto;
 	padding: 0.4rem;
 	text-align: center;
 }
@@ -29,7 +28,7 @@
 .itemNavButtons:active span,
 .itemNavButtons:focus i,
 .itemNavButtons:focus span {
-	color: var(--bg-2);
+	color: var(--color-blue);
 }
 
 @media screen and (max-width: 768px) {
@@ -50,7 +49,11 @@
 	.navBarOpen {
 		border-top: none;
 		flex-direction: column;
-		grid-area: 2 / 5 / 4 / 5;
+		grid-area: 2 / 4 / 4 / 4;
+		padding: .2rem;
+	}
+	.itemNavButtons {
+		padding: .2rem;
 	}
 	.desktopLogo {
 		display: none;

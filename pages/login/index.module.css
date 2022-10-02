@@ -54,7 +54,7 @@
 .itemButtons:active,
 .itemButtons:focus {
 	background: var(--bg-blue);
-	color: var(--bg-white);
+	color: var(--color-white);
 }
 .error {
 	background: var(--error-red);

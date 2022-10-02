@@ -6,6 +6,7 @@ const DarkTheme = () => {
 				:root {
 					--bg-1: #1a2632;
 					--bg-2: #007acc;
+					--bg-3: #ffffff;
 					--color: #ffffff;
 					--canvas-bg: #233343;
 				}
@@ -22,6 +23,7 @@ const LightTheme = () => {
 				:root {
 					--bg-1: #ffffff;
 					--bg-2: #007acc;
+					--bg-3: #1a2632;
 					--color: #000000;
 					--canvas-bg: #ffffff;
 				}

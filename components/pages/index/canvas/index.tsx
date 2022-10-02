@@ -1,66 +1,41 @@
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
+import dynamic from "next/dynamic";
 import { memo } from "react";
-import ReactMarkdown from "react-markdown";
-import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-import remarkGfm from "remark-gfm";
 import styles from "./index.module.css";
+const SimpleMdeEditor = dynamic(() => import("react-simplemde-editor"), {
+	ssr: false,
+});
 interface Props {
 	props: {
-		handleTextInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+		handleTextInput: (e: string) => void;
 		textInput: string;
-		isPreview: boolean;
 		explorerOpen: boolean;
 	};
 }
 const Canvas: React.FC<Props> = ({
-	props: { handleTextInput, textInput, isPreview, explorerOpen },
+	props: { handleTextInput, textInput, explorerOpen },
 }) => {
 	return (
 		<>
-			<ScrollSync>
-				<>
-					<section
-						className={`
+			<section
+				className={`
 						${styles.canvasSection}
-						${isPreview && styles.previewHide}
 						${explorerOpen && styles.explorerOpen}
 						`}
-					>
-						<GrammarlyEditorPlugin
-							clientId="client_XMZtCXSLph5ivsde6P8ckt"
-							className={styles.grammarly}
-						>
-							<ScrollSyncPane>
-								<textarea
-									className={styles.textarea}
-									value={textInput}
-									spellCheck="false"
-									wrap="hard"
-									autoCapitalize="none"
-									placeholder=">>> Type or paste your markdown here"
-									onChange={handleTextInput}
-								></textarea>
-							</ScrollSyncPane>
-						</GrammarlyEditorPlugin>
-					</section>
-					<ScrollSyncPane>
-						<section
-							className={`
-							${styles.outputMarkdown}
-							${isPreview && styles.previewShow}
-							${explorerOpen && styles.explorerOpen}
-						`}
-						>
-							<ReactMarkdown
-								remarkPlugins={[remarkGfm]}
-								className={styles.markdown}
-							>
-								{textInput}
-							</ReactMarkdown>
-						</section>
-					</ScrollSyncPane>
-				</>
-			</ScrollSync>
+			>
+				<GrammarlyEditorPlugin
+					clientId="client_XMZtCXSLph5ivsde6P8ckt"
+					className={styles.grammarly}
+				>
+					{/* <textarea onChange={handleTextInput} value={textInput}></textarea> */}
+					<SimpleMdeEditor
+						inputMode="text"
+						className={styles.editor}
+						value={textInput}
+						onChange={handleTextInput}
+					/>
+				</GrammarlyEditorPlugin>
+			</section>
 		</>
 	);
 };

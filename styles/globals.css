@@ -6,6 +6,7 @@
 
 	--color-white: #ffffff;
 	--color-black: #000000;
+	--color-blue: #007acc;
 
 	--border-blue: 3px solid var(--bg-blue);
 
@@ -36,7 +37,7 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
-	transition: var(--fast-transition);
+	/* transition: var(--fast-transition); */
 }
 html,
 textarea,
@@ -74,8 +75,8 @@ a {
 	text-decoration: none;
 }
 hr {
-	background-color: var(--bg-blue);
-	color: var(--bg-blue);
+	background: var(--bg-blue);
+	color: var(--color-blue);
 	margin: 1rem auto;
 	width: 70%;
 }

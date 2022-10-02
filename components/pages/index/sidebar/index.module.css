@@ -8,23 +8,22 @@
 	grid-area: 2 / 1 / 4 / 1;
 	justify-content: space-between;
 	overflow-y: auto;
-	z-index: 2;
+	padding: 0.2rem;
+	z-index: 10;
 }
 .flexButtons {
 	display: flex;
 	flex-direction: column;
 }
 .itemButtons {
-	background: none;
-	border: none;
-	padding: 0.4rem;
+	padding: 0.2rem;
 }
 .itemButtons:hover i,
 .itemButtons:active i,
 .itemButtons:focus i,
 .itemButtons:focus-within i,
 .itemButtons:focus-visible i {
-	color: var(--bg-blue);
+	color: var(--color-blue);
 }
 .iFonts {
 	font-size: 2rem;

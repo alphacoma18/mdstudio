@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { useContext, useEffect, useState } from "react";
-
 import BotBar from "../components/pages/index/botbar";
 import Canvas from "../components/pages/index/canvas";
 import Nav from "../components/pages/index/nav";
@@ -25,14 +24,13 @@ const App: NextPage = () => {
 	const [rightBarOpen, setRightBarOpen] = useState<boolean>(false);
 	const [explorerOpen, setExplorerOpen] = useState<boolean>(false);
 
-	const [isPreview, setIsPreview] = useState<boolean>(false);
-
 	const [characterCount, setCharacterCount] = useState<number>(0);
 	const [wordCount, setWordCount] = useState<number>(0);
 	const [textInput, setTextInput] = useState<string>(Lorem());
-	function handleTextInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
-		setTextInput(e.currentTarget.value);
+	function handleTextInput(text: string) {
+		setTextInput(text);
 	}
+
 	useEffect(() => {
 		setCharacterCount(textInput.length);
 		setWordCount(textInput.split(/\S+/).length - 1);
@@ -40,9 +38,6 @@ const App: NextPage = () => {
 
 	function handleExplorerOpen() {
 		setExplorerOpen((prev) => !prev);
-	}
-	function handleIsPreview() {
-		setIsPreview((prev) => !prev);
 	}
 	function handleLeftBarOpen() {
 		setLeftBarOpen((prev) => !prev);
@@ -54,9 +49,9 @@ const App: NextPage = () => {
 	return (
 		<main className={isLightTheme ? styles.mainLight : styles.mainDark}>
 			<MobileNav props={{ handleLeftBarOpen, handleRightBarOpen }} />
-			<Nav props={{ rightBarOpen, handleIsPreview }} />
+			<Nav props={{ rightBarOpen }} />
 			<Sidebar props={{ leftBarOpen, explorerOpen, handleExplorerOpen }} />
-			<Canvas props={{ handleTextInput, textInput, isPreview, explorerOpen }} />
+			<Canvas props={{ handleTextInput, textInput, explorerOpen }} />
 			<BotBar props={{ characterCount, wordCount }} />
 		</main>
 	);

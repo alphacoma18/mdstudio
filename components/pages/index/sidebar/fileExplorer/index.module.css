@@ -29,7 +29,7 @@
 @media screen and (max-width: 480px) {
 	section.outerSection {
 		border-right: none;
-		grid-area: 2 / 2 / 2 / 5;
+		grid-area: 2 / 2 / 2 / 4;
 		width: auto;
 		z-index: 1;
 	}
