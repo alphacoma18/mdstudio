@@ -11,7 +11,6 @@
 	},
 	"dependencies": {
 		"@grammarly/editor-sdk-react": "^2.0.2",
-		"@types/jsonwebtoken": "^8.5.9",
 		"@uiw/react-md-editor": "^3.18.1",
 		"axios": "^0.27.2",
 		"bcrypt": "^5.0.1",
@@ -22,12 +21,12 @@
 		"nodemailer": "^6.7.8",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-simplemde-editor": "^5.0.2",
-		"remark-gfm": "^3.0.1",
+		"rehype-sanitize": "^5.0.1",
 		"sharp": "^0.31.0"
 	},
 	"devDependencies": {
 		"@types/bcrypt": "^5.0.0",
+		"@types/jsonwebtoken": "^8.5.9",
 		"@types/node": "18.7.15",
 		"@types/nodemailer": "^6.4.6",
 		"@types/react": "18.0.18",

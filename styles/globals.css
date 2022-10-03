@@ -41,7 +41,8 @@ html {
 html,
 textarea,
 div,
-section {
+section,
+code {
 	scrollbar-color: var(--bg-2) var(--bg-1);
 	scrollbar-width: thin;
 }
@@ -52,7 +53,7 @@ body {
 	font-size: 16px;
 	height: 100%;
 	line-height: 1.6rem;
-	overflow-y: hidden;
+	/* overflow-y: hidden; */
 	position: fixed;
 	width: 100%;
 }

@@ -1,4 +1,5 @@
-# [MyMD: Markdown Publisher](https://mymd.vercel.app)
+export default function Lorem () {
+	return `# [MyMD: Markdown Publisher](https://mymd.vercel.app)
 ## What is MyMD?
 
 MyMD is a simple yet modern and extensive cross-platform markdown editor and publishing application. Featuring your most beloved features such as...
@@ -34,42 +35,5 @@ MyMD offers a built-in markdown tool bar that allows you to easily format your t
 ## Contributors
 MyMD is a free and open source project, open for contributions and collaborations.
 1. Alpha Romer N. Coma
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Featuring your most beloved features such as...
-* 🌒 Awesome Dark mode / Night Mode feature
-* ✍️ Integrated Grammarly Support
-* 😍 GitHub Flavored Markdown Support
-* 🔥 VS Code Themed UI
-* ☕️ Automatic syntax highlighting.
-* 💪 Cross-Platform Installation Support
-* 👀 Extensive View Modes such as...
-  * 📝 Edit Mode
-  * 📖 Preview Mode
-  * 📄 Split Mode
-  * 📚 Read Mode
-  * 🖥️ Full-Screen Mode
-
-* And much more!
-
+	`;
+}

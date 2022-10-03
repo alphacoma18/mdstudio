@@ -6,7 +6,7 @@ import Nav from "../components/pages/index/nav";
 import Sidebar from "../components/pages/index/sidebar";
 import MobileNav from "../components/pages/index/_mobile/mobileNav";
 import GlobalContext from "../utils/context";
-import Lorem from "../utils/lorem";
+import Lorem from "../components/gen/lorem";
 import styles from "./index.module.css";
 /**
  *  Todo:

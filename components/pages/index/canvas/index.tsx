@@ -1,16 +1,15 @@
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
+import dynamic from "next/dynamic";
 import { memo, useContext } from "react";
+import rehypeSanitize from "rehype-sanitize";
 import GlobalContext from "../../../../utils/context";
 import styles from "./index.module.css";
-
-import "@uiw/react-markdown-preview/markdown.css";
-import "@uiw/react-md-editor/markdown-editor.css";
-import dynamic from "next/dynamic";
-
+import {commands} from "@uiw/react-md-editor"
 const MDEditor = dynamic(
 	() => import("@uiw/react-md-editor").then((mod) => mod.default),
 	{ ssr: false }
 );
+
 interface Props {
 	props: {
 		handleTextInput: (e: any) => void;
@@ -21,7 +20,6 @@ interface Props {
 const Canvas: React.FC<Props> = ({
 	props: { handleTextInput, textInput, explorerOpen },
 }) => {
-
 	const { isLightTheme } = useContext(GlobalContext);
 	return (
 		<>
@@ -31,14 +29,26 @@ const Canvas: React.FC<Props> = ({
 						${explorerOpen && styles.explorerOpen}
 						`}
 			>
-				<GrammarlyEditorPlugin
-					clientId="client_XMZtCXSLph5ivsde6P8ckt"
-					className={styles.grammarly}
+				<div
+					data-color-mode={isLightTheme ? "light" : "dark"}
+					className={styles.dataColorMode}
 				>
-					<div data-color-mode={isLightTheme ? "light" : "dark"} className={styles.dataColorMode}>
-						<MDEditor height={"100%"} value={textInput} onChange={handleTextInput} style={{height: "100%"}} />
-					</div>
-				</GrammarlyEditorPlugin>
+					<GrammarlyEditorPlugin
+						clientId="client_XMZtCXSLph5ivsde6P8ckt"
+						className={styles.grammarly}
+					>
+						<MDEditor
+							height={"100%"}
+							value={textInput}
+							onChange={handleTextInput}
+							className={styles.editor}
+							previewOptions={{
+								rehypePlugins: [[rehypeSanitize]],
+							}}
+							// commands={[]}
+						/>
+					</GrammarlyEditorPlugin>
+				</div>
 			</section>
 		</>
 	);
