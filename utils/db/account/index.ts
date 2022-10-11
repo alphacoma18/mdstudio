@@ -1,10 +1,17 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
+interface FileSchema {
+	file_name: string;
+	creation_date: Date;
+	isPublished: boolean;
+	content: string;
+}
 export interface AccountSchema {
 	username: string;
 	email: string;
 	password: string;
 	creation_date: Date;
+	files: FileSchema[];
 }
 const accountSchema = new Schema<AccountSchema>({
 	username: {
@@ -31,6 +38,29 @@ const accountSchema = new Schema<AccountSchema>({
 		type: Date,
 		required: true,
 	},
+	files: [
+		{
+			file_name: {
+				type: String,
+				required: true,
+				minlength: 3,
+				maxlength: 60,
+			},
+			creation_date: {
+				type: Date,
+				required: true,
+			},
+			isPublished: {
+				type: Boolean,
+				required: true,
+			},
+			content: {
+				type: String,
+				required: true,
+				minlength: 1,
+			},
+		},
+	],
 });
 const DB_ACCOUNT =
 	mongoose.models.AccountSchema ||

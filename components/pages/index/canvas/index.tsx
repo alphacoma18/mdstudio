@@ -4,12 +4,10 @@ import { memo, useContext } from "react";
 import rehypeSanitize from "rehype-sanitize";
 import GlobalContext from "../../../../utils/context";
 import styles from "./index.module.css";
-import {commands} from "@uiw/react-md-editor"
 const MDEditor = dynamic(
 	() => import("@uiw/react-md-editor").then((mod) => mod.default),
 	{ ssr: false }
 );
-
 interface Props {
 	props: {
 		handleTextInput: (e: any) => void;
@@ -45,7 +43,6 @@ const Canvas: React.FC<Props> = ({
 							previewOptions={{
 								rehypePlugins: [[rehypeSanitize]],
 							}}
-							// commands={[]}
 						/>
 					</GrammarlyEditorPlugin>
 				</div>
