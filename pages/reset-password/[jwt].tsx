@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { memo, useContext, useState } from "react";
+import GenImage from "../../components/gen/image";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import GenImage from "../../components/gen/image";
 import styles from "../login/index.module.css";
 
 const ResetPassword: NextPage = () => {
@@ -12,7 +12,7 @@ const ResetPassword: NextPage = () => {
 
 	async function handleSubmit() {
 		try {
-			await axios.post("/api/reset-password", {
+			await axios.post("/reset-password", {
 				newPassword,
 			});
 		} catch (e) {}
@@ -35,7 +35,6 @@ const ResetPassword: NextPage = () => {
 						alt="MyMD Dark Theme Desktop Logo"
 					/>
 				)}
-				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Reset</h1>
 				<hr />
 				<input
 					type="password"

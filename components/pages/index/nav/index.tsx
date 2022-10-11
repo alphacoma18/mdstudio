@@ -34,39 +34,39 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					</a>
 				)}
 			</div>
-			<div className={styles.flexNavButton}>
+			<div className={styles.flexButtons}>
 				<Link href="#">
-					<a className={styles.itemNavButtons}>
+					<a className={styles.itemButtons}>
 						<i className={`icon-home ${styles.iFonts}`}></i>
 						<span>Home</span>
 					</a>
 				</Link>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-wrench ${styles.iFonts}`}></i>
 					<span>Tools</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-help-circled ${styles.iFonts}`}></i>
 					<span>Help</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-share-squared ${styles.iFonts}`}></i>
 					<span>Share</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-download ${styles.iFonts}`}></i>
 					<span>Download</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-eye ${styles.iFonts}`}></i>
 					<span>Preview</span>
 				</button>
-				<button className={styles.itemNavButtons}>
+				<button className={styles.itemButtons}>
 					<i className={`icon-publish ${styles.iFonts}`}></i>
 					<span>Publish</span>
 				</button>
 				<Link href="/login">
-					<a className={styles.itemNavButtons}>
+					<a className={styles.itemButtons}>
 						<i className={`icon-login ${styles.iFonts}`}></i>
 						<span>Login/Signup</span>
 					</a>

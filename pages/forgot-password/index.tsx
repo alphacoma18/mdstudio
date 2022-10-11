@@ -13,7 +13,7 @@ const Verify: NextPage = () => {
 
 	async function handleSubmit() {
 		try {
-			await axios.post("/api/forgot-password", {
+			await axios.post("/forgot-password", {
 				email,
 			});
 		} catch (e) {}
@@ -36,9 +36,6 @@ const Verify: NextPage = () => {
 						alt="MyMD Dark Desktop Logo"
 					/>
 				)}
-				<h1 className={styles.header}>
-					MyMD&nbsp;Markdown Editor&nbsp;Recover
-				</h1>
 				<hr />
 				<input
 					type="email"

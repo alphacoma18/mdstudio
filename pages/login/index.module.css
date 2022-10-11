@@ -23,15 +23,16 @@
 	max-width: 600px;
 	padding: 2rem;
 }
-.header {
-	text-align: center;
-	width: 100%;
-}
+
 .input {
 	border: var(--border-blue);
 	margin: auto;
 	padding: 17.5px 29px;
 	width: 100%;
+}
+.input:valid {
+	background: var(--bg-blue);
+	color: var(--color-white);
 }
 .flexButtons {
 	display: flex;
@@ -65,16 +66,18 @@
 }
 @media screen and (max-width: 768px) {
 	.form {
+		border: none;
+		border-radius: 0px;
+		box-shadow: none;
 		padding: 1rem;
 	}
 }
 @media screen and (max-width: 480px) {
 	.form {
-		box-shadow: none;
 		width: 100%;
 	}
 	.itemButtons {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		padding: 0.2rem;
 	}
 }

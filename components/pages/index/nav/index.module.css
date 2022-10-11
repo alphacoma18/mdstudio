@@ -14,28 +14,28 @@
 	justify-content: center;
 	margin-left: 10px;
 }
-.flexNavButton {
+.flexButtons {
 	display: flex;
 }
-.itemNavButtons {
+.itemButtons {
 	margin: auto;
 	padding: 0.4rem;
 	text-align: center;
 }
-.itemNavButtons:hover i,
-.itemNavButtons:hover span,
-.itemNavButtons:active i,
-.itemNavButtons:active span,
-.itemNavButtons:focus i,
-.itemNavButtons:focus span {
+.itemButtons:hover i,
+.itemButtons:hover span,
+.itemButtons:active i,
+.itemButtons:active span,
+.itemButtons:focus i,
+.itemButtons:focus span {
 	color: var(--color-blue);
 }
 
 @media screen and (max-width: 768px) {
-	.itemNavButtons {
+	.itemButtons {
 		font-size: 1.4rem;
 	}
-	.itemNavButtons span {
+	.itemButtons span {
 		display: none;
 	}
 }
@@ -46,14 +46,20 @@
 	.navbar {
 		display: none;
 	}
+	.flexButtons {
+		flex-direction: column;
+		gap: 0.2rem;
+		overflow-y: auto;
+	}
 	.navBarOpen {
 		border-top: none;
+		clip-path: inset(0px 0px 0px -15px);
 		flex-direction: column;
 		grid-area: 2 / 4 / 4 / 4;
-		padding: .2rem;
+		padding: 0.2rem;
 	}
-	.itemNavButtons {
-		padding: .2rem;
+	.itemButtons {
+		padding: 0.2rem;
 	}
 	.desktopLogo {
 		display: none;

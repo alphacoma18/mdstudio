@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { memo, useContext, useEffect, useState } from "react";
 import GenError from "../../components/gen/error";
+import GenImage from "../../components/gen/image";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import GenImage from "../../components/gen/image";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
@@ -21,15 +21,16 @@ const Login: NextPage = () => {
 		try {
 			e.preventDefault();
 			setIsLoader(true);
-			const res = await axios.post("/api/login", {
-				email: credential,
+			const res = await axios.post("/login", {
+				credential,
 				password,
 			});
+			if (res.data.err) throw res.data.err;
 			setIsLoader(false);
 		} catch (err: any) {
-			setError(err);
-			setIsError(true);
 			setIsLoader(false);
+			setIsError(true);
+			setError(err);
 		}
 	}
 	useEffect(() => {
@@ -53,16 +54,15 @@ const Login: NextPage = () => {
 						alt="MyMD Dark Theme Desktop Logo"
 					/>
 				)}
-				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Login</h1>
-				<GenError props={{ isError, error }} />
 				{isLoader && <Loader />}
 				<hr />
+				<GenError props={{ isError, error }} />
 				<input
 					type="text"
 					className={styles.input}
 					placeholder=">>> Enter Your Username or Email Address"
 					required
-					minLength={10}
+					minLength={5}
 					maxLength={60}
 					onChange={(e) => setCredential(e.currentTarget.value)}
 					value={credential}

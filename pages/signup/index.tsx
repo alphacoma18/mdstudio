@@ -70,11 +70,10 @@ const Signup: NextPage = () => {
 						alt="MyMD Dark Theme Desktop Logo"
 					/>
 				)}
-				<h1 className={styles.header}>MyMD&nbsp;Markdown Editor&nbsp;Signup</h1>
 				<GenResponse props={{ isResponse, response }} />
 				<GenError props={{ isError, error }} />
-				{isLoader && <Loader />}
 				<hr />
+				{isLoader && <Loader />}
 				<input
 					type="text"
 					className={styles.input}

@@ -4,16 +4,20 @@
 	--bg-black: #1a2632;
 	--bg-yellow: #faee0f;
 
+	--bg-success: #198754;
+
 	--color-white: #ffffff;
 	--color-black: #000000;
 	--color-blue: #007acc;
 
 	--border-blue: 3px solid var(--bg-blue);
+	--border-success: 3px solid var(--bg-success);
 
 	--textarea-bg: #ffffff;
 	--input-black: #233343;
 	--box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
-	--fast-transition: color 100ms linear 0s, background 100ms linear 0s;
+	/* --fast-transition: color 1000ms linear 0s, background 1000ms linear 0s; */
+	--fast-transition: color 100ms linear 0s, background-color 100ms linear 0s;
 }
 ::selection {
 	background: var(--bg-2);
@@ -37,6 +41,7 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
+	transition: var(--fast-transition);
 }
 html,
 textarea,
@@ -53,11 +58,9 @@ body {
 	font-size: 16px;
 	height: 100%;
 	line-height: 1.6rem;
-	/* overflow-y: hidden; */
 	position: fixed;
 	width: 100%;
 }
-
 button,
 input {
 	background: none;
@@ -77,6 +80,7 @@ a {
 }
 hr {
 	background: var(--bg-blue);
+	border: 1px solid var(--bg-blue);
 	color: var(--color-blue);
 	margin: 1rem auto;
 	width: 70%;
