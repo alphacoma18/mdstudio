@@ -27,5 +27,5 @@ export const verifyAccessToken = (token: string) => {
 		token,
 		process.env.ACCESS_TOKEN_SECRET!
 	) as JWTAccessToken;
-	return { _id: payload._id, username: payload.username, files: payload.files };
+	return { _id: payload._id, username: payload.username };
 };

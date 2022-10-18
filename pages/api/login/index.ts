@@ -16,10 +16,10 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 			$or: [{ username: credential }, { email: credential }],
 		});
 		if (!response) throw "Error: Account does not exist";
-		const { _id, username, password: hashed_password, files } = response;
+		const { _id, username, password: hashed_password } = response;
 		const unHashed = await unHash(password, hashed_password);
 		if (!unHashed) throw "Error: Incorrect Password";
-		const accessToken = generateAccessToken({ _id, username, files });
+		const accessToken = generateAccessToken({ _id, username });
 		return res
 			.setHeader(
 				"Set-Cookie",

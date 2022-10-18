@@ -1,4 +1,5 @@
 import { memo, useContext, useState } from "react";
+import axios from "../../../../../utils/axios";
 import GlobalContext from "../../../../../utils/context/index";
 import { _ID } from "../../../../../utils/db/account";
 import GenModalDelete from "../../../../gen/modals/delete";
@@ -9,10 +10,19 @@ export interface DeleteFile {
 	file_name: string;
 }
 const FileExplorer: React.FC = () => {
-	const { files, newFiles, setNewFiles } = useContext(GlobalContext);
+	const { files, newFiles, setFiles, setNewFiles } = useContext(GlobalContext);
 	const [addFile, setAddFile] = useState<number>(0);
 	const [deleteFile, setDeleteFile] = useState<DeleteFile>({} as DeleteFile);
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+	async function handleFileRefresh() {
+		try {
+			const res = await axios.get("/index/files/0");
+			setFiles(res.data.files);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
 	function handleFileDeleteCancel() {
 		setShowDeleteModal((prev) => !prev);
 	}
@@ -28,17 +38,20 @@ const FileExplorer: React.FC = () => {
 			};
 		});
 	}
-	function handleFileDelete() {
+	async function handleFileDelete() {
 		try {
 			if (newFiles[deleteFile._id]) {
 				delete newFiles[deleteFile._id];
 				setNewFiles({ ...newFiles });
+				setNewFiles((prev) => {
+					const newFiles = { ...prev };
+					delete newFiles[addFile];
+					return newFiles;
+				});
+			} else {
+				const res = await axios.delete(`/index/files/${deleteFile._id}`);
+				setFiles(res.data.files);
 			}
-			setNewFiles((prev) => {
-				const newFiles = { ...prev };
-				delete newFiles[addFile];
-				return newFiles;
-			});
 			setShowDeleteModal(false);
 		} catch (error) {
 			console.error(error);
@@ -58,6 +71,7 @@ const FileExplorer: React.FC = () => {
 							></button>
 							<button
 								className={`icon-arrows-cw ${styles.optionsButtons}`}
+								onClick={handleFileRefresh}
 							></button>
 						</div>
 					</div>

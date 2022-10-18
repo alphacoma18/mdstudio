@@ -33,18 +33,18 @@ const App: NextPage = () => {
 	);
 	useEffect(() => {
 		(async () => {
-			const x = await axios.get("/auth");
+			const res = await axios.get("/auth");
 			setUser({
-				_id: x.data._id,
-				username: x.data.username,
+				_id: res.data._id || "",
+				username: res.data.username || "",
 			});
-			setFiles(x.data.files);
+			setFiles(res.data.files || {});
 		})();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	useEffect(() => {
 		console.log(files);
-	}, [files])
+	}, [files]);
 	function handleTextInput(text: string) {
 		setTextInput(text);
 	}

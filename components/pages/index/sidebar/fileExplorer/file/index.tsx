@@ -14,7 +14,8 @@ interface Props {
 const File: React.FC<Props> = ({
 	props: { _id, file_name, setDeleteFile, setShowDeleteModal },
 }) => {
-	const { files, newFiles, setNewFiles } = useContext(GlobalContext);
+	const { files, setFiles, newFiles, setNewFiles } = useContext(GlobalContext);
+	const [isSelected, setIsSelected] = useState<boolean>(true);
 	const [fileRename, setFileRename] = useState<string>(
 		files[_id] ? files[_id].file_name : newFiles[_id].file_name
 	);
@@ -34,10 +35,12 @@ const File: React.FC<Props> = ({
 			e.preventDefault();
 			delete newFiles[_id];
 			setNewFiles({ ...newFiles });
-
 			const regex = new RegExp(/^([a-zA-Z0-9]{1,55})(\.)(md|html)$/);
 			if (!regex.test(fileRename)) throw "Invalid file name";
-			await axios.post(`/index/files/${_id}`, { file_name: fileRename });
+			const res = await axios.post(`/index/files/${_id}`, {
+				file_name: fileRename,
+			});
+			setFiles(res.data.files);
 		} catch (error) {
 			console.error(error);
 		}
@@ -52,20 +55,21 @@ const File: React.FC<Props> = ({
 					setShowDeleteModal(true);
 				}}
 			></button>
-			{/* disable the input by default then enable it onDouble click
-
-			 */}
 			<input
 				type="text"
 				className={styles.inputFileName}
 				value={fileRename}
 				onChange={(e) => setFileRename(e.currentTarget.value)}
 				required
+				readOnly={isSelected}
+				onDoubleClick={() => setIsSelected(false)}
+				onKeyUp={(e) => {
+					setIsSelected(false);
+				}}
+				// onKeyUp={() => setIsSelected(false)}
+				onBlur={() => setIsSelected(true)}
 				autoFocus
 				minLength={5}
-				// onDoubleClick={(e) => e.currentTarget.select()}
-				// disabled
-				onDoubleClick={(e) => e.currentTarget.select()}
 				maxLength={60}
 				placeholder="untitled"
 				pattern="^([a-zA-Z0-9]{1,55})(\.)(md|html)$"

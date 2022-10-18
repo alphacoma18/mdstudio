@@ -59,8 +59,30 @@ const accountSchema = new Schema<AccountSchema>({
 	files: {
 		type: Schema.Types.Map,
 		unique: true,
-		of: Object,
+		// of: Object,
+		of: {
+			file_name: {
+				type: String,
+				required: true,
+				minlength: 4,
+				maxlength: 60,
+				unique: true,
+				index: true,
+			},
+			creation_date: {
+				type: Date,
+				required: true,
+			},
+			isPublished: {
+				type: Boolean,
+				required: true,
+			},
+			content: {
+				type: String,
+				required: true,
+			},
 		},
+	},
 });
 const DB_ACCOUNT =
 	mongoose.models.AccountSchema ||

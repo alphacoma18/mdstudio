@@ -86,7 +86,7 @@ hr {
 	background: var(--bg-blue);
 	border: 1px solid var(--bg-blue);
 	color: var(--color-blue);
-	margin: .4rem auto;
+	margin: 0.4rem auto;
 	width: 100%;
 }
 input,
