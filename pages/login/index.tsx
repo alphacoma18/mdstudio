@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { memo, useContext, useEffect, useState } from "react";
 import GenError from "../../components/gen/error";
 import GenImage from "../../components/gen/image";
@@ -9,6 +10,7 @@ import GlobalContext from "../../utils/context";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
+	const router = useRouter();
 	const { isLightTheme } = useContext(GlobalContext);
 	const [credential, setCredential] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
@@ -27,6 +29,7 @@ const Login: NextPage = () => {
 			});
 			if (res.data.err) throw res.data.err;
 			setIsLoader(false);
+			router.push("/");
 		} catch (err: any) {
 			setIsLoader(false);
 			setIsError(true);
@@ -91,7 +94,7 @@ const Login: NextPage = () => {
 						<a className={styles.itemButtons}> Forgot Password</a>
 					</Link>
 				</div>
-				<hr />
+				<hr className="hr" />
 			</form>
 		</section>
 	);

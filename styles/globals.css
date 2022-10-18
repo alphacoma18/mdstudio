@@ -5,13 +5,16 @@
 	--bg-yellow: #faee0f;
 
 	--bg-success: #198754;
+	--bg-error: #dc3545;
 
 	--color-white: #ffffff;
 	--color-black: #000000;
 	--color-blue: #007acc;
+	--color-red: #dc3545;
 
 	--border-blue: 3px solid var(--bg-blue);
 	--border-success: 3px solid var(--bg-success);
+	--border-error: 3px solid var(--bg-error);
 
 	--textarea-bg: #ffffff;
 	--input-black: #233343;
@@ -38,6 +41,7 @@
 }
 *,
 html {
+	box-sizing: border-box;
 	color: var(--color);
 	margin: 0;
 	padding: 0;
@@ -82,8 +86,8 @@ hr {
 	background: var(--bg-blue);
 	border: 1px solid var(--bg-blue);
 	color: var(--color-blue);
-	margin: 1rem auto;
-	width: 70%;
+	margin: .4rem auto;
+	width: 100%;
 }
 input,
 textarea,

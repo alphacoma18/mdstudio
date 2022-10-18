@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FormEvent, memo, useContext, useEffect, useState } from "react";
 import GenError from "../../components/gen/error";
 import GenImage from "../../components/gen/image";
-import GenResponse from "../../components/gen/response";
+import GenResponse, { IResponse } from "../../components/gen/response";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
@@ -19,7 +19,7 @@ const Signup: NextPage = () => {
 	const [isResponse, setIsResponse] = useState<boolean>(false);
 	const [isLoader, setIsLoader] = useState<boolean>(false);
 
-	const [response, setResponse] = useState<string>("");
+	const [response, setResponse] = useState<IResponse>({} as IResponse);
 	const [error, setError] = useState<string>("");
 	async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		try {
@@ -34,9 +34,10 @@ const Signup: NextPage = () => {
 			handleClear();
 			setIsLoader(false);
 			setIsResponse(true);
-			setResponse(
-				"Signup successful. Please check your email to verify your account."
-			);
+			setResponse({
+				header: "Signup successful!",
+				note: "Please check your email to verify your account.",
+			});
 		} catch (err: any) {
 			setIsLoader(false);
 			setIsError(true);
@@ -87,6 +88,7 @@ const Signup: NextPage = () => {
 				/>
 				<input
 					type="email"
+					inputMode="email"
 					className={styles.input}
 					placeholder=">>> Enter Your Email Address"
 					required

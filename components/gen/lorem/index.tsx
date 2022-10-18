@@ -1,4 +1,4 @@
-export default function Lorem () {
+export default function Lorem() {
 	return `# [MyMD: Markdown Publisher](https://mymd.vercel.app)
 ## What is MyMD?
 

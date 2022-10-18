@@ -1,19 +1,37 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
-interface FileSchema {
-	file_name: string;
-	creation_date: Date;
-	isPublished: boolean;
-	content: string;
+export const genObjectId = () => new mongoose.Types.ObjectId();
+export type _ID = string;
+export interface FileSchema {
+	[file_id: _ID]: {
+		file_name: string;
+		creation_date: Date;
+		isPublished: boolean;
+		content: string;
+	};
 }
+const x: FileSchema = {
+	["s"]: {
+		file_name: "s",
+		creation_date: new Date(),
+		isPublished: true,
+		content: "s",
+	},
+};
 export interface AccountSchema {
+	_id: mongoose.Types.ObjectId;
 	username: string;
 	email: string;
 	password: string;
 	creation_date: Date;
-	files: FileSchema[];
+	files: FileSchema;
 }
 const accountSchema = new Schema<AccountSchema>({
+	_id: {
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		unique: true,
+	},
 	username: {
 		type: String,
 		required: true,
@@ -38,33 +56,15 @@ const accountSchema = new Schema<AccountSchema>({
 		type: Date,
 		required: true,
 	},
-	files: [
-		{
-			file_name: {
-				type: String,
-				required: true,
-				minlength: 3,
-				maxlength: 60,
-			},
-			creation_date: {
-				type: Date,
-				required: true,
-			},
-			isPublished: {
-				type: Boolean,
-				required: true,
-			},
-			content: {
-				type: String,
-				required: true,
-				minlength: 1,
-			},
+	files: {
+		type: Schema.Types.Map,
+		unique: true,
+		of: Object,
 		},
-	],
 });
 const DB_ACCOUNT =
 	mongoose.models.AccountSchema ||
-	model<AccountSchema>("account_schema", accountSchema);
+	model<AccountSchema>("AccountSchema", accountSchema);
 
 run().catch((err) => console.log(err));
 async function run() {

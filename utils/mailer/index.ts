@@ -30,7 +30,6 @@ export default async function Mailer({
 		if (info.rejected.length > 0) throw "Error: Unable to send email";
 		return true;
 	} catch (err: any) {
-		console.log(err);
 		return false;
 	}
 }

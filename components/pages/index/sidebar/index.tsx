@@ -52,8 +52,7 @@ const Sidebar: React.FC<Props> = ({
 					</button>
 				</div>
 			</section>
-
-			<>{explorerOpen && <FileExplorer />}</>
+			{explorerOpen && <FileExplorer />}
 		</>
 	);
 };

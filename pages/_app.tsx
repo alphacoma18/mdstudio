@@ -1,10 +1,10 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import "../public/fontello/fontello-a3264dce/css/fontello.css";
+import "../styles/editor.css";
 import "../styles/globals.css";
+import "../styles/markdown.css";
 import { ContextProvider } from "../utils/context";
-import "../styles/editor.css"
-import "../styles/markdown.css"
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>

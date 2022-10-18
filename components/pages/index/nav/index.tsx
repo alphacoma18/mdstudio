@@ -1,16 +1,25 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
+import axios from "../../../../utils/axios";
 import GlobalContext from "../../../../utils/context";
 import GenImage from "../../../gen/image";
 import styles from "./index.module.css";
-
 interface Props {
 	props: {
 		rightBarOpen: boolean;
 	};
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { isLightTheme } = useContext(GlobalContext);
+	const { user, isLightTheme } = useContext(GlobalContext);
+
+	async function handleLogout() {
+		try {
+			await axios.post("/logout");
+			window.location.reload();
+		} catch (err: any) {
+			window.location.reload();
+		}
+	}
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>
@@ -65,12 +74,19 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					<i className={`icon-publish ${styles.iFonts}`}></i>
 					<span>Publish</span>
 				</button>
-				<Link href="/login">
-					<a className={styles.itemButtons}>
-						<i className={`icon-login ${styles.iFonts}`}></i>
-						<span>Login/Signup</span>
-					</a>
-				</Link>
+				{user._id ? (
+					<button className={styles.itemButtons} onClick={handleLogout}>
+						<i className={`icon-logout ${styles.iFonts}`}></i>
+						<span>Logout</span>
+					</button>
+				) : (
+					<Link href="/login">
+						<a className={styles.itemButtons}>
+							<i className={`icon-login ${styles.iFonts}`}></i>
+							<span>Login/Signup</span>
+						</a>
+					</Link>
+				)}
 			</div>
 		</nav>
 	);

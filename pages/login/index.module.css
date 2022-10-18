@@ -30,6 +30,10 @@
 	padding: 17.5px 29px;
 	width: 100%;
 }
+.input::selection {
+	background: var(--bg-white);
+	color: var(--color-blue);
+}
 .input:valid {
 	background: var(--bg-blue);
 	color: var(--color-white);

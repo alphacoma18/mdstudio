@@ -1,0 +1,60 @@
+.section {
+	background: var(--bg-1);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	animation: fade 100ms ease-in-out;
+}
+.flexDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+.flexButton {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.4rem;
+}
+.warning {
+	font-weight: bold;
+}
+.delete,
+.cancel {
+	width: 100%;
+	font-weight: bold;
+}
+.delete {
+	border: var(--border-error);
+}
+.cancel {
+	border: var(--border-blue);
+}
+.delete:hover,
+.delete:active,
+.delete:focus {
+	background: var(--bg-error);
+}
+.cancel:hover,
+.cancel:active,
+.cancel:focus {
+	background: var(--bg-blue);
+}
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

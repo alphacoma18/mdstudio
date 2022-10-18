@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { memo, useContext, useState } from "react";
+import GenImage from "../../components/gen/image";
 import axios from "../../utils/axios";
 import GlobalContext from "../../utils/context";
-import GenImage from "../../components/gen/image";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
 
@@ -39,6 +39,7 @@ const Verify: NextPage = () => {
 				<hr />
 				<input
 					type="email"
+					inputMode="email"
 					className={styles.input}
 					placeholder=">>> Enter Your Email Address"
 					required

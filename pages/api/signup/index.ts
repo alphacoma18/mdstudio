@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import NewDate from "../../../utils/date";
 import DB_VERIFY from "../../../utils/db/verify";
-import { hash } from "../../../utils/hash";
-import { generateVerificationToken } from "../../../utils/jwt";
+import NewDate from "../../../utils/gen/date";
+import { hash } from "../../../utils/gen/hash";
+import { generateVerificationToken } from "../../../utils/gen/jwt";
 import mailer from "../../../utils/mailer";
 import MailerHTMLSignup from "./html";
 export interface Body {
@@ -29,7 +29,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 			html: mailerHTML,
 		});
 		if (!mailerResponse) throw "Error: Unable to send email";
-		const success = await DB_VERIFY.create({
+		await DB_VERIFY.create({
 			username,
 			email,
 			password,
@@ -37,9 +37,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		});
 		res.status(200).send("");
 	} catch (err: any) {
-		if (err.name) {
+		if (err.name)
 			return res.json({ err: "Error: Duplicate username or email" });
-		}
 		res.json({ err });
 	}
 }
