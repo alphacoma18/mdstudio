@@ -165,7 +165,6 @@ body[data-color-mode*="light"] {
 .wmde-markdown img {
 	background-color: var(--color-canvas-default);
 	border-style: none;
-	box-sizing: content-box;
 	max-width: 100%;
 }
 .wmde-markdown code,
@@ -181,20 +180,16 @@ body[data-color-mode*="light"] {
 .wmde-markdown hr {
 	background: transparent;
 	background-color: var(--color-border-default);
-	border: 0;
 	border-bottom: 1px solid var(--color-border-muted);
-	box-sizing: content-box;
 	height: 0.25em;
 	margin: 24px 0;
 	overflow: hidden;
-	padding: 0;
 }
 .wmde-markdown input {
 	font: inherit;
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit;
-	margin: 0;
 	overflow: visible;
 }
 .wmde-markdown [type="button"],
@@ -207,17 +202,11 @@ body[data-color-mode*="light"] {
 .wmde-markdown [type="reset"]::-moz-focus-inner,
 .wmde-markdown [type="submit"]::-moz-focus-inner {
 	border-style: none;
-	padding: 0;
 }
 .wmde-markdown [type="button"]:-moz-focusring,
 .wmde-markdown [type="reset"]:-moz-focusring,
 .wmde-markdown [type="submit"]:-moz-focusring {
 	outline: 1px dotted ButtonText;
-}
-.wmde-markdown [type="checkbox"],
-.wmde-markdown [type="radio"] {
-	box-sizing: border-box;
-	padding: 0;
 }
 .wmde-markdown [type="number"]::-webkit-inner-spin-button,
 .wmde-markdown [type="number"]::-webkit-outer-spin-button {
@@ -262,10 +251,6 @@ body[data-color-mode*="light"] {
 	width: -webkit-max-content;
 	width: max-content;
 }
-.wmde-markdown td,
-.wmde-markdown th {
-	padding: 0;
-}
 .wmde-markdown details summary {
 	cursor: pointer;
 }
@@ -296,10 +281,6 @@ body[data-color-mode*="light"] {
 	line-height: 1.25;
 	margin-bottom: 16px;
 	margin-top: 24px;
-}
-.wmde-markdown td,
-.wmde-markdown th {
-	padding: 0;
 }
 .wmde-markdown details summary {
 	cursor: pointer;
@@ -362,7 +343,6 @@ body[data-color-mode*="light"] {
 .wmde-markdown blockquote {
 	border-left: 0.25em solid var(--color-border-default);
 	color: var(--color-fg-muted);
-	margin: 0;
 	padding: 0 1em;
 }
 .wmde-markdown ul,
@@ -416,7 +396,6 @@ body[data-color-mode*="light"] {
 .wmde-markdown input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	appearance: none;
-	margin: 0;
 }
 .wmde-markdown [data-catalyst] {
 	display: block;
@@ -519,7 +498,6 @@ body[data-color-mode*="light"] {
 .wmde-markdown ul.no-list,
 .wmde-markdown ol.no-list {
 	list-style-type: none;
-	padding: 0;
 }
 .wmde-markdown ol[type="1"] {
 	list-style-type: decimal;
@@ -546,15 +524,11 @@ body[data-color-mode*="light"] {
 .wmde-markdown li + li {
 	margin-top: 0.25em;
 }
-.wmde-markdown dl {
-	padding: 0;
-}
 .wmde-markdown dl dt {
 	font-size: 1em;
 	font-style: italic;
 	font-weight: 600;
 	margin-top: 16px;
-	padding: 0;
 }
 .wmde-markdown dl dd {
 	margin-bottom: 16px;
@@ -639,7 +613,6 @@ body[data-color-mode*="light"] {
 	text-align: right;
 }
 .wmde-markdown span.align-right span img {
-	margin: 0;
 	text-align: right;
 }
 .wmde-markdown span.float-left {
@@ -668,7 +641,6 @@ body[data-color-mode*="light"] {
 	background-color: var(--color-neutral-muted);
 	border-radius: 6px;
 	font-size: 85%;
-	margin: 0;
 	padding: 0.2em 0.4em;
 }
 .wmde-markdown code br,
@@ -684,8 +656,6 @@ body[data-color-mode*="light"] {
 .wmde-markdown pre > code {
 	background: transparent;
 	border: 0;
-	margin: 0;
-	padding: 0;
 	white-space: pre;
 	word-break: normal;
 }
@@ -701,10 +671,8 @@ body[data-color-mode*="light"] {
 	border: 0;
 	display: inline;
 	line-height: inherit;
-	margin: 0;
 	max-width: auto;
 	overflow: visible;
-	padding: 0;
 	word-wrap: normal;
 }
 .wmde-markdown pre > code {

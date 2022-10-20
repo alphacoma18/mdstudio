@@ -49,7 +49,6 @@
 .itemButtons {
 	border: var(--border-blue);
 	border-radius: 0.6rem;
-	box-sizing: content-box;
 	padding: 0.2rem;
 	text-align: center;
 	width: calc(50% - 6px - 0.6rem);

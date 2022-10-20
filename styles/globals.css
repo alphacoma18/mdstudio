@@ -27,7 +27,8 @@
 	color: var(--color-white);
 }
 ::-webkit-scrollbar-track {
-	background: var(--bg-1);
+	/* background: var(--bg-1); */
+	background: transparent;
 }
 ::-webkit-scrollbar-thumb {
 	background: var(--bg-2);
@@ -52,7 +53,7 @@ textarea,
 div,
 section,
 code {
-	scrollbar-color: var(--bg-2) var(--bg-1);
+	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
 }
 body {

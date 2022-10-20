@@ -41,7 +41,7 @@ const Canvas: React.FC<Props> = ({
 							onChange={handleTextInput}
 							className={styles.editor}
 							previewOptions={{
-								rehypePlugins: [[rehypeSanitize]],
+								rehypePlugins: [rehypeSanitize],
 							}}
 						/>
 					</GrammarlyEditorPlugin>

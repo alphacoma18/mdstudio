@@ -8,7 +8,6 @@
 }
 .dataColorMode {
 	height: 100%;
-	min-height: 100%;
 	width: 100%;
 }
 div.editor {
@@ -20,14 +19,14 @@ div.editor {
 }
 @media screen and (max-width: 768px) {
 	.canvasSection {
-		grid-area: 2 / 3 / 4 / span 3;
+		grid-area: 2 / 3 / 4 / span 2;
 	}
 }
 @media screen and (max-width: 480px) {
 	.canvasSection {
-		grid-area: 2 / 3 / 5 / 4;
+		grid-area: 2 / 3 / 4 / 4;
 	}
 	section.explorerOpen {
-		grid-area: 3 / 2 / 5 / 4;
+		grid-area: 3 / 3 / 5 / 4;
 	}
 }

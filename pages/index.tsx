@@ -28,7 +28,6 @@ const App: NextPage = () => {
 	const [characterCount, setCharacterCount] = useState<number>(0);
 	const [wordCount, setWordCount] = useState<number>(0);
 	const [textInput, setTextInput] = useState<string>(
-		// access the first object in the object of files
 		Object.values(files || {})[0]?.content || Lorem()
 	);
 	useEffect(() => {
@@ -42,9 +41,6 @@ const App: NextPage = () => {
 		})();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	useEffect(() => {
-		console.log(files);
-	}, [files]);
 	function handleTextInput(text: string) {
 		setTextInput(text);
 	}
@@ -58,9 +54,13 @@ const App: NextPage = () => {
 		setExplorerOpen((prev) => !prev);
 	}
 	function handleLeftBarOpen() {
+		if (leftBarOpen) setExplorerOpen(false);
+		if (rightBarOpen) setRightBarOpen(false);
 		setLeftBarOpen((prev) => !prev);
 	}
 	function handleRightBarOpen() {
+		if (rightBarOpen) setExplorerOpen(false);
+		if (leftBarOpen) setLeftBarOpen(false);
 		setRightBarOpen((prev) => !prev);
 	}
 

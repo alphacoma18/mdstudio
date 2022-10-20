@@ -34,6 +34,5 @@ MyMD offers a built-in markdown tool bar that allows you to easily format your t
 
 ## Contributors
 MyMD is a free and open source project, open for contributions and collaborations.
-1. Alpha Romer N. Coma
-	`;
+1. Alpha Romer N. Coma`;
 }
