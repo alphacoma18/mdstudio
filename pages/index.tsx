@@ -50,7 +50,7 @@ const IndexPage = () => {
 		// console.log(files[currentFileId].content);
 
 		// if (currentFileId && files[currentFileId].content)
-			// setTextInput(files[currentFileId].content);
+		// setTextInput(files[currentFileId].content);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentFileId]);
 	function handleTextInput(text: string) {
