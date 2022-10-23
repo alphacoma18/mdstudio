@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import GlobalContext from "../../../../../utils/context";
+import ContextGlobal from "../../../../../utils/context";
 import GenImage from "../../../../gen/image";
 import styles from "./index.module.css";
 
@@ -12,7 +12,7 @@ interface Props {
 const MobileNav: React.FC<Props> = ({
 	props: { handleLeftBarOpen, handleRightBarOpen },
 }) => {
-	const { isLightTheme } = useContext(GlobalContext);
+	const { isLightTheme } = useContext(ContextGlobal);
 	return (
 		<nav className={styles.mobileNav}>
 			<section>

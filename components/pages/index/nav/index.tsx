@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
 import axios from "../../../../utils/axios";
-import GlobalContext from "../../../../utils/context";
+import ContextGlobal from "../../../../utils/context";
 import GenImage from "../../../gen/image";
 import styles from "./index.module.css";
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 	};
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { user, isLightTheme } = useContext(GlobalContext);
+	const { user, isLightTheme } = useContext(ContextGlobal);
 
 	async function handleLogout() {
 		try {

@@ -1,7 +1,7 @@
 import { memo, useContext, useEffect, useState } from "react";
 import { DeleteFile } from "..";
 import axios from "../../../../../../utils/axios";
-import GlobalContext from "../../../../../../utils/context";
+import ContextIndex from "../../../../../../utils/context/index/index";
 import styles from "./index.module.css";
 interface Props {
 	props: {
@@ -14,7 +14,8 @@ interface Props {
 const File: React.FC<Props> = ({
 	props: { _id, file_name, setDeleteFile, setShowDeleteModal },
 }) => {
-	const { files, setFiles, newFiles, setNewFiles } = useContext(GlobalContext);
+	const { files, setFiles, newFiles, setNewFiles, setCurrentFileId } =
+		useContext(ContextIndex);
 	const [isSelected, setIsSelected] = useState<boolean>(true);
 	const [fileRename, setFileRename] = useState<string>(
 		files[_id] ? files[_id].file_name : newFiles[_id].file_name
@@ -63,10 +64,8 @@ const File: React.FC<Props> = ({
 				required
 				readOnly={isSelected}
 				onDoubleClick={() => setIsSelected(false)}
-				onKeyUp={(e) => {
-					setIsSelected(false);
-				}}
-				// onKeyUp={() => setIsSelected(false)}
+				onKeyUp={() => setIsSelected(false)}
+				onClick={() => setCurrentFileId(_id)}
 				onBlur={() => setIsSelected(true)}
 				autoFocus
 				minLength={5}

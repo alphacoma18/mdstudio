@@ -151,12 +151,17 @@
 	border-radius: 3px 3px 0 0;
 	display: flex;
 	justify-content: space-between;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y: hidden;
 	padding: 5px 5px;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
+}
+@media screen and (max-width: 480px) {
+	.w-md-editor-toolbar {
+		overflow-x: scroll;
+	}
 }
 .w-md-editor-toolbar.bottom {
 	border-bottom: 0px;
@@ -164,8 +169,8 @@
 	border-top: 1px solid var(--color-border-default);
 }
 .w-md-editor-toolbar ul {
-	display: flex;
 	align-items: center;
+	display: flex;
 }
 .w-md-editor-toolbar ul,
 .w-md-editor-toolbar li {
@@ -227,7 +232,6 @@
 	display: flex;
 	flex-direction: column;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	padding-bottom: 1px;
 	position: relative;
 	text-align: left;
 	width: 100%;

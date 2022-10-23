@@ -6,12 +6,12 @@ import GenError from "../../components/gen/error";
 import GenImage from "../../components/gen/image";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
-import GlobalContext from "../../utils/context";
+import ContextGlobal from "../../utils/context";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
 	const router = useRouter();
-	const { isLightTheme } = useContext(GlobalContext);
+	const { isLightTheme } = useContext(ContextGlobal);
 	const [credential, setCredential] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 

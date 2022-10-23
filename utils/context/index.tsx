@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import Theme from "../../styles/themes";
-import { FileSchema } from "../db/account";
-import { IGlobalContext, NewFileSchema, User } from "./interface";
+import { IContextGlobal, User } from "./interface";
 
-const GlobalContext = React.createContext<IGlobalContext>({
+const ContextGlobal = createContext<IContextGlobal>({
 	isLightTheme: true,
 	handleTheme() {},
 	user: {} as User,
 	setUser() {},
-	files: {},
-	setFiles() {},
-	newFiles: {},
-	setNewFiles() {},
 });
-export default GlobalContext;
+export default ContextGlobal;
 
 interface Props {
-	children: React.ReactNode;
+	children: ReactNode;
 }
-export const ContextProvider: React.FC<Props> = ({ children }) => {
+export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	const [isLightTheme, setIsLightTheme] = useState<boolean>(() => {
 		if (typeof window !== "undefined") {
 			const theme = localStorage.getItem("theme-preference");
@@ -37,23 +32,17 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
 	}, [isLightTheme]);
 
 	const [user, setUser] = useState<User>({} as User);
-	const [files, setFiles] = useState<FileSchema>({});
-	const [newFiles, setNewFiles] = useState<NewFileSchema>({});
 	return (
-		<GlobalContext.Provider
+		<ContextGlobal.Provider
 			value={{
 				isLightTheme,
 				handleTheme,
 				user,
 				setUser,
-				files,
-				setFiles,
-				newFiles,
-				setNewFiles,
 			}}
 		>
 			<Theme theme={isLightTheme} />
 			{children}
-		</GlobalContext.Provider>
+		</ContextGlobal.Provider>
 	);
 };

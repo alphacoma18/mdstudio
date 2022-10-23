@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import GlobalContext from "../../../../utils/context";
+import ContextGlobal from "../../../../utils/context";
 import FileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
 
@@ -13,7 +13,7 @@ interface Props {
 const Sidebar: React.FC<Props> = ({
 	props: { leftBarOpen, explorerOpen, handleExplorerOpen },
 }) => {
-	const { isLightTheme, handleTheme } = useContext(GlobalContext);
+	const { isLightTheme, handleTheme } = useContext(ContextGlobal);
 
 	return (
 		<>

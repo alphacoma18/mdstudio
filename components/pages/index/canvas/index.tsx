@@ -2,7 +2,7 @@ import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import dynamic from "next/dynamic";
 import { memo, useContext } from "react";
 import rehypeSanitize from "rehype-sanitize";
-import GlobalContext from "../../../../utils/context";
+import ContextGlobal from "../../../../utils/context";
 import styles from "./index.module.css";
 const MDEditor = dynamic(
 	() => import("@uiw/react-md-editor").then((mod) => mod.default),
@@ -18,7 +18,7 @@ interface Props {
 const Canvas: React.FC<Props> = ({
 	props: { handleTextInput, textInput, explorerOpen },
 }) => {
-	const { isLightTheme } = useContext(GlobalContext);
+	const { isLightTheme } = useContext(ContextGlobal);
 	return (
 		<>
 			<section

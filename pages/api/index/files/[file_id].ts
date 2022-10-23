@@ -53,7 +53,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 								file_name,
 								creation_date: new Date(),
 								isPublished: false,
-								content: "",
+								content: file_name,
 							},
 						},
 					},

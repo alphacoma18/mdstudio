@@ -1,6 +1,6 @@
 import { memo, useContext, useState } from "react";
 import axios from "../../../../../utils/axios";
-import GlobalContext from "../../../../../utils/context/index";
+import ContextIndex from "../../../../../utils/context/index/index";
 import { _ID } from "../../../../../utils/db/account";
 import GenModalDelete from "../../../../gen/modals/delete";
 import File from "./file";
@@ -10,7 +10,7 @@ export interface DeleteFile {
 	file_name: string;
 }
 const FileExplorer: React.FC = () => {
-	const { files, newFiles, setFiles, setNewFiles } = useContext(GlobalContext);
+	const { files, newFiles, setFiles, setNewFiles } = useContext(ContextIndex);
 	const [addFile, setAddFile] = useState<number>(0);
 	const [deleteFile, setDeleteFile] = useState<DeleteFile>({} as DeleteFile);
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);

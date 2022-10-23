@@ -1,11 +1,20 @@
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import type { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-a3264dce/css/fontello.css";
 import "../styles/editor.css";
 import "../styles/globals.css";
 import "../styles/markdown.css";
-import { ContextProvider } from "../utils/context";
-function MyApp({ Component, pageProps }: AppProps) {
+import { ContextProviderGlobal } from "../utils/context";
+type NextPageWithLayout = NextPage & {
+	getLayout?: (page: ReactElement) => ReactNode;
+};
+type AppPropsWithLayout = AppProps & {
+	Component: NextPageWithLayout;
+};
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+	const getLayout = Component.getLayout ?? ((page) => page);
 	return (
 		<>
 			<Head>
@@ -37,7 +46,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />
 				<meta name="Googlebot" content="all" />
-				<meta name="Bingbot" content="all" />
 				<meta name="Bingbot" content="all" />
 				<meta name="Baiduspider" content="all" />
 				<meta name="YandexBot" content="all" />
@@ -125,9 +133,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007acc" />
 				<link rel="manifest" href="/manifest.webmanifest" />
 			</Head>
-			<ContextProvider>
-				<Component {...pageProps} />;
-			</ContextProvider>
+			{getLayout(
+				<ContextProviderGlobal>
+					<Component {...pageProps} />
+				</ContextProviderGlobal>
+			)}
 		</>
 	);
 }

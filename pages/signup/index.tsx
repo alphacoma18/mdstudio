@@ -6,11 +6,11 @@ import GenImage from "../../components/gen/image";
 import GenResponse, { IResponse } from "../../components/gen/response";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
-import GlobalContext from "../../utils/context";
+import ContextGlobal from "../../utils/context";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
 const Signup: NextPage = () => {
-	const { isLightTheme } = useContext(GlobalContext);
+	const { isLightTheme } = useContext(ContextGlobal);
 	const [username, setUsername] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");

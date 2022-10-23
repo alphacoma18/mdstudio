@@ -2,11 +2,11 @@ import type { NextPage } from "next";
 import { memo, useContext, useState } from "react";
 import GenImage from "../../components/gen/image";
 import axios from "../../utils/axios";
-import GlobalContext from "../../utils/context";
+import ContextGlobal from "../../utils/context";
 import styles from "../login/index.module.css";
 
 const ResetPassword: NextPage = () => {
-	const { isLightTheme } = useContext(GlobalContext);
+	const { isLightTheme } = useContext(ContextGlobal);
 	const [newPassword, setNewPassword] = useState<string>("");
 	const [verifyNewPassword, setVerifyNewPassword] = useState<string>("");
 
