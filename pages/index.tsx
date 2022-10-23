@@ -1,4 +1,4 @@
-import { ReactElement, useContext, useEffect, useState } from "react";
+import { memo, ReactElement, useContext, useEffect, useState } from "react";
 import Lorem from "../components/gen/lorem";
 import BotBar from "../components/pages/index/botbar";
 import Canvas from "../components/pages/index/canvas";
@@ -7,7 +7,6 @@ import Sidebar from "../components/pages/index/sidebar";
 import MobileNav from "../components/pages/index/_mobile/mobileNav";
 import axios from "../utils/axios";
 import ContextGlobal from "../utils/context";
-
 import ContextIndex, {
 	ContextProviderIndex,
 } from "../utils/context/index/index";
@@ -47,7 +46,11 @@ const IndexPage = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	useEffect(() => {
-		if (currentFileId) setTextInput(files[currentFileId].content);
+		console.warn(currentFileId);
+		// console.log(files[currentFileId].content);
+
+		// if (currentFileId && files[currentFileId].content)
+			// setTextInput(files[currentFileId].content);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentFileId]);
 	function handleTextInput(text: string) {
@@ -102,10 +105,6 @@ const IndexPage = () => {
 	);
 };
 IndexPage.getLayout = function getLayout(page: ReactElement) {
-	return (
-		<>
-			<ContextProviderIndex>{page}</ContextProviderIndex>
-		</>
-	);
+	return <ContextProviderIndex>{page}</ContextProviderIndex>;
 };
-export default IndexPage;
+export default memo(IndexPage);

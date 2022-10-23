@@ -158,11 +158,6 @@
 	-webkit-user-select: none;
 	user-select: none;
 }
-@media screen and (max-width: 480px) {
-	.w-md-editor-toolbar {
-		overflow-x: scroll;
-	}
-}
 .w-md-editor-toolbar.bottom {
 	border-bottom: 0px;
 	border-radius: 0 0 3px 3px;
@@ -299,6 +294,29 @@
 	top: 0;
 	z-index: 99999;
 }
-.w-md-editor-fullscreen .w-md-editor-content {
-	height: 100%;
+@media screen and (max-width: 768px) {
+	.w-md-editor-toolbar {
+		overflow-x: scroll;
+	}
+	.w-md-editor-content {
+		display: flex;
+		flex-wrap: wrap;
+		position: static;
+	}
+	.w-md-editor-input {
+		display: block;
+		flex: 1 1 100%;
+		height: 50%;
+	}
+	div.w-md-editor-preview {
+		flex: 1 1 100%;
+		height: 50%;
+		position: static;
+	}
+	.w-md-editor-preview:not(:only-child) {
+		border-top: var(--border-blue);
+	}
+	.w-md-editor-content div:only-child {
+		height: 100%;
+	}
 }

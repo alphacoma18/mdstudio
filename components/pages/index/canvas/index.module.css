@@ -19,7 +19,7 @@ div.editor {
 }
 @media screen and (max-width: 768px) {
 	.canvasSection {
-		grid-area: 2 / 3 / 4 / span 2;
+		grid-area: 2 / 3 / 4 / 4;
 	}
 }
 @media screen and (max-width: 480px) {

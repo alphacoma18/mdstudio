@@ -2,10 +2,11 @@ import { memo, useContext, useEffect, useState } from "react";
 import { DeleteFile } from "..";
 import axios from "../../../../../../utils/axios";
 import ContextIndex from "../../../../../../utils/context/index/index";
+import { _ID } from "../../../../../../utils/db/account";
 import styles from "./index.module.css";
 interface Props {
 	props: {
-		_id: string;
+		_id: _ID;
 		file_name: string;
 		setDeleteFile: React.Dispatch<React.SetStateAction<DeleteFile>>;
 		setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
