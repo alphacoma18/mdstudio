@@ -53,6 +53,9 @@ const Sidebar: React.FC<Props> = ({
 							<i className={`icon-toggle-on ${styles.iFonts}`}></i>
 						)}
 					</button>
+					<button className={styles.itemButtons}>
+						<i className={`icon-cog-alt ${styles.iFonts}`}></i>
+					</button>
 				</div>
 			</section>
 			{explorerOpen && <FileExplorer />}

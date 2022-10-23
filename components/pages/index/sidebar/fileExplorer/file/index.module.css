@@ -4,6 +4,7 @@
 }
 .inputFileName {
 	cursor: pointer;
+	outline: none;
 	padding-left: 0.2rem;
 	padding-right: 0.2rem;
 	width: 100%;
@@ -17,7 +18,8 @@
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
-.inputFileName:invalid {
+.inputFileName:focus:invalid,
+.inputFileName:focus:invalid {
 	background: var(--bg-error);
 	color: var(--color-white);
 }

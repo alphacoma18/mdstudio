@@ -2,7 +2,6 @@
 	display: none;
 }
 .w-md-editor-aree {
-	border-radius: 5px;
 	overflow: auto;
 }
 .w-md-editor-text {
@@ -95,10 +94,9 @@
 }
 
 .w-md-editor-toolbar-child {
-	background: var(--color-canvas-default);
-	border-radius: 3px;
-	box-shadow: 0 0 0 1px var(--color-border-default),
-		0 0 0 var(--color-border-default), 0 1px 1px var(--color-border-default);
+	background: var(--canvas-bg);
+	border: 1px solid var(--bg-blue);
+	border-radius: .2rem;
 	display: none;
 	position: absolute;
 	z-index: 1;
@@ -108,7 +106,6 @@
 }
 .w-md-editor-toolbar-child .w-md-editor-toolbar {
 	border-bottom: 0;
-	border-radius: 3px;
 	padding: 3px;
 }
 .w-md-editor-toolbar-child .w-md-editor-toolbar ul > li {
@@ -121,7 +118,6 @@
 }
 .w-md-editor-toolbar {
 	align-items: center;
-	border-radius: 3px 3px 0 0;
 	display: flex;
 	justify-content: space-between;
 	overflow-x: auto;
@@ -133,7 +129,6 @@
 }
 .w-md-editor-toolbar.bottom {
 	border-bottom: 0px;
-	border-radius: 0 0 3px 3px;
 	border-top: 1px solid var(--color-border-default);
 }
 .w-md-editor-toolbar ul {
@@ -166,13 +161,9 @@
 	white-space: nowrap;
 }
 .w-md-editor-toolbar li > button:hover,
-.w-md-editor-toolbar li > button:focus {
-	background: var(--color-neutral-muted);
-	color: var(--color-accent-fg);
-}
+.w-md-editor-toolbar li > button:focus,
 .w-md-editor-toolbar li > button:active {
 	background: var(--color-neutral-muted);
-	color: var(--color-danger-fg);
 }
 .w-md-editor-toolbar li > button:disabled {
 	color: var(--color-border-default);
@@ -210,7 +201,6 @@
 }
 .w-md-editor-content {
 	background: var(--canvas-bg);
-	border-radius: 0 0 3px 0;
 	height: 100%;
 	overflow: auto;
 	position: relative;
@@ -227,7 +217,6 @@
 	word-break: break-word;
 }
 .w-md-editor-preview {
-	border-radius: 0 0 5px 0;
 	bottom: 0;
 	display: flex;
 	flex-direction: column;
@@ -268,6 +257,15 @@
 	top: 0;
 	z-index: 99999;
 }
+.w-md-editor-toolbar-child .w-md-editor-toolbar:first-child > ul {
+	background: var(--canvas-bg);
+	border-radius: 400px;
+	display: block;
+}
+.w-md-editor-toolbar-child .w-md-editor-toolbar:first-child > ul li button {
+	width: 100%;
+}
+
 @media screen and (max-width: 768px) {
 	.w-md-editor-toolbar {
 		overflow-x: scroll;

@@ -84,23 +84,22 @@ const FileExplorer: React.FC = () => {
 							}}
 						/>
 					)}
-					<ul className={styles.filesList}>
+					<ul className={styles.newFilesList}>
 						{newFiles &&
 							Object.keys(newFiles).map((newFile) => (
-								<>
-									<li key={newFile} className={styles.file}>
-										<File
-											props={{
-												_id: newFile,
-												file_name: newFiles[newFile].file_name,
-												setDeleteFile,
-												setShowDeleteModal,
-											}}
-										/>
-									</li>
-								</>
+								<li key={newFile} className={styles.file}>
+									<File
+										props={{
+											_id: newFile,
+											file_name: newFiles[newFile].file_name,
+											setDeleteFile,
+											setShowDeleteModal,
+										}}
+									/>
+								</li>
 							))}
-						{newFiles && <hr />}
+					</ul>
+					<ul className={styles.filesList}>
 						{files &&
 							Object.keys(files).map((file) => (
 								<li key={file} className={styles.file}>

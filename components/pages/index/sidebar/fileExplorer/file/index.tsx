@@ -21,7 +21,7 @@ const File: React.FC<Props> = ({
 	const [fileRename, setFileRename] = useState<string>(
 		files[_id] ? files[_id].file_name : newFiles[_id].file_name
 	);
-
+	const isOnFiles = files[_id] ? true : false;
 	useEffect(() => {
 		if (newFiles[_id]) {
 			setNewFiles((prev) => {
@@ -49,31 +49,34 @@ const File: React.FC<Props> = ({
 	}
 	return (
 		<form onSubmit={handleSubmit} className={styles.form}>
-			<button
-				type="button"
-				className={`icon-minus-squared ${styles.deleteIcon}`}
-				onClick={() => {
-					setDeleteFile({ _id, file_name });
-					setShowDeleteModal(true);
-				}}
-			></button>
-			<input
-				type="text"
-				className={styles.inputFileName}
-				value={fileRename}
-				onChange={(e) => setFileRename(e.currentTarget.value)}
-				required
-				readOnly={isSelected}
-				onDoubleClick={() => setIsSelected(false)}
-				onKeyUp={() => setIsSelected(false)}
-				onClick={() => setCurrentFileId(_id)}
-				onBlur={() => setIsSelected(true)}
-				autoFocus
-				minLength={5}
-				maxLength={60}
-				placeholder="untitled"
-				pattern="^([a-zA-Z0-9]{1,55})(\.)(md|html)$"
-			/>
+			<>
+				{files[_id] ? (
+					<button className={`icon-cog ${styles.deleteIcon}`}></button>
+				) : (
+					<button
+						type="button"
+						className={`icon-minus-squared ${styles.deleteIcon}`}
+						onClick={() => {
+							setDeleteFile({ _id, file_name });
+							setShowDeleteModal(true);
+						}}
+					></button>
+				)}
+				<input
+					type="text"
+					className={styles.inputFileName}
+					value={fileRename}
+					onChange={(e) => setFileRename(e.currentTarget.value)}
+					required
+					readOnly={isOnFiles}
+					autoFocus={isSelected}
+					onBlur={() => setIsSelected(true)}
+					minLength={5}
+					maxLength={60}
+					placeholder="untitled"
+					pattern="^([a-zA-Z0-9]{1,55})(\.)(md|html)$"
+				/>
+			</>
 		</form>
 	);
 };

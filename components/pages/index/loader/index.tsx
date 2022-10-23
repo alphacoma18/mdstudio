@@ -3,13 +3,11 @@ import styles from "./index.module.css";
 
 const Loader: React.FC = () => {
 	return (
-		<>
-			<section className={styles.loaderOuter}>
-				<div className={styles.loaderInner}>
-					<div className={styles.loader}></div>
-				</div>
-			</section>
-		</>
+		<section className={styles.loaderOuter}>
+			<div className={styles.loaderInner}>
+				<div className={styles.loader}></div>
+			</div>
+		</section>
 	);
 };
 

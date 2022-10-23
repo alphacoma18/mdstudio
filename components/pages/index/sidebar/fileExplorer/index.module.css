@@ -25,9 +25,13 @@
 	display: flex;
 	text-align: end;
 }
+.newFilesList,
 .filesList {
 	list-style-type: none;
 	white-space: nowrap;
+}
+.newFilesList {
+	border-bottom: 3px solid var(--bg-2);
 }
 .file {
 	padding: 0.2rem 0;

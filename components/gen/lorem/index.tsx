@@ -24,6 +24,7 @@ Perhaps you want to write a blog post, or a personal or promotional webpage, or 
 MyMD offers a built-in markdown tool bar that allows you to easily format your text, and grammarly support for grammar and spelling checks. You can also use the built-in keyboard shortcuts to format your text and switch between view modes. MyMD also offers a built-in file manager that allows you to easily create, open, save, and delete multiple files if logged in.
 
 ## Planned Future Features
+- [x] ~~Support for HTML~~
 - [ ] Local Autosave Feature
 - [ ] Multi-Language Support
 - [ ] Collaborative Editing using web sockets

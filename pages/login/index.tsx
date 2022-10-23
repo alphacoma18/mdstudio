@@ -91,7 +91,7 @@ const Login: NextPage = () => {
 						<a className={styles.itemButtons}> Forgot Password</a>
 					</Link>
 				</div>
-				<hr className="hr" />
+				<hr />
 			</form>
 		</section>
 	);
