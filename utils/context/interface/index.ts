@@ -5,7 +5,7 @@ export interface User {
 }
 export interface IContextGlobal {
 	isLightTheme: boolean;
-	handleTheme: () => void;
+	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
 	user: User;
 	setUser: React.Dispatch<React.SetStateAction<User>>;
 }

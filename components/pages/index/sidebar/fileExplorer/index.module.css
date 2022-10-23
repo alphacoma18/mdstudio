@@ -1,6 +1,5 @@
 .outerSection {
 	background: var(--bg-1);
-	/* border-right: 5px solid var(--bg-2); */
 	box-shadow: var(--box-shadow);
 	grid-area: 2 / 2 / 4 / 3;
 	height: 100%;
@@ -12,12 +11,12 @@
 	padding: 1rem;
 }
 .headerDiv {
+	background: var(--bg-1);
 	border-bottom: 3px solid var(--bg-2);
 	display: flex;
 	font-weight: bold;
 	position: sticky;
 	top: 0;
-	background: var(--bg-1);
 }
 .headerParagraph {
 	width: 100%;
@@ -36,8 +35,8 @@
 .optionsButtons:hover,
 .optionsButtons:active,
 .optionsButtons:focus {
-	cursor: pointer;
 	color: var(--color-blue);
+	cursor: pointer;
 }
 @media screen and (max-width: 480px) {
 	section.outerSection {

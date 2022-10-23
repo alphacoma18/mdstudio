@@ -1,16 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { FormEvent, memo, useContext, useEffect, useState } from "react";
+import { FormEvent, memo, useEffect, useState } from "react";
 import GenError from "../../components/gen/error";
 import GenImage from "../../components/gen/image";
 import GenResponse, { IResponse } from "../../components/gen/response";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
-import ContextGlobal from "../../utils/context";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
 const Signup: NextPage = () => {
-	const { isLightTheme } = useContext(ContextGlobal);
 	const [username, setUsername] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
@@ -56,21 +54,20 @@ const Signup: NextPage = () => {
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
-				{isLightTheme ? (
-					<GenImage
-						src={"/logo/mymd_pc_logo_light.png"}
-						height={80}
-						width={160}
-						alt="MyMD Light Theme Desktop Logo"
-					/>
-				) : (
-					<GenImage
-						src={"/logo/mymd_pc_logo_dark.png"}
-						height={80}
-						width={160}
-						alt="MyMD Dark Theme Desktop Logo"
-					/>
-				)}
+				<GenImage
+					imageLight={{
+						src: "/logo/mymd_pc_logo_light.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Light Theme Desktop Logo",
+					}}
+					imageDark={{
+						src: "/logo/mymd_pc_logo_dark.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Dark Theme Desktop Logo",
+					}}
+				/>
 				<GenResponse props={{ isResponse, response }} />
 				<GenError props={{ isError, error }} />
 				<hr />

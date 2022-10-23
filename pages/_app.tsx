@@ -7,14 +7,16 @@ import "../styles/editor.css";
 import "../styles/globals.css";
 import "../styles/markdown.css";
 import { ContextProviderGlobal } from "../utils/context";
-type NextPageWithLayout = NextPage & {
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
 };
+
 type AppPropsWithLayout = AppProps & {
 	Component: NextPageWithLayout;
 };
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-	const getLayout = Component.getLayout ?? ((page) => page);
+	const getLayout = Component.getLayout || ((page) => page);
 	return (
 		<>
 			<Head>

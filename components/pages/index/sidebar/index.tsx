@@ -13,7 +13,7 @@ interface Props {
 const Sidebar: React.FC<Props> = ({
 	props: { leftBarOpen, explorerOpen, handleExplorerOpen },
 }) => {
-	const { isLightTheme, handleTheme } = useContext(ContextGlobal);
+	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
 
 	return (
 		<>
@@ -43,7 +43,10 @@ const Sidebar: React.FC<Props> = ({
 					<button className={styles.itemButtons}>
 						<i className={`icon-user-circle ${styles.iFonts}`}></i>
 					</button>
-					<button className={styles.itemButtons} onClick={handleTheme}>
+					<button
+						className={styles.itemButtons}
+						onClick={() => setIsLightTheme((prev) => !prev)}
+					>
 						{isLightTheme ? (
 							<i className={`icon-toggle-off ${styles.iFonts}`}></i>
 						) : (

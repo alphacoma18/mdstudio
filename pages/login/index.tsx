@@ -1,17 +1,15 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import GenError from "../../components/gen/error";
 import GenImage from "../../components/gen/image";
 import Loader from "../../components/pages/index/loader";
 import axios from "../../utils/axios";
-import ContextGlobal from "../../utils/context";
 import styles from "./index.module.css";
 
 const Login: NextPage = () => {
 	const router = useRouter();
-	const { isLightTheme } = useContext(ContextGlobal);
 	const [credential, setCredential] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
@@ -42,21 +40,20 @@ const Login: NextPage = () => {
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
-				{isLightTheme ? (
-					<GenImage
-						src="/logo/mymd_pc_logo_light.png"
-						height={80}
-						width={160}
-						alt="MyMD Light Theme Desktop Logo"
-					/>
-				) : (
-					<GenImage
-						src="/logo/mymd_pc_logo_dark.png"
-						height={80}
-						width={160}
-						alt="MyMD Dark Theme Desktop Logo"
-					/>
-				)}
+				<GenImage
+					imageLight={{
+						src: "/logo/mymd_pc_logo_light.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Light Theme Desktop Logo",
+					}}
+					imageDark={{
+						src: "/logo/mymd_pc_logo_dark.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Dark Theme Desktop Logo",
+					}}
+				/>
 				{isLoader && <Loader />}
 				<hr />
 				<GenError props={{ isError, error }} />
@@ -99,5 +96,4 @@ const Login: NextPage = () => {
 		</section>
 	);
 };
-
 export default memo(Login);

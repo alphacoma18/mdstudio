@@ -4,7 +4,7 @@ import { IContextGlobal, User } from "./interface";
 
 const ContextGlobal = createContext<IContextGlobal>({
 	isLightTheme: true,
-	handleTheme() {},
+	setIsLightTheme() {},
 	user: {} as User,
 	setUser() {},
 });
@@ -23,9 +23,6 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		return true;
 	});
 
-	function handleTheme() {
-		setIsLightTheme((prev) => !prev);
-	}
 	useEffect(() => {
 		if (isLightTheme) return localStorage.setItem("theme-preference", "light");
 		if (!isLightTheme) return localStorage.setItem("theme-preference", "dark");
@@ -36,7 +33,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		<ContextGlobal.Provider
 			value={{
 				isLightTheme,
-				handleTheme,
+				setIsLightTheme,
 				user,
 				setUser,
 			}}

@@ -59,7 +59,6 @@ const accountSchema = new Schema<AccountSchema>({
 	files: {
 		type: Schema.Types.Map,
 		unique: true,
-		// of: Object,
 		of: {
 			file_name: {
 				type: String,

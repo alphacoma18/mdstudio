@@ -1,14 +1,12 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { memo, useContext, useState } from "react";
+import { memo, useState } from "react";
 import GenImage from "../../components/gen/image";
 import axios from "../../utils/axios";
-import ContextGlobal from "../../utils/context";
 import styles from "../login/index.module.css";
 import styles2 from "./index.module.css";
 
 const Verify: NextPage = () => {
-	const { isLightTheme } = useContext(ContextGlobal);
 	const [email, setEmail] = useState<string>("");
 
 	async function handleSubmit() {
@@ -21,21 +19,20 @@ const Verify: NextPage = () => {
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
-				{isLightTheme ? (
-					<GenImage
-						src={"/logo/mymd_pc_logo_light.png"}
-						height={80}
-						width={160}
-						alt="MyMD Light Desktop Logo"
-					/>
-				) : (
-					<GenImage
-						src={"/logo/mymd_pc_logo_dark.png"}
-						height={80}
-						width={160}
-						alt="MyMD Dark Desktop Logo"
-					/>
-				)}
+				<GenImage
+					imageLight={{
+						src: "/logo/mymd_pc_logo_light.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Light Desktop Logo",
+					}}
+					imageDark={{
+						src: "/logo/mymd_pc_logo_dark.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Dark Desktop Logo",
+					}}
+				/>
 				<hr />
 				<input
 					type="email"

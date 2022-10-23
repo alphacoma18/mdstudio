@@ -1,38 +1,38 @@
 .section {
-	background: var(--bg-1);
-	height: 100%;
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-	top: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	animation: fade 100ms ease-in-out;
+	background: var(--bg-1);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
 }
 .flexDiv {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	padding: 1rem;
 }
 .flexButton {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
 	align-items: center;
+	display: flex;
 	gap: 0.4rem;
+	justify-content: space-between;
+	width: 100%;
 }
 .warning {
 	font-weight: bold;
 }
 .delete,
 .cancel {
-	width: 100%;
 	font-weight: bold;
+	width: 100%;
 }
 .delete {
 	border: var(--border-error);

@@ -10,7 +10,7 @@ interface Props {
 	};
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { user, isLightTheme } = useContext(ContextGlobal);
+	const { user } = useContext(ContextGlobal);
 
 	async function handleLogout() {
 		try {
@@ -23,25 +23,22 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>
-				{isLightTheme ? (
-					<a href="." className="imageAnchor">
-						<GenImage
-							src="/logo/mymd_pc_logo_light.png"
-							height={50}
-							width={100}
-							alt="MyMD Light Theme Desktop Logo"
-						/>
-					</a>
-				) : (
-					<a href="." className="imageAnchor">
-						<GenImage
-							src="/logo/mymd_pc_logo_dark.png"
-							height={50}
-							width={100}
-							alt="MyMD Dark Theme Desktop Logo"
-						/>
-					</a>
-				)}
+				<a href="." className="imageAnchor">
+					<GenImage
+						imageLight={{
+							src: "/logo/mymd_pc_logo_light.png",
+							height: 50,
+							width: 100,
+							alt: "MyMD Light Theme Desktop Logo",
+						}}
+						imageDark={{
+							src: "/logo/mymd_pc_logo_dark.png",
+							height: 50,
+							width: 100,
+							alt: "MyMD Dark Theme Desktop Logo",
+						}}
+					/>
+				</a>
 			</div>
 			<div className={styles.flexButtons}>
 				<Link href="#">

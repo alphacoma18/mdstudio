@@ -209,6 +209,7 @@
 	height: fit-content;
 }
 .w-md-editor-content {
+	background: var(--canvas-bg);
 	border-radius: 0 0 3px 0;
 	height: 100%;
 	overflow: auto;

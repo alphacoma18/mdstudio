@@ -1,4 +1,4 @@
-import { memo, ReactElement, useContext, useEffect, useState } from "react";
+import { ReactElement, useContext, useEffect, useState } from "react";
 import Lorem from "../components/gen/lorem";
 import BotBar from "../components/pages/index/botbar";
 import Canvas from "../components/pages/index/canvas";
@@ -11,6 +11,7 @@ import ContextIndex, {
 	ContextProviderIndex,
 } from "../utils/context/index/index";
 import styles from "./index.module.css";
+import { NextPageWithLayout } from "./_app";
 /**
  *  Todo:
  * 1. Create publish feature
@@ -20,7 +21,7 @@ import styles from "./index.module.css";
  * 5. Check for published markdown
  * 6. Make global component axios with loader in app
  */
-const IndexPage = () => {
+const IndexPage: NextPageWithLayout = () => {
 	const { isLightTheme, setUser } = useContext(ContextGlobal);
 	const { files, setFiles, newFiles, setNewFiles, currentFileId } =
 		useContext(ContextIndex);
@@ -107,4 +108,4 @@ const IndexPage = () => {
 IndexPage.getLayout = function getLayout(page: ReactElement) {
 	return <ContextProviderIndex>{page}</ContextProviderIndex>;
 };
-export default memo(IndexPage);
+export default IndexPage;

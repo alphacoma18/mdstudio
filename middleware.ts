@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { NextApiRequest } from "next";
 import { GenerateCookies } from "./utils/gen/cookie";
 // eslint-disable-next-line import/no-anonymous-default-export

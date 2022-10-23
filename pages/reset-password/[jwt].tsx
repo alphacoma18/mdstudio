@@ -1,12 +1,10 @@
 import type { NextPage } from "next";
-import { memo, useContext, useState } from "react";
+import { memo, useState } from "react";
 import GenImage from "../../components/gen/image";
 import axios from "../../utils/axios";
-import ContextGlobal from "../../utils/context";
 import styles from "../login/index.module.css";
 
 const ResetPassword: NextPage = () => {
-	const { isLightTheme } = useContext(ContextGlobal);
 	const [newPassword, setNewPassword] = useState<string>("");
 	const [verifyNewPassword, setVerifyNewPassword] = useState<string>("");
 
@@ -20,21 +18,20 @@ const ResetPassword: NextPage = () => {
 	return (
 		<section className={styles.bg}>
 			<form className={styles.form} onSubmit={handleSubmit}>
-				{isLightTheme ? (
-					<GenImage
-						src="/logo/mymd_pc_logo_light.png"
-						height={80}
-						width={160}
-						alt="MyMD Light Theme Desktop Logo"
-					/>
-				) : (
-					<GenImage
-						src="/logo/mymd_pc_logo_dark.png"
-						height={80}
-						width={160}
-						alt="MyMD Dark Theme Desktop Logo"
-					/>
-				)}
+				<GenImage
+					imageLight={{
+						src: "/logo/mymd_pc_logo_light.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Light Theme Desktop Logo",
+					}}
+					imageDark={{
+						src: "/logo/mymd_pc_logo_dark.png",
+						height: 80,
+						width: 160,
+						alt: "MyMD Dark Theme Desktop Logo",
+					}}
+				/>
 				<hr />
 				<input
 					type="password"
