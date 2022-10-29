@@ -22,8 +22,9 @@
 	/* --fast-transition: color 1000ms linear 0s, background 1000ms linear 0s; */
 	--fast-transition: color 100ms linear 0s, background-color 100ms linear 0s;
 }
+::target-text,
 ::selection {
-	background: var(--bg-2);
+	background: var(--bg-blue);
 	color: var(--color-white);
 }
 ::-webkit-scrollbar-track {
@@ -55,6 +56,7 @@ section,
 code {
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
+	scroll-behavior: smooth;
 }
 body {
 	background: var(--bg-1);
@@ -90,6 +92,11 @@ hr {
 	margin: 0.4rem auto;
 	width: 100%;
 }
+input,
+textarea {
+	caret-color: var(--color-blue);
+}
+
 input,
 textarea,
 button {

@@ -1,4 +1,6 @@
 import type { NextPage } from "next";
+import { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import type { ReactElement, ReactNode } from "react";
@@ -15,7 +17,12 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 type AppPropsWithLayout = AppProps & {
 	Component: NextPageWithLayout;
 };
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+
+function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
+	const {
+		Component,
+		pageProps: { session, ...pageProps },
+	} = props;
 	const getLayout = Component.getLayout || ((page) => page);
 	return (
 		<>
@@ -136,9 +143,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 				<link rel="manifest" href="/manifest.webmanifest" />
 			</Head>
 			{getLayout(
-				<ContextProviderGlobal>
-					<Component {...pageProps} />
-				</ContextProviderGlobal>
+				<SessionProvider session={session}>
+					<ContextProviderGlobal>
+						<Component {...pageProps} />
+					</ContextProviderGlobal>
+				</SessionProvider>
 			)}
 		</>
 	);

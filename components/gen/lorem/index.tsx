@@ -25,6 +25,7 @@ MyMD offers a built-in markdown tool bar that allows you to easily format your t
 
 ## Planned Future Features
 - [x] ~~Support for HTML~~
+- [x] ~~Several Secure Login Methods~~
 - [ ] Local Autosave Feature
 - [ ] Multi-Language Support
 - [ ] Collaborative Editing using web sockets

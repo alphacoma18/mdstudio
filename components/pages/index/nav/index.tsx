@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { memo, useContext } from "react";
 import axios from "../../../../utils/axios";
@@ -11,6 +12,7 @@ interface Props {
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 	const { user } = useContext(ContextGlobal);
+	const { data: session } = useSession();
 
 	async function handleLogout() {
 		try {
@@ -71,16 +73,16 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					<i className={`icon-publish ${styles.iFonts}`}></i>
 					<span>Publish</span>
 				</button>
-				{user._id ? (
-					<button className={styles.itemButtons} onClick={handleLogout}>
-						<i className={`icon-logout ${styles.iFonts}`}></i>
-						<span>Logout</span>
-					</button>
+				{session?.user ? (
+					<Link href="api/auth/signout">
+						<a className={`icon-logout ${styles.itemButtons} ${styles.iFonts}`}>
+							Sign out
+						</a>
+					</Link>
 				) : (
-					<Link href="/login">
-						<a className={styles.itemButtons}>
-							<i className={`icon-login ${styles.iFonts}`}></i>
-							<span>Login/Signup</span>
+					<Link href="api/auth/signin">
+						<a className={`icon-login ${styles.itemButtons} ${styles.iFonts}`}>
+							Sign in
 						</a>
 					</Link>
 				)}
