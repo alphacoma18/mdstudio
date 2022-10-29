@@ -1,3 +1,16 @@
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+
+	/* fix buttons height */
+	line-height: 1em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+}
+
 .icon-folder {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
@@ -106,6 +119,78 @@
 		this.innerHTML = "&#xe811;&nbsp;"
 	);
 }
+.icon-cancel-circled {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe812;&nbsp;"
+	);
+}
+.icon-plus-circled {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe813;&nbsp;"
+	);
+}
+.icon-minus-circled {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe814;&nbsp;"
+	);
+}
+.icon-bookmark {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe815;&nbsp;"
+	);
+}
+.icon-heart {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe816;&nbsp;"
+	);
+}
+.icon-star {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe817;&nbsp;"
+	);
+}
+.icon-email {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe818;&nbsp;"
+	);
+}
+.icon-macstore {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe819;&nbsp;"
+	);
+}
+.icon-mobile {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe81a;&nbsp;"
+	);
+}
+.icon-attention-circled {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe81b;&nbsp;"
+	);
+}
+.icon-github-circled-alt2 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf056;&nbsp;"
+	);
+}
+.icon-github-circled {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf09b;&nbsp;"
+	);
+}
 .icon-certificate {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
@@ -130,10 +215,40 @@
 		this.innerHTML = "&#xf0f3;&nbsp;"
 	);
 }
+.icon-doc-text {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf0f6;&nbsp;"
+	);
+}
 .icon-plus-squared {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf0fe;&nbsp;"
+	);
+}
+.icon-desktop {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf108;&nbsp;"
+	);
+}
+.icon-laptop {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf109;&nbsp;"
+	);
+}
+.icon-tablet {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf10a;&nbsp;"
+	);
+}
+.icon-mobile-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf10b;&nbsp;"
 	);
 }
 .icon-code {
@@ -152,6 +267,12 @@
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf135;&nbsp;"
+	);
+}
+.icon-lock-open-alt {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf13e;&nbsp;"
 	);
 }
 .icon-ellipsis {
@@ -184,16 +305,64 @@
 		this.innerHTML = "&#xf15b;&nbsp;"
 	);
 }
+.icon-apple {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf179;&nbsp;"
+	);
+}
+.icon-windows {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf17a;&nbsp;"
+	);
+}
+.icon-android {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf17b;&nbsp;"
+	);
+}
+.icon-box {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf187;&nbsp;"
+	);
+}
 .icon-graduation-cap {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf19d;&nbsp;"
 	);
 }
+.icon-google {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1a0;&nbsp;"
+	);
+}
 .icon-language {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf1ab;&nbsp;"
+	);
+}
+.icon-file-pdf {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1c1;&nbsp;"
+	);
+}
+.icon-file-word {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1c2;&nbsp;"
+	);
+}
+.icon-file-image {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1c5;&nbsp;"
 	);
 }
 .icon-file-code {
@@ -206,6 +375,12 @@
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf1e1;&nbsp;"
+	);
+}
+.icon-bell-off {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1f6;&nbsp;"
 	);
 }
 .icon-trash {
@@ -232,9 +407,63 @@
 		this.innerHTML = "&#xf23e;&nbsp;"
 	);
 }
+.icon-chrome {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf268;&nbsp;"
+	);
+}
+.icon-firefox {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf269;&nbsp;"
+	);
+}
+.icon-opera {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf26a;&nbsp;"
+	);
+}
+.icon-internet-explorer {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf26b;&nbsp;"
+	);
+}
+.icon-television {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf26c;&nbsp;"
+	);
+}
+.icon-edge {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf282;&nbsp;"
+	);
+}
 .icon-user-circle {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf2bd;&nbsp;"
+	);
+}
+.icon-github-squared {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf300;&nbsp;"
+	);
+}
+.icon-facebook-rect {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf301;&nbsp;"
+	);
+}
+.icon-linkedin-rect {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf31b;&nbsp;"
 	);
 }

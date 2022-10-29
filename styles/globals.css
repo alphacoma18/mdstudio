@@ -21,6 +21,7 @@
 	--box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
 	/* --fast-transition: color 1000ms linear 0s, background 1000ms linear 0s; */
 	--fast-transition: color 100ms linear 0s, background-color 100ms linear 0s;
+	--opacity-transition: opacity 100ms linear 0s;
 }
 ::target-text,
 ::selection {
@@ -54,9 +55,9 @@ textarea,
 div,
 section,
 code {
+	scroll-behavior: smooth;
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
-	scroll-behavior: smooth;
 }
 body {
 	background: var(--bg-1);

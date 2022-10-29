@@ -96,7 +96,7 @@
 .w-md-editor-toolbar-child {
 	background: var(--canvas-bg);
 	border: 1px solid var(--bg-blue);
-	border-radius: .2rem;
+	border-radius: 0.2rem;
 	display: none;
 	position: absolute;
 	z-index: 1;

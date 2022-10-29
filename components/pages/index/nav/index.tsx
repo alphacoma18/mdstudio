@@ -74,13 +74,13 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					<span>Publish</span>
 				</button>
 				{session?.user ? (
-					<Link href="api/auth/signout">
+					<Link href="/auth/signout">
 						<a className={`icon-logout ${styles.itemButtons} ${styles.iFonts}`}>
 							Sign out
 						</a>
 					</Link>
 				) : (
-					<Link href="api/auth/signin">
+					<Link href="/auth/signin">
 						<a className={`icon-login ${styles.itemButtons} ${styles.iFonts}`}>
 							Sign in
 						</a>

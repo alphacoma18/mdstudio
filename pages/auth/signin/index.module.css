@@ -1,0 +1,146 @@
+.bg {
+	align-items: center;
+	background: var(--canvas-bg);
+	border-top: var(--border-blue);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	overflow-y: auto;
+	width: 100vw;
+}
+.flexDiv {
+	align-items: center;
+	background: var(--bg-1);
+	border: 3px solid var(--bg-blue);
+	border-radius: 1.2rem;
+
+	box-shadow: var(--box-shadow);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: auto;
+	max-width: 600px;
+	padding: 2rem;
+	width: 100%;
+}
+.spanImage {
+	text-align: center;
+	width: 100%;
+}
+.flexMethods {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	justify-content: center;
+	width: 100%;
+}
+.emailMethod {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	width: 100%;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.input {
+	border: var(--border-blue);
+	margin: auto;
+	padding: 17.5px 29px;
+	width: 100%;
+}
+.input::selection {
+	background: var(--bg-white);
+	color: var(--color-blue);
+}
+.input:valid {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+.button:hover,
+.button:active,
+.button:focus {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+.itemMethod {
+	border: var(--border-blue);
+	border-radius: 0.6rem;
+	padding: 0.4rem;
+	text-align: center;
+	width: calc(50% - 0.4rem);
+}
+.submit {
+	border: var(--border-blue);
+	border-radius: 0.6rem;
+	padding: 0.4rem;
+	text-align: center;
+	width: 100%;
+}
+.name {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.why {
+	width: 100%;
+}
+.flexMethods button {
+	transition: var(--opacity-transition);
+}
+.flexMethods button[name="Google"] {
+	background: white;
+	border: 3px solid white;
+	color: black;
+}
+.flexMethods button[name="GitHub"] {
+	background: black;
+	border: 3px solid black;
+	color: white;
+}
+.flexMethods button[name="Facebook"] {
+	background: #4267b2;
+	border: 3px solid #4267b2;
+	color: white;
+}
+.flexMethods button[name="LinkedIn"] {
+	background: #0077b5;
+	border: 3px solid #0077b5;
+	color: white;
+}
+.flexMethods button:hover,
+.flexMethods button:active,
+.flexMethods button:focus {
+	opacity: 0.8;
+}
+.or {
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+@media screen and (max-width: 768px) {
+	.flexDiv {
+		border: none;
+		box-shadow: none;
+	}
+	.bg {
+		background: var(--bg-1);
+	}
+	.form {
+		border: none;
+		border-radius: 0px;
+		box-shadow: none;
+	}
+}
+@media screen and (max-width: 480px) {
+	.flexDiv {
+		padding: 1rem;
+	}
+	.input {
+		height: 32px;
+	}
+	.itemMethod {
+		width: 200%;
+	}
+}

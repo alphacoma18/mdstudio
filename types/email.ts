@@ -1,9 +1,9 @@
 interface Params {
-    url: string;
+	url: string;
 }
 export function html(params: Params) {
-  const { url } = params
-    return `
+	const { url } = params;
+	return `
     <body
 		style="
 			padding: 0;
@@ -89,9 +89,9 @@ export function html(params: Params) {
 			</p>
 		</div>
 	</body>
-`
+`;
 }
 
 function text(params: Params) {
-  return `Sign in to MyMD: Markdown Publisher\n${params.url}\n\n`
+	return `Sign in to MyMD: Markdown Publisher\n${params.url}\n\n`;
 }
