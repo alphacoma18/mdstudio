@@ -2,7 +2,7 @@
 .navBarOpen {
 	background: var(--bg-1);
 	border-top: 3px solid var(--bg-2);
-	box-shadow: var(--box-shadow);
+	box-shadow: var(--bs-side);
 	display: flex;
 	grid-area: 1 / 1 / 1 / 5;
 	justify-content: space-between;
@@ -19,7 +19,7 @@
 }
 .itemButtons {
 	margin: auto;
-	padding: 0.4rem;
+	padding: var(--pd-md);
 	text-align: center;
 }
 .itemButtons:hover i,
@@ -56,10 +56,10 @@
 		clip-path: inset(0px 0px 0px -15px);
 		flex-direction: column;
 		grid-area: 2 / 4 / 4 / 4;
-		padding: 0.2rem;
+		padding: var(--pd-sm);
 	}
 	.itemButtons {
-		padding: 0.2rem;
+		padding: var(--pd-sm);
 	}
 	.desktopLogo {
 		display: none;

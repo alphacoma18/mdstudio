@@ -21,7 +21,7 @@
 	animation: spin 2s linear infinite;
 	border: 16px solid var(--bg-white);
 	border-bottom: 16px solid var(--bg-blue);
-	border-radius: 50%;
+	border-radius: var(--br-circle);
 	border-top: 16px solid var(--bg-blue);
 	height: clamp(0px, 50px, 1000px);
 	width: clamp(0px, 50px, 1000px);

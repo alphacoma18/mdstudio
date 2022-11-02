@@ -12,16 +12,16 @@
 	align-items: center;
 	background: var(--bg-1);
 	border: 3px solid var(--bg-blue);
-	border-radius: 1.2rem;
+	border-radius: var(--br-lg);
 
-	box-shadow: var(--box-shadow);
+	box-shadow: var(--bs-side);
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.4rem;
 	justify-content: center;
 	margin: auto;
 	max-width: 600px;
-	padding: 2rem;
+	padding: var(--pd-lg);
 }
 
 .input {
@@ -48,8 +48,8 @@
 
 .itemButtons {
 	border: var(--border-blue);
-	border-radius: 0.6rem;
-	padding: 0.2rem;
+	border-radius: var(--br-lg);
+	padding: var(--pd-sm);
 	text-align: center;
 	width: calc(50% - 6px - 0.6rem);
 }
@@ -62,8 +62,8 @@
 }
 .error {
 	background: var(--error-red);
-	border-radius: 0.6rem;
-	padding: 0.4rem;
+	border-radius: var(--br-lg);
+	padding: var(--pd-md);
 	text-align: center;
 	width: 100%;
 }
@@ -72,7 +72,7 @@
 		border: none;
 		border-radius: 0px;
 		box-shadow: none;
-		padding: 1rem;
+		padding: var(--pd-lg);
 	}
 }
 @media screen and (max-width: 480px) {
@@ -81,6 +81,6 @@
 	}
 	.itemButtons {
 		font-size: 0.7rem;
-		padding: 0.2rem;
+		padding: var(--pd-sm);
 	}
 }

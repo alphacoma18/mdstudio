@@ -1,8 +1,8 @@
 .responseDiv {
 	background: var(--bg-success);
-	border-radius: 0.6rem;
+	border-radius: var(--br-lg);
 	color: var(--color-white);
-	padding: 0.4rem;
+	padding: var(--pd-md);
 	text-align: center;
 	width: 100%;
 }

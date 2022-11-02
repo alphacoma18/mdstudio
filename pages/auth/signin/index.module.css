@@ -11,10 +11,9 @@
 .flexDiv {
 	align-items: center;
 	background: var(--bg-1);
-	border: 3px solid var(--bg-blue);
-	border-radius: 1.2rem;
+	border-radius: var(--br-lg);
 
-	box-shadow: var(--box-shadow);
+	box-shadow: var(--bs-full);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -67,15 +66,15 @@
 }
 .itemMethod {
 	border: var(--border-blue);
-	border-radius: 0.6rem;
-	padding: 0.4rem;
+	border-radius: var(--br-md);
+	padding: var(--pd-md);
 	text-align: center;
 	width: calc(50% - 0.4rem);
 }
 .submit {
 	border: var(--border-blue);
-	border-radius: 0.6rem;
-	padding: 0.4rem;
+	border-radius: var(--br-lg);
+	padding: var(--pd-md);
 	text-align: center;
 	width: 100%;
 }
@@ -91,7 +90,7 @@
 }
 .flexMethods button[name="Google"] {
 	background: white;
-	border: 3px solid white;
+	border: 3px solid whitesmoke;
 	color: black;
 }
 .flexMethods button[name="GitHub"] {
@@ -135,7 +134,7 @@
 }
 @media screen and (max-width: 480px) {
 	.flexDiv {
-		padding: 1rem;
+		padding: var(--pd-lg);
 	}
 	.input {
 		height: 32px;
