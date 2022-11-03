@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
 				return transporter.sendMail({
 					from,
 					to: email,
-					subject: "Sign in to MyMD: Markdown Publisher",
+					subject: "Sign in to AnyMD: Markdown Publisher",
 					html: html({ url }),
 				});
 			},

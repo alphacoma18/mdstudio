@@ -27,16 +27,16 @@ const MobileNav: React.FC<Props> = ({
 			<a href="." className="imageAnchor">
 				<GenImage
 					imageLight={{
-						src: "/logo/mymd_mobile_logo_light_2.png",
+						src: "/logo/anymd_mobile_logo_light_2.png",
 						height: 60,
 						width: 60,
-						alt: "MyMD Light Theme Mobile Logo",
+						alt: "AnyMD Light Theme Mobile Logo",
 					}}
 					imageDark={{
-						src: "/logo/mymd_mobile_logo_dark_2.png",
+						src: "/logo/anymd_mobile_logo_dark_2.png",
 						height: 60,
 						width: 60,
-						alt: "MyMD Dark Theme Mobile Logo",
+						alt: "AnyMD Dark Theme Mobile Logo",
 					}}
 				/>
 			</a>

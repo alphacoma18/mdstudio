@@ -26,8 +26,8 @@ export default async function MailerHTMLVerifyComplete({ username }: Params) {
 			"
 		>
 			<img
-				src=".../../../../../../public/logo/mymd_pc_logo_light.png"
-				alt="MyMD Light Theme Desktop Logo"
+				src=".../../../../../../public/logo/anymd_pc_logo_light.png"
+				alt="AnyMD Light Theme Desktop Logo"
 				height="80"
 				width="160"
 				style="display: block; margin: auto"
@@ -44,7 +44,7 @@ export default async function MailerHTMLVerifyComplete({ username }: Params) {
 				"
 			/>
             <p style="padding: 0; margin: 0">
-            Hi ${username}, your email address has been verified. You can now log in to MyMD Markdown Editor.
+            Hi ${username}, your email address has been verified. You can now log in to AnyMD Markdown Publisher.
             </p>
 			<a
 				href="http://localhost:3000/login"
@@ -69,16 +69,16 @@ export default async function MailerHTMLVerifyComplete({ username }: Params) {
 				"
 			/>
 			<p style="padding: 0; margin: 0">
-                Thank you for using MyMD Markdown Editor!
+                Thank you for using AnyMD Markdown Publisher!
 			</p>
 			<p style="padding: 0; margin: 0">
-				From the MyMD Team [
-				<a href="https://mymd.vercel.app">
+				From the AnyMD Team [
+				<a href="https://anymd.vercel.app">
 					<img
-						src=".../../../../../../public/logo/mymd_mobile_logo_light_2.png"
+						src=".../../../../../../public/logo/anymd_mobile_logo_light_2.png"
 						width="25"
 						height="25"
-						alt="MyMD Light Theme Mobile Logo"
+						alt="AnyMD Light Theme Mobile Logo"
 						style="vertical-align: middle"
 				/></a>
 				]

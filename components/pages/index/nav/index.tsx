@@ -28,16 +28,16 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 				<a href="." className="imageAnchor">
 					<GenImage
 						imageLight={{
-							src: "/logo/mymd_pc_logo_light.png",
+							src: "/logo/anymd_pc_logo_light.png",
 							height: 50,
 							width: 100,
-							alt: "MyMD Light Theme Desktop Logo",
+							alt: "AnyMD Light Theme Desktop Logo",
 						}}
 						imageDark={{
-							src: "/logo/mymd_pc_logo_dark.png",
+							src: "/logo/anymd_pc_logo_dark.png",
 							height: 50,
 							width: 100,
-							alt: "MyMD Dark Theme Desktop Logo",
+							alt: "AnyMD Dark Theme Desktop Logo",
 						}}
 					/>
 				</a>

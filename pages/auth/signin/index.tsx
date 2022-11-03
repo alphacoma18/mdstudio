@@ -10,16 +10,16 @@ const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 				<span className={styles.spanImage}>
 					<GenImage
 						imageLight={{
-							src: "/logo/mymd_pc_logo_light.png",
+							src: "/logo/anymd_pc_logo_light.png",
 							height: 80,
 							width: 160,
-							alt: "MyMD Light Theme Desktop Logo",
+							alt: "AnyMD Light Theme Desktop Logo",
 						}}
 						imageDark={{
-							src: "/logo/mymd_pc_logo_dark.png",
+							src: "/logo/anymd_pc_logo_dark.png",
 							height: 80,
 							width: 160,
-							alt: "MyMD Dark Theme Desktop Logo",
+							alt: "AnyMD Dark Theme Desktop Logo",
 						}}
 					/>
 				</span>

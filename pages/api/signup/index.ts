@@ -25,7 +25,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		const mailerHTML = await MailerHTMLSignup({ url });
 		const mailerResponse = await mailer({
 			recipient: email,
-			subject: "MyMD Markdown Editor Verify",
+			subject: "AnyMD Markdown Publisher Verify",
 			html: mailerHTML,
 		});
 		if (!mailerResponse) throw "Error: Unable to send email";

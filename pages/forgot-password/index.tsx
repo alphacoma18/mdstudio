@@ -21,16 +21,16 @@ const Verify: NextPage = () => {
 			<form className={styles.form} onSubmit={handleSubmit}>
 				<GenImage
 					imageLight={{
-						src: "/logo/mymd_pc_logo_light.png",
+						src: "/logo/anymd_pc_logo_light.png",
 						height: 80,
 						width: 160,
-						alt: "MyMD Light Desktop Logo",
+						alt: "AnyMD Light Desktop Logo",
 					}}
 					imageDark={{
-						src: "/logo/mymd_pc_logo_dark.png",
+						src: "/logo/anymd_pc_logo_dark.png",
 						height: 80,
 						width: 160,
-						alt: "MyMD Dark Desktop Logo",
+						alt: "AnyMD Dark Desktop Logo",
 					}}
 				/>
 				<hr />

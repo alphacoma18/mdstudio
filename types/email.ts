@@ -27,14 +27,14 @@ export function html(params: Params) {
 			"
 		>
 			<img
-				src=".../../../../../../public/logo/mymd_pc_logo_light.png"
-				alt="MyMD Light Theme Desktop Logo"
+				src=".../../../../../../public/logo/anymd_pc_logo_light.png"
+				alt="AnyMD Light Theme Desktop Logo"
 				height="80"
 				width="160"
 				style="display: block; margin: auto"
 			/>
 			<h2 style="padding: 0; margin: 0; text-align: center">
-				MyMD&nbsp;Markdown Editor&nbsp;Verify
+				AnyMD&nbsp;Markdown Publisher&nbsp;Verify
 			</h2>
 			<hr
 				style="
@@ -45,7 +45,7 @@ export function html(params: Params) {
 				"
 			/>
 			<p style="padding: 0; margin: 0">
-				Thank you for signing up for MyMD Markdown Editor. Please click the link
+				Thank you for signing up for AnyMD Markdown Publisher. Please click the link
 				below to verify your email address.
 			</p>
 
@@ -72,17 +72,17 @@ export function html(params: Params) {
 				"
 			/>
 			<p style="padding: 0; margin: 0">
-				If you did not sign up for MyMD Markdown Editor, please ignore this
+				If you did not sign up for AnyMD Markdown Publisher, please ignore this
 				email.
 			</p>
 			<p style="padding: 0; margin: 0">
-				From the MyMD Team [
-				<a href="https://mymd.vercel.app">
+				From the AnyMD Team [
+				<a href="https://anymd.vercel.app">
 					<img
-						src=".../../../../../../public/logo/mymd_mobile_logo_light_2.png"
+						src=".../../../../../../public/logo/anymd_mobile_logo_light_2.png"
 						width="25"
 						height="25"
-						alt="MyMD Light Theme Mobile Logo"
+						alt="AnyMD Light Theme Mobile Logo"
 						style="vertical-align: middle"
 				/></a>
 				]
@@ -93,5 +93,5 @@ export function html(params: Params) {
 }
 
 function text(params: Params) {
-	return `Sign in to MyMD: Markdown Publisher\n${params.url}\n\n`;
+	return `Sign in to AnyMD: Markdown Publisher\n${params.url}\n\n`;
 }
