@@ -1,10 +1,12 @@
 import { MongooseAdapter } from "@choutkamartin/mongoose-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
+import Auth0Provider from "next-auth/providers/auth0";
 import EmailProvider from "next-auth/providers/email";
 import FacebookProvider from "next-auth/providers/facebook";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import LinkedInProvider from "next-auth/providers/linkedin";
+import TwitterProvider from "next-auth/providers/twitter";
 import { html } from "../../../types/email";
 
 export const authOptions: NextAuthOptions = {
@@ -38,13 +40,13 @@ export const authOptions: NextAuthOptions = {
 				});
 			},
 		}),
-		GithubProvider({
-			clientId: process.env.GITHUB_ID!,
-			clientSecret: process.env.GITHUB_SECRET!,
-		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_ID!,
 			clientSecret: process.env.GOOGLE_SECRET!,
+		}),
+		GithubProvider({
+			clientId: process.env.GITHUB_ID!,
+			clientSecret: process.env.GITHUB_SECRET!,
 		}),
 		FacebookProvider({
 			clientId: process.env.FACEBOOK_ID!,
@@ -53,6 +55,16 @@ export const authOptions: NextAuthOptions = {
 		LinkedInProvider({
 			clientId: process.env.LINKEDIN_ID!,
 			clientSecret: process.env.LINKEDIN_SECRET!,
+		}),
+		TwitterProvider({
+			clientId: process.env.TWITTER_ID!,
+			clientSecret: process.env.TWITTER_SECRET!,
+			version: "2.0",
+		}),
+		Auth0Provider({
+			clientId: process.env.AUTH0_ID!,
+			clientSecret: process.env.AUTH0_SECRET!,
+			issuer: process.env.AUTH0_ISSUER,
 		}),
 	],
 	secret: process.env.JWT_SECRET,

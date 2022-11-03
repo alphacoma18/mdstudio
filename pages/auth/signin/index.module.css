@@ -108,6 +108,16 @@
 	border: 3px solid #0077b5;
 	color: white;
 }
+.flexMethods button[name="Twitter"] {
+	background: #1da1f2;
+	border: 3px solid #1da1f2;
+	color: white;
+}
+.flexMethods button[name="Auth0"] {
+	background: #1e212a;
+	border: 3px solid #1e212a;
+	color: white;
+}
 .flexMethods button:hover,
 .flexMethods button:active,
 .flexMethods button:focus {

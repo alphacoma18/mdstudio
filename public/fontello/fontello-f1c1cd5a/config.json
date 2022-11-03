@@ -461,6 +461,42 @@
 			"css": "attention-circled",
 			"code": 59419,
 			"src": "fontawesome"
+		},
+		{
+			"uid": "627abcdb627cb1789e009c08e2678ef9",
+			"css": "twitter",
+			"code": 61593,
+			"src": "fontawesome"
+		},
+		{
+			"uid": "a204f0fa972408eaae5a363c444991b2",
+			"css": "login-1",
+			"code": 59420,
+			"src": "entypo"
+		},
+		{
+			"uid": "c1f1975c885aa9f3dad7810c53b82074",
+			"css": "lock",
+			"code": 59421,
+			"src": "fontawesome"
+		},
+		{
+			"uid": "43ab845088317bd348dee1d975700c48",
+			"css": "ok-circled",
+			"code": 59422,
+			"src": "fontawesome"
+		},
+		{
+			"uid": "ad33e708f4d2e25c5056c931da1528d6",
+			"css": "ok-circled2",
+			"code": 59423,
+			"src": "fontawesome"
+		},
+		{
+			"uid": "2e2dba0307a502a8507c1729084c7ab5",
+			"css": "cancel-circled2",
+			"code": 59424,
+			"src": "fontawesome"
 		}
 	]
 }
