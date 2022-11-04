@@ -27,7 +27,7 @@ export function html(params: Params) {
 			"
 		>
 			<img
-				src=".../../../../../../public/logo/anymd_pc_logo_light.png"
+				src="http://localhost:3000/logo/anymd_pc_logo_light.png"
 				alt="AnyMD Light Theme Desktop Logo"
 				height="80"
 				width="160"
@@ -46,7 +46,7 @@ export function html(params: Params) {
 			/>
 			<p style="padding: 0; margin: 0">
 				Thank you for signing up for AnyMD Markdown Publisher. Please click the link
-				below to verify your email address.
+				below to verify your account.
 			</p>
 
 			<a
@@ -55,13 +55,14 @@ export function html(params: Params) {
 					display: block;
 					text-decoration: none;
 					border-radius: 0.6rem;
+					font-weight: bold;
 					border: var(--border-blue);
 					box-sizing: content-box;
 					padding: 0.2rem;
 					text-align: center;
 					margin: 0;
 				"
-				>Confirm Verification and Go to Site</a
+				>Confirm Verification and Go to App</a
 			>
 			<hr
 				style="
@@ -77,9 +78,9 @@ export function html(params: Params) {
 			</p>
 			<p style="padding: 0; margin: 0">
 				From the AnyMD Team [
-				<a href="https://anymd.vercel.app">
+				<a href="http://localhost:3000">
 					<img
-						src=".../../../../../../public/logo/anymd_mobile_logo_light_2.png"
+						src="http://localhost:3000/logo/anymd_mobile_logo_light_2.png"
 						width="25"
 						height="25"
 						alt="AnyMD Light Theme Mobile Logo"

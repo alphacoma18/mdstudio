@@ -12,15 +12,6 @@ import ContextIndex, {
 } from "../utils/context/index/index";
 import styles from "./index.module.css";
 import { NextPageWithLayout } from "./_app";
-/**
- *  Todo:
- * 1. Create publish feature
- * 2. Make api and program to save in file system
- * 3. Make database schema
- * 4. Allow for retrieval on login based on credentials for edit
- * 5. Check for published markdown
- * 6. Make global component axios with loader in app
- */
 const IndexPage: NextPageWithLayout = () => {
 	const { isLightTheme, setUser } = useContext(ContextGlobal);
 	const { files, setFiles, newFiles, setNewFiles, currentFileId } =
@@ -34,26 +25,7 @@ const IndexPage: NextPageWithLayout = () => {
 	const [textInput, setTextInput] = useState<string>(() => {
 		return Object.values(files)[0]?.content || Lorem();
 	});
-	useEffect(() => {
-		(async () => {
-			const res = await axios.get("/auth");
-			setUser({
-				_id: res.data._id || "",
-				username: res.data.username || "",
-			});
-			setFiles(res.data.files || {});
-			// setCurrentFileId(res?.data?.files ? Object.keys(res?.data?.files)[0] : "0");
-		})();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-	useEffect(() => {
-		console.warn(currentFileId);
-		// console.log(files[currentFileId].content);
 
-		// if (currentFileId && files[currentFileId].content)
-		// setTextInput(files[currentFileId].content);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentFileId]);
 	function handleTextInput(text: string) {
 		setTextInput(text);
 	}

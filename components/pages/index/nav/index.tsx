@@ -1,8 +1,7 @@
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 import Link from "next/link";
-import { memo, useContext } from "react";
+import { memo } from "react";
 import axios from "../../../../utils/axios";
-import ContextGlobal from "../../../../utils/context";
 import GenImage from "../../../gen/image";
 import styles from "./index.module.css";
 interface Props {
@@ -11,8 +10,8 @@ interface Props {
 	};
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { user } = useContext(ContextGlobal);
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
+	console.log(session, status);
 
 	async function handleLogout() {
 		try {
@@ -76,13 +75,13 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 				{session?.user ? (
 					<Link href="/auth/signout">
 						<a className={`icon-logout ${styles.itemButtons} ${styles.iFonts}`}>
-							Sign out
+							<span>Sign out</span>
 						</a>
 					</Link>
 				) : (
 					<Link href="/auth/signin">
 						<a className={`icon-login ${styles.itemButtons} ${styles.iFonts}`}>
-							Sign in
+							<span>Sign in</span>
 						</a>
 					</Link>
 				)}

@@ -29,6 +29,10 @@ const Canvas: React.FC<Props> = ({
 					<GrammarlyEditorPlugin
 						clientId="client_XMZtCXSLph5ivsde6P8ckt"
 						className={styles.grammarly}
+						config={{
+							activation: "immediate",
+							introText: "AnyMD is integrated with Grammarly!",
+						}}
 					>
 						<MDEditor
 							height={"100%"}

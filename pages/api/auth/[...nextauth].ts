@@ -55,6 +55,25 @@ export const authOptions: NextAuthOptions = {
 		LinkedInProvider({
 			clientId: process.env.LINKEDIN_ID!,
 			clientSecret: process.env.LINKEDIN_SECRET!,
+			token: {
+				url: "https://www.linkedin.com/oauth/v2/accessToken",
+				async request({ client, params, checks, provider }) {
+					const response = await client.oauthCallback(
+						provider.callbackUrl,
+						params,
+						checks,
+						{
+							exchangeBody: {
+								client_id: process.env.LINKEDIN_ID!,
+								client_secret: process.env.LINKEDIN_SECRET!,
+							},
+						}
+					);
+					return {
+						tokens: response,
+					};
+				},
+			},
 		}),
 		TwitterProvider({
 			clientId: process.env.TWITTER_ID!,
@@ -67,12 +86,37 @@ export const authOptions: NextAuthOptions = {
 			issuer: process.env.AUTH0_ISSUER,
 		}),
 	],
-	secret: process.env.JWT_SECRET,
+	secret: process.env.NEXTAUTH_SECRET,
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
 			console.log("signIn", user, account, profile, email, credentials);
 			return true;
 		},
+		async redirect({ url, baseUrl }) {
+			console.log("redirect", url, baseUrl);
+			return baseUrl;
+		},
+		async session({ session, token, user }) {
+			console.log("session", session, token, user);
+			return session;
+		},
+		async jwt({ token, user, account, profile, isNewUser }) {
+			console.log("jwt", token, user, account, profile, isNewUser);
+			return token;
+		},
+	},
+	pages: {
+		signIn: "/auth/signin",
+		signOut: "/auth/signout",
+		// error: "/auth/error",
+		// verifyRequest: "/auth/verify-request",
+		// newUser: "/auth/new-user",
+	},
+	theme: {
+		colorScheme: "auto",
+		brandColor: "#1a2632",
+		logo: "http://localhost:3000/android-chrome-256x256.png",
+		buttonText: "#007acc",
 	},
 };
 

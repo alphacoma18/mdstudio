@@ -2,6 +2,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { getCsrfToken, getProviders, signIn } from "next-auth/react";
 import Link from "next/link";
 import GenImage from "../../../components/gen/image";
+import GenFragment from "../../../components/gen/fragment";
 import styles from "./index.module.css";
 const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 	return (
@@ -26,39 +27,36 @@ const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 				<hr />
 				<span className={styles.flexMethods}>
 					{Object.values(providers).map((provider: any) => (
-						<>
+						<GenFragment key={provider.name}>
 							{provider.name === "Email" ? (
-								<>
-									<form
-										action="/api/auth/signin/email"
-										method="post"
-										className={styles.emailMethod}
+								<form
+									action="/api/auth/signin/email"
+									method="post"
+									className={styles.emailMethod}
+								>
+									<input
+										name="csrfToken"
+										type="hidden"
+										defaultValue={csrfToken}
+									/>
+									<input
+										name="email"
+										type="email"
+										placeholder="email@example.com"
+										required
+										autoFocus
+										className={styles.input}
+									/>
+									<button
+										type="submit"
+										className={`${styles.button} ${styles.submit} icon-email`}
 									>
-										<input
-											name="csrfToken"
-											type="hidden"
-											defaultValue={csrfToken}
-										/>
-										<input
-											name="email"
-											type="email"
-											placeholder="email@example.com"
-											required
-											autoFocus
-											className={styles.input}
-										/>
-										<button
-											type="submit"
-											className={`${styles.button} ${styles.submit} icon-email`}
-										>
-											Sign in with Email
-										</button>
-										<p className={styles.or}>or sign in with</p>
-									</form>
-								</>
+										Sign in with Email
+									</button>
+									<p className={styles.or}>or sign in with</p>
+								</form>
 							) : (
 								<button
-									key={provider.name}
 									onClick={() => signIn(provider.id)}
 									name={provider.name}
 									className={`
@@ -69,7 +67,7 @@ const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 									{provider.name}
 								</button>
 							)}
-						</>
+						</GenFragment>
 					))}
 				</span>
 				<hr />

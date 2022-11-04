@@ -19,7 +19,6 @@ const x: FileSchema = {
 	},
 };
 export interface AccountSchema {
-	_id: mongoose.Types.ObjectId;
 	username: string;
 	email: string;
 	password: string;
@@ -27,11 +26,6 @@ export interface AccountSchema {
 	files: FileSchema;
 }
 const accountSchema = new Schema<AccountSchema>({
-	_id: {
-		type: mongoose.Schema.Types.ObjectId,
-		required: true,
-		unique: true,
-	},
 	username: {
 		type: String,
 		required: true,
