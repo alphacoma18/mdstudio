@@ -8,4 +8,5 @@ export interface IContextGlobal {
 	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
 	user: User;
 	setUser: React.Dispatch<React.SetStateAction<User>>;
+	isMobile: boolean;
 }

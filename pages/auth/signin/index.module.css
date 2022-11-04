@@ -86,7 +86,7 @@
 	width: 100%;
 }
 .flexMethods button {
-	transition: var(--opacity-transition);
+	transition: var(--fast-transition);
 }
 .flexMethods button[name="Google"] {
 	background: white;

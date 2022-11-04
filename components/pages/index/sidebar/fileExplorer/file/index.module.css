@@ -20,7 +20,7 @@
 }
 .inputFileName:focus:invalid,
 .inputFileName:focus:invalid {
-	background: var(--bg-error);
+	background: var(--bg-red);
 	color: var(--color-white);
 }
 .deleteIcon:hover,

@@ -1,7 +1,8 @@
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import dynamic from "next/dynamic";
-import { memo } from "react";
+import { memo, useContext } from "react";
 import rehypeSanitize from "rehype-sanitize";
+import ContextGlobal from "../../../../utils/context";
 import styles from "./index.module.css";
 const MDEditor = dynamic(
 	() => import("@uiw/react-md-editor").then((mod) => mod.default),
@@ -17,6 +18,7 @@ interface Props {
 const Canvas: React.FC<Props> = ({
 	props: { handleTextInput, textInput, explorerOpen },
 }) => {
+	const { isMobile } = useContext(ContextGlobal);
 	return (
 		<>
 			<section
@@ -38,7 +40,8 @@ const Canvas: React.FC<Props> = ({
 							height={"100%"}
 							value={textInput}
 							onChange={handleTextInput}
-							className={styles.editor}
+							preview={isMobile ? "edit" : "live"}
+							className={`${styles.editor} kf-fade-in-fast`}
 							previewOptions={{
 								rehypePlugins: [rehypeSanitize],
 							}}

@@ -1,5 +1,5 @@
 .errorDiv {
-	background: var(--bg-error);
+	background: var(--bg-red);
 	border-radius: var(--br-lg);
 	color: var(--color-white);
 	padding: var(--pd-md);

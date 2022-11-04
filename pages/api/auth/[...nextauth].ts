@@ -43,6 +43,21 @@ export const authOptions: NextAuthOptions = {
 		GoogleProvider({
 			clientId: process.env.GOOGLE_ID!,
 			clientSecret: process.env.GOOGLE_SECRET!,
+			profile(profile, tokens) {
+				return {
+					id: profile.id,
+					name: profile.name,
+					email: profile.email,
+					image: profile.picture,
+					files: {
+						0: {
+							file_name: "/index",
+							content: "",
+							isPublished: false,
+						},
+					},
+				};
+			},
 		}),
 		GithubProvider({
 			clientId: process.env.GITHUB_ID!,

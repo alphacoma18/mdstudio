@@ -43,7 +43,7 @@
 .delete:hover,
 .delete:active,
 .delete:focus {
-	background: var(--bg-error);
+	background: var(--bg-red);
 }
 .cancel:hover,
 .cancel:active,

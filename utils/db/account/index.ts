@@ -18,38 +18,15 @@ const x: FileSchema = {
 		content: "s",
 	},
 };
-export interface AccountSchema {
-	username: string;
+export interface UserSchema {
+	name: string;
 	email: string;
 	password: string;
 	creation_date: Date;
 	files: FileSchema;
 }
-const accountSchema = new Schema<AccountSchema>({
-	username: {
-		type: String,
-		required: true,
-		minlength: 5,
-		maxlength: 60,
-		unique: true,
-	},
-	email: {
-		type: String,
-		required: true,
-		minlength: 10,
-		maxlength: 60,
-		unique: true,
-	},
-	password: {
-		type: String,
-		required: true,
-		minlength: 60,
-		maxlength: 60,
-	},
-	creation_date: {
-		type: Date,
-		required: true,
-	},
+const userSchema = new Schema<UserSchema>({
+
 	files: {
 		type: Schema.Types.Map,
 		unique: true,
@@ -77,9 +54,9 @@ const accountSchema = new Schema<AccountSchema>({
 		},
 	},
 });
-const DB_ACCOUNT =
+const DB_USER =
 	mongoose.models.AccountSchema ||
-	model<AccountSchema>("AccountSchema", accountSchema);
+	model<UserSchema>("AccountSchema", userSchema);
 
 run().catch((err) => console.log(err));
 async function run() {
@@ -91,4 +68,4 @@ async function run() {
 }
 run();
 
-export default DB_ACCOUNT;
+export default DB_USER;

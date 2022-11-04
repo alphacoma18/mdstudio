@@ -7,6 +7,7 @@ const ContextGlobal = createContext<IContextGlobal>({
 	setIsLightTheme() {},
 	user: {} as User,
 	setUser() {},
+	isMobile: false,
 });
 export default ContextGlobal;
 
@@ -15,18 +16,23 @@ interface Props {
 }
 export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	const [isLightTheme, setIsLightTheme] = useState<boolean>(() => {
-		if (typeof window !== "undefined") {
-			const theme = localStorage.getItem("theme-preference");
-			if (theme === "light") return true;
-			return false;
-		}
-		return true;
+		const value =
+			typeof window !== "undefined" && window.localStorage.getItem("theme");
+		return value ? value === "light" : false;
 	});
 
 	useEffect(() => {
 		if (isLightTheme) return localStorage.setItem("theme-preference", "light");
 		if (!isLightTheme) return localStorage.setItem("theme-preference", "dark");
 	}, [isLightTheme]);
+	
+	const [isMobile] = useState<boolean>(() => {
+		const value =
+			typeof window !== "undefined" && window.innerWidth > 768
+				? "live"
+				: "edit";
+		return value === "edit";
+	});
 
 	const [user, setUser] = useState<User>({} as User);
 	return (
@@ -36,6 +42,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 				setIsLightTheme,
 				user,
 				setUser,
+				isMobile,
 			}}
 		>
 			<Theme theme={isLightTheme} />
