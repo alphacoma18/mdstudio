@@ -1,7 +1,7 @@
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import dynamic from "next/dynamic";
 import { memo, useContext } from "react";
-import rehypeSanitize from "rehype-sanitize";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import ContextGlobal from "../../../../utils/context";
 import styles from "./index.module.css";
 const MDEditor = dynamic(
@@ -42,8 +42,26 @@ const Canvas: React.FC<Props> = ({
 							onChange={handleTextInput}
 							preview={isMobile ? "edit" : "live"}
 							className={`${styles.editor} kf-fade-in-fast`}
+							highlightEnable={true}
 							previewOptions={{
-								rehypePlugins: [rehypeSanitize],
+								rehypePlugins: [
+									[
+										rehypeSanitize,
+										{
+											...defaultSchema,
+											attributes: {
+												...defaultSchema.attributes,
+												span: [
+													// @ts-ignore
+													...(defaultSchema.attributes.span || []),
+													// List of all allowed tokens:
+													["className"],
+												],
+												code: [["className"]],
+											},
+										},
+									],
+								],
 							}}
 						/>
 					</GrammarlyEditorPlugin>

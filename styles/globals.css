@@ -34,8 +34,7 @@
 
 	--fast-transition: color 100ms linear 0s, background-color 100ms linear 0s;
 }
-::target-text,
-::selection {
+::target-text {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
