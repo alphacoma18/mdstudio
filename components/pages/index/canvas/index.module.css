@@ -1,31 +1,30 @@
 .canvasSection {
 	display: flex;
 	grid-area: 2 / 3 / 4 / 4;
-}
-.grammarly {
+	overflow: auto;
 	height: 100%;
-	width: 100%;
 }
-.dataColorMode {
-	height: 100%;
+
+.canvasPositioner {
 	width: 100%;
-}
-div.editor {
 	background: var(--canvas-bg);
 	height: 100%;
-	width: 100%;
+	max-height: 100%;
 }
-@media screen and (max-width: 1024px) {
-}
+
+@media screen and (max-width: 1024px) {}
+
 @media screen and (max-width: 768px) {
 	.canvasSection {
 		grid-area: 2 / 3 / 4 / 4;
 	}
 }
+
 @media screen and (max-width: 480px) {
 	.canvasSection {
 		grid-area: 2 / 3 / 4 / 4;
 	}
+
 	section.explorerOpen {
 		grid-area: 3 / 3 / 5 / 4;
 	}

@@ -32,42 +32,58 @@
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
 
-	--fast-transition: color 100ms linear 0s, background-color 100ms linear 0s;
+	--fast-transition: color 100ms linear 0s, background 100ms linear 0s;
 }
-::target-text {
+
+::target-text,
+::selection {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
+
 ::-webkit-scrollbar-track {
 	background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: var(--bg-2);
 }
+
 ::-webkit-scrollbar-thumb:hover {
 	background: #007accaa;
 }
+
 ::-webkit-scrollbar {
 	height: 1vh;
 	width: 1vh;
 }
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 *,
 html {
-	box-sizing: border-box;
 	color: var(--color);
 	margin: 0;
 	padding: 0;
+	-moz-transition: var(--fast-transition);
+	-webkit-transition: var(--fast-transition);
+	-o-transition: var(--fast-transition);
 	transition: var(--fast-transition);
 }
+
 html,
 textarea,
 div,
 section,
 code {
-	scroll-behavior: smooth;
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
 }
+
 body {
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	background: var(--bg-1);
@@ -81,12 +97,14 @@ body {
 	position: fixed;
 	width: 100%;
 }
+
 button,
 input {
 	background: none;
 	border: none;
 	line-height: inherit;
 }
+
 button {
 	cursor: pointer;
 	-webkit-user-select: none;
@@ -94,10 +112,12 @@ button {
 	-ms-user-select: none;
 	user-select: none;
 }
+
 a {
 	color: inherit;
 	text-decoration: none;
 }
+
 hr {
 	background: var(--bg-blue);
 	border: 1px solid var(--bg-blue);
@@ -113,13 +133,16 @@ button {
 	font-family: inherit;
 	font-size: inherit;
 }
+
 input,
 button {
 	border-radius: var(--br-lg);
 }
+
 .imageAnchor {
 	line-height: 0;
 }
+
 grammarly-editor-plugin {
 	--grammarly-default-font-family: inherit;
 	--grammarly-interactive-color: var(--bg-blue);
@@ -134,10 +157,12 @@ grammarly-editor-plugin {
 .kf-fade-in-fast {
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 }
+
 @keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}

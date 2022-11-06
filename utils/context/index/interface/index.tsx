@@ -6,6 +6,8 @@ export interface NewFileSchema {
 	};
 }
 export interface IContextIndex {
+	textInput: string;
+	setTextInput: React.Dispatch<React.SetStateAction<string>>;
 	files: FileSchema;
 	setFiles: React.Dispatch<React.SetStateAction<FileSchema>>;
 	newFiles: NewFileSchema;

@@ -1,16 +1,13 @@
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import type { AppProps } from "next/app";
+import { AppProps } from "next/app";
 import Head from "next/head";
-import type { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-f1c1cd5a/css/fontello.css";
 import "../styles/editor.css";
 import "../styles/globals.css";
-import "../styles/markdown.css";
 import { ContextProviderGlobal } from "../utils/context";
-// import "@uiw/react-md-editor/markdown-editor.css";
-// import "@uiw/react-markdown-preview/markdown.css";
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -29,7 +26,10 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 		<>
 			<Head>
 				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
+				/>
 				<meta name="author" content="Alpha Romer Coma, alphacoma18@gmail.com" />
 				<meta name="reply-to" content="alphacoma18@gmail.com" />
 				<meta name="designer" content="Alpha Romer Coma" />
