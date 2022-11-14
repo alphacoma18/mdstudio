@@ -11,7 +11,6 @@ const SimpleMdeReact = dynamic(() => import("react-simplemde-editor"), {
 const Editor: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
 	const { textInput, setTextInput } = useContext(ContextIndex);
-
 	const mdOptions = useMemo(() => {
 		return {
 			minHeight: "100%",
@@ -77,6 +76,7 @@ const Editor: React.FC = () => {
 	return (
 		<>
 			<SimpleMdeReact
+				id="editor"
 				value={textInput}
 				onChange={setTextInput}
 				placeholder="Type or paste your text here..."

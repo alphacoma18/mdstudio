@@ -1,4 +1,4 @@
-import { memo, ReactElement, useContext, useState } from "react";
+import { ReactElement, useContext, useState } from "react";
 import BotBar from "../components/pages/index/botbar";
 import Canvas from "../components/pages/index/canvas";
 import Nav from "../components/pages/index/nav";
@@ -41,4 +41,4 @@ const IndexPage: NextPageWithLayout = () => {
 IndexPage.getLayout = function getLayout(page: ReactElement) {
 	return <ContextProviderIndex>{page}</ContextProviderIndex>;
 };
-export default memo(IndexPage); // <--- memo() here
+export default IndexPage; // <--- memo() removed

@@ -9,7 +9,7 @@ import {
 import { memo, useContext } from "react";
 import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
-registerLicense(SYNCFUSION_LICENSE as string);
+registerLicense(process.env.SYNCFUSION_LICENSE as string);
 const FileExplorer: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
 	const host_URL = "https://ej2-aspcore-service.azurewebsites.net/";
