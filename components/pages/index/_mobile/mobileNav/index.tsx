@@ -1,5 +1,5 @@
 import { memo } from "react";
-import GenImage from "../../../../gen/image";
+import GenLogo from "../../../../gen/logo";
 import styles from "./index.module.css";
 
 interface Props {
@@ -25,14 +25,14 @@ const MobileNav: React.FC<Props> = ({
 				</button>
 			</section>
 			<a href="." className="imageAnchor">
-				<GenImage
-					imageLight={{
+				<GenLogo
+					logoLight={{
 						src: "/logo/anymd_mobile_logo_light_2.png",
 						height: 60,
 						width: 60,
 						alt: "AnyMD Light Theme Mobile Logo",
 					}}
-					imageDark={{
+					logoDark={{
 						src: "/logo/anymd_mobile_logo_dark_2.png",
 						height: 60,
 						width: 60,

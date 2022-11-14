@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
-
-const removeImports = require("next-remove-imports")();
-
-// @ts-ignore
-module.exports = removeImports({
+const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-});
-// const nextConfig = {
-// };
-
-// module.exports = nextConfig;
+	images: {
+		domains: [
+			"lh3.googleusercontent.com",
+			"avatars.githubusercontent.com",
+			"platform-lookaside.fbsbx.com",
+			"media-exp1.licdn.com",
+			"pbs.twimg.com",
+		],
+	},
+};
+module.exports = nextConfig;

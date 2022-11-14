@@ -1,8 +1,8 @@
 import { memo, useContext } from "react";
-import ContextGlobal from "../../../../utils/context";
+import ContextGlobal from "../../../../utils/context/_global";
+import GenImage from "../../../gen/image";
 import FileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
-
 interface Props {
 	props: {
 		leftBarOpen: boolean;
@@ -13,8 +13,7 @@ interface Props {
 const Sidebar: React.FC<Props> = ({
 	props: { leftBarOpen, explorerOpen, handleExplorerOpen },
 }) => {
-	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
-
+	const { isLightTheme, setIsLightTheme, session } = useContext(ContextGlobal);
 	return (
 		<>
 			<section
@@ -41,7 +40,19 @@ const Sidebar: React.FC<Props> = ({
 				</div>
 				<div className={styles.flexButtons}>
 					<button className={styles.itemButtons}>
-						<i className={`icon-user-circle ${styles.iFonts}`}></i>
+						{session?.user.image ? (
+							<GenImage
+								props={{
+									src: session.user.image,
+									height: 40,
+									width: 40,
+									alt: session.user.name,
+									className: styles.profileImage,
+								}}
+							/>
+						) : (
+							<i className={`icon-user-circle ${styles.iFonts}`}></i>
+						)}
 					</button>
 					<button
 						className={styles.itemButtons}

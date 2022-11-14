@@ -5,408 +5,412 @@
  * @license MIT
  */
 .CodeMirror {
-    direction: ltr;
-    font-family: monospace;
+	direction: ltr;
+	font-family: monospace;
+}
+
+.editor-preview * {
+	margin: revert;
+	padding: revert;
 }
 
 .CodeMirror-lines {
-    padding: 4px 0
+	padding: 4px 0;
 }
 
 .CodeMirror pre.CodeMirror-line,
 .CodeMirror pre.CodeMirror-line-like {
-    padding: 0 4px
+	padding: 0 4px;
 }
 
 .CodeMirror-gutter-filler,
 .CodeMirror-scrollbar-filler {
-    background-color: #fff
+	background-color: #fff;
 }
 
 .CodeMirror-gutters {
-    border-right: 1px solid #ddd;
-    white-space: nowrap
+	border-right: 1px solid #ddd;
+	white-space: nowrap;
 }
 
 .CodeMirror-linenumber {
-    color: #999;
-    min-width: 20px;
-    padding: 0 3px 0 5px;
-    text-align: right;
-    white-space: nowrap
+	color: #999;
+	min-width: 20px;
+	padding: 0 3px 0 5px;
+	text-align: right;
+	white-space: nowrap;
 }
 
 .CodeMirror-guttermarker {
-    color: #000
+	color: #000;
 }
 
 .CodeMirror-guttermarker-subtle {
-    color: #999
+	color: #999;
 }
 
 .CodeMirror-cursor {
-    border-left: 1px solid var(--color-blue);
-    border-right: none;
-    width: 0
+	border-left: 1px solid var(--color-blue);
+	border-right: none;
+	width: 0;
 }
 
 .CodeMirror div.CodeMirror-secondarycursor {
-    border-left: 1px solid silver
+	border-left: 1px solid silver;
 }
 
 .cm-fat-cursor .CodeMirror-cursor {
-    background: #7e7;
-    border: 0;
-    width: auto
+	background: #7e7;
+	border: 0;
+	width: auto;
 }
 
 .cm-fat-cursor div.CodeMirror-cursors {
-    z-index: 1
+	z-index: 1;
 }
 
 .cm-fat-cursor .CodeMirror-line::selection,
 .cm-fat-cursor .CodeMirror-line > span::selection,
 .cm-fat-cursor .CodeMirror-line > span > span::selection {
-    background: 0 0
+	background: 0 0;
 }
 
 .cm-fat-cursor .CodeMirror-line::-moz-selection,
 .cm-fat-cursor .CodeMirror-line > span::-moz-selection,
 .cm-fat-cursor .CodeMirror-line > span > span::-moz-selection {
-    background: 0 0
+	background: 0 0;
 }
 
 .cm-fat-cursor {
-    caret-color: transparent
+	caret-color: transparent;
 }
 
 @-o-keyframes blink {
-
-    50% {
-        background-color: transparent
-    }
+	50% {
+		background-color: transparent;
+	}
 }
 
 @-moz-keyframes blink {
-    50% {
-        background-color: transparent
-    }
+	50% {
+		background-color: transparent;
+	}
 }
 
 @-webkit-keyframes blink {
-    50% {
-        background-color: transparent
-    }
+	50% {
+		background-color: transparent;
+	}
 }
 
 @keyframes blink {
-    50% {
-        background-color: transparent
-    }
+	50% {
+		background-color: transparent;
+	}
 }
 
 .cm-tab {
-    display: inline-block;
-    text-decoration: inherit
+	display: inline-block;
+	text-decoration: inherit;
 }
 
 .CodeMirror-rulers {
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: -50px
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: -50px;
 }
 
 .CodeMirror-ruler {
-    border-left: 1px solid #ccc;
-    bottom: 0;
-    position: absolute;
-    top: 0
+	border-left: 1px solid #ccc;
+	bottom: 0;
+	position: absolute;
+	top: 0;
 }
 
 .cm-s-default .cm-header {
-    color: #00f
+	color: #00f;
 }
 
 .cm-s-default .cm-quote {
-    color: #090
+	color: #090;
 }
 
 .cm-negative {
-    color: #d44
+	color: #d44;
 }
 
 .cm-positive {
-    color: #292
+	color: #292;
 }
 
 .cm-header,
 .cm-strong {
-    font-weight: 700
+	font-weight: 700;
 }
 
 .cm-em {
-    font-style: italic
+	font-style: italic;
 }
 
 .cm-link {
-    text-decoration: underline
+	text-decoration: underline;
 }
 
 .cm-strikethrough {
-    text-decoration: line-through
+	text-decoration: line-through;
 }
 
 .cm-s-default .cm-keyword {
-    color: #708
+	color: #708;
 }
 
 .cm-s-default .cm-atom {
-    color: #219
+	color: #219;
 }
 
 .cm-s-default .cm-number {
-    color: #164
+	color: #164;
 }
 
 .cm-s-default .cm-def {
-    color: #00f
+	color: #00f;
 }
 
 .cm-s-default .cm-variable-2 {
-    color: #05a
+	color: #05a;
 }
 
 .cm-s-default .cm-type,
 .cm-s-default .cm-variable-3 {
-    color: #085
+	color: #085;
 }
 
 .cm-s-default .cm-comment {
-    color: #a50
+	color: #a50;
 }
 
 .cm-s-default .cm-string {
-    color: #a11
+	color: #a11;
 }
 
 .cm-s-default .cm-string-2 {
-    color: #f50
+	color: #f50;
 }
 
 .cm-s-default .cm-meta {
-    color: #555
+	color: #555;
 }
 
 .cm-s-default .cm-qualifier {
-    color: #555
+	color: #555;
 }
 
 .cm-s-default .cm-builtin {
-    color: #30a
+	color: #30a;
 }
 
 .cm-s-default .cm-bracket {
-    color: #997
+	color: #997;
 }
 
 .cm-s-default .cm-tag {
-    color: #170
+	color: #170;
 }
 
 .cm-s-default .cm-attribute {
-    color: #00c
+	color: #00c;
 }
 
 .cm-s-default .cm-hr {
-    color: #999
+	color: #999;
 }
 
 .cm-s-default .cm-link {
-    color: #00c
+	color: #00c;
 }
 
 .cm-s-default .cm-error {
-    color: red
+	color: red;
 }
 
 .cm-invalidchar {
-    color: red
+	color: red;
 }
 
 .CodeMirror-composing {
-    border-bottom: 2px solid
+	border-bottom: 2px solid;
 }
 
 div.CodeMirror span.CodeMirror-matchingbracket {
-    color: #0b0
+	color: #0b0;
 }
 
 div.CodeMirror span.CodeMirror-nonmatchingbracket {
-    color: #a22
+	color: #a22;
 }
 
 .CodeMirror-matchingtag {
-    background: rgba(255, 150, 0, .3)
+	background: rgba(255, 150, 0, 0.3);
 }
 
 .CodeMirror-activeline-background {
-    background: #e8f2ff
+	background: #e8f2ff;
 }
 
 .CodeMirror {
-    overflow: hidden;
-    position: relative
+	overflow: hidden;
+	position: relative;
 }
 
 .CodeMirror-scroll {
-    height: 100%;
-    /* max-height: 100%; */
-    margin-bottom: -50px;
-    margin-right: -50px;
-    outline: 0;
-    overflow: scroll;
-    padding-bottom: 50px;
-    position: relative;
-    z-index: 0
+	height: 100%;
+	/* max-height: 100%; */
+	margin-bottom: -50px;
+	margin-right: -50px;
+	outline: 0;
+	overflow: scroll;
+	padding-bottom: 50px;
+	position: relative;
+	z-index: 0;
 }
 
 .CodeMirror-sizer {
-    border-right: 50px solid transparent;
-    position: relative
+	border-right: 50px solid transparent;
+	position: relative;
 }
 
 .CodeMirror-gutter-filler,
 .CodeMirror-hscrollbar,
 .CodeMirror-scrollbar-filler,
 .CodeMirror-vscrollbar {
-    display: none;
-    outline: 0;
-    position: absolute;
-    z-index: 6
+	display: none;
+	outline: 0;
+	position: absolute;
+	z-index: 6;
 }
 
 .CodeMirror-vscrollbar {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    right: 0;
-    top: 0
+	overflow-x: hidden;
+	overflow-y: scroll;
+	right: 0;
+	top: 0;
 }
 
 .CodeMirror-hscrollbar {
-    bottom: 0;
-    left: 0;
-    overflow-x: scroll;
-    overflow-y: hidden
+	bottom: 0;
+	left: 0;
+	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 .CodeMirror-scrollbar-filler {
-    bottom: 0;
-    right: 0
+	bottom: 0;
+	right: 0;
 }
 
 .CodeMirror-gutter-filler {
-    bottom: 0;
-    left: 0
+	bottom: 0;
+	left: 0;
 }
 
 .CodeMirror-gutters {
-    left: 0;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 3
+	left: 0;
+	min-height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 3;
 }
 
 .CodeMirror-gutter {
-    display: inline-block;
-    height: 100%;
-    margin-bottom: -50px;
-    vertical-align: top;
-    white-space: normal
+	display: inline-block;
+	height: 100%;
+	margin-bottom: -50px;
+	vertical-align: top;
+	white-space: normal;
 }
 
 .CodeMirror-gutter-wrapper {
-    background: 0 0;
-    border: none;
-    position: absolute;
-    z-index: 4
+	background: 0 0;
+	border: none;
+	position: absolute;
+	z-index: 4;
 }
 
 .CodeMirror-gutter-background {
-    bottom: 0;
-    position: absolute;
-    top: 0;
-    z-index: 4
+	bottom: 0;
+	position: absolute;
+	top: 0;
+	z-index: 4;
 }
 
 .CodeMirror-gutter-elt {
-    cursor: default;
-    position: absolute;
-    z-index: 4
+	cursor: default;
+	position: absolute;
+	z-index: 4;
 }
 
 .CodeMirror-gutter-wrapper ::selection {
-    background-color: transparent
+	background-color: transparent;
 }
 
 .CodeMirror-gutter-wrapper ::-moz-selection {
-    background-color: transparent
+	background-color: transparent;
 }
 
 .CodeMirror-lines {
-    cursor: text;
-    min-height: 1px
+	cursor: text;
+	min-height: 1px;
 }
 
 .CodeMirror pre.CodeMirror-line,
 .CodeMirror pre.CodeMirror-line-like {
-    background: 0 0;
-    border-radius: 0;
-    border-width: 0;
-    color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    font-variant-ligatures: contextual;
-    line-height: inherit;
-    overflow: visible;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    white-space: pre;
-    word-wrap: normal;
-    z-index: 2
+	background: 0 0;
+	border-radius: 0;
+	border-width: 0;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-variant-ligatures: contextual;
+	line-height: inherit;
+	overflow: visible;
+	position: relative;
+	-webkit-tap-highlight-color: transparent;
+	white-space: pre;
+	word-wrap: normal;
+	z-index: 2;
 }
 
 .CodeMirror-wrap pre.CodeMirror-line,
 .CodeMirror-wrap pre.CodeMirror-line-like {
-    white-space: pre-wrap;
-    word-break: normal;
-    word-wrap: break-word
+	white-space: pre-wrap;
+	word-break: normal;
+	word-wrap: break-word;
 }
 
 .CodeMirror-linebackground {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 0
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
 }
 
 .CodeMirror-linewidget {
-    padding: .1px;
-    position: relative;
-    z-index: 2
+	padding: 0.1px;
+	position: relative;
+	z-index: 2;
 }
 
 .CodeMirror-rtl pre {
-    direction: rtl
+	direction: rtl;
 }
 
 .CodeMirror-code {
-    outline: 0
+	outline: 0;
 }
 
 .CodeMirror-gutter,
@@ -414,408 +418,429 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-linenumber,
 .CodeMirror-scroll,
 .CodeMirror-sizer {
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
 }
 
 .CodeMirror-measure {
-    height: 0;
-    overflow: hidden;
-    position: absolute;
-    visibility: hidden;
-    width: 100%
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
 }
 
 .CodeMirror-cursor {
-    pointer-events: none;
-    position: absolute
+	pointer-events: none;
+	position: absolute;
 }
 
 .CodeMirror-measure pre {
-    position: static
+	position: static;
 }
 
 div.CodeMirror-cursors {
-    position: relative;
-    visibility: hidden;
-    z-index: 3
+	position: relative;
+	visibility: hidden;
+	z-index: 3;
 }
 
 div.CodeMirror-dragcursors {
-    visibility: visible
+	visibility: visible;
 }
 
 .CodeMirror-focused div.CodeMirror-cursors {
-    visibility: visible
+	visibility: visible;
 }
 
 .CodeMirror-selected {
-    background: #d9d9d9
+	background: #d9d9d9;
 }
 
 .CodeMirror-focused .CodeMirror-selected {
-    background: #d7d4f0
+	background: #d7d4f0;
 }
 
 .CodeMirror-crosshair {
-    cursor: crosshair
+	cursor: crosshair;
 }
 
 .CodeMirror-line::selection,
 .CodeMirror-line > span::selection,
 .CodeMirror-line > span > span::selection {
-    background: #d7d4f0
+	background: #d7d4f0;
 }
 
 .CodeMirror-line::-moz-selection,
 .CodeMirror-line > span::-moz-selection,
 .CodeMirror-line > span > span::-moz-selection {
-    background: #d7d4f0
+	background: #d7d4f0;
 }
 
 .cm-searching {
-    background-color: rgba(255, 255, 0, .4)
+	background-color: rgba(255, 255, 0, 0.4);
 }
 
 .cm-force-border {
-    padding-right: .1px
+	padding-right: 0.1px;
 }
 
 @media print {
-    .CodeMirror div.CodeMirror-cursors {
-        visibility: hidden
-    }
+	.CodeMirror div.CodeMirror-cursors {
+		visibility: hidden;
+	}
 }
 
 .cm-tab-wrap-hack:after {
-    content: ''
+	content: "";
 }
 
 span.CodeMirror-selectedtext {
-    background: 0 0
+	background: 0 0;
 }
 
 .EasyMDEContainer {
-    background: var(--canvas-bg);
-    display: block;
+	background: var(--canvas-bg);
+	display: block;
 }
 
 .CodeMirror-rtl pre {
-    direction: rtl
+	direction: rtl;
 }
 
 .EasyMDEContainer.sided--no-fullscreen {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .EasyMDEContainer .CodeMirror {
-    border-bottom: 1px solid #ced4da;
-    font: inherit;
-    height: auto;
-    padding: 10px;
-    word-wrap: break-word;
-    z-index: 0
+	border-bottom: 1px solid #ced4da;
+	font: inherit;
+	height: auto;
+	padding: 10px;
+	word-wrap: break-word;
+	z-index: 0;
 }
 
 .EasyMDEContainer .CodeMirror-scroll {
-    cursor: text
+	cursor: text;
 }
 
 .EasyMDEContainer .CodeMirror-fullscreen {
-    background: var(--canvas-bg);
-    border-right: none;
-    bottom: 0;
-    height: auto;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 50px;
-    z-index: 10
+	background: var(--canvas-bg);
+	border-right: none;
+	bottom: 0;
+	height: auto;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	z-index: 10;
 }
 
 .EasyMDEContainer .CodeMirror-sided {
-    width: 50%
+	width: 50%;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .CodeMirror-sided {
-    border-bottom-right-radius: 0;
-    border-right: none;
-    flex: 1 1 auto;
-    position: relative
+	border-bottom-right-radius: 0;
+	border-right: none;
+	flex: 1 1 auto;
+	position: relative;
 }
 
 .EasyMDEContainer .CodeMirror-placeholder {
-    opacity: .5
+	opacity: 0.5;
 }
 
 .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
-    background: #d9d9d9
+	background: #d9d9d9;
 }
 
 .editor-toolbar {
-    align-items: center;
-    background: var(--canvas-bg);
-    border-bottom: 1px solid #ced4da;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 5px 10px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    z-index: 5
+	align-items: center;
+	background: var(--canvas-bg);
+	border-bottom: 1px solid #ced4da;
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 5px 10px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 5;
 }
 
 .editor-toolbar.fullscreen {
-    background: var(--canvas-bg);
-    border-top: var(--border-blue);
-    height: 50px;
-    left: 0;
-    opacity: 1;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10
+	background: var(--canvas-bg);
+	border-top: var(--border-blue);
+	height: 50px;
+	left: 0;
+	opacity: 1;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
 }
 
 .editor-toolbar.fullscreen::before {
-    background: -moz-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0, #fff), color-stop(100%, rgba(255, 255, 255, 0)));
-    background: -webkit-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
-    background: -o-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
-    background: -ms-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(to right, #fff 0, rgba(255, 255, 255, 0) 100%);
-    height: 50px;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 20px
+	background: -moz-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0, #fff),
+		color-stop(100%, rgba(255, 255, 255, 0))
+	);
+	background: -webkit-linear-gradient(
+		left,
+		#fff 0,
+		rgba(255, 255, 255, 0) 100%
+	);
+	background: -o-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
+	background: linear-gradient(to right, #fff 0, rgba(255, 255, 255, 0) 100%);
+	height: 50px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 20px;
 }
 
 .editor-toolbar.fullscreen::after {
-    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(100%, #fff));
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
-    background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
-    background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
-    height: 50px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 20px
+	background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(0, rgba(255, 255, 255, 0)),
+		color-stop(100%, #fff)
+	);
+	background: -webkit-linear-gradient(
+		left,
+		rgba(255, 255, 255, 0) 0,
+		#fff 100%
+	);
+	background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
+	background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
+	height: 50px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 20px;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .editor-toolbar {
-    width: 100%
+	width: 100%;
 }
 
 .editor-toolbar .easymde-dropdown,
 .editor-toolbar button {
-    background: 0 0;
-    border: 1px solid transparent;
-    border-radius: var(--br-sm);
-    cursor: pointer;
-    display: inline-block;
-    height: 30px;
-    text-align: center;
-    text-decoration: none
+	background: 0 0;
+	border: 1px solid transparent;
+	border-radius: var(--br-sm);
+	cursor: pointer;
+	display: inline-block;
+	height: 30px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .editor-toolbar button {
-    font-weight: 700;
-    min-width: 30px;
-    padding: 0 6px;
-    white-space: nowrap
+	font-weight: 700;
+	min-width: 30px;
+	padding: 0 6px;
+	white-space: nowrap;
 }
 
 .editor-toolbar button.active,
 .editor-toolbar button:hover {
-    background: var(--bg-blue);
-    border-color: #95a5a6
+	background: var(--bg-blue);
+	border-color: #95a5a6;
 }
 
 .editor-toolbar i.separator {
-    border-left: 1px solid #d9d9d9;
-    border-right: 1px solid #fff;
-    color: transparent;
-    display: inline-block;
-    margin: 0 6px;
-    text-indent: -10px;
-    width: 0
+	border-left: 1px solid #d9d9d9;
+	border-right: 1px solid #fff;
+	color: transparent;
+	display: inline-block;
+	margin: 0 6px;
+	text-indent: -10px;
+	width: 0;
 }
 
 .editor-toolbar button:after {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 65%;
-    position: relative;
-    top: 2px;
-    vertical-align: text-bottom
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 65%;
+	position: relative;
+	top: 2px;
+	vertical-align: text-bottom;
 }
 
 .editor-toolbar button.heading-1:after {
-    content: "1"
+	content: "1";
 }
 
 .editor-toolbar button.heading-2:after {
-    content: "2"
+	content: "2";
 }
 
 .editor-toolbar button.heading-3:after {
-    content: "3"
+	content: "3";
 }
 
 .editor-toolbar button.heading-bigger:after {
-    content: "▲"
+	content: "▲";
 }
 
 .editor-toolbar button.heading-smaller:after {
-    content: "▼"
+	content: "▼";
 }
 
 .editor-toolbar.disabled-for-preview button:not(.no-disable) {
-    opacity: .6;
-    pointer-events: none
+	opacity: 0.6;
+	pointer-events: none;
 }
 
-@media only screen and (max-width:700px) {
-    .editor-toolbar i.no-mobile {
-        display: none
-    }
+@media only screen and (max-width: 700px) {
+	.editor-toolbar i.no-mobile {
+		display: none;
+	}
 }
 
 .editor-statusbar {
-    bottom: 0;
-    color: #959694;
-    font-size: 12px;
-    padding: 8px 10px;
-    position: sticky;
-    text-align: right;
+	bottom: 0;
+	color: #959694;
+	font-size: 12px;
+	padding: 8px 10px;
+	position: sticky;
+	text-align: right;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .editor-statusbar {
-    width: 100%
+	width: 100%;
 }
 
 .editor-statusbar span {
-    display: inline-block;
-    margin-left: 1em;
-    min-width: 4em
+	display: inline-block;
+	margin-left: 1em;
+	min-width: 4em;
 }
 
 .editor-statusbar .lines:before {
-    content: 'lines: '
+	content: "lines: ";
 }
 
 .editor-statusbar .words:before {
-    content: 'words: '
+	content: "words: ";
 }
 
 .editor-statusbar .characters:before {
-    content: 'characters: '
+	content: "characters: ";
 }
 
 .editor-preview-full {
-    display: none;
-    height: 100%;
-    left: 0;
-    overflow: auto;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 7
+	display: none;
+	height: 100%;
+	left: 0;
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 7;
 }
 
 .editor-preview-side {
-    border-left: 1px solid #ddd;
-    bottom: 0;
-    display: none;
-    overflow: auto;
-    position: fixed;
-    right: 0;
-    top: 50px;
-    width: 50%;
-    word-wrap: break-word;
-    z-index: 10
+	border-left: 1px solid #ddd;
+	bottom: 0;
+	display: none;
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	width: 50%;
+	word-wrap: break-word;
+	z-index: 10;
 }
 
 .editor-preview-active-side {
-    display: block
+	display: block;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .editor-preview-active-side {
-    flex: 1 1 auto;
-    height: auto;
-    position: static
+	flex: 1 1 auto;
+	height: auto;
+	position: static;
 }
 
 .editor-preview-active {
-    display: block
+	display: block;
 }
 
 .editor-preview {
-    background: var(--canvas-bg);
-    padding: 50px
+	background: var(--canvas-bg);
+	padding: var(--pd-lg);
 }
 
 .editor-preview > p {
-    margin-top: 0
+	margin-top: 0;
 }
 
 .editor-preview pre {
-    background: #eee;
-    margin-bottom: 10px
+	background: var(--bg-1);
+	margin-bottom: 10px;
+	padding: var(--pd-sm);
 }
 
 .editor-preview table td,
 .editor-preview table th {
-    border: 1px solid #ddd;
-    padding: 5px
+	border: 1px solid #ddd;
+	padding: 5px;
 }
 
 .cm-s-easymde .cm-tag {
-    color: #63a35c
+	color: #63a35c;
 }
 
 .cm-s-easymde .cm-attribute {
-    color: #795da3
+	color: #795da3;
 }
 
 .cm-s-easymde .cm-string {
-    color: #183691
+	color: #183691;
 }
 
 .cm-s-easymde .cm-header-1 {
-    font-size: calc(1.375rem + 1.5vw)
+	font-size: calc(1.375rem + 1.5vw);
 }
 
 .cm-s-easymde .cm-header-2 {
-    font-size: calc(1.325rem + .9vw)
+	font-size: calc(1.325rem + 0.9vw);
 }
 
 .cm-s-easymde .cm-header-3 {
-    font-size: calc(1.3rem + .6vw)
+	font-size: calc(1.3rem + 0.6vw);
 }
 
 .cm-s-easymde .cm-header-4 {
-    font-size: calc(1.275rem + .3vw)
+	font-size: calc(1.275rem + 0.3vw);
 }
 
 .cm-s-easymde .cm-header-5 {
-    font-size: 1.25rem
+	font-size: 1.25rem;
 }
 
 .cm-s-easymde .cm-header-6 {
-    font-size: 1rem
+	font-size: 1rem;
 }
 
 .cm-s-easymde .cm-header-1,
@@ -824,75 +849,88 @@ span.CodeMirror-selectedtext {
 .cm-s-easymde .cm-header-4,
 .cm-s-easymde .cm-header-5,
 .cm-s-easymde .cm-header-6 {
-    line-height: 1.2;
-    margin-bottom: .5rem
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
 }
 
 .cm-s-easymde .cm-comment {
-    background: rgba(0, 0, 0, .05);
-    border-radius: var(--br-sm)
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: var(--br-sm);
 }
 
 .cm-s-easymde .cm-link {
-    color: #7f8c8d
+	color: #7f8c8d;
 }
 
 .cm-s-easymde .cm-url {
-    color: #aab2b3
+	color: #aab2b3;
 }
 
 .cm-s-easymde .cm-quote {
-    color: #7f8c8d;
-    font-style: italic
+	color: #7f8c8d;
+	font-style: italic;
 }
 
 .editor-toolbar .easymde-dropdown {
-    background: linear-gradient(to bottom right, var(--canvas-bg) 0, var(--canvas-bg) 84%, var(--bg-blue) 50%, var(--bg-blue) 100%);
-    border: 0;
-    border-radius: 0;
-    position: relative
+	background: linear-gradient(
+		to bottom right,
+		var(--canvas-bg) 0,
+		var(--canvas-bg) 84%,
+		var(--bg-blue) 50%,
+		var(--bg-blue) 100%
+	);
+	border: 0;
+	border-radius: 0;
+	position: relative;
 }
 
 .editor-toolbar .easymde-dropdown:hover {
-    background: linear-gradient(to bottom right, var(--bg-blue) 0, var(--bg-blue) 84%, var(--bg-3) 50%, var(--bg-3) 100%)
+	background: linear-gradient(
+		to bottom right,
+		var(--bg-blue) 0,
+		var(--bg-blue) 84%,
+		var(--bg-3) 50%,
+		var(--bg-3) 100%
+	);
 }
 
 .easymde-dropdown-content {
-    background-color: var(--bg-1);
-    border: var(--border-blue);
-    border-radius: var(--br-sm);
-    box-shadow: var(--bs-full);
-    display: block;
-    padding: 8px;
-    position: fixed;
-    top: 90px;
-    visibility: hidden;
-    z-index: 5
+	background-color: var(--bg-1);
+	border: var(--border-blue);
+	border-radius: var(--br-sm);
+	box-shadow: var(--bs-full);
+	display: block;
+	padding: 8px;
+	position: fixed;
+	top: 90px;
+	visibility: hidden;
+	z-index: 5;
 }
 
 .easymde-dropdown:active .easymde-dropdown-content,
 .easymde-dropdown:focus .easymde-dropdown-content,
 .easymde-dropdown:focus-within .easymde-dropdown-content {
-    visibility: visible
+	visibility: visible;
 }
 
 .easymde-dropdown-content button {
-    display: block
+	display: block;
 }
 
 span[data-img-src]::after {
-    background-image: var(--bg-image);
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: '';
-    display: block;
-    height: 0;
-    max-height: 100%;
-    max-width: 100%;
-    padding-top: var(--height);
-    width: var(--width)
+	background-image: var(--bg-image);
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	display: block;
+	height: 0;
+	max-height: 100%;
+	max-width: 100%;
+	padding-top: var(--height);
+	width: var(--width);
 }
 
-.CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
-    background: rgba(255, 0, 0, .15)
+.CodeMirror
+	.cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
+	background: rgba(255, 0, 0, 0.15);
 }

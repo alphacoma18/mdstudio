@@ -33,6 +33,7 @@
 	--pd-lg: 1rem;
 
 	--fast-transition: color 100ms linear 0s, background 100ms linear 0s;
+	--fast-transition-all: all 100ms linear 0s;
 }
 
 ::target-text,
@@ -79,7 +80,8 @@ html,
 textarea,
 div,
 section,
-code {
+code,
+span {
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
 }
@@ -88,7 +90,6 @@ body {
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	background: var(--bg-1);
 	caret-color: var(--color-blue);
-	color-scheme: light dark;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 16px;
@@ -139,10 +140,6 @@ button {
 	border-radius: var(--br-lg);
 }
 
-.imageAnchor {
-	line-height: 0;
-}
-
 grammarly-editor-plugin {
 	--grammarly-default-font-family: inherit;
 	--grammarly-interactive-color: var(--bg-blue);
@@ -166,4 +163,11 @@ grammarly-editor-plugin {
 	100% {
 		opacity: 1;
 	}
+}
+/* custom */
+/* custom */
+/* custom */
+
+.imageAnchor {
+	line-height: 0;
 }

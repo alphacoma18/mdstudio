@@ -1,5 +1,6 @@
 import { MongooseAdapter } from "@choutkamartin/mongoose-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
+import { NextAuthClientConfig } from "next-auth/client/_utils";
 import Auth0Provider from "next-auth/providers/auth0";
 import EmailProvider from "next-auth/providers/email";
 import FacebookProvider from "next-auth/providers/facebook";
@@ -43,21 +44,21 @@ export const authOptions: NextAuthOptions = {
 		GoogleProvider({
 			clientId: process.env.GOOGLE_ID!,
 			clientSecret: process.env.GOOGLE_SECRET!,
-			profile(profile, tokens) {
-				return {
-					id: profile.id,
-					name: profile.name,
-					email: profile.email,
-					image: profile.picture,
-					files: {
-						0: {
-							file_name: "/index",
-							content: "",
-							isPublished: false,
-						},
-					},
-				};
-			},
+			// profile(profile, tokens) {
+			// 	return {
+			// 		id: profile.id,
+			// 		name: profile.name,
+			// 		email: profile.email,
+			// 		image: profile.picture,
+			// 		files: {
+			// 			0: {
+			// 				file_name: "/index",
+			// 				content: "",
+			// 				isPublished: false,
+			// 			},
+			// 		},
+			// 	};
+			// },
 		}),
 		GithubProvider({
 			clientId: process.env.GITHUB_ID!,

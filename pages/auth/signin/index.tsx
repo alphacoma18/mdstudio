@@ -1,22 +1,22 @@
 import { GetServerSideProps, NextPage } from "next";
 import { getCsrfToken, getProviders, signIn } from "next-auth/react";
 import Link from "next/link";
-import GenImage from "../../../components/gen/image";
 import GenFragment from "../../../components/gen/fragment";
+import GenLogo from "../../../components/gen/logo";
 import styles from "./index.module.css";
 const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 	return (
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
 				<span className={styles.spanImage}>
-					<GenImage
-						imageLight={{
+					<GenLogo
+						logoLight={{
 							src: "/logo/anymd_pc_logo_light.png",
 							height: 80,
 							width: 160,
 							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						imageDark={{
+						logoDark={{
 							src: "/logo/anymd_pc_logo_dark.png",
 							height: 80,
 							width: 160,

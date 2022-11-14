@@ -11,6 +11,7 @@
 7. Fix context api
 8. Configure database for calls
 9. Anonymous user support
+10. Dicebears for avatars
 
 ## Soon:
 

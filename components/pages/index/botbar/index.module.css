@@ -5,6 +5,7 @@
 	overflow-x: auto;
 	z-index: 5;
 }
+
 .flexBotbar {
 	display: flex;
 	justify-content: space-between;
@@ -13,6 +14,7 @@
 	white-space: nowrap;
 	width: 100vw;
 }
+
 .botbarSection span,
 .botbarSection i {
 	color: var(--color-white);

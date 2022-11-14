@@ -5,6 +5,7 @@
 	width: 100%;
 	z-index: 1;
 }
+
 .loaderInner {
 	align-items: center;
 	display: flex;
@@ -14,6 +15,7 @@
 	position: fixed;
 	width: 50%;
 }
+
 .loader {
 	-webkit-animation: spin 2s linear infinite;
 	-moz-animation: spin 2s linear infinite;
@@ -26,34 +28,42 @@
 	height: clamp(0px, 50px, 1000px);
 	width: clamp(0px, 50px, 1000px);
 }
+
 @-moz-keyframes spin {
 	0% {
 		-webkit-transform: rotate(0deg);
 	}
+
 	100% {
 		-webkit-transform: rotate(360deg);
 	}
 }
+
 @-o-keyframes spin {
 	0% {
 		-webkit-transform: rotate(0deg);
 	}
+
 	100% {
 		-webkit-transform: rotate(360deg);
 	}
 }
+
 @-webkit-keyframes spin {
 	0% {
 		-webkit-transform: rotate(0deg);
 	}
+
 	100% {
 		-webkit-transform: rotate(360deg);
 	}
 }
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
 	}
+
 	100% {
 		transform: rotate(360deg);
 	}

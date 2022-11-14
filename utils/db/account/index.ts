@@ -1,59 +1,39 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
 export const genObjectId = () => new mongoose.Types.ObjectId();
-export type _ID = string;
-export interface FileSchema {
-	[file_id: _ID]: {
-		file_name: string;
-		creation_date: Date;
-		isPublished: boolean;
-		content: string;
+
+interface ProjectSettingSchema {
+	UI: {
+		scrollIndicator?: boolean;
+		backToTop?: boolean;
+		width?: {
+			min?: string;
+			max?: string;
+		}
+		theme?: {
+			bg1?: string;
+			bg2?: string;
+			bg3?: string;
+			color?: string;
+			font?: string;
+		};
+	};
+	Functionality: {
+		autosave?: boolean;
+		smoothScroll?: boolean;
+		horizontalScroll?: boolean;
 	};
 }
-const x: FileSchema = {
-	["s"]: {
-		file_name: "s",
-		creation_date: new Date(),
-		isPublished: true,
-		content: "s",
-	},
-};
-export interface UserSchema {
-	name: string;
-	email: string;
-	password: string;
-	creation_date: Date;
-	files: FileSchema;
+interface ProjectSchema {
+	file_id: string;
+	settings: ProjectSettingSchema;
 }
-const userSchema = new Schema<UserSchema>({
 
-	files: {
-		type: Schema.Types.Map,
-		unique: true,
-		of: {
-			file_name: {
-				type: String,
-				required: true,
-				minlength: 4,
-				maxlength: 60,
-				unique: true,
-				index: true,
-			},
-			creation_date: {
-				type: Date,
-				required: true,
-			},
-			isPublished: {
-				type: Boolean,
-				required: true,
-			},
-			content: {
-				type: String,
-				required: true,
-			},
-		},
-	},
-});
+export interface UserSchema {
+	creation_date: Date;
+	files: ProjectSchema[];
+}
+const userSchema = new Schema<UserSchema>({});
 const DB_USER =
 	mongoose.models.AccountSchema ||
 	model<UserSchema>("AccountSchema", userSchema);

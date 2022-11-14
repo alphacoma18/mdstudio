@@ -11,13 +11,20 @@
 	padding: var(--pd-sm);
 	z-index: 10;
 }
+
 .flexButtons {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 }
+
 .itemButtons {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 	padding: var(--pd-sm);
 }
+
 .itemButtons:hover i,
 .itemButtons:active i,
 .itemButtons:focus i,
@@ -25,17 +32,36 @@
 .itemButtons:focus-visible i {
 	color: var(--color-blue);
 }
+
 .iFonts {
 	font-size: 2rem;
 }
+
+.profileImage {
+	border: var(--border-1);
+	border-radius: var(--br-circle);
+	transition: var(--fast-transition-all);
+}
+
+.profileImage:hover,
+.profileImage:active,
+.profileImage:focus,
+.profileImage:focus-within,
+.profileImage:focus-visible {
+	border: var(--border-blue);
+}
+
 @media screen and (max-width: 1024px) {
 }
+
 @media screen and (max-width: 768px) {
 }
+
 @media screen and (max-width: 480px) {
 	.sidebarSection {
 		display: none;
 	}
+
 	.flexButtons {
 		gap: 0.2rem;
 	}

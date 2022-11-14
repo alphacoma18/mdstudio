@@ -1,8 +1,7 @@
-import { useSession, getSession } from "next-auth/react";
 import Link from "next/link";
-import { memo } from "react";
-import axios from "../../../../utils/axios";
-import GenImage from "../../../gen/image";
+import { memo, useContext } from "react";
+import ContextGlobal from "../../../../utils/context/_global";
+import GenLogo from "../../../gen/logo";
 import styles from "./index.module.css";
 interface Props {
 	props: {
@@ -10,29 +9,19 @@ interface Props {
 	};
 }
 const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { data: session, status } = useSession();
-	console.log(session, status);
-
-	async function handleLogout() {
-		try {
-			await axios.post("/logout");
-			window.location.reload();
-		} catch (err: any) {
-			window.location.reload();
-		}
-	}
+	const { session } = useContext(ContextGlobal);
 	return (
 		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
 			<div className={styles.desktopLogo}>
 				<a href="." className="imageAnchor">
-					<GenImage
-						imageLight={{
+					<GenLogo
+						logoLight={{
 							src: "/logo/anymd_pc_logo_light.png",
 							height: 50,
 							width: 100,
 							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						imageDark={{
+						logoDark={{
 							src: "/logo/anymd_pc_logo_dark.png",
 							height: 50,
 							width: 100,

@@ -1,14 +1,15 @@
 import DOMPurify from "dompurify";
-import { Options } from "easymde";
+// import { Options } from "easymde";
 import dynamic from "next/dynamic";
 import { useContext, useMemo } from "react";
 import ContextIndex from "../../../../../utils/context/index/index";
+import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
-import EasyMDE from "easymde";
 const SimpleMdeReact = dynamic(() => import("react-simplemde-editor"), {
 	ssr: false,
 });
 const Editor: React.FC = () => {
+	const { isMobile } = useContext(ContextGlobal);
 	const { textInput, setTextInput } = useContext(ContextIndex);
 
 	const mdOptions = useMemo(() => {
@@ -17,11 +18,11 @@ const Editor: React.FC = () => {
 			autosave: {
 				enabled: true,
 				uniqueId: "editor",
-				delay: 1000,
+				delay: 2000,
 			},
 			renderingConfig: {
 				codeSyntaxHighlighting: true,
-				sanitizerFunction (html) {
+				sanitizerFunction(html: string) {
 					return DOMPurify.sanitize(html);
 				},
 			},
@@ -29,6 +30,7 @@ const Editor: React.FC = () => {
 			autofocus: true,
 			promptURLs: true,
 			toolbarTips: false,
+			styleSelectedText: true,
 			// shortcuts: {
 			// 	""
 			// },
@@ -43,7 +45,13 @@ const Editor: React.FC = () => {
 				{
 					name: "Headings",
 					className: "fa fa-header",
-					children: ["heading-1", "heading-2", "heading-3", "heading-bigger", "heading-smaller"],
+					children: [
+						"heading-1",
+						"heading-2",
+						"heading-3",
+						"heading-bigger",
+						"heading-smaller",
+					],
 				},
 				"|",
 				"quote",
@@ -56,16 +64,15 @@ const Editor: React.FC = () => {
 				"code",
 				"|",
 				"preview",
-				"side-by-side",
-				"fullscreen",
+				...(isMobile ? ["fullscreen"] : ["side-by-side", "fullscreen"]),
 				"|",
 				"guide",
 			],
-
 			status: ["autosave", "lines", "words", "cursor"],
 			lineNumbers: true,
 			uploadImage: true,
-		} as Options;
+		} as any;
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<>

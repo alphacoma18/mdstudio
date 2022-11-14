@@ -7,7 +7,22 @@ import { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-f1c1cd5a/css/fontello.css";
 import "../styles/editor.css";
 import "../styles/globals.css";
-import { ContextProviderGlobal } from "../utils/context";
+import { ContextProviderGlobal } from "../utils/context/_global";
+
+import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+import "../node_modules/@syncfusion/ej2-icons/styles/material.css";
+import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+
+import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+
+import "../node_modules/@syncfusion/ej2-grids/styles/material.css";
+import "../node_modules/@syncfusion/ej2-layouts/styles/material.css";
+import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+import "../node_modules/@syncfusion/ej2-react-filemanager/styles/material.css";
+import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+import "../styles/override/fm/index.css";
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
 };

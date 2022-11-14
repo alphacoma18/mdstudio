@@ -11,6 +11,7 @@ const DarkTheme = () => {
 					--canvas-bg: #233343;
 
 					--color-canvas-subtle: #161b22;
+					--border-1: 3px solid #ffffff;
 				}
 			`}
 		</style>
@@ -30,6 +31,7 @@ const LightTheme = () => {
 					--canvas-bg: #ffffff;
 
 					--color-canvas-subtle: #f6f8fa;
+					--border-1: 3px solid #000000;
 				}
 			`}
 		</style>

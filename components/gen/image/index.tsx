@@ -1,36 +1,25 @@
-import Image from "next/image";
-import { useContext } from "react";
-import ContextGlobal from "../../../utils/context";
+import Image from "next/future/image";
 interface Image {
-	src: string;
-	height: number;
-	width: number;
-	alt: string;
-}
-interface Props {
-	imageLight: Image;
-	imageDark: Image;
+	props: {
+		src: string;
+		height: number;
+		width: number;
+		alt: string;
+		className?: string;
+	};
 }
 
-const GenImage: React.FC<Props> = ({ imageLight, imageDark }) => {
-	const { isLightTheme } = useContext(ContextGlobal);
+const GenImage: React.FC<Image> = ({ props }) => {
 	return (
 		<>
-			{isLightTheme ? (
-				<Image
-					src={imageLight.src}
-					height={imageLight.height}
-					width={imageLight.width}
-					alt={imageLight.alt}
-				/>
-			) : (
-				<Image
-					src={imageDark.src}
-					height={imageDark.height}
-					width={imageDark.width}
-					alt={imageDark.alt}
-				/>
-			)}
+			<Image
+				src={props.src}
+				height={props.height}
+				width={props.width}
+				title={props.alt}
+				alt={props.alt}
+				className={props.className}
+			/>
 		</>
 	);
 };

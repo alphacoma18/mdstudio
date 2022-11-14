@@ -1,52 +1,13 @@
-.outerSection {
+.fileExplorer {
 	background: var(--bg-1);
 	box-shadow: var(--bs-side);
 	grid-area: 2 / 2 / 4 / 3;
 	height: 100%;
-	overflow: auto;
-	width: 200px;
-	z-index: 2;
-}
-.paddingDiv {
-	padding: var(--pd-lg);
-}
-.headerDiv {
-	background: var(--bg-1);
-	border-bottom: 3px solid var(--bg-2);
-	display: flex;
-	font-weight: bold;
-	position: sticky;
-	top: 0;
-}
-.headerParagraph {
 	width: 100%;
 }
-.options {
-	display: flex;
-	text-align: end;
-}
-.newFilesList,
-.filesList {
-	list-style-type: none;
-	white-space: nowrap;
-}
-.newFilesList {
-	border-bottom: 3px solid var(--bg-2);
-}
-.file {
-	padding: 0.2rem 0;
-}
-.optionsButtons:hover,
-.optionsButtons:active,
-.optionsButtons:focus {
-	color: var(--color-blue);
-	cursor: pointer;
-}
-@media screen and (max-width: 480px) {
-	section.outerSection {
-		border-right: none;
-		grid-area: 2 / 2 / 2 / 4;
-		width: auto;
-		z-index: 1;
+
+@media screen and (max-width: 768px) {
+	.fileExplorer {
+		grid-area: 2 / 2 / 4 / 4;
 	}
 }

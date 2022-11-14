@@ -1,5 +1,4 @@
-import { memo, useContext } from "react";
-import ContextGlobal from "../../../../utils/context";
+import { memo } from "react";
 import Editor from "./editor";
 import styles from "./index.module.css";
 interface Props {
@@ -8,21 +7,16 @@ interface Props {
 	};
 }
 const Canvas: React.FC<Props> = ({ props: { explorerOpen } }) => {
-	console.log("Canvas");
-
-	const { isMobile } = useContext(ContextGlobal);
 	return (
 		<>
-			<section
+			<span
 				className={`
 						${styles.canvasSection}
-						${explorerOpen && styles.explorerOpen}
+						${explorerOpen && styles.canvasSectionClose}
 						`}
 			>
-				<div className={styles.canvasPositioner}>
-					<Editor />
-				</div>
-			</section>
+				<Editor />
+			</span>
 		</>
 	);
 };
