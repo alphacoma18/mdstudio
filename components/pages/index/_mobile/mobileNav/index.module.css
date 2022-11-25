@@ -11,7 +11,7 @@
 .menuLines {
 	background: var(--bg-2);
 	height: 6px;
-	margin: 4px 0px;
+	margin: 4px 0;
 	width: 35px;
 }
 

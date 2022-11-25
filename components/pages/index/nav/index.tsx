@@ -30,46 +30,48 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					/>
 				</a>
 			</div>
-			<div className={styles.flexButtons}>
+			<div className={`${styles.flexButtons} hoverParent`}>
 				<Link href="#">
 					<a className={styles.itemButtons}>
-						<i className={`icon-home ${styles.iFonts}`}></i>
+						<i className={"icon-home"}></i>
 						<span>Home</span>
 					</a>
 				</Link>
 				<button className={styles.itemButtons}>
-					<i className={`icon-wrench ${styles.iFonts}`}></i>
+					<i className={"icon-wrench"}></i>
 					<span>Tools</span>
 				</button>
 				<button className={styles.itemButtons}>
-					<i className={`icon-help-circled ${styles.iFonts}`}></i>
+					<i className={"icon-help-circled"}></i>
 					<span>Help</span>
 				</button>
 				<button className={styles.itemButtons}>
-					<i className={`icon-share-squared ${styles.iFonts}`}></i>
+					<i className={"icon-share-squared"}></i>
 					<span>Share</span>
 				</button>
 				<button className={styles.itemButtons}>
-					<i className={`icon-download ${styles.iFonts}`}></i>
+					<i className={"icon-download"}></i>
 					<span>Download</span>
 				</button>
 				<button className={styles.itemButtons}>
-					<i className={`icon-eye ${styles.iFonts}`}></i>
+					<i className={"icon-eye"}></i>
 					<span>Preview</span>
 				</button>
 				<button className={styles.itemButtons}>
-					<i className={`icon-publish ${styles.iFonts}`}></i>
+					<i className={"icon-publish"}></i>
 					<span>Publish</span>
 				</button>
 				{session?.user ? (
 					<Link href="/auth/signout">
-						<a className={`icon-logout ${styles.itemButtons} ${styles.iFonts}`}>
+						<a className={styles.itemButtons}>
+							<i>icon-logout</i>
 							<span>Sign out</span>
 						</a>
 					</Link>
 				) : (
 					<Link href="/auth/signin">
-						<a className={`icon-login ${styles.itemButtons} ${styles.iFonts}`}>
+						<a className={styles.itemButtons}>
+							<i className="icon-login"></i>
 							<span>Sign in</span>
 						</a>
 					</Link>

@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
-// import { Options } from "easymde";
+import { Options } from "easymde";
 import dynamic from "next/dynamic";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useDeferredValue } from "react";
 import ContextIndex from "../../../../../utils/context/index/index";
 import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
@@ -11,6 +11,8 @@ const SimpleMdeReact = dynamic(() => import("react-simplemde-editor"), {
 const Editor: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
 	const { textInput, setTextInput } = useContext(ContextIndex);
+	const deferredTextInput = useDeferredValue(textInput);
+
 	const mdOptions = useMemo(() => {
 		return {
 			minHeight: "100%",
@@ -18,6 +20,7 @@ const Editor: React.FC = () => {
 				enabled: true,
 				uniqueId: "editor",
 				delay: 2000,
+				submit_delay: 2000,
 			},
 			renderingConfig: {
 				codeSyntaxHighlighting: true,
@@ -70,14 +73,17 @@ const Editor: React.FC = () => {
 			status: ["autosave", "lines", "words", "cursor"],
 			lineNumbers: true,
 			uploadImage: true,
-		} as any;
+			imageUploadEndpoint: "/api/upload",
+			imageAccept: "image/*",
+			imageMaxSize: 1 * 1024 * 1024, // 1MB
+		} as Options;
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<>
 			<SimpleMdeReact
 				id="editor"
-				value={textInput}
+				value={deferredTextInput}
 				onChange={setTextInput}
 				placeholder="Type or paste your text here..."
 				options={mdOptions}

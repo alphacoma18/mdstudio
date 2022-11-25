@@ -25,8 +25,8 @@
 	border-bottom: 16px solid var(--bg-blue);
 	border-radius: var(--br-circle);
 	border-top: 16px solid var(--bg-blue);
-	height: clamp(0px, 50px, 1000px);
-	width: clamp(0px, 50px, 1000px);
+	height: clamp(0, 50px, 1000px);
+	width: clamp(0, 50px, 1000px);
 }
 
 @-moz-keyframes spin {

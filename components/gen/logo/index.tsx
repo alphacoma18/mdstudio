@@ -16,21 +16,12 @@ const GenLogo: React.FC<Props> = ({ logoLight, logoDark }) => {
 	const { isLightTheme } = useContext(ContextGlobal);
 	return (
 		<>
-			{isLightTheme ? (
-				<Image
-					src={logoLight.src}
-					height={logoLight.height}
-					width={logoLight.width}
-					alt={logoLight.alt}
-				/>
-			) : (
-				<Image
-					src={logoDark.src}
-					height={logoDark.height}
-					width={logoDark.width}
-					alt={logoDark.alt}
-				/>
-			)}
+			<Image
+				src={isLightTheme ? logoLight.src : logoDark.src}
+				height={isLightTheme ? logoLight.height : logoDark.height}
+				width={isLightTheme ? logoLight.width : logoDark.width}
+				alt={isLightTheme ? logoLight.alt : logoDark.alt}
+			/>
 		</>
 	);
 };

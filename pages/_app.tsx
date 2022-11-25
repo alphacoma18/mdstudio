@@ -4,24 +4,10 @@ import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactElement, ReactNode } from "react";
-import "../public/fontello/fontello-f1c1cd5a/css/fontello.css";
+import "../public/fontello/fontello-76f6c27b/css/fontello.css";
 import "../styles/editor.css";
 import "../styles/globals.css";
 import { ContextProviderGlobal } from "../utils/context/_global";
-
-import "../node_modules/@syncfusion/ej2-base/styles/material.css";
-import "../node_modules/@syncfusion/ej2-icons/styles/material.css";
-import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
-
-import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
-import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
-
-import "../node_modules/@syncfusion/ej2-grids/styles/material.css";
-import "../node_modules/@syncfusion/ej2-layouts/styles/material.css";
-import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
-import "../node_modules/@syncfusion/ej2-react-filemanager/styles/material.css";
-import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
-import "../styles/override/fm/index.css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
@@ -67,6 +53,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="subject" content="Markdown Publisher" />
 				<meta name="topic" content="Markdown Publisher" />
 				<meta name="abstract" content="" />
+				<meta http-equiv="X-Frame-Options" content="deny" />
 
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />

@@ -1,13 +1,48 @@
 .fileExplorer {
 	background: var(--bg-1);
 	box-shadow: var(--bs-side);
+	clip-path: inset(0 -15px 0 0);
 	grid-area: 2 / 2 / 4 / 3;
 	height: 100%;
+	width: 240px;
+	z-index: 9;
+}
+
+.head {
+	align-items: center;
+	box-shadow: var(--bs-side);
+	clip-path: inset(0 0 -15px 0);
+	display: flex;
+	justify-content: space-evenly;
+	padding: var(--pd-md);
+	position: -webkit-sticky;
+	position: sticky;
+}
+
+.body {
+	overflow-x: auto;
+	padding: var(--pd-md);
+}
+
+.headItem {
 	width: 100%;
+}
+
+.headItem i {
+	font-size: 1rem;
+}
+
+.headItem:first-child {
+	text-align: start;
+}
+
+.headItem:last-child {
+	text-align: end;
 }
 
 @media screen and (max-width: 768px) {
 	.fileExplorer {
 		grid-area: 2 / 2 / 4 / 4;
+		width: 100%;
 	}
 }

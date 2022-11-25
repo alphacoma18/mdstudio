@@ -1,7 +1,17 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
-export const genObjectId = () => new mongoose.Types.ObjectId();
-
+interface FSSchema {
+	_isDir: true;
+	_files: {
+		[key: string]: {
+			_isDir: false;
+			_content: string;
+		};
+	};
+	_folders: {
+		[key: string]: FSSchema | {};
+	};
+}
 interface ProjectSettingSchema {
 	UI: {
 		scrollIndicator?: boolean;
@@ -9,7 +19,7 @@ interface ProjectSettingSchema {
 		width?: {
 			min?: string;
 			max?: string;
-		}
+		};
 		theme?: {
 			bg1?: string;
 			bg2?: string;
@@ -22,23 +32,24 @@ interface ProjectSettingSchema {
 		autosave?: boolean;
 		smoothScroll?: boolean;
 		horizontalScroll?: boolean;
+		googleTranslate?: boolean;
 	};
 }
-interface ProjectSchema {
-	file_id: string;
+export interface ProjectSchema {
 	settings: ProjectSettingSchema;
+	fileStructure: FSSchema;
 }
 
 export interface UserSchema {
 	creation_date: Date;
-	files: ProjectSchema[];
+	projects: ProjectSchema[];
 }
 const userSchema = new Schema<UserSchema>({});
 const DB_USER =
 	mongoose.models.AccountSchema ||
 	model<UserSchema>("AccountSchema", userSchema);
 
-run().catch((err) => console.log(err));
+// run().catch((err) => console.log(err));
 async function run() {
 	await connect(process.env.MONGO_URI!, {
 		useNewUrlParser: true,
@@ -46,6 +57,6 @@ async function run() {
 	} as ConnectOptions);
 	console.log("Connected to Distribution API Database - Initial Connection");
 }
-run();
+run().catch((err) => console.log(err));
 
 export default DB_USER;

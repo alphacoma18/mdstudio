@@ -926,8 +926,6 @@ span[data-img-src]::after {
 	height: 0;
 	max-height: 100%;
 	max-width: 100%;
-	padding-top: var(--height);
-	width: var(--width);
 }
 
 .CodeMirror

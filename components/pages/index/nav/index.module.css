@@ -33,15 +33,6 @@
 	text-align: center;
 }
 
-.itemButtons:hover i,
-.itemButtons:hover span,
-.itemButtons:active i,
-.itemButtons:active span,
-.itemButtons:focus i,
-.itemButtons:focus span {
-	color: var(--color-blue);
-}
-
 @media screen and (max-width: 768px) {
 	.itemButtons {
 		font-size: 1.4rem;
@@ -69,7 +60,7 @@
 
 	.navBarOpen {
 		border-top: none;
-		clip-path: inset(0px 0px 0px -15px);
+		clip-path: inset(0 0 0 -15px);
 		flex-direction: column;
 		grid-area: 2 / 4 / 4 / 4;
 		padding: var(--pd-sm);
@@ -88,7 +79,7 @@
 		overflow-y: auto;
 	}
 
-	.iFonts {
+	.flexButtons :is(a, button) i {
 		font-size: 2rem;
 	}
 }

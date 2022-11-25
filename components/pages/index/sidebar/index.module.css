@@ -2,7 +2,7 @@
 .sidebarSectionOpen {
 	background: var(--bg-1);
 	box-shadow: var(--bs-side);
-	clip-path: inset(0px -15px 0px 0px);
+	clip-path: inset(0 -15px 0 0);
 	display: flex;
 	flex-direction: column;
 	grid-area: 2 / 1 / 4 / 1;
@@ -25,15 +25,7 @@
 	padding: var(--pd-sm);
 }
 
-.itemButtons:hover i,
-.itemButtons:active i,
-.itemButtons:focus i,
-.itemButtons:focus-within i,
-.itemButtons:focus-visible i {
-	color: var(--color-blue);
-}
-
-.iFonts {
+.flexButtons button i {
 	font-size: 2rem;
 }
 

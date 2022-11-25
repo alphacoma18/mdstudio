@@ -1,6 +1,5 @@
 import { MongooseAdapter } from "@choutkamartin/mongoose-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
-import { NextAuthClientConfig } from "next-auth/client/_utils";
 import Auth0Provider from "next-auth/providers/auth0";
 import EmailProvider from "next-auth/providers/email";
 import FacebookProvider from "next-auth/providers/facebook";

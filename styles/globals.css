@@ -124,7 +124,6 @@ hr {
 	border: 1px solid var(--bg-blue);
 	color: var(--color-blue);
 	margin: 0.4rem auto;
-	width: 100%;
 }
 
 input,
@@ -164,10 +163,17 @@ grammarly-editor-plugin {
 		opacity: 1;
 	}
 }
+
 /* custom */
 /* custom */
 /* custom */
 
 .imageAnchor {
 	line-height: 0;
+}
+
+.hoverParent :is(a, button):hover :is(p, i, span),
+.hoverParent :is(a, button):focus :is(p, i, span),
+.hoverParent:is(a, button):active:is(p, i, span) .hoverParent:is(a, button):focus-within:is(p, i, span) {
+	color: var(--color-blue);
 }

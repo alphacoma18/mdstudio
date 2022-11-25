@@ -2,6 +2,8 @@
 
 ## Todo:
 
+// use router.reload instead of router.refresh
+
 1. ~~Re brand application to anymd~~
 2. ~~Add various auth methods~~
 3. Configure auth methods with database

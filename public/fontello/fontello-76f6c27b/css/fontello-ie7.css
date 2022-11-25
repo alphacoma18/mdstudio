@@ -1,3 +1,16 @@
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+
+	/* fix buttons height */
+	line-height: 1em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+}
+
 .icon-folder {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
@@ -196,6 +209,138 @@
 		this.innerHTML = "&#xe820;&nbsp;"
 	);
 }
+.icon-doc-add {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe821;&nbsp;"
+	);
+}
+.icon-folder-add {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe822;&nbsp;"
+	);
+}
+.icon-folder-close {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe823;&nbsp;"
+	);
+}
+.icon-folder-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe824;&nbsp;"
+	);
+}
+.icon-picture {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe825;&nbsp;"
+	);
+}
+.icon-upload-cloud {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe826;&nbsp;"
+	);
+}
+.icon-download-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe827;&nbsp;"
+	);
+}
+.icon-folder-open {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe828;&nbsp;"
+	);
+}
+.icon-minus-squared-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe829;&nbsp;"
+	);
+}
+.icon-trash-empty {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82a;&nbsp;"
+	);
+}
+.icon-search {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82b;&nbsp;"
+	);
+}
+.icon-inbox {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82c;&nbsp;"
+	);
+}
+.icon-block {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82d;&nbsp;"
+	);
+}
+.icon-language-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82e;&nbsp;"
+	);
+}
+.icon-folder-delete {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe82f;&nbsp;"
+	);
+}
+.icon-doc-remove {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe830;&nbsp;"
+	);
+}
+.icon-folder-2 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe831;&nbsp;"
+	);
+}
+.icon-doc {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe832;&nbsp;"
+	);
+}
+.icon-doc-text-1 {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe833;&nbsp;"
+	);
+}
+.icon-fire {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe834;&nbsp;"
+	);
+}
+.icon-pencil {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xe835;&nbsp;"
+	);
+}
+.icon-move {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf047;&nbsp;"
+	);
+}
 .icon-github-circled-alt2 {
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
@@ -392,6 +537,12 @@
 	*zoom: expression(
 		this.runtimeStyle[ "zoom" ] = "1",
 		this.innerHTML = "&#xf1c9;&nbsp;"
+	);
+}
+.icon-codeopen {
+	*zoom: expression(
+		this.runtimeStyle[ "zoom" ] = "1",
+		this.innerHTML = "&#xf1cb;&nbsp;"
 	);
 }
 .icon-share-squared {

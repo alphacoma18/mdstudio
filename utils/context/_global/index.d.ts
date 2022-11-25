@@ -7,5 +7,4 @@ export interface IContextGlobal {
 	isLightTheme: boolean;
 	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
 	isMobile: boolean;
-	
 }

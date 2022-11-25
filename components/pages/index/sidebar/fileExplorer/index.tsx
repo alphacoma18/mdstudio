@@ -1,58 +1,84 @@
-import { registerLicense } from "@syncfusion/ej2-base";
-import {
-	DetailsView,
-	FileManagerComponent,
-	Inject,
-	NavigationPane,
-	Toolbar,
-} from "@syncfusion/ej2-react-filemanager";
-import { memo, useContext } from "react";
+/* eslint-disable react/jsx-key */
+import { GetServerSideProps } from "next";
+import { memo, useContext, useEffect } from "react";
+import axios from "../../../../../utils/axios";
 import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
-registerLicense(process.env.SYNCFUSION_LICENSE as string);
 const FileExplorer: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
-	const host_URL = "https://ej2-aspcore-service.azurewebsites.net/";
+	async function renderFX() {
+		try {
+			const res = await axios.get("/index/fileExplorer");
+		} catch (error) {
+			console.log(error);
+		}
+	}
+	useEffect(() => {
+		renderFX();
+	}, []);
+	const regex = /^[a-zA-Z]{1}[a-zA-Z0-9]{1,9}$/;
+	function handlePrompt(txt: string): string {
+		try {
+			const input = prompt(txt);
+			if (input === null) return "";
+			if (!regex.test(input)) throw "Invalid name";
+			return input;
+		} catch (error) {
+			alert(error);
+			return handlePrompt(txt);
+		}
+	}
+	function handleNewFile() {
+		const result = handlePrompt("Enter file name:");
+		if (!result) return;
+		console.log(result);
+	}
+
+	function handleNewFolder() {
+		const result = handlePrompt("Enter folder name:");
+		if (!result) return;
+		console.log(result);
+	}
 	return (
 		<section className={styles.fileExplorer}>
-			<FileManagerComponent
-				ajaxSettings={{
-					downloadUrl: host_URL + "api/FileManager/Download",
-					getImageUrl: host_URL + "api/FileManager/GetImage",
-					uploadUrl: host_URL + "api/FileManager/Upload",
-					url: host_URL + "api/FileManager/FileOperations",
-				}}
-				height={"100%"}
-				width={isMobile ? "100%" : "280px"}
-				// width={"100%"}
-				allowDragAndDrop={true}
-				enablePersistence={true}
-				cssClass={styles.fileManager}
-
-				// Add new file functionality
-
-				// toolbarSettings={{
-
-				// }}
-				// contextMenuSettings={{
-
-				// }}
-
-				// to do
-				// 1. do not let non-signed in users to upload files
-
-				className={styles.fileManager}
-				uploadSettings={{
-					maxFileSize: 500000,
-					allowedExtensions:
-						".md,.htm,.html,.txt,.jpg,.jpeg,.png,.svg,.gif,.webp,.mp3,.aac,.mp4",
-					autoUpload: true,
-				}}
-			>
-				{/* <Inject services={[NavigationPane, DetailsView, Toolbar]} /> */}
-			</FileManagerComponent>
+			<div className={styles.head}>
+				<span className={`${styles.headItem} hoverParent`}>
+					<button>
+						<i className="icon-upload-cloud"></i>
+					</button>
+				</span>
+				<span className={`${styles.headItem} hoverParent`}>
+					<button onClick={handleNewFile}>
+						<i className="icon-doc-add"></i>
+					</button>
+					<button onClick={handleNewFolder}>
+						<i className="icon-folder-add"></i>
+					</button>
+					<button>
+						<i className="icon-arrows-cw"></i>
+					</button>
+					<button>
+						<i className="icon-minus-squared"></i>
+					</button>
+				</span>
+			</div>
+			<div className={styles.body}></div>
 		</section>
 	);
 };
 
 export default memo(FileExplorer);
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const { req, res } = context;
+	const { cookies } = req;
+	const { token } = cookies;
+	console.log("Hello world");
+	if (!token) {
+		res.writeHead(302, { Location: "/login" });
+		res.end();
+	}
+	return {
+		props: {},
+	};
+};

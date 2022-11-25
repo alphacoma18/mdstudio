@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { IContextIndex } from "./index.d";
 const ContextIndex = createContext<IContextIndex>({
 	textInput: "",

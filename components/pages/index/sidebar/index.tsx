@@ -21,21 +21,24 @@ const Sidebar: React.FC<Props> = ({
 					leftBarOpen ? styles.sidebarSectionOpen : styles.sidebarSection
 				}
 			>
-				<div className={styles.flexButtons}>
+				<div className={`${styles.flexButtons} hoverParent`}>
 					<button className={styles.itemButtons} onClick={handleExplorerOpen}>
-						<i className={`icon-docs ${styles.iFonts}`}></i>
+						<i className={"icon-docs"}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-floppy ${styles.iFonts}`}></i>
+						<i className={"icon-search"}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-globe ${styles.iFonts}`}></i>
+						<i className={"icon-floppy"}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-rocket ${styles.iFonts}`}></i>
+						<i className={"icon-globe"}></i>
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-info-circled ${styles.iFonts}`}></i>
+						<i className={"icon-rocket"}></i>
+					</button>
+					<button className={styles.itemButtons}>
+						<i className={"icon-info-circled"}></i>
 					</button>
 				</div>
 				<div className={styles.flexButtons}>
@@ -51,7 +54,7 @@ const Sidebar: React.FC<Props> = ({
 								}}
 							/>
 						) : (
-							<i className={`icon-user-circle ${styles.iFonts}`}></i>
+							<i className={"icon-user-circle"}></i>
 						)}
 					</button>
 					<button
@@ -59,13 +62,13 @@ const Sidebar: React.FC<Props> = ({
 						onClick={() => setIsLightTheme((prev) => !prev)}
 					>
 						{isLightTheme ? (
-							<i className={`icon-toggle-off ${styles.iFonts}`}></i>
+							<i className={"icon-toggle-off"}></i>
 						) : (
-							<i className={`icon-toggle-on ${styles.iFonts}`}></i>
+							<i className={"icon-toggle-on"}></i>
 						)}
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={`icon-cog-alt ${styles.iFonts}`}></i>
+						<i className={"icon-cog-alt"}></i>
 					</button>
 				</div>
 			</section>
