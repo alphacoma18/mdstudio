@@ -1,0 +1,10 @@
+/* get indentation amount from html key and adjust width accordingly   */
+.folder {
+    padding-left: var(--pd-md);
+    /* border-left: 2px solid red; */
+}
+
+.file {
+    border-left: 3px solid var(--bg-blue);
+    padding-left: var(--pd-sm)
+}

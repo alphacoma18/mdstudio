@@ -1,6 +1,6 @@
 import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
-interface FSSchema {
+export interface FSSchema {
 	_isDir: true;
 	_files: {
 		[key: string]: {
