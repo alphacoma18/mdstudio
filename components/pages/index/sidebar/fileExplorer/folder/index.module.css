@@ -5,6 +5,6 @@
 }
 
 .file {
-    border-left: 3px solid var(--bg-blue);
-    padding-left: var(--pd-sm)
+    border-left: 1px solid var(--bg-blue);
+    padding-left: var(--pd-md)
 }

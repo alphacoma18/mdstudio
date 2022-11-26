@@ -28,6 +28,7 @@ const Editor: React.FC = () => {
 					return DOMPurify.sanitize(html);
 				},
 			},
+
 			maxHeight: "100%",
 			autofocus: true,
 			promptURLs: true,
@@ -70,6 +71,7 @@ const Editor: React.FC = () => {
 				"|",
 				"guide",
 			],
+			
 			status: ["autosave", "lines", "words", "cursor"],
 			lineNumbers: true,
 			uploadImage: true,

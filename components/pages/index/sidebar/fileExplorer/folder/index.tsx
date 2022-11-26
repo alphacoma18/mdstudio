@@ -1,19 +1,8 @@
+import { FSSchema } from "../../../../../../utils/db/account";
 import styles from "./index.module.css";
 import Recur from "./recur";
-interface IRecursiveProject1 {
-	_isDir: true;
-	_files: {
-		[key: string]: {
-			_isDir: false;
-			_content: string;
-		};
-	};
-	_folders: {
-		[key: string]: IRecursiveProject1 | {};
-	};
-}
 interface Props {
-	project: IRecursiveProject1;
+	project: FSSchema;
 }
 const Folder: React.FC<Props> = ({ project }) => {
 	function renderFX() {
@@ -31,15 +20,10 @@ const Folder: React.FC<Props> = ({ project }) => {
 						{Object.keys(_folders).map((folder, index) => (
 							<Recur
 								key={index}
-								folder={_folders[folder] as IRecursiveProject1}
+								name={folder}
+								folder={_folders[folder] as FSSchema}
 							/>
 						))}
-					</div>
-				);
-			} else {
-				return (
-					<div className={styles.file}>
-						{_files[Object.keys(_files)[0]]._content}
 					</div>
 				);
 			}
