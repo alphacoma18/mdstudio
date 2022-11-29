@@ -64,7 +64,7 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 				{session?.user ? (
 					<Link href="/auth/signout">
 						<a className={styles.itemButtons}>
-							<i>icon-logout</i>
+							<i className="icon-logout"></i>
 							<span>Sign out</span>
 						</a>
 					</Link>

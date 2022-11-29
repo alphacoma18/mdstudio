@@ -3,8 +3,10 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import Theme from "../../../styles/themes";
 import { IContextGlobal } from "./index.d";
 const ContextGlobal = createContext<IContextGlobal>({
-	clientURL: "",
-	serverURL: "",
+	url: {
+		client: "",
+		server: "",
+	},
 	session: null,
 	status: "loading",
 	isLightTheme: true,
@@ -17,8 +19,10 @@ interface Props {
 	children: ReactNode;
 }
 export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
-	const clientURL = "http://localhost:3000";
-	const serverURL = "http://localhost:3000/api";
+	const url: IContextGlobal["url"] = {
+		client: "http://localhost:3000",
+		server: "http://localhost:3000/api",
+	};
 	const { data: session, status } = useSession();
 
 	const [isLightTheme, setIsLightTheme] = useState<boolean>(() => {
@@ -41,14 +45,12 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	}, [isLightTheme]);
 
 	const [isMobile] = useState<boolean>(() => {
-		const value = typeof window !== "undefined" && window.innerWidth <= 768;
-		return value;
+		return typeof window !== "undefined" && window.innerWidth <= 768;
 	});
 	return (
 		<ContextGlobal.Provider
 			value={{
-				clientURL,
-				serverURL,
+				url,
 				session,
 				status,
 				isLightTheme,

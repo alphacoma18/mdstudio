@@ -6,6 +6,8 @@ export interface FSSchema {
 		[key: string]: {
 			_isDir: false;
 			_content: string;
+			// _title: string;
+			// _description: string;
 		};
 	};
 	_folders: {
@@ -33,6 +35,11 @@ interface ProjectSettingSchema {
 		smoothScroll?: boolean;
 		horizontalScroll?: boolean;
 		googleTranslate?: boolean;
+	};
+	Meta: {
+		title?: string;
+		icon?: string;
+		description?: string;
 	};
 }
 export interface ProjectSchema {

@@ -53,7 +53,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="subject" content="Markdown Publisher" />
 				<meta name="topic" content="Markdown Publisher" />
 				<meta name="abstract" content="" />
-				<meta http-equiv="X-Frame-Options" content="deny" />
+				<meta httpEquiv="X-Frame-Options" content="deny" />
 
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />

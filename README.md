@@ -15,6 +15,7 @@ AnyMD is a simple yet modern and extensive cross-platform markdown publisher and
   - 📄 Split Mode
   - 📚 Read Mode
   - 🖥️ Full-Screen Mode
+- Mobile Friendly
 - And SO Much More!
 
 ## Why would you use this?

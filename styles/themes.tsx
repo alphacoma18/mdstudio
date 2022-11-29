@@ -10,6 +10,8 @@ const DarkTheme = () => {
 					--color: #ffffff;
 					--canvas-bg: #233343;
 
+					--fx-hover: #233343;
+
 					--color-canvas-subtle: #161b22;
 					--border-1: 3px solid #ffffff;
 				}
@@ -29,6 +31,8 @@ const LightTheme = () => {
 					--bg-3: #1a2632;
 					--color: #000000;
 					--canvas-bg: #ffffff;
+
+					--fx-hover: #ddd;
 
 					--color-canvas-subtle: #f6f8fa;
 					--border-1: 3px solid #000000;

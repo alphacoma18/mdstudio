@@ -14,6 +14,13 @@ const Sidebar: React.FC<Props> = ({
 	props: { leftBarOpen, explorerOpen, handleExplorerOpen },
 }) => {
 	const { isLightTheme, setIsLightTheme, session } = useContext(ContextGlobal);
+	function handleAlert() {
+		alert(
+			"Website publishing is for signed-in users only.\nYou can still publish your Markdown page anonymously."
+		);
+	}
+	console.log(session);
+
 	return (
 		<>
 			<section
@@ -22,7 +29,10 @@ const Sidebar: React.FC<Props> = ({
 				}
 			>
 				<div className={`${styles.flexButtons} hoverParent`}>
-					<button className={styles.itemButtons} onClick={handleExplorerOpen}>
+					<button
+						className={styles.itemButtons}
+						onClick={session?.user ? handleExplorerOpen : handleAlert}
+					>
 						<i className={"icon-docs"}></i>
 					</button>
 					<button className={styles.itemButtons}>
@@ -41,7 +51,7 @@ const Sidebar: React.FC<Props> = ({
 						<i className={"icon-info-circled"}></i>
 					</button>
 				</div>
-				<div className={styles.flexButtons}>
+				<div className={`${styles.flexButtons} hoverParent`}>
 					<button className={styles.itemButtons}>
 						{session?.user.image ? (
 							<GenImage
@@ -68,7 +78,7 @@ const Sidebar: React.FC<Props> = ({
 						)}
 					</button>
 					<button className={styles.itemButtons}>
-						<i className={"icon-cog-alt"}></i>
+						<i className={"icon-cog"}></i>
 					</button>
 				</div>
 			</section>

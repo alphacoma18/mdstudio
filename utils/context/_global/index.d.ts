@@ -1,7 +1,9 @@
 import { Session } from "next-auth/core/types";
 export interface IContextGlobal {
-	clientURL: string;
-	serverURL: string;
+	url: {
+		client: string;
+		server: string;
+	};
 	session: Session | null;
 	status: "authenticated" | "unauthenticated" | "loading";
 	isLightTheme: boolean;

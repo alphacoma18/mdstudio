@@ -1,114 +1,14 @@
 /* eslint-disable react/jsx-key */
-import { GetServerSideProps } from "next";
 import { memo, useContext, useEffect } from "react";
 import axios from "../../../../../utils/axios";
 import ContextGlobal from "../../../../../utils/context/_global";
+import ContextIndex from "../../../../../utils/context/index";
+import { project1 } from "./data";
 import Folder from "./folder";
 import styles from "./index.module.css";
 const FileExplorer: React.FC = () => {
-	const { isMobile } = useContext(ContextGlobal);
-	interface IRecursiveProject1 {
-		_isDir: true;
-		_files: {
-			[key: string]: {
-				_isDir: false;
-				_content: string;
-			};
-		};
-		_folders: {
-			[key: string]: IRecursiveProject1 | {};
-		};
-	}
-	const project1: IRecursiveProject1 = {
-		_isDir: true,
-		_files: {
-			file_1: {
-				_isDir: false,
-				_content: "file_1",
-			},
-		},
-		_folders: {
-			public: {
-				_isDir: true,
-				_files: {},
-				_folders: {},
-			},
-			private: {
-				_isDir: true,
-				_files: {},
-				_folders: {},
-			},
-			src: {
-				_isDir: true,
-				_files: {
-					file_2: {
-						_isDir: false,
-						_content: "console.log('Hello World!');",
-					},
-				},
-				_folders: {
-					pages: {
-						_isDir: true,
-						_files: {
-							file_3: {
-								_isDir: false,
-								_content: "console.log('Hello World!');",
-							},
-						},
-						_folders: {
-							api: {
-								_isDir: true,
-								_folders: {
-									index: {
-										_isDir: true,
-										_folders: {},
-										_files: {
-											file_4: {
-												_isDir: false,
-												_content: "console.log('Hello World!');",
-											},
-										},
-									},
-								},
-								_files: {
-									file_4: {
-										_isDir: false,
-										_content: "console.log('Bye World!');",
-									},
-									file_5: {
-										_isDir: false,
-										_content: "console.log('Bye World!');",
-									},
-									file_6: {
-										_isDir: false,
-										_content: "console.log('Bye World!');",
-									},
-								},
-							},
-						},
-					},
-					react: {
-						_isDir: true,
-						_folders: {},
-						_files: {
-							file_7: {
-								_isDir: false,
-								_content: "console.log('Bye World!');",
-							},
-							file_8: {
-								_isDir: false,
-								_content: "console.log('Bye World!');",
-							},
-							file_9: {
-								_isDir: false,
-								_content: "console.log('Bye World!');",
-							},
-						},
-					},
-				},
-			},
-		},
-	};
+	const { isMobile, session } = useContext(ContextGlobal);
+	const { updateEditorState } = useContext(ContextIndex);
 	async function renderFX() {
 		try {
 			const res = await axios.get("/index/fileExplorer");
@@ -160,9 +60,6 @@ const FileExplorer: React.FC = () => {
 					<button>
 						<i className="icon-arrows-cw"></i>
 					</button>
-					<button>
-						<i className="icon-minus-squared"></i>
-					</button>
 				</span>
 			</div>
 			<div className={styles.body}>
@@ -173,17 +70,3 @@ const FileExplorer: React.FC = () => {
 };
 
 export default memo(FileExplorer);
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-	const { req, res } = context;
-	const { cookies } = req;
-	const { token } = cookies;
-	console.log("Hello world");
-	if (!token) {
-		res.writeHead(302, { Location: "/login" });
-		res.end();
-	}
-	return {
-		props: {},
-	};
-};

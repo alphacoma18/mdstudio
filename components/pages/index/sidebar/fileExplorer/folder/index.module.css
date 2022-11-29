@@ -1,10 +1,31 @@
-/* get indentation amount from html key and adjust width accordingly   */
-.folder {
+.folder,
+.file,
+.rootFile {
+    cursor: pointer;
     padding-left: var(--pd-md);
-    /* border-left: 2px solid red; */
+}
+
+.folder {
+    font-weight: bold;
+}
+
+.folder > .folder:hover,
+.folder > .folder:active,
+.folder > .folder:focus {
+    background: var(--fx-hover);
+}
+
+.folder > .file:hover,
+.folder > .file:active,
+.folder > .file:focus {
+    background: var(--bg-blue);
 }
 
 .file {
     border-left: 1px solid var(--bg-blue);
-    padding-left: var(--pd-md)
+}
+
+.file,
+.rootFile {
+    font-weight: normal;
 }

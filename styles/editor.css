@@ -25,7 +25,7 @@
 
 .CodeMirror-gutter-filler,
 .CodeMirror-scrollbar-filler {
-	background-color: #fff;
+	background: #fff;
 }
 
 .CodeMirror-gutters {
@@ -49,14 +49,9 @@
 	color: #999;
 }
 
-.CodeMirror-cursor {
-	border-left: 1px solid var(--color-blue);
-	border-right: none;
-	width: 0;
-}
-
+.CodeMirror-cursor,
 .CodeMirror div.CodeMirror-secondarycursor {
-	border-left: 1px solid silver;
+	border-left: 1px solid var(--color-blue);
 }
 
 .cm-fat-cursor .CodeMirror-cursor {
@@ -87,25 +82,25 @@
 
 @-o-keyframes blink {
 	50% {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 
 @-moz-keyframes blink {
 	50% {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 
 @-webkit-keyframes blink {
 	50% {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 
 @keyframes blink {
 	50% {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 
@@ -267,7 +262,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-scroll {
 	height: 100%;
-	/* max-height: 100%; */
 	margin-bottom: -50px;
 	margin-right: -50px;
 	outline: 0;
@@ -353,11 +347,11 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .CodeMirror-gutter-wrapper ::selection {
-	background-color: transparent;
+	background: transparent;
 }
 
 .CodeMirror-gutter-wrapper ::-moz-selection {
-	background-color: transparent;
+	background: transparent;
 }
 
 .CodeMirror-lines {
@@ -367,7 +361,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror pre.CodeMirror-line,
 .CodeMirror pre.CodeMirror-line-like {
-	background: 0 0;
+	background: 0;
 	border-radius: 0;
 	border-width: 0;
 	color: inherit;
@@ -479,7 +473,7 @@ div.CodeMirror-dragcursors {
 }
 
 .cm-searching {
-	background-color: rgba(255, 255, 0, 0.4);
+	background: rgba(255, 255, 0, 0.4);
 }
 
 .cm-force-border {
@@ -593,18 +587,14 @@ span.CodeMirror-selectedtext {
 
 .editor-toolbar.fullscreen::before {
 	background: -moz-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
-	background: -webkit-gradient(
-		linear,
-		left top,
-		right top,
-		color-stop(0, #fff),
-		color-stop(100%, rgba(255, 255, 255, 0))
-	);
-	background: -webkit-linear-gradient(
-		left,
-		#fff 0,
-		rgba(255, 255, 255, 0) 100%
-	);
+	background: -webkit-gradient(linear,
+			left top,
+			right top,
+			color-stop(0, #fff),
+			color-stop(100%, rgba(255, 255, 255, 0)));
+	background: -webkit-linear-gradient(left,
+			#fff 0,
+			rgba(255, 255, 255, 0) 100%);
 	background: -o-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
 	background: -ms-linear-gradient(left, #fff 0, rgba(255, 255, 255, 0) 100%);
 	background: linear-gradient(to right, #fff 0, rgba(255, 255, 255, 0) 100%);
@@ -617,18 +607,14 @@ span.CodeMirror-selectedtext {
 
 .editor-toolbar.fullscreen::after {
 	background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
-	background: -webkit-gradient(
-		linear,
-		left top,
-		right top,
-		color-stop(0, rgba(255, 255, 255, 0)),
-		color-stop(100%, #fff)
-	);
-	background: -webkit-linear-gradient(
-		left,
-		rgba(255, 255, 255, 0) 0,
-		#fff 100%
-	);
+	background: -webkit-gradient(linear,
+			left top,
+			right top,
+			color-stop(0, rgba(255, 255, 255, 0)),
+			color-stop(100%, #fff));
+	background: -webkit-linear-gradient(left,
+			rgba(255, 255, 255, 0) 0,
+			#fff 100%);
 	background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
 	background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
 	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
@@ -791,7 +777,11 @@ span.CodeMirror-selectedtext {
 	padding: var(--pd-lg);
 }
 
-.editor-preview > p {
+.editor-preview a {
+	color: var(--color-blue);
+}
+
+.editor-preview p {
 	margin-top: 0;
 }
 
@@ -872,30 +862,26 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-toolbar .easymde-dropdown {
-	background: linear-gradient(
-		to bottom right,
-		var(--canvas-bg) 0,
-		var(--canvas-bg) 84%,
-		var(--bg-blue) 50%,
-		var(--bg-blue) 100%
-	);
+	background: linear-gradient(to bottom right,
+			var(--canvas-bg) 0,
+			var(--canvas-bg) 84%,
+			var(--bg-blue) 50%,
+			var(--bg-blue) 100%);
 	border: 0;
 	border-radius: 0;
 	position: relative;
 }
 
 .editor-toolbar .easymde-dropdown:hover {
-	background: linear-gradient(
-		to bottom right,
-		var(--bg-blue) 0,
-		var(--bg-blue) 84%,
-		var(--bg-3) 50%,
-		var(--bg-3) 100%
-	);
+	background: linear-gradient(to bottom right,
+			var(--bg-blue) 0,
+			var(--bg-blue) 84%,
+			var(--bg-3) 50%,
+			var(--bg-3) 100%);
 }
 
 .easymde-dropdown-content {
-	background-color: var(--bg-1);
+	background: var(--bg-1);
 	border: var(--border-blue);
 	border-radius: var(--br-sm);
 	box-shadow: var(--bs-full);
@@ -928,7 +914,6 @@ span[data-img-src]::after {
 	max-width: 100%;
 }
 
-.CodeMirror
-	.cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
+.CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
 	background: rgba(255, 0, 0, 0.15);
 }

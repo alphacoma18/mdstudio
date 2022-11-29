@@ -25,7 +25,7 @@
 	padding: var(--pd-sm);
 }
 
-.flexButtons button i {
+.itemButtons i {
 	font-size: 2rem;
 }
 
@@ -43,11 +43,9 @@
 	border: var(--border-blue);
 }
 
-@media screen and (max-width: 1024px) {
-}
+@media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 768px) {
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 480px) {
 	.sidebarSection {
