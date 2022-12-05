@@ -1,17 +1,9 @@
 import Link from "next/link";
-import { memo, useContext } from "react";
-import ContextGlobal from "../../../../utils/context/_global";
 import GenLogo from "../../../gen/logo";
 import styles from "./index.module.css";
-interface Props {
-	props: {
-		rightBarOpen: boolean;
-	};
-}
-const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
-	const { session } = useContext(ContextGlobal);
+const IndexNav: React.FC = () => {
 	return (
-		<nav className={rightBarOpen ? styles.navBarOpen : styles.navbar}>
+		<nav className={styles.nav}>
 			<div className={styles.desktopLogo}>
 				<a href="." className="imageAnchor">
 					<GenLogo
@@ -30,55 +22,28 @@ const Nav: React.FC<Props> = ({ props: { rightBarOpen } }) => {
 					/>
 				</a>
 			</div>
-			<div className={`${styles.flexButtons} hoverParent`}>
-				<Link href="#">
-					<a className={styles.itemButtons}>
-						<i className={"icon-home"}></i>
-						<span>Home</span>
+			<div className={styles.flexAnchor}>
+				<Link href={"/"}>
+					<a href="">
+						<i className="icon-login"></i>
+						<span>Login</span>
 					</a>
 				</Link>
-				<button className={styles.itemButtons}>
-					<i className={"icon-wrench"}></i>
-					<span>Tools</span>
-				</button>
-				<button className={styles.itemButtons}>
-					<i className={"icon-help-circled"}></i>
-					<span>Help</span>
-				</button>
-				<button className={styles.itemButtons}>
-					<i className={"icon-share-squared"}></i>
-					<span>Share</span>
-				</button>
-				<button className={styles.itemButtons}>
-					<i className={"icon-download"}></i>
-					<span>Download</span>
-				</button>
-				<button className={styles.itemButtons}>
-					<i className={"icon-eye"}></i>
-					<span>Preview</span>
-				</button>
-				<button className={styles.itemButtons}>
-					<i className={"icon-publish"}></i>
-					<span>Publish</span>
-				</button>
-				{session?.user ? (
-					<Link href="/auth/signout">
-						<a className={styles.itemButtons}>
-							<i className="icon-logout"></i>
-							<span>Sign out</span>
-						</a>
-					</Link>
-				) : (
-					<Link href="/auth/signin">
-						<a className={styles.itemButtons}>
-							<i className="icon-login"></i>
-							<span>Sign in</span>
-						</a>
-					</Link>
-				)}
+				<Link href={"/"}>
+					<a href="">
+						<i className="icon-login"></i>
+						<span>Docs</span>
+					</a>
+				</Link>
+				<Link href={"/"}>
+					<a href="">
+						<i className="icon-cog-alt"></i>
+						<span>Settings</span>
+					</a>
+				</Link>
 			</div>
 		</nav>
 	);
 };
 
-export default memo(Nav);
+export default IndexNav;

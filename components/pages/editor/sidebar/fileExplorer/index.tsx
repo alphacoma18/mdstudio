@@ -1,12 +1,11 @@
-/* eslint-disable react/jsx-key */
 import { memo, useContext, useEffect } from "react";
 import axios from "../../../../../utils/axios";
-import ContextGlobal from "../../../../../utils/context/_global";
 import ContextIndex from "../../../../../utils/context/index";
+import ContextGlobal from "../../../../../utils/context/_global";
 import { project1 } from "./data";
-import Folder from "./folder";
+import EditorFolder from "./folder";
 import styles from "./index.module.css";
-const FileExplorer: React.FC = () => {
+const EditorFileExplorer: React.FC = () => {
 	const { isMobile, session } = useContext(ContextGlobal);
 	const { updateEditorState } = useContext(ContextIndex);
 	async function renderFX() {
@@ -63,10 +62,10 @@ const FileExplorer: React.FC = () => {
 				</span>
 			</div>
 			<div className={styles.body}>
-				<Folder project={project1} />
+				<EditorFolder project={project1} />
 			</div>
 		</section>
 	);
 };
 
-export default memo(FileExplorer);
+export default memo(EditorFileExplorer);

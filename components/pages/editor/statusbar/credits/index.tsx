@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 
-const Credits: React.FC = () => {
+const EditorCredits: React.FC = () => {
 	return (
 		<div>
 			<span className={styles.version}>
@@ -28,4 +28,4 @@ const Credits: React.FC = () => {
 	);
 };
 
-export default Credits;
+export default EditorCredits;

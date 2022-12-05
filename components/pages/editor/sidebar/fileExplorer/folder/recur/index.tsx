@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import ContextIndex from "../../../../../../../utils/context/index";
 import { FSSchema } from "../../../../../../../utils/db/account";
 import styles from "../index.module.css";
-const Recur: React.FC<{ folder: FSSchema; name: string }> = ({
+const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 	folder,
 	name,
 }) => {
@@ -24,9 +24,9 @@ const Recur: React.FC<{ folder: FSSchema; name: string }> = ({
 					</div>
 					{open && (
 						<>
-							{Object.keys(_files).map((file, index) => (
+							{Object.keys(_files).map((file) => (
 								<div
-									key={index}
+									key={`file-${file}`}
 									className={styles.file}
 									onClick={() =>
 										updateEditorState({
@@ -40,7 +40,7 @@ const Recur: React.FC<{ folder: FSSchema; name: string }> = ({
 								</div>
 							))}
 							{Object.keys(_folders).map((folder, index) => (
-								<Recur
+								<EditorRecur
 									key={index}
 									name={folder}
 									folder={_folders[folder] as FSSchema}
@@ -57,4 +57,4 @@ const Recur: React.FC<{ folder: FSSchema; name: string }> = ({
 	return <>{render()}</>;
 };
 
-export default Recur;
+export default EditorRecur;

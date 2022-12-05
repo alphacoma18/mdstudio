@@ -1,14 +1,14 @@
-import Credits from "./credits";
+import EditorCredits from "./credits";
 import styles from "./index.module.css";
 
-const BotBar: React.FC = () => {
+const EditorStatusBar: React.FC = () => {
 	return (
 		<section className={styles.botbarSection}>
 			<div className={styles.flexBotbar}>
-				<Credits />
+				<EditorCredits />
 			</div>
 		</section>
 	);
 };
 
-export default BotBar;
+export default EditorStatusBar;

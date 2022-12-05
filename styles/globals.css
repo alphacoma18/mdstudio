@@ -25,6 +25,11 @@
 	--br-lg: 7px;
 	--br-circle: 50%;
 
+	--mg-sm: 0.5rem;
+	--mg-md: 1rem;
+	--mg-lg: 1.5rem;
+
+
 	--bs-side: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
 	--bs-full: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
@@ -62,6 +67,8 @@
 *,
 *::before,
 *::after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 

@@ -1,85 +1,25 @@
-.navbar,
-.navBarOpen {
-	align-items: center;
-	background: var(--bg-1);
-	border-top: 3px solid var(--bg-2);
-	box-shadow: var(--bs-side);
-	display: flex;
-	grid-area: 1 / 1 / 1 / 5;
-	justify-content: space-between;
-	width: 100%;
-	z-index: 10;
+.nav {
+    align-items: center;
+    background: var(--bg-1);
+    border-top: 3px solid var(--bg-2);
+    box-shadow: var(--bs-side);
+    display: flex;
+    grid-area: 1 / 1 / 1 / 5;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
 }
 
 .desktopLogo {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	margin-left: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: var(--mg-sm);
 }
 
-.flexButtons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.itemButtons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-	padding: var(--pd-md);
-	text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-	.itemButtons {
-		font-size: 1.4rem;
-	}
-
-	.itemButtons span {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.anymdLogo {
-		display: none;
-	}
-
-	.navbar {
-		display: none;
-	}
-
-	.flexButtons {
-		flex-direction: column;
-		gap: 0.2rem;
-		overflow: hidden auto;
-	}
-
-	.navBarOpen {
-		border-top: none;
-		clip-path: inset(0 0 0 -15px);
-		flex-direction: column;
-		grid-area: 2 / 4 / 4 / 4;
-		padding: var(--pd-sm);
-	}
-
-	.itemButtons {
-		padding: var(--pd-sm);
-	}
-
-	.desktopLogo {
-		display: none;
-	}
-
-	.flexNavButton {
-		flex-direction: column;
-		overflow-y: auto;
-	}
-
-	.flexButtons :is(a, button) i {
-		font-size: 2rem;
-	}
+.flexAnchor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
 }

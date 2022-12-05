@@ -2,12 +2,12 @@ import { memo, useContext } from "react";
 import ContextIndex from "../../../../../../utils/context/index";
 import { FSSchema } from "../../../../../../utils/db/account";
 import styles from "./index.module.css";
-import Recur from "./recur";
+import EditorRecur from "./recur";
 interface Props {
 	project: FSSchema;
 }
-const Folder: React.FC<Props> = ({ project }) => {
-	const { editorState, updateEditorState } = useContext(ContextIndex);
+const EditorFolder: React.FC<Props> = ({ project }) => {
+	const { updateEditorState } = useContext(ContextIndex);
 	function render() {
 		try {
 			const { _isDir, _files, _folders } = project;
@@ -19,9 +19,9 @@ const Folder: React.FC<Props> = ({ project }) => {
 						updateEditorState({ type: "updateCurrentFolder", payload: "root" })
 					}
 				>
-					{Object.keys(_files).map((file, index) => (
+					{Object.keys(_files).map((file) => (
 						<div
-							key={`root-${file}`}
+							key={`file-${file}`}
 							className={styles.rootFile}
 							onClick={() =>
 								updateEditorState({
@@ -34,9 +34,9 @@ const Folder: React.FC<Props> = ({ project }) => {
 							{file}
 						</div>
 					))}
-					{Object.keys(_folders).map((folder, index) => (
-						<Recur
-							key={index}
+					{Object.keys(_folders).map((folder) => (
+						<EditorRecur
+							key={`root-${folder}`}
 							name={folder}
 							folder={_folders[folder] as FSSchema}
 						/>
@@ -50,4 +50,4 @@ const Folder: React.FC<Props> = ({ project }) => {
 	return <>{render()}</>;
 };
 
-export default memo(Folder);
+export default memo(EditorFolder);

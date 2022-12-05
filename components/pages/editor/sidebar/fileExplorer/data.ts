@@ -5,6 +5,8 @@ export const project1: FSSchema = {
 		file_1: {
 			_isDir: false,
 			_content: "Hello World",
+			_title: "Hello World",
+			_description: "This is a test file",
 		},
 	},
 	_folders: {
@@ -24,6 +26,8 @@ export const project1: FSSchema = {
 				file_2: {
 					_isDir: false,
 					_content: "This is file 2",
+					_title: "File 2",
+					_description: "This is file 2",
 				},
 			},
 			_folders: {
@@ -33,6 +37,8 @@ export const project1: FSSchema = {
 						file_3: {
 							_isDir: false,
 							_content: "This is file 3",
+							_title: "File 3",
+							_description: "This is file 3",
 						},
 					},
 					_folders: {

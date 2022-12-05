@@ -1,5 +1,11 @@
 import React, { createContext, ReactNode, useReducer } from "react";
-import { IContextIndex, IEditorState, TEditorAction } from "./index.d";
+import {
+	IBarState,
+	IContextIndex,
+	IEditorState,
+	TBarState,
+	TEditorAction,
+} from "./index.d";
 const ContextIndex = createContext<IContextIndex>({
 	editorState: {
 		id: "",
@@ -7,23 +13,19 @@ const ContextIndex = createContext<IContextIndex>({
 		currentFolder: "",
 	},
 	updateEditorState: () => {},
+	barState: {
+		leftBarOpen: false,
+		rightBarOpen: false,
+		explorerOpen: false,
+	},
+	updateBarState: () => {},
 });
 export default ContextIndex;
 interface Props {
 	children: ReactNode;
 }
 export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
-	function initialState(): IEditorState {
-		let id = "",
-			textInput = "",
-			currentFolder = "";
-		return {
-			id,
-			textInput,
-			currentFolder,
-		};
-	}
-	function reducer(
+	function editorReducer(
 		state: IEditorState,
 		action: { type: TEditorAction; payload: string }
 	) {
@@ -38,13 +40,45 @@ export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
 				return state;
 		}
 	}
-	const [editorState, updateEditorState] = useReducer(reducer, initialState());
+	const [editorState, updateEditorState] = useReducer(editorReducer, {
+		id: "",
+		textInput: "",
+		currentFolder: "",
+	});
+
+	function barReducer(state: IBarState, action: { type: TBarState }) {
+		switch (action.type) {
+			case "leftBarOpen":
+				return {
+					rightBarOpen: state.rightBarOpen ?? false,
+					explorerOpen: false,
+					leftBarOpen: !state.leftBarOpen,
+				};
+			case "rightBarOpen":
+				return {
+					...state,
+					explorerOpen: false,
+					rightBarOpen: !state.rightBarOpen,
+				};
+			case "explorerOpen":
+				return { ...state, explorerOpen: !state.explorerOpen };
+			default:
+				return state;
+		}
+	}
+	const [barState, updateBarState] = useReducer(barReducer, {
+		leftBarOpen: false,
+		rightBarOpen: false,
+		explorerOpen: false,
+	});
 
 	return (
 		<ContextIndex.Provider
 			value={{
 				editorState,
 				updateEditorState,
+				barState,
+				updateBarState,
 			}}
 		>
 			{children}

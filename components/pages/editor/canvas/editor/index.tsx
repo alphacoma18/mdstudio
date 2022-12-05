@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(() => import("react-simplemde-editor"), {
 	ssr: false,
 });
-const Editor: React.FC = () => {
+const EditorMain: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
 	const { editorState, updateEditorState } = useContext(ContextIndex);
 
@@ -92,4 +92,4 @@ const Editor: React.FC = () => {
 	);
 };
 
-export default memo(Editor); // <--- memo() here
+export default memo(EditorMain); // <--- memo() here

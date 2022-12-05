@@ -1,4 +1,4 @@
-export default function Lorem() {
+export default function GenLorem() {
 	return `# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
 ## What is AnyMD?
 

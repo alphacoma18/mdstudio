@@ -17,15 +17,13 @@
 	display: flex;
 	flex-direction: column;
 }
-
-.itemButtons {
+.flexButtons button{
 	align-items: center;
 	display: flex;
 	flex-direction: column;
 	padding: var(--pd-sm);
 }
-
-.itemButtons i {
+.flexButtons button i{
 	font-size: 2rem;
 }
 

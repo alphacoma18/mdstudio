@@ -1,0 +1,12 @@
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section div {
+    box-sizing: content-box;
+    width: 400px;
+    background-color: red;
+    padding: 1;
+}
