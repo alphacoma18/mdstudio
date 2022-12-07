@@ -3,12 +3,12 @@ import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 import { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-76f6c27b/css/fontello.css";
 import "../styles/editor.min.css";
 import "../styles/globals.min.css";
 import { ContextProviderGlobal } from "../utils/context/_global";
-
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -103,7 +103,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 
 				{/* Icons and browser stuff */}
 
-				{/* The culprit */}
+				{/* Do not put this meta tag if you want to work and debug with next.js on mobile */}
 
 				{/* <meta
 					httpEquiv="Content-Security-Policy"
@@ -158,6 +158,15 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 			{getLayout(
 				<SessionProvider session={session}>
 					<ContextProviderGlobal>
+						<NextNProgress
+							// puts the loader at the bottom right
+							color={"#fff"}
+							transformCSS={(css) => {
+								return (
+									<style>{css.replace("top: 15px;", "bottom: 15px;")}</style>
+								);
+							}}
+						/>
 						<Component {...pageProps} />
 					</ContextProviderGlobal>
 				</SessionProvider>

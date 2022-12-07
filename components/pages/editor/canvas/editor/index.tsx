@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import dynamic from "next/dynamic";
-import { memo, useContext, useEffect, useMemo } from "react";
+import { memo, useContext, useMemo } from "react";
 import ContextIndex from "../../../../../utils/context/index/index";
 import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
@@ -73,9 +73,6 @@ const EditorMain: React.FC = () => {
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
 		} as Options;
 	}, [isMobile]);
-	useEffect(() => {
-		console.log("editorState", editorState);
-	}, [editorState]);
 	return (
 		<>
 			{/* Autosave is made unavailable */}

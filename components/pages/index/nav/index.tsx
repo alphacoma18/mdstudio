@@ -23,6 +23,12 @@ const IndexNav: React.FC = () => {
 				</a>
 			</div>
 			<div className={styles.flexAnchor}>
+				<Link href={"/editor"}>
+					<a href="">
+						<i className="icon-login"></i>
+						<span>Editor</span>
+					</a>
+				</Link>
 				<Link href={"/"}>
 					<a href="">
 						<i className="icon-login"></i>
