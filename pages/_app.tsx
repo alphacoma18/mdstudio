@@ -5,8 +5,8 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-76f6c27b/css/fontello.css";
-import "../styles/editor.css";
-import "../styles/globals.css";
+import "../styles/editor.min.css";
+import "../styles/globals.min.css";
 import { ContextProviderGlobal } from "../utils/context/_global";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -102,10 +102,14 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<link rel="canonical" href="https://anymd.vercel.app" />
 
 				{/* Icons and browser stuff */}
-				<meta
+
+				{/* The culprit */}
+
+				{/* <meta
 					httpEquiv="Content-Security-Policy"
 					content="upgrade-insecure-requests"
-				/>
+				/> */}
+
 				<meta name="mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-title" content="Markdown Publisher" />

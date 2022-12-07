@@ -786,9 +786,11 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-preview pre {
-	background: var(--bg-1);
+	border: 2px solid var(--bg-blue);
+	border-radius: var(--br-md);
 	margin-bottom: 10px;
-	padding: var(--pd-sm);
+	overflow-x: auto;
+	padding: var(--pd-lg);
 }
 
 .editor-preview table td,
@@ -844,7 +846,7 @@ span.CodeMirror-selectedtext {
 }
 
 .cm-s-easymde .cm-comment {
-	background: rgba(0, 0, 0, 0.05);
+	background: rgba(0, 0, 0, 0.2);
 	border-radius: var(--br-sm);
 }
 

@@ -46,13 +46,13 @@ interface ProjectSettingSchema {
 		description?: string;
 	};
 }
-export interface ProjectSchema {
+interface ProjectSchema {
 	_id: string;
 	settings: ProjectSettingSchema;
 	fileStructure: FSSchema;
 }
 
-export interface UserSchema {
+interface UserSchema {
 	id: string;
 	name?: string;
 	email?: string | null | undefined;

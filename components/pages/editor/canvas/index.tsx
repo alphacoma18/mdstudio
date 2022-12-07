@@ -1,4 +1,4 @@
-import { memo, useContext } from "react";
+import { useContext } from "react";
 import ContextIndex from "../../../../utils/context/index";
 import EditorMain from "./editor";
 import styles from "./index.module.css";
@@ -21,4 +21,4 @@ const EditorCanvas: React.FC = () => {
 	);
 };
 
-export default memo(EditorCanvas);
+export default EditorCanvas;

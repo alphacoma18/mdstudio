@@ -37,7 +37,7 @@
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
 
-	--fast-transition: color 100ms linear 0s, background 100ms linear 0s;
+	--fast-transition: color 50ms linear 0s, background 50ms linear 0s;
 	--fast-transition-all: all 100ms linear 0s;
 }
 
@@ -77,10 +77,6 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
-	-moz-transition: var(--fast-transition);
-	-webkit-transition: var(--fast-transition);
-	-o-transition: var(--fast-transition);
-	transition: var(--fast-transition);
 }
 
 html,
@@ -88,7 +84,8 @@ textarea,
 div,
 section,
 code,
-span {
+span,
+pre {
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
 }
@@ -100,10 +97,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 16px;
-	height: 100%;
 	line-height: 1.6rem;
-	position: fixed;
-	width: 100%;
 }
 
 button,

@@ -14,6 +14,7 @@ const EditorMain: React.FC = () => {
 
 	const mdOptions = useMemo(() => {
 		return {
+			spellChecker: false,
 			minHeight: "100%",
 			renderingConfig: {
 				codeSyntaxHighlighting: true,
@@ -64,9 +65,8 @@ const EditorMain: React.FC = () => {
 				"|",
 				"guide",
 			],
-
 			status: ["autosave", "lines", "words", "cursor"],
-			lineNumbers: true,
+			lineNumbers: !isMobile,
 			uploadImage: true,
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
@@ -74,8 +74,8 @@ const EditorMain: React.FC = () => {
 		} as Options;
 	}, [isMobile]);
 	useEffect(() => {
-		console.log("editorState", editorState.id);
-	}, [editorState.id]);
+		console.log("editorState", editorState);
+	}, [editorState]);
 	return (
 		<>
 			{/* Autosave is made unavailable */}

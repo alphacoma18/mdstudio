@@ -50,13 +50,13 @@ export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
 		switch (action.type) {
 			case "leftBarOpen":
 				return {
-					rightBarOpen: state.rightBarOpen ?? false,
+					rightBarOpen: state.rightBarOpen && false,
 					explorerOpen: false,
 					leftBarOpen: !state.leftBarOpen,
 				};
 			case "rightBarOpen":
 				return {
-					...state,
+					leftBarOpen: state.leftBarOpen && false,
 					explorerOpen: false,
 					rightBarOpen: !state.rightBarOpen,
 				};
