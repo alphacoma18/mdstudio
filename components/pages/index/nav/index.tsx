@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { useContext } from "react";
+import ContextGlobal from "../../../../utils/context/_global";
 import GenLogo from "../../../gen/logo";
 import styles from "./index.module.css";
 const IndexNav: React.FC = () => {
+	const { session } = useContext(ContextGlobal);
 	return (
 		<nav className={styles.nav}>
 			<div className={styles.desktopLogo}>
@@ -29,12 +32,21 @@ const IndexNav: React.FC = () => {
 						<span>Editor</span>
 					</a>
 				</Link>
-				<Link href={"/"}>
-					<a href="">
-						<i className="icon-login"></i>
-						<span>Login</span>
-					</a>
-				</Link>
+				{session?.user ? (
+					<Link href={"/auth/signout"}>
+						<a href="">
+							<i className="icon-logout"></i>
+							<span>Logout</span>
+						</a>
+					</Link>
+				) : (
+					<Link href={"/auth/signin"}>
+						<a href="">
+							<i className="icon-login"></i>
+							<span>Login</span>
+						</a>
+					</Link>
+				)}
 				<Link href={"/"}>
 					<a href="">
 						<i className="icon-login"></i>

@@ -1,4 +1,5 @@
-import { GetServerSideProps, NextPage } from "next";
+import { InferGetServerSidePropsType, NextPage } from "next";
+import { CtxOrReq } from "next-auth/client/_utils";
 import { getCsrfToken, getProviders } from "next-auth/react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -8,7 +9,9 @@ import styles from "./index.module.css";
 const AuthForm = dynamic(() => import("../../../components/pages/auth/form"), {
 	suspense: true,
 });
-const SignIn: NextPage = ({ providers, csrfToken }: any) => {
+const SignIn: NextPage<
+	InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ providers, csrfToken }) => {
 	return (
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
@@ -49,9 +52,10 @@ const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 	);
 };
 export default SignIn;
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps = async (context: CtxOrReq | undefined) => {
 	const providers = await getProviders();
-	const csrfToken = await getCsrfToken(context);
+	const csrfToken = (await getCsrfToken(context)) || "";
+	// message: 'Unexpected token < in JSON at position 0'
 	return {
 		props: {
 			providers,

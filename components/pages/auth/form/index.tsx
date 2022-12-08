@@ -8,7 +8,7 @@ interface Props {
 const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 	return (
 		<span className={styles.flexMethods}>
-			{Object.values(providers).map((provider: any) => (
+			{Object.values(providers || {}).map((provider: any) => (
 				<GenFragment key={provider.name}>
 					{provider.name === "Email" ? (
 						<form

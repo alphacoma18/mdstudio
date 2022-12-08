@@ -8,10 +8,9 @@ import GoogleProvider from "next-auth/providers/google";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
 import { html } from "../../../types/email";
+import DB_PROJECTS from "../../../utils/db/account";
 
 export const authOptions: NextAuthOptions = {
-	// Configure one or more authentication providers
-
 	adapter: MongooseAdapter(process.env.MONGO_URI!),
 	providers: [
 		EmailProvider({
@@ -43,21 +42,6 @@ export const authOptions: NextAuthOptions = {
 		GoogleProvider({
 			clientId: process.env.GOOGLE_ID!,
 			clientSecret: process.env.GOOGLE_SECRET!,
-			// profile(profile, tokens) {
-			// 	return {
-			// 		id: profile.id,
-			// 		name: profile.name,
-			// 		email: profile.email,
-			// 		image: profile.picture,
-			// 		files: {
-			// 			0: {
-			// 				file_name: "/index",
-			// 				content: "",
-			// 				isPublished: false,
-			// 			},
-			// 		},
-			// 	};
-			// },
 		}),
 		GithubProvider({
 			clientId: process.env.GITHUB_ID!,
@@ -102,21 +86,30 @@ export const authOptions: NextAuthOptions = {
 		}),
 	],
 	secret: process.env.NEXTAUTH_SECRET,
+	events: {
+		async signIn({ user, account, profile, isNewUser }) {
+			if (!isNewUser) return;
+			const { id } = user;
+			await DB_PROJECTS.create({ id, projects: [] });
+			console.log("New user signed in", id);
+			return;
+		},
+	},
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
 			console.log("signIn", user, account, profile, email, credentials);
 			return true;
 		},
 		async redirect({ url, baseUrl }) {
-			console.log("redirect", url, baseUrl);
+			// console.log("redirect", url, baseUrl);
 			return baseUrl;
 		},
 		async session({ session, token, user }) {
-			console.log("session", session, token, user);
+			// console.log("session", session, token, user);
 			return session;
 		},
 		async jwt({ token, user, account, profile, isNewUser }) {
-			console.log("jwt", token, user, account, profile, isNewUser);
+			// console.log("jwt", token, user, account, profile, isNewUser);
 			return token;
 		},
 	},
@@ -133,6 +126,7 @@ export const authOptions: NextAuthOptions = {
 		logo: "http://localhost:3000/android-chrome-256x256.png",
 		buttonText: "#007acc",
 	},
+	// debug: process.env.NODE_ENV === "development",
 };
 
 export default NextAuth(authOptions);

@@ -1,8 +1,4 @@
-// import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
-import { MongoClient } from "mongodb";
-if (!process.env.MONGODB_URI) {
-	throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
-}
+import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
 
 export interface FSSchema {
 	_isDir: true;
@@ -46,163 +42,132 @@ interface ProjectSettingSchema {
 		description?: string;
 	};
 }
-interface ProjectSchema {
+export interface ProjectSchema {
 	_id: string;
 	settings: ProjectSettingSchema;
 	fileStructure: FSSchema;
 }
 
-interface UserSchema {
+export interface ProjectSchema {
 	id: string;
-	name?: string;
-	email?: string | null | undefined;
-	image?: string | null | undefined;
-	creation_date: Date;
 	projects: ProjectSchema[];
 }
 
-if (!process.env.MONGODB_URI) {
-	throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
+const x = new Schema<ProjectSchema>({
+	id: {
+		type: String,
+		required: true,
+	},
+	projects: [
+		{
+			_id: {
+				type: String,
+				required: true,
+			},
+			settings: {
+				UI: {
+					scrollIndicator: {
+						type: Boolean,
+						required: false,
+					},
+					backToTop: {
+						type: Boolean,
+						required: false,
+					},
+					width: {
+						min: {
+							type: String,
+							required: false,
+						},
+						max: {
+							type: String,
+							required: false,
+						},
+					},
+					theme: {
+						bg1: {
+							type: String,
+							required: false,
+						},
+						bg2: {
+							type: String,
+							required: false,
+						},
+						bg3: {
+							type: String,
+							required: false,
+						},
+						color: {
+							type: String,
+							required: false,
+						},
+						font: {
+							type: String,
+							required: false,
+						},
+					},
+				},
+				Functionality: {
+					autosave: {
+						type: Boolean,
+						required: false,
+					},
+					smoothScroll: {
+						type: Boolean,
+						required: false,
+					},
+					horizontalScroll: {
+						type: Boolean,
+						required: false,
+					},
+					googleTranslate: {
+						type: Boolean,
+						required: false,
+					},
+				},
+				Meta: {
+					title: {
+						type: String,
+						required: false,
+					},
+					icon: {
+						type: String,
+						required: false,
+					},
+					description: {
+						type: String,
+						required: false,
+					},
+				},
+			},
+			fileStructure: {
+				_isDir: {
+					type: Boolean,
+					required: true,
+				},
+				_files: {
+					type: Object,
+					required: false,
+				},
+				_folders: {
+					type: Object,
+					required: false,
+				},
+			},
+		},
+	],
+});
+
+const DB_PROJECTS = mongoose.models.projects || model<ProjectSchema>("projects", x);
+
+run().catch((err) => console.log(err));
+async function run() {
+	await connect(process.env.MONGO_URI!, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	} as ConnectOptions);
+	console.log("Connected to Distribution API Database - Initial Connection");
 }
+run().catch((err) => console.log(err));
 
-const uri = process.env.MONGODB_URI;
-const options = {};
-
-let client;
-let clientPromise: Promise<MongoClient>;
-
-client = new MongoClient(uri, options);
-clientPromise = client.connect();
-
-clientPromise
-	.then(() => {
-		console.log("Connected to MongoDB");
-	})
-	.catch((err) => {
-		console.log("Error connecting to MongoDB", err);
-	});
-
-// Export a module-scoped MongoClient promise. By doing this in a
-// separate module, the client can be shared across functions.
-export default clientPromise;
-
-// const userSchema = new Schema<UserSchema>({
-// 	// _id: mongoose.Schema.Types.ObjectId,
-// 	// creation_date: {
-// 	// 	type: Date,
-// 	// 	default: Date.now,
-// 	// },
-// 	projects: [
-// 		{
-// 			_id: {
-// 				type: String,
-// 				required: true,
-// 			},
-// 			settings: {
-// 				UI: {
-// 					scrollIndicator: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 					backToTop: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 					width: {
-// 						min: {
-// 							type: String,
-// 							default: "unset",
-// 						},
-// 						max: {
-// 							type: String,
-// 							default: "unset",
-// 						},
-// 					},
-// 					theme: {
-// 						bg1: {
-// 							type: String,
-// 							default: "#ffffff",
-// 						},
-// 						bg2: {
-// 							type: String,
-// 							default: "#ffffff",
-// 						},
-// 						bg3: {
-// 							type: String,
-// 							default: "#ffffff",
-// 						},
-// 						color: {
-// 							type: String,
-// 							default: "#000000",
-// 						},
-// 						font: {
-// 							type: String,
-// 							default: "sans-serif",
-// 						},
-// 					},
-// 				},
-// 				Functionality: {
-// 					autosave: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 					smoothScroll: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 					horizontalScroll: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 					googleTranslate: {
-// 						type: Boolean,
-// 						default: false,
-// 					},
-// 				},
-// 				Meta: {
-// 					title: {
-// 						type: String,
-// 						default: "Untitled",
-// 					},
-// 					icon: {
-// 						type: String,
-// 						default: "https://anymd.vercel.app/favicon.ico",
-// 					},
-// 					description: {
-// 						type: String,
-// 						default: "Untitled",
-// 					},
-// 				},
-// 			},
-// 			fileStructure: {
-// 				_isDir: {
-// 					type: Boolean,
-// 					default: true,
-// 				},
-// 				_files: {
-// 					type: Object,
-// 					default: {},
-// 				},
-// 				_folders: {
-// 					type: Object,
-// 					default: {},
-// 				},
-// 			},
-// 		},
-// 	],
-// });
-// const DB_USER =
-// 	mongoose.models.AccountSchema ||
-// 	model<UserSchema>("AccountSchema", userSchema);
-
-// // run().catch((err) => console.log(err));
-// async function run() {
-// 	await connect(process.env.MONGO_URI!, {
-// 		useNewUrlParser: true,
-// 		useUnifiedTopology: true,
-// 	} as ConnectOptions);
-// 	console.log("Connected to Distribution API Database - Initial Connection");
-// }
-// run().catch((err) => console.log(err));
-
-// export default DB_USER;
+export default DB_PROJECTS;
