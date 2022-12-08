@@ -1,3 +1,4 @@
+import { Partytown } from "@builder.io/partytown/react";
 import { NextPage } from "next";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
@@ -27,6 +28,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 		<>
 			<Head>
 				<meta charSet="utf-8" />
+				<Partytown debug={true} forward={["dataLayer.push"]} />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
@@ -39,7 +41,10 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="target" content="all" />
 				<meta name="copyright" content="Alpha Romer Coma" />
 				<title>AnyMD | Markdown Publisher</title>
-				<meta name="description" content="" />
+				<meta
+					name="description"
+					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
+				/>
 				<meta name="url" content="https://anymd.vercel.app" />
 				<meta
 					name="keywords"
@@ -53,7 +58,6 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="subject" content="Markdown Publisher" />
 				<meta name="topic" content="Markdown Publisher" />
 				<meta name="abstract" content="" />
-				<meta httpEquiv="X-Frame-Options" content="deny" />
 
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />
@@ -66,7 +70,10 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				{/* Open Graph Meta Tags */}
 				<meta property="og:title" content="AnyMD | Markdown Publisher" />
 
-				<meta property="og:description" content="" />
+				<meta
+					property="og:description"
+					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
+				/>
 				<meta property="og:url" content="https://anymd.vercel.app" />
 				<meta property="og:site_name" content="AnyMD | Markdown Publisher" />
 				<meta property="og:type" content="website" />
@@ -85,7 +92,10 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 
 				{/* Twitter Meta Tags */}
 				<meta property="twitter:title" content="AnyMD | Markdown Publisher" />
-				<meta property="twitter:description" content="" />
+				<meta
+					property="twitter:description"
+					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
+				/>
 				<meta property="twitter:url" content="https://anymd.vercel.app" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:app:country" content="EN" />
@@ -167,6 +177,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 								);
 							}}
 						/>
+						{/* <Script src="https://example.com/script.js" type="" /> */}
 						<Component {...pageProps} />
 					</ContextProviderGlobal>
 				</SessionProvider>

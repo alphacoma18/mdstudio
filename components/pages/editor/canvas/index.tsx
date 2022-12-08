@@ -8,16 +8,14 @@ const EditorCanvas: React.FC = () => {
 		barState: { explorerOpen },
 	} = useContext(ContextIndex);
 	return (
-		<>
-			<span
-				className={`
+		<span
+			className={`
 						${styles.canvasSection}
 						${explorerOpen && styles.canvasSectionClose}
 						`}
-			>
-				<EditorMain />
-			</span>
-		</>
+		>
+			<EditorMain />
+		</span>
 	);
 };
 

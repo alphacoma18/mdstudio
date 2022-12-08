@@ -15,14 +15,12 @@ interface Props {
 const GenLogo: React.FC<Props> = ({ logoLight, logoDark }) => {
 	const { isLightTheme } = useContext(ContextGlobal);
 	return (
-		<>
-			<Image
-				src={isLightTheme ? logoLight.src : logoDark.src}
-				height={isLightTheme ? logoLight.height : logoDark.height}
-				width={isLightTheme ? logoLight.width : logoDark.width}
-				alt={isLightTheme ? logoLight.alt : logoDark.alt}
-			/>
-		</>
+		<Image
+			src={isLightTheme ? logoLight.src : logoDark.src}
+			height={isLightTheme ? logoLight.height : logoDark.height}
+			width={isLightTheme ? logoLight.width : logoDark.width}
+			alt={isLightTheme ? logoLight.alt : logoDark.alt}
+		/>
 	);
 };
 

@@ -29,69 +29,6 @@
 	width: 100%;
 }
 
-.flexMethods {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.4rem;
-	justify-content: center;
-	width: 100%;
-}
-
-.emailMethod {
-	display: flex;
-	flex-direction: column;
-	gap: 0.4rem;
-	width: 100%;
-}
-
-.form {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-.input {
-	border: var(--border-blue);
-	margin: auto;
-	padding: 17.5px 29px;
-	width: 100%;
-}
-
-.input::selection {
-	background: var(--bg-white);
-	color: var(--color-blue);
-}
-
-.input:valid {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
-
-.button:hover,
-.button:active,
-.button:focus,
-.button:focus-within,
-.button:focus-visible {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
-
-.itemMethod {
-	border: var(--border-blue);
-	border-radius: var(--br-md);
-	padding: var(--pd-md);
-	text-align: center;
-	width: calc(50% - 0.4rem);
-}
-
-.submit {
-	border: var(--border-blue);
-	border-radius: var(--br-lg);
-	padding: var(--pd-md);
-	text-align: center;
-	width: 100%;
-}
-
 .name {
 	font-size: 1.2rem;
 	font-weight: bold;
@@ -99,54 +36,6 @@
 
 .why {
 	width: 100%;
-}
-
-.flexMethods button {
-	transition: var(--fast-transition);
-}
-
-.flexMethods button[name="Google"] {
-	background: white;
-	border: 3px solid whitesmoke;
-	color: black;
-}
-
-.flexMethods button[name="GitHub"] {
-	background: black;
-	border: 3px solid black;
-	color: white;
-}
-
-.flexMethods button[name="Facebook"] {
-	background: #4267b2;
-	border: 3px solid #4267b2;
-	color: white;
-}
-
-.flexMethods button[name="LinkedIn"] {
-	background: #0077b5;
-	border: 3px solid #0077b5;
-	color: white;
-}
-
-.flexMethods button[name="Twitter"] {
-	background: #1da1f2;
-	border: 3px solid #1da1f2;
-	color: white;
-}
-
-.flexMethods button[name="Auth0"] {
-	background: #1e212a;
-	border: 3px solid #1e212a;
-	color: white;
-}
-
-.flexMethods button:hover,
-.flexMethods button:active,
-.flexMethods button:focus,
-.flexMethods:focus-within,
-.flexMethods:focus-visible {
-	opacity: 0.8;
 }
 
 .or {
@@ -164,24 +53,10 @@
 	.bg {
 		background: var(--bg-1);
 	}
-
-	.form {
-		border: none;
-		border-radius: 0;
-		box-shadow: none;
-	}
 }
 
 @media screen and (max-width: 480px) {
 	.flexDiv {
 		padding: var(--pd-lg);
-	}
-
-	.input {
-		height: 32px;
-	}
-
-	.itemMethod {
-		width: 200%;
 	}
 }

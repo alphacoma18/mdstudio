@@ -11,16 +11,14 @@ interface Image {
 
 const GenImage: React.FC<Image> = ({ props }) => {
 	return (
-		<>
-			<Image
-				src={props.src}
-				height={props.height}
-				width={props.width}
-				title={props.alt}
-				alt={props.alt}
-				className={props.className}
-			/>
-		</>
+		<Image
+			src={props.src}
+			height={props.height}
+			width={props.width}
+			title={props.alt}
+			alt={props.alt}
+			className={props.className}
+		/>
 	);
 };
 

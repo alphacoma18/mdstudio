@@ -10,6 +10,7 @@
 		"prettier": "prettier --write ."
 	},
 	"dependencies": {
+		"@builder.io/partytown": "^0.7.3",
 		"@choutkamartin/mongoose-adapter": "^0.1.0",
 		"@next-auth/mongodb-adapter": "^1.1.1",
 		"axios": "^1.2.1",

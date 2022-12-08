@@ -1,9 +1,13 @@
 import { GetServerSideProps, NextPage } from "next";
-import { getCsrfToken, getProviders, signIn } from "next-auth/react";
+import { getCsrfToken, getProviders } from "next-auth/react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import GenFragment from "../../../components/gen/fragment";
 import GenLogo from "../../../components/gen/logo";
+import GenSuspense from "../../../components/gen/suspense";
 import styles from "./index.module.css";
+const AuthForm = dynamic(() => import("../../../components/pages/auth/form"), {
+	suspense: true,
+});
 const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 	return (
 		<section className={styles.bg}>
@@ -25,51 +29,9 @@ const SignIn: NextPage = ({ providers, csrfToken }: any) => {
 					/>
 				</span>
 				<hr />
-				<span className={styles.flexMethods}>
-					{Object.values(providers).map((provider: any) => (
-						<GenFragment key={provider.name}>
-							{provider.name === "Email" ? (
-								<form
-									action="/api/auth/signin/email"
-									method="post"
-									className={styles.emailMethod}
-								>
-									<input
-										name="csrfToken"
-										type="hidden"
-										defaultValue={csrfToken}
-									/>
-									<input
-										name="email"
-										type="email"
-										placeholder="email@example.com"
-										required
-										autoFocus
-										className={styles.input}
-									/>
-									<button
-										type="submit"
-										className={`${styles.button} ${styles.submit} icon-email`}
-									>
-										Sign in with Email
-									</button>
-									<p className={styles.or}>or sign in with</p>
-								</form>
-							) : (
-								<button
-									onClick={() => signIn(provider.id)}
-									name={provider.name}
-									className={`
-									${styles.button}
-									${styles.itemMethod}
-									${styles.name} icon-${String(provider.name).toLowerCase()}`}
-								>
-									{provider.name}
-								</button>
-							)}
-						</GenFragment>
-					))}
-				</span>
+				<GenSuspense fallback="Loading Form...">
+					<AuthForm providers={providers} csrfToken={csrfToken} />
+				</GenSuspense>
 				<hr />
 				<details className={styles.why}>
 					<summary>But Why Sign In?</summary>

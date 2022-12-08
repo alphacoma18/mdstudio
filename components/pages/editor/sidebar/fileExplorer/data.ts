@@ -194,9 +194,7 @@ export const project1: FSSchema = {
 			_files: {
 				file_18: {
 					_isDir: false,
-					_content: `
-# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
-
+					_content: `# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
 ## What is AnyMD?
 
 AnyMD is a simple yet modern and extensive cross-platform markdown publisher and publishing application. Featuring your most beloved features such as...

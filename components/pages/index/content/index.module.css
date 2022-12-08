@@ -8,7 +8,6 @@
 
 .section div {
     background-color: blue;
-    box-sizing: border-box;
     padding: 1rem;
     width: calc(50% - .2rem);
 }

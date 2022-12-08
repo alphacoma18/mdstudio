@@ -13,14 +13,14 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 			const { _isDir, _files, _folders } = project;
 			if (!_isDir) return;
 			return (
-				<div
+				<button
 					className={styles.folder}
 					onClick={() =>
 						updateEditorState({ type: "updateCurrentFolder", payload: "root" })
 					}
 				>
 					{Object.keys(_files).map((file) => (
-						<div
+						<button
 							key={`file-${file}`}
 							className={styles.rootFile}
 							onClick={() =>
@@ -32,7 +32,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 						>
 							<i className="icon-doc-text"></i>
 							{file}
-						</div>
+						</button>
 					))}
 					{Object.keys(_folders).map((folder) => (
 						<EditorRecur
@@ -41,7 +41,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 							folder={_folders[folder] as FSSchema}
 						/>
 					))}
-				</div>
+				</button>
 			);
 		} catch (error) {
 			console.log(error);

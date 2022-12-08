@@ -13,19 +13,19 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 			const { _isDir, _files, _folders } = folder;
 			if (!_isDir) return;
 			return (
-				<div className={styles.folder}>
-					<div className={styles.folderName} onClick={() => setOpen(!open)}>
+				<>
+					<button className={`${styles.folderName} ${styles.folder}`} onClick={() => setOpen(!open)}>
 						{open ? (
 							<i className="icon-folder-open"></i>
 						) : (
 							<i className="icon-folder"></i>
 						)}
 						{name}
-					</div>
+					</button>
 					{open && (
 						<>
 							{Object.keys(_files).map((file) => (
-								<div
+								<button
 									key={`file-${file}`}
 									className={styles.file}
 									onClick={() =>
@@ -37,7 +37,7 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 								>
 									<i className="icon-doc-text"></i>
 									{file}
-								</div>
+								</button>
 							))}
 							{Object.keys(_folders).map((folder, index) => (
 								<EditorRecur
@@ -48,7 +48,7 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 							))}
 						</>
 					)}
-				</div>
+				</>
 			);
 		} catch (error) {
 			console.log(error);

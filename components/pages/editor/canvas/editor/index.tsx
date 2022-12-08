@@ -74,18 +74,22 @@ const EditorMain: React.FC = () => {
 		} as Options;
 	}, [isMobile]);
 	return (
-		<>
-			{/* Autosave is made unavailable */}
-			<SimpleMdeReact
-				value={editorState.textInput}
-				onChange={(value) => {
-					updateEditorState({ type: "updateTextInput", payload: value });
-				}}
-				placeholder="Type or paste your text here..."
-				options={mdOptions}
-				className={`${styles.editor} kf-fade-in-fast`}
-			/>
-		</>
+		<SimpleMdeReact
+			value={editorState.textInput}
+			onChange={(value) => {
+				updateEditorState({ type: "updateTextInput", payload: value });
+			}}
+			// if control + shift + b is pressed, then prevent default
+			onKeyDown={(e) => {
+				if (e.ctrlKey && e.shiftKey && e.key === "B") {
+					e.preventDefault();
+					console.log("ctrl key pressed");
+				}
+			}}
+			placeholder="Type or paste your text here..."
+			options={mdOptions}
+			className={`${styles.editor} kf-fade-in-fast`}
+		/>
 	);
 };
 

@@ -1,8 +1,11 @@
 .folder,
 .file,
 .rootFile {
+    text-align: left;
+    width: 100%;
     cursor: pointer;
     padding-left: var(--pd-md);
+    display: inline-block;
 }
 
 .folder {
