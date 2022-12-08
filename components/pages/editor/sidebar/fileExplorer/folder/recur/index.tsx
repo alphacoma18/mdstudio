@@ -14,7 +14,10 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 			if (!_isDir) return;
 			return (
 				<>
-					<button className={`${styles.folderName} ${styles.folder}`} onClick={() => setOpen(!open)}>
+					<button
+						className={`${styles.folderName} ${styles.folder}`}
+						onClick={() => setOpen(!open)}
+					>
 						{open ? (
 							<i className="icon-folder-open"></i>
 						) : (

@@ -17,13 +17,13 @@
 	display: flex;
 	flex-direction: column;
 }
-.flexButtons button{
+.flexButtons button {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
 	padding: var(--pd-sm);
 }
-.flexButtons button i{
+.flexButtons button i {
 	font-size: 2rem;
 }
 
@@ -41,9 +41,11 @@
 	border: var(--border-blue);
 }
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+}
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+}
 
 @media screen and (max-width: 480px) {
 	.sidebarSection {

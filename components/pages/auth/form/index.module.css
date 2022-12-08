@@ -1,39 +1,39 @@
 .flexMethods {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    justify-content: center;
-    width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	justify-content: center;
+	width: 100%;
 }
 
 .emailMethod {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	width: 100%;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .input {
-    border: var(--border-blue);
-    margin: auto;
-    padding: 17.5px 29px;
-    width: 100%;
+	border: var(--border-blue);
+	margin: auto;
+	padding: 17.5px 29px;
+	width: 100%;
 }
 
 .input::selection {
-    background: var(--bg-white);
-    color: var(--color-blue);
+	background: var(--bg-white);
+	color: var(--color-blue);
 }
 
 .input:valid {
-    background: var(--bg-blue);
-    color: var(--color-white);
+	background: var(--bg-blue);
+	color: var(--color-white);
 }
 
 .button:hover,
@@ -41,69 +41,69 @@
 .button:focus,
 .button:focus-within,
 .button:focus-visible {
-    background: var(--bg-blue);
-    color: var(--color-white);
+	background: var(--bg-blue);
+	color: var(--color-white);
 }
 
 .itemMethod {
-    border: var(--border-blue);
-    border-radius: var(--br-md);
-    padding: var(--pd-md);
-    text-align: center;
-    width: calc(50% - 0.4rem);
+	border: var(--border-blue);
+	border-radius: var(--br-md);
+	padding: var(--pd-md);
+	text-align: center;
+	width: calc(50% - 0.4rem);
 }
 
 .submit {
-    border: var(--border-blue);
-    border-radius: var(--br-lg);
-    padding: var(--pd-md);
-    text-align: center;
-    width: 100%;
+	border: var(--border-blue);
+	border-radius: var(--br-lg);
+	padding: var(--pd-md);
+	text-align: center;
+	width: 100%;
 }
 
 .name {
-    font-size: 1.2rem;
-    font-weight: bold;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 
 .flexMethods button {
-    transition: var(--fast-transition);
+	transition: var(--fast-transition);
 }
 
 .flexMethods button[name="Google"] {
-    background: var(--bg-white);
-    border: 3px solid whitesmoke;
-    color: var(--color-black);
+	background: var(--bg-white);
+	border: 3px solid whitesmoke;
+	color: var(--color-black);
 }
 
 .flexMethods button[name="GitHub"] {
-    background: #171515;
-    border: 3px solid #171515;
-    color: var(--color-white);
+	background: #171515;
+	border: 3px solid #171515;
+	color: var(--color-white);
 }
 
 .flexMethods button[name="Facebook"] {
-    background: #4267b2;
-    border: 3px solid #4267b2;
-    color: var(--color-white);
+	background: #4267b2;
+	border: 3px solid #4267b2;
+	color: var(--color-white);
 }
 
 .flexMethods button[name="LinkedIn"] {
-    background: #0077b5;
-    border: 3px solid #0077b5;
-    color: var(--color-white);
+	background: #0077b5;
+	border: 3px solid #0077b5;
+	color: var(--color-white);
 }
 
 .flexMethods button[name="Twitter"] {
-    background: #1da1f2;
-    border: 3px solid #1da1f2;
-    color: var(--color-white);
+	background: #1da1f2;
+	border: 3px solid #1da1f2;
+	color: var(--color-white);
 }
 
 .flexMethods button[name="Auth0"] {
-    background: #1e212a;
-    border: 3px solid #1e212a;
-    color: var(--color-white);
+	background: #1e212a;
+	border: 3px solid #1e212a;
+	color: var(--color-white);
 }
 
 .flexMethods button:hover,
@@ -111,34 +111,33 @@
 .flexMethods button:focus,
 .flexMethods:focus-within,
 .flexMethods:focus-visible {
-    opacity: 0.8;
+	opacity: 0.8;
 }
 
 .or {
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
 }
 
-
 @media screen and (max-width: 768px) {
-    .bg {
-        background: var(--bg-1);
-    }
+	.bg {
+		background: var(--bg-1);
+	}
 
-    .form {
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-    }
+	.form {
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
 }
 
 @media screen and (max-width: 480px) {
-    .input {
-        height: 32px;
-    }
+	.input {
+		height: 32px;
+	}
 
-    .itemMethod {
-        width: 200%;
-    }
+	.itemMethod {
+		width: 200%;
+	}
 }

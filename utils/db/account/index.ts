@@ -158,7 +158,8 @@ const x = new Schema<ProjectSchema>({
 	],
 });
 
-const DB_PROJECTS = mongoose.models.projects || model<ProjectSchema>("projects", x);
+const DB_PROJECTS =
+	mongoose.models.projects || model<ProjectSchema>("projects", x);
 
 run().catch((err) => console.log(err));
 async function run() {
