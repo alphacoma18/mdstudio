@@ -1,12 +1,14 @@
+---
 name: Next Continuous Integration
-
 on:
+  push:
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
-
-
+    branches:
+      - master
 jobs:
-  test_pull_request:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,4 +16,5 @@ jobs:
         with:
           node-version: 18.8.0
       - run: npm ci
+      - run: npm run lint
       - run: npm run build
