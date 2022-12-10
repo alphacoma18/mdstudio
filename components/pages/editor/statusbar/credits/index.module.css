@@ -1,11 +1,11 @@
 @media screen and (max-width: 768px) {
-	.mobileCut {
-		display: none;
-	}
+    .mobileCut {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 480px) {
-	.credits {
-		display: none;
-	}
+    .credits {
+        display: none;
+    }
 }

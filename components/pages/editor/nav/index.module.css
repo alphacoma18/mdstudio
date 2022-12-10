@@ -1,85 +1,85 @@
 .nav,
 .navOpen {
-	align-items: center;
-	background: var(--bg-1);
-	border-top: 3px solid var(--bg-2);
-	box-shadow: var(--bs-side);
-	display: flex;
-	grid-area: 1 / 1 / 1 / 5;
-	justify-content: space-between;
-	width: 100%;
-	z-index: 10;
+    align-items: center;
+    background: var(--bg-1);
+    border-top: 3px solid var(--bg-2);
+    box-shadow: var(--bs-side);
+    display: flex;
+    grid-area: 1 / 1 / 1 / 5;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
 }
 
 .desktopLogo {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	margin-left: var(--mg-sm);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: var(--mg-sm);
 }
 
 .flexButtons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flexButtons :is(button, a) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-	padding: var(--pd-md);
-	text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: var(--pd-md);
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
-	.flexButtons :is(button, a) {
-		font-size: 1.4rem;
-	}
+    .flexButtons :is(button, a) {
+        font-size: 1.4rem;
+    }
 
-	.flexButtons :is(button, a) span {
-		display: none;
-	}
+    .flexButtons :is(button, a) span {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 480px) {
-	.anymdLogo {
-		display: none;
-	}
+    .anymdLogo {
+        display: none;
+    }
 
-	.nav {
-		display: none;
-	}
+    .nav {
+        display: none;
+    }
 
-	.flexButtons {
-		flex-direction: column;
-		gap: 0.2rem;
-		overflow: hidden auto;
-	}
+    .flexButtons {
+        flex-direction: column;
+        gap: 0.2rem;
+        overflow: hidden auto;
+    }
 
-	.navOpen {
-		border-top: none;
-		clip-path: inset(0 0 0 -15px);
-		flex-direction: column;
-		grid-area: 2 / 4 / 4 / 4;
-		padding: var(--pd-sm);
-	}
+    .navOpen {
+        border-top: none;
+        clip-path: inset(0 0 0 -15px);
+        flex-direction: column;
+        grid-area: 2 / 4 / 4 / 4;
+        padding: var(--pd-sm);
+    }
 
-	.flexButtons :is(button, a) {
-		padding: var(--pd-sm);
-	}
+    .flexButtons :is(button, a) {
+        padding: var(--pd-sm);
+    }
 
-	.desktopLogo {
-		display: none;
-	}
+    .desktopLogo {
+        display: none;
+    }
 
-	.flexNavButton {
-		flex-direction: column;
-		overflow-y: auto;
-	}
+    .flexNavButton {
+        flex-direction: column;
+        overflow-y: auto;
+    }
 
-	.flexButtons :is(a, button) i {
-		font-size: 2rem;
-	}
+    .flexButtons :is(a, button) i {
+        font-size: 2rem;
+    }
 }

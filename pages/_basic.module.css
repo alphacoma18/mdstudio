@@ -11,7 +11,7 @@
 }
 
 .section h1 {
-    color: var(--color-blue)
+    color: var(--color-blue);
 }
 
 .delimit {
@@ -22,7 +22,7 @@
 .credit {
     bottom: 0;
     font-weight: bold;
-    position: fixed
+    position: fixed;
 }
 
 .section a {

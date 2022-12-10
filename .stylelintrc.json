@@ -1,0 +1,13 @@
+{
+	"extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+	"ignoreFiles": [
+		"**/editor.min.css",
+		"**/globals.min.css",
+		"**/fontello/fontello-76f6c27b/css/*.css"
+	],
+	"rules": {
+		"value-no-vendor-prefix": true,
+		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+		"indentation": 4
+	}
+}

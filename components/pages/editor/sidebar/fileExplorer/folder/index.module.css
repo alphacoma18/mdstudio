@@ -1,31 +1,31 @@
 .file,
 .folder,
 .rootFile {
-	display: block;
-	text-align: left;
-	width: 100%;
+    display: block;
+    text-align: left;
+    width: 100%;
 }
 
 .indent {
-	margin-left: var(--mg-md);
+    margin-left: var(--mg-md);
 }
 
 .folder {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .indent > .folder {
-	border-left: 1px solid var(--bg-blue)
+    border-left: 1px solid var(--bg-blue);
 }
 
 .file {
-	border-left: 1px solid var(--bg-blue)
+    border-left: 1px solid var(--bg-blue);
 }
 
 .file:is(:hover, :active, :focus) {
-	background: var(--bg-blue)
+    background: var(--bg-blue);
 }
 
 .folder button {
-	border-radius: 0
+    border-radius: 0;
 }

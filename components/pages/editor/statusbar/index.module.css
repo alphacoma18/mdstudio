@@ -1,21 +1,21 @@
 .botbarSection {
-	background: var(--bg-2);
-	box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.4);
-	grid-area: 4 / 1 / 4 / 5;
-	overflow-x: auto;
-	z-index: 5;
+    background: var(--bg-2);
+    box-shadow: 0 -4px 8px rgb(0 0 0 / 40%);
+    grid-area: 4 / 1 / 4 / 5;
+    overflow-x: auto;
+    z-index: 5;
 }
 
 .flexBotbar {
-	display: flex;
-	justify-content: space-between;
-	overflow: auto;
-	overflow-x: auto;
-	white-space: nowrap;
-	width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100vw;
 }
 
 .botbarSection span,
 .botbarSection i {
-	color: var(--color-white);
+    color: var(--color-white);
 }

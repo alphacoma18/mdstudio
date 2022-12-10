@@ -1,62 +1,61 @@
 .bg {
-	align-items: center;
-	background: var(--canvas-bg);
-	border-top: var(--border-blue);
-	display: flex;
-	height: 100vh;
-	justify-content: center;
-	overflow-y: auto;
-	width: 100vw;
+    align-items: center;
+    background: var(--canvas-bg);
+    border-top: var(--border-blue);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow-y: auto;
+    width: 100vw;
 }
 
 .flexDiv {
-	align-items: center;
-	background: var(--bg-1);
-	border-radius: var(--br-lg);
-
-	box-shadow: var(--bs-full);
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: auto;
-	max-width: 600px;
-	padding: 2rem;
-	width: 100%;
+    align-items: center;
+    background: var(--bg-1);
+    border-radius: var(--br-lg);
+    box-shadow: var(--bs-full);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 600px;
+    padding: 2rem;
+    width: 100%;
 }
 
 .spanImage {
-	text-align: center;
-	width: 100%;
+    text-align: center;
+    width: 100%;
 }
 
 .name {
-	font-size: 1.2rem;
-	font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .why {
-	width: 100%;
+    width: 100%;
 }
 
 .or {
-	font-weight: bold;
-	text-align: center;
-	width: 100%;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-	.flexDiv {
-		border: none;
-		box-shadow: none;
-	}
+    .flexDiv {
+        border: none;
+        box-shadow: none;
+    }
 
-	.bg {
-		background: var(--bg-1);
-	}
+    .bg {
+        background: var(--bg-1);
+    }
 }
 
 @media screen and (max-width: 480px) {
-	.flexDiv {
-		padding: var(--pd-lg);
-	}
+    .flexDiv {
+        padding: var(--pd-lg);
+    }
 }
