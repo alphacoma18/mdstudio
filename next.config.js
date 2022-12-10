@@ -6,7 +6,7 @@ const withPWA = require("next-pwa")({
 	register: true,
 	scope: "/",
 	sw: "service-worker.js",
-	cacheOnFrontEndNav: true,
+	// cacheOnFrontEndNav: true,
 	fallbacks: {
 		document: "/_offline",
 		image: "/android-chrome-512x512.png",

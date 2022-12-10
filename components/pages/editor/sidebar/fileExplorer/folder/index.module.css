@@ -1,34 +1,31 @@
-.folder,
 .file,
+.folder,
 .rootFile {
+	display: block;
 	text-align: left;
 	width: 100%;
-	cursor: pointer;
-	padding-left: var(--pd-md);
-	display: inline-block;
+}
+
+.indent {
+	margin-left: var(--mg-md);
 }
 
 .folder {
 	font-weight: bold;
 }
 
-.folder > .folder:hover,
-.folder > .folder:active,
-.folder > .folder:focus {
-	background: var(--fx-hover);
-}
-
-.folder > .file:hover,
-.folder > .file:active,
-.folder > .file:focus {
-	background: var(--bg-blue);
+.indent > .folder {
+	border-left: 1px solid var(--bg-blue)
 }
 
 .file {
-	border-left: 1px solid var(--bg-blue);
+	border-left: 1px solid var(--bg-blue)
 }
 
-.file,
-.rootFile {
-	font-weight: normal;
+.file:is(:hover, :active, :focus) {
+	background: var(--bg-blue)
+}
+
+.folder button {
+	border-radius: 0
 }

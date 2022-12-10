@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import ContextIndex from "../../../../../../../utils/context/index";
+import ContextGlobal from "../../../../../../../utils/context/_global";
 import { FSSchema } from "../../../../../../../utils/db/account";
 import styles from "../index.module.css";
 const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 	folder,
 	name,
 }) => {
-	const { editorState, updateEditorState } = useContext(ContextIndex);
+	const { isMobile } = useContext(ContextGlobal);
+	const { updateEditorState, updateBarState } = useContext(ContextIndex);
 	const [open, setOpen] = useState<boolean>(false);
 	function render() {
 		try {
@@ -26,17 +28,18 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 						{name}
 					</button>
 					{open && (
-						<>
+						<div className={styles.indent}>
 							{Object.keys(_files).map((file) => (
 								<button
 									key={`file-${file}`}
 									className={styles.file}
-									onClick={() =>
+									onClick={() => {
 										updateEditorState({
 											type: "updateTextInput",
 											payload: _files[file]._content,
-										})
-									}
+										});
+										if (isMobile) updateBarState({ type: "explorerClose" });
+									}}
 								>
 									<i className="icon-doc-text"></i>
 									{file}
@@ -49,7 +52,7 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 									folder={_folders[folder] as FSSchema}
 								/>
 							))}
-						</>
+						</div>
 					)}
 				</>
 			);

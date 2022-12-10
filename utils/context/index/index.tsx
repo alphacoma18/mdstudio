@@ -62,6 +62,8 @@ export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
 				};
 			case "explorerOpen":
 				return { ...state, explorerOpen: !state.explorerOpen };
+			case "explorerClose":
+				return { ...state, explorerOpen: false };
 			default:
 				return state;
 		}
