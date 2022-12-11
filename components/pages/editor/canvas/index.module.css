@@ -1,18 +1,18 @@
 .canvasSection {
-    background: var(--canvas-bg);
-    grid-area: 2 / 3 / 4 / 4;
-    height: 100%;
-    max-height: 100%;
-    overflow: auto;
-    width: 100%;
+	background: var(--canvas-bg);
+	grid-area: 2 / 3 / 4 / 4;
+	height: 100%;
+	max-height: 100%;
+	overflow: auto;
+	width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-    .canvasSection {
-        grid-area: 2 / 3 / 4 / 4;
-    }
+	.canvasSection {
+		grid-area: 2 / 3 / 4 / 4;
+	}
 
-    .canvasSectionClose {
-        display: none;
-    }
+	.canvasSectionClose {
+		display: none;
+	}
 }

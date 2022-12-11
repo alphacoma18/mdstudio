@@ -1,45 +1,45 @@
 .fileExplorer {
-    background: var(--bg-1);
-    box-shadow: var(--bs-side);
-    clip-path: inset(0 -15px 0 0);
-    display: flex;
-    flex-direction: column;
-    grid-area: 2 / 2 / 4 / 3;
-    height: 100%;
-    width: 240px;
-    z-index: 9;
+	background: var(--bg-1);
+	box-shadow: var(--bs-side);
+	clip-path: inset(0 -15px 0 0);
+	display: flex;
+	flex-direction: column;
+	grid-area: 2 / 2 / 4 / 3;
+	height: 100%;
+	width: 240px;
+	z-index: 9;
 }
 
 .head {
-    align-items: center;
-    background: var(--bg-1);
-    box-shadow: var(--bs-side);
-    clip-path: inset(0 0 -15px 0);
-    display: flex;
-    justify-content: space-evenly;
-    padding: var(--pd-md);
+	align-items: center;
+	background: var(--bg-1);
+	box-shadow: var(--bs-side);
+	clip-path: inset(0 0 -15px 0);
+	display: flex;
+	justify-content: space-evenly;
+	padding: var(--pd-md);
 }
 
 .body {
-    overflow: auto;
-    padding: var(--pd-md);
+	overflow: auto;
+	padding: var(--pd-md);
 }
 
 .headItem {
-    width: 100%;
+	width: 100%;
 }
 
 .headItem:first-child {
-    text-align: start;
+	text-align: start;
 }
 
 .headItem:last-child {
-    text-align: end;
+	text-align: end;
 }
 
 @media screen and (max-width: 768px) {
-    .fileExplorer {
-        grid-area: 2 / 2 / 4 / 4;
-        width: 100%;
-    }
+	.fileExplorer {
+		grid-area: 2 / 2 / 4 / 4;
+		width: 100%;
+	}
 }

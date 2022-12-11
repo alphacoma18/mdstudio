@@ -1,1 +1,149 @@
-:root{--bg-white:#fff;--bg-black:#1a2632;--bg-blue:#007acc;--bg-yellow:#faee0f;--bg-green:#198754;--bg-red:#dc3545;--color-white:#fff;--color-black:#000;--color-blue:#007acc;--color-red:#dc3545;--border-blue:3px solid var(--bg-blue);--border-success:3px solid var(--bg-green);--border-error:3px solid var(--bg-red);--textarea-bg:#fff;--input-black:#233343;--br-sm:3px;--br-md:5px;--br-lg:7px;--br-circle:50%;--mg-sm:0.5rem;--mg-md:1rem;--mg-lg:1.5rem;--bs-side:0px 4px 8px 0px rgba(0, 0, 0, 0.4);--bs-full:0 2px 4px rgba(0, 0, 0, 0.1),0 8px 16px rgba(0, 0, 0, 0.1);--border-box:border-box;--pd-sm:0.2rem;--pd-md:0.4rem;--pd-lg:1rem;--fast-transition:color 50ms linear 0s,background 50ms linear 0s;--fast-transition-all:all 100ms linear 0s}::-moz-selection{background:var(--bg-blue);color:var(--color-white)}::selection,::target-text{background:var(--bg-blue);color:var(--color-white)}::-webkit-scrollbar-track{background:0 0}::-webkit-scrollbar-thumb{background:var(--bg-2)}::-webkit-scrollbar-thumb:hover{background:#007accaa}::-webkit-scrollbar{height:1vh;width:1vh}*,::after,::before{box-sizing:border-box}*,html{color:var(--color);margin:0;padding:0}code,div,html,pre,section,span,textarea{scrollbar-color:var(--bg-2) transparent;scrollbar-width:thin}body{-webkit-animation:fade-in .3s cubic-bezier(.215,.61,.355,1) 0s 1;animation:fade-in .3s cubic-bezier(.215,.61,.355,1) 0s 1;background:var(--bg-1);caret-color:var(--color-blue);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:16px;line-height:1.6rem}button,input{background:0 0;border:none;line-height:inherit}button{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}a{color:inherit;text-decoration:none}hr{background:var(--bg-blue);border:1px solid var(--bg-blue);border-radius:var(--br-lg);color:var(--color-blue);margin:.4rem auto;width:100%}button,input,textarea{color:inherit;font-family:inherit;font-size:inherit}button,input{border-radius:var(--br-lg)}.kf-fade-in-fast{-webkit-animation:fade-in .3s cubic-bezier(.215,.61,.355,1) 0s 1;animation:fade-in .3s cubic-bezier(.215,.61,.355,1) 0s 1}@-webkit-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}.imageAnchor{line-height:0}.hoverParent :is(a,button):focus :is(p,i,span),.hoverParent :is(a,button):hover :is(p,i,span),.hoverParent:is(a,button):active:is(p,i,span){color:var(--color-blue)}
+:root {
+	--bg-white: #fff;
+	--bg-black: #1a2632;
+	--bg-blue: #007acc;
+	--bg-yellow: #faee0f;
+	--bg-green: #198754;
+	--bg-red: #dc3545;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-blue: #007acc;
+	--color-red: #dc3545;
+	--border-blue: 3px solid var(--bg-blue);
+	--border-success: 3px solid var(--bg-green);
+	--border-error: 3px solid var(--bg-red);
+	--textarea-bg: #fff;
+	--input-black: #233343;
+	--br-sm: 3px;
+	--br-md: 5px;
+	--br-lg: 7px;
+	--br-circle: 50%;
+	--mg-sm: 0.5rem;
+	--mg-md: 1rem;
+	--mg-lg: 1.5rem;
+	--bs-side: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+	--bs-full: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+	--border-box: border-box;
+	--pd-sm: 0.2rem;
+	--pd-md: 0.4rem;
+	--pd-lg: 1rem;
+	--fast-transition: color 50ms linear 0s, background 50ms linear 0s;
+	--fast-transition-all: all 100ms linear 0s;
+}
+::-moz-selection {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+::selection,
+::target-text {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+::-webkit-scrollbar-track {
+	background: 0 0;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--bg-2);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #007accaa;
+}
+::-webkit-scrollbar {
+	height: 1vh;
+	width: 1vh;
+}
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+*,
+html {
+	color: var(--color);
+	margin: 0;
+	padding: 0;
+}
+code,
+div,
+html,
+pre,
+section,
+span,
+textarea {
+	scrollbar-color: var(--bg-2) transparent;
+	scrollbar-width: thin;
+}
+body {
+	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+	background: var(--bg-1);
+	caret-color: var(--color-blue);
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 16px;
+	line-height: 1.6rem;
+}
+button,
+input {
+	background: 0 0;
+	border: none;
+	line-height: inherit;
+}
+button {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+hr {
+	background: var(--bg-blue);
+	border: 1px solid var(--bg-blue);
+	border-radius: var(--br-lg);
+	color: var(--color-blue);
+	margin: 0.4rem auto;
+	width: 100%;
+}
+button,
+input,
+textarea {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
+button,
+input {
+	border-radius: var(--br-lg);
+}
+.kf-fade-in-fast {
+	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+}
+@-webkit-keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.imageAnchor {
+	line-height: 0;
+}
+.hoverParent :is(a, button):focus :is(p, i, span),
+.hoverParent :is(a, button):hover :is(p, i, span),
+.hoverParent:is(a, button):active:is(p, i, span) {
+	color: var(--color-blue);
+}

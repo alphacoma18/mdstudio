@@ -8,7 +8,11 @@ export interface IBarState {
 	rightBarOpen: boolean;
 	explorerOpen: boolean;
 }
-export type TBarState = "leftBarOpen" | "rightBarOpen" | "explorerOpen" | "explorerClose";
+export type TBarState =
+	| "leftBarOpen"
+	| "rightBarOpen"
+	| "explorerOpen"
+	| "explorerClose";
 export type TEditorAction =
 	| "updateTextInput"
 	| "updateId"

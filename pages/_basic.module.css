@@ -1,33 +1,33 @@
 .section {
-    align-items: center;
-    background: var(--bg-1);
-    border-top: var(--border-blue);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    text-align: center;
-    width: 100vw;
+	align-items: center;
+	background: var(--bg-1);
+	border-top: var(--border-blue);
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	text-align: center;
+	width: 100vw;
 }
 
 .section h1 {
-    color: var(--color-blue);
+	color: var(--color-blue);
 }
 
 .delimit {
-    max-width: 500px;
-    width: 80%;
+	max-width: 500px;
+	width: 80%;
 }
 
 .credit {
-    bottom: 0;
-    font-weight: bold;
-    position: fixed;
+	bottom: 0;
+	font-weight: bold;
+	position: fixed;
 }
 
 .section a {
-    color: var(--color-blue);
-    display: inline;
-    font-weight: bold;
-    padding: var(--pd-md);
+	color: var(--color-blue);
+	display: inline;
+	font-weight: bold;
+	padding: var(--pd-md);
 }
