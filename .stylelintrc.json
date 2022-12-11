@@ -1,13 +1,17 @@
 {
-	"extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+	"extends": [
+		"stylelint-config-recommended",
+		"stylelint-config-css-modules",
+		"stylelint-config-prettier"
+	],
 	"ignoreFiles": [
 		"**/editor.min.css",
 		"**/globals.min.css",
 		"**/fontello/fontello-76f6c27b/css/*.css"
 	],
 	"rules": {
-		"value-no-vendor-prefix": true,
 		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
-		"indentation": 4
-	}
+		"order/properties-alphabetical-order": true
+	},
+	"plugins": ["stylelint-order"]
 }

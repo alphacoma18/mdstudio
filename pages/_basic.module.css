@@ -6,8 +6,8 @@
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    width: 100vw;
     text-align: center;
+    width: 100vw;
 }
 
 .section h1 {
@@ -15,8 +15,8 @@
 }
 
 .delimit {
-    width: 80%;
     max-width: 500px;
+    width: 80%;
 }
 
 .credit {
@@ -27,7 +27,7 @@
 
 .section a {
     color: var(--color-blue);
-    padding: var(--pd-md);
     display: inline;
     font-weight: bold;
+    padding: var(--pd-md);
 }

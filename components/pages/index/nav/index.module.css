@@ -18,8 +18,8 @@
 }
 
 .flexAnchor {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     gap: 0.2rem;
+    justify-content: center;
 }

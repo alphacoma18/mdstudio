@@ -19,14 +19,14 @@
 }
 
 .flexButtons {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
 }
 
 .flexButtons :is(button, a) {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     margin: auto;
     padding: var(--pd-md);
