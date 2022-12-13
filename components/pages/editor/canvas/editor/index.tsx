@@ -5,9 +5,12 @@ import { memo, useContext, useMemo } from "react";
 import ContextIndex from "../../../../../utils/context/index/index";
 import ContextGlobal from "../../../../../utils/context/_global";
 import styles from "./index.module.css";
-const SimpleMdeReact = dynamic(() => import("react-simplemde-editor"), {
-	ssr: false,
-});
+const SimpleMdeReact = dynamic(
+	async () => await import("react-simplemde-editor"),
+	{
+		ssr: false,
+	}
+);
 const EditorMain: React.FC = () => {
 	const { isMobile } = useContext(ContextGlobal);
 	const { editorState, updateEditorState } = useContext(ContextIndex);
@@ -22,7 +25,6 @@ const EditorMain: React.FC = () => {
 					return DOMPurify.sanitize(html);
 				},
 			},
-
 			maxHeight: "100%",
 			autofocus: true,
 			promptURLs: true,
@@ -71,7 +73,7 @@ const EditorMain: React.FC = () => {
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
-		} as Options;
+		};
 	}, [isMobile]);
 	return (
 		<SimpleMdeReact
@@ -87,7 +89,7 @@ const EditorMain: React.FC = () => {
 				}
 			}}
 			placeholder="Type or paste your text here..."
-			options={mdOptions}
+			options={mdOptions as Options}
 			className={`${styles.editor} kf-fade-in-fast`}
 		/>
 	);

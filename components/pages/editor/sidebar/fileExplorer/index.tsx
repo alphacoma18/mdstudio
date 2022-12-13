@@ -1,29 +1,14 @@
-import { memo, useContext, useEffect } from "react";
-import axios from "../../../../../utils/axios";
-import ContextIndex from "../../../../../utils/context/index";
-import ContextGlobal from "../../../../../utils/context/_global";
+import { memo } from "react";
 import { project1 } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
-	const { isMobile, session } = useContext(ContextGlobal);
-	const { updateEditorState } = useContext(ContextIndex);
-	async function renderFX() {
-		try {
-			const res = await axios.get("/index/fileExplorer");
-		} catch (error) {
-			console.log(error);
-		}
-	}
-	useEffect(() => {
-		renderFX();
-	}, []);
 	const regex = /^[a-zA-Z]{1}[a-zA-Z0-9]{1,9}$/;
 	function handlePrompt(txt: string): string {
 		try {
 			const input = prompt(txt);
 			if (input === null) return "";
-			if (!regex.test(input)) throw "Invalid name";
+			if (!regex.test(input)) throw new Error("Invalid input");
 			return input;
 		} catch (error) {
 			alert(error);
@@ -32,13 +17,13 @@ const EditorFileExplorer: React.FC = () => {
 	}
 	function handleNewFile() {
 		const result = handlePrompt("Enter file name:");
-		if (!result) return;
+		if (result === "") return;
 		console.log(result);
 	}
 
 	function handleNewFolder() {
 		const result = handlePrompt("Enter folder name:");
-		if (!result) return;
+		if (result === null) return;
 		console.log(result);
 	}
 	return (

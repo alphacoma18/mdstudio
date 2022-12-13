@@ -11,7 +11,31 @@
 	],
 	"rules": {
 		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
-		"order/properties-alphabetical-order": true
+		"order/properties-alphabetical-order": true,
+		"color-no-invalid-hex": true,
+		"unit-whitelist": ["rem", "%", "px", "ch", "fr", "vh", "vw"],
+		"unit-no-unknown": true,
+		"color-named": "never",
+		"at-rule-no-vendor-prefix": true,
+		"font-weight-notation": "named-where-possible",
+		"color-hex-case": "upper",
+		"unicode-bom": "never",
+		"unit-case": "lower",
+		"selector-type-no-unknown": true,
+		"string-quotes": "double",
+		"selector-no-vendor-prefix": true,
+		"selector-pseudo-element-no-unknown": true,
+		"selector-pseudo-class-no-unknown": true,
+		"selector-pseudo-class-case": "lower",
+		"selector-pseudo-element-case": "lower",
+		"at-rule-no-unknown": true,
+		"color-hex-length": "long",
+		"declaration-bang-space-before": "always",
+		"selector-attribute-quotes": "always",
+		"block-opening-brace-newline-after": "always",
+		"block-opening-brace-space-before": "always",
+		"no-indistinguishable-colors": true,
+		"no-eol-whitespace": true
 	},
 	"plugins": ["stylelint-order"]
 }

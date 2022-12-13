@@ -3,12 +3,18 @@ import GenSuspense from "../components/gen/suspense";
 import IndexContent from "../components/pages/index/content";
 import { NextPageWithLayout } from "./_app";
 
-const IndexNav = dynamic(() => import("../components/pages/index/nav"), {
-	suspense: true,
-});
-const IndexFooter = dynamic(() => import("../components/pages/index/footer"), {
-	suspense: true,
-});
+const IndexNav = dynamic(
+	async () => await import("../components/pages/index/nav"),
+	{
+		suspense: true,
+	}
+);
+const IndexFooter = dynamic(
+	async () => await import("../components/pages/index/footer"),
+	{
+		suspense: true,
+	}
+);
 
 const IndexPage: NextPageWithLayout = () => {
 	return (

@@ -11,7 +11,7 @@ const EditorCanvas: React.FC = () => {
 		<span
 			className={`
 						${styles.canvasSection}
-						${explorerOpen && styles.canvasSectionClose}
+						${explorerOpen ? styles.canvasSectionClose : ""}
 						`}
 		>
 			<EditorMain />

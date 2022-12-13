@@ -6,9 +6,12 @@ import Link from "next/link";
 import GenLogo from "../../../components/gen/logo";
 import GenSuspense from "../../../components/gen/suspense";
 import styles from "./index.module.css";
-const AuthForm = dynamic(() => import("../../../components/pages/auth/form"), {
-	suspense: true,
-});
+const AuthForm = dynamic(
+	async () => await import("../../../components/pages/auth/form"),
+	{
+		suspense: true,
+	}
+);
 const SignIn: NextPage<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ providers, csrfToken }) => {
@@ -54,8 +57,7 @@ const SignIn: NextPage<
 export default SignIn;
 export const getServerSideProps = async (context: CtxOrReq | undefined) => {
 	const providers = await getProviders();
-	const csrfToken = (await getCsrfToken(context)) || "";
-	// message: 'Unexpected token < in JSON at position 0'
+	const csrfToken = await getCsrfToken(context);
 	return {
 		props: {
 			providers,

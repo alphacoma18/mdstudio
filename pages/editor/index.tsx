@@ -1,38 +1,40 @@
 import dynamic from "next/dynamic";
 import { ReactElement, useContext } from "react";
 import GenSuspense from "../../components/gen/suspense";
+import { ContextProviderIndex } from "../../utils/context/index/index";
+import ContextGlobal from "../../utils/context/_global";
+import { NextPageWithLayout } from "../_app";
+import styles from "./index.module.css";
 const EditorCanvas = dynamic(
-	() => import("../../components/pages/editor/canvas"),
+	async () => await import("../../components/pages/editor/canvas"),
 	{
 		suspense: true,
 	}
 );
-const EditorNav = dynamic(() => import("../../components/pages/editor/nav"), {
-	suspense: true,
-});
+const EditorNav = dynamic(
+	async () => await import("../../components/pages/editor/nav"),
+	{
+		suspense: true,
+	}
+);
 const EditorSidebar = dynamic(
-	() => import("../../components/pages/editor/sidebar"),
+	async () => await import("../../components/pages/editor/sidebar"),
 	{
 		suspense: true,
 	}
 );
 const EditorStatusBar = dynamic(
-	() => import("../../components/pages/editor/statusbar"),
+	async () => await import("../../components/pages/editor/statusbar"),
 	{
 		suspense: true,
 	}
 );
 const EditorMobileNav = dynamic(
-	() => import("../../components/pages/editor/_mobile/mobileNav"),
+	async () => await import("../../components/pages/editor/_mobile/mobileNav"),
 	{
 		suspense: true,
 	}
 );
-
-import { ContextProviderIndex } from "../../utils/context/index/index";
-import ContextGlobal from "../../utils/context/_global";
-import { NextPageWithLayout } from "../_app";
-import styles from "./index.module.css";
 const EditorPage: NextPageWithLayout = () => {
 	const { isLightTheme } = useContext(ContextGlobal);
 	return (

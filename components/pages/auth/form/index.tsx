@@ -2,13 +2,13 @@ import { signIn } from "next-auth/react";
 import GenFragment from "../../../gen/fragment";
 import styles from "./index.module.css";
 interface Props {
-	providers: any;
+	providers: { [key: string]: any };
 	csrfToken: any;
 }
 const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 	return (
 		<span className={styles.flexMethods}>
-			{Object.values(providers || {}).map((provider: any) => (
+			{Object.values(providers).map((provider: any) => (
 				<GenFragment key={provider.name}>
 					{provider.name === "Email" ? (
 						<form
@@ -35,7 +35,9 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 						</form>
 					) : (
 						<button
-							onClick={() => signIn(provider.id)}
+							onClick={() => async () => {
+								await signIn(provider.id);
+							}}
 							name={provider.name}
 							className={`
 									${styles.button}

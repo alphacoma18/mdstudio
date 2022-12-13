@@ -32,7 +32,7 @@ const IndexNav: React.FC = () => {
 						<span>Editor</span>
 					</a>
 				</Link>
-				{session?.user ? (
+				{session?.user !== undefined ? (
 					<Link href={"/auth/signout"}>
 						<a href="">
 							<i className="icon-logout"></i>

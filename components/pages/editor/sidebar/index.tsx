@@ -26,7 +26,7 @@ const EditorSidebar: React.FC = () => {
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<button
 						onClick={
-							session?.user
+							session?.user !== undefined
 								? () => updateBarState({ type: "explorerOpen" })
 								: handleAlert
 						}
@@ -51,7 +51,7 @@ const EditorSidebar: React.FC = () => {
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<button>
-						{session?.user.image ? (
+						{session?.user.image !== undefined ? (
 							<GenImage
 								props={{
 									src: session.user.image,

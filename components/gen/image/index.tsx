@@ -1,5 +1,5 @@
 import Image from "next/future/image";
-interface Image {
+export interface IImage {
 	props: {
 		src: string;
 		height: number;
@@ -9,7 +9,7 @@ interface Image {
 	};
 }
 
-const GenImage: React.FC<Image> = ({ props }) => {
+const GenImage: React.FC<IImage> = ({ props }) => {
 	return (
 		<Image
 			src={props.src}

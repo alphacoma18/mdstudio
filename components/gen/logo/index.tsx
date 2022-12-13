@@ -1,25 +1,29 @@
 import Image from "next/image";
 import { useContext } from "react";
 import ContextGlobal from "../../../utils/context/_global";
-interface Image {
-	src: string;
-	height: number;
-	width: number;
-	alt: string;
-}
+// interface IImage {
+// 	src: string;
+// 	height: number;
+// 	width: number;
+// 	alt: string;
+// }
+import { IImage } from "../image";
 interface Props {
-	logoLight: Image;
-	logoDark: Image;
+	logoLight: IImage;
+	logoDark: IImage;
 }
 
-const GenLogo: React.FC<Props> = ({ logoLight, logoDark }) => {
+const GenLogo: React.FC<Props> = ({
+	logoLight: { props: light },
+	logoDark: { props: dark },
+}) => {
 	const { isLightTheme } = useContext(ContextGlobal);
 	return (
 		<Image
-			src={isLightTheme ? logoLight.src : logoDark.src}
-			height={isLightTheme ? logoLight.height : logoDark.height}
-			width={isLightTheme ? logoLight.width : logoDark.width}
-			alt={isLightTheme ? logoLight.alt : logoDark.alt}
+			src={isLightTheme ? light.src : dark.src}
+			height={isLightTheme ? light.height : dark.height}
+			width={isLightTheme ? light.width : dark.width}
+			alt={isLightTheme ? light.alt : dark.alt}
 		/>
 	);
 };

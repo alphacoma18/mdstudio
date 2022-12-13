@@ -23,7 +23,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 		Component,
 		pageProps: { session, ...pageProps },
 	} = props;
-	const getLayout = Component.getLayout || ((page) => page);
+	const getLayout = Component.getLayout ?? ((page) => page);
 	return (
 		<>
 			<Head>

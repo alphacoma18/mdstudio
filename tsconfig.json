@@ -16,10 +16,13 @@
 		"incremental": true
 	},
 	"include": [
-		"next-env.d.ts",
+		".eslintrc.json",
 		"**/*.ts",
 		"**/*.tsx",
-		"components/botbar/index.tsx",
+		"pages/**/*",
+		"components/**/*",
+		"utils/**/*",
+		"types/*",
 		"styles/theme.ts"
 	],
 	"exclude": ["node_modules"]
