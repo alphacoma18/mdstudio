@@ -1,6 +1,6 @@
 # AnyMD: TODO.md
 
-## Todo:
+## Todo
 
 // use router.reload instead of router.refresh
 
@@ -15,7 +15,7 @@
 9. Anonymous user support
 10. Dicebears for avatars
 
-## Soon:
+## Soon
 
 1. Add download feature
 2. Add settings
@@ -26,19 +26,19 @@
 7. Add md and publisher search feature
 8. Commenting and discussion feature
 
-## Future:
+## Future
 
 1. Update to next 13
 2. Make react native app
 3. Make electron app?
 4. Make documentation
-5. Switch markdown editor for better performance?
+5. Switch Markdown editor for better performance?
 
-## Libraries:
+## Libraries
 
 1. react-md-editor bug fix
 
-## Before production:
+## Before production
 
 1. Remove console logs
 2. Add next-pwa
@@ -50,7 +50,7 @@
 8. Remove unused packages
 9. Refactor with aria-labels
 
-## After production:
+## After production
 
 1. Add next-sitemap
 2. Add robots.txt

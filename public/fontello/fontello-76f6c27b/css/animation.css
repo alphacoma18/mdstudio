@@ -2,38 +2,7 @@
 	animation: spin 2s infinite linear;
 	display: inline-block;
 }
-@keyframes spin {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(359deg);
-	}
-}
-@keyframes spin {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(359deg);
-	}
-}
-@keyframes spin {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(359deg);
-	}
-}
-@keyframes spin {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(359deg);
-	}
-}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0);

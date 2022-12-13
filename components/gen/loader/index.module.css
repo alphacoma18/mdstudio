@@ -17,7 +17,7 @@
 }
 
 .loader {
-	animation: spin 2s linear infinite;
+	animation: spinLoader 2s linear infinite;
 	border: 16px solid var(--bg-white);
 	border-bottom: 16px solid var(--bg-blue);
 	border-radius: 50%;
@@ -26,37 +26,7 @@
 	width: clamp(0, 50px, 1000px);
 }
 
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes spin {
+@keyframes spinLoader {
 	0% {
 		transform: rotate(0deg);
 	}

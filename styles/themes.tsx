@@ -1,6 +1,5 @@
 const DarkTheme = () => {
 	return (
-		// eslint-disable-next-line react/no-unknown-property
 		<style jsx global>
 			{`
 				:root {
@@ -22,7 +21,6 @@ const DarkTheme = () => {
 
 const LightTheme = () => {
 	return (
-		// eslint-disable-next-line react/no-unknown-property
 		<style jsx global>
 			{`
 				:root {
