@@ -10,13 +10,13 @@ const IndexNav: React.FC = () => {
 			<div className={styles.desktopLogo}>
 				<a href="." className="imageAnchor">
 					<GenLogo
-						logoLight={{
+						light={{
 							src: "/logo/anymd_pc_logo_light.png",
 							height: 50,
 							width: 100,
 							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						logoDark={{
+						dark={{
 							src: "/logo/anymd_pc_logo_dark.png",
 							height: 50,
 							width: 100,

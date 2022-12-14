@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import ContextIndex from "../../../../../../../utils/context/index";
 import ContextGlobal from "../../../../../../../utils/context/_global";
 import { FSSchema } from "../../../../../../../utils/db/account";
+import GenButton from "../../../../../../gen/button";
 import styles from "../index.module.css";
 const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 	folder,
@@ -16,9 +17,12 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 			if (!_isDir) return;
 			return (
 				<>
-					<button
-						className={`${styles.folderName} ${styles.folder}`}
-						onClick={() => setOpen(!open)}
+					<GenButton
+						props={{
+							label: name,
+							className: `${styles.folderName} ${styles.folder}`,
+							onClick: () => setOpen(!open),
+						}}
 					>
 						{open ? (
 							<i className="icon-folder-open"></i>
@@ -26,24 +30,30 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 							<i className="icon-folder"></i>
 						)}
 						{name}
-					</button>
+					</GenButton>
 					{open && (
 						<div className={styles.indent}>
 							{Object.keys(_files).map((file) => (
-								<button
+								<GenButton
 									key={`file-${file}`}
-									className={styles.file}
-									onClick={() => {
-										updateEditorState({
-											type: "updateTextInput",
-											payload: _files[file]._content,
-										});
-										if (isMobile) updateBarState({ type: "explorerClose" });
+									props={{
+										label: file,
+										className: styles.file,
+										onClick: () => {
+											updateEditorState({
+												type: "updateTextInput",
+												payload: _files[file]._content,
+											});
+											if (isMobile)
+												updateBarState({
+													type: "explorerClose",
+												});
+										},
 									}}
 								>
 									<i className="icon-doc-text"></i>
 									{file}
-								</button>
+								</GenButton>
 							))}
 							{Object.keys(_folders).map((folder, index) => (
 								<EditorRecur

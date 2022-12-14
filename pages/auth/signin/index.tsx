@@ -20,13 +20,13 @@ const SignIn: NextPage<
 			<div className={styles.flexDiv}>
 				<span className={styles.spanImage}>
 					<GenLogo
-						logoLight={{
+						light={{
 							src: "/logo/anymd_pc_logo_light.png",
 							height: 80,
 							width: 160,
 							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						logoDark={{
+						dark={{
 							src: "/logo/anymd_pc_logo_dark.png",
 							height: 80,
 							width: 160,
@@ -36,7 +36,7 @@ const SignIn: NextPage<
 				</span>
 				<hr />
 				<GenSuspense fallback="Loading Form...">
-					<AuthForm providers={providers} csrfToken={csrfToken} />
+					<AuthForm providers={providers ?? {}} csrfToken={csrfToken} />
 				</GenSuspense>
 				<hr />
 				<details className={styles.why}>

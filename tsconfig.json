@@ -20,9 +20,12 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"pages/**/*",
+		"pages/**/*.*",
 		"components/**/*",
+		"components/**/*.*",
 		"utils/**/*",
-		"types/*",
+		"types/*.*",
+		"types/**/*.*",
 		"styles/theme.ts"
 	],
 	"exclude": ["node_modules"]

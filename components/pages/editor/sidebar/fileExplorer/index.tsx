@@ -1,4 +1,5 @@
 import { memo } from "react";
+import GenButton from "../../../../gen/button";
 import { project1 } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
@@ -30,20 +31,36 @@ const EditorFileExplorer: React.FC = () => {
 		<section className={styles.fileExplorer}>
 			<div className={styles.head}>
 				<span className={`${styles.headItem} hoverParent`}>
-					<button>
+					<GenButton props={{ label: "Explorer: upload to cloud" }}>
 						<i className="icon-upload-cloud"></i>
-					</button>
+					</GenButton>
 				</span>
 				<span className={`${styles.headItem} hoverParent`}>
-					<button onClick={handleNewFile}>
+					<GenButton
+						props={{
+							label: "Explorer: new file",
+							onClick: handleNewFile,
+						}}
+					>
 						<i className="icon-doc-add"></i>
-					</button>
-					<button onClick={handleNewFolder}>
+					</GenButton>
+					<GenButton
+						props={{
+							label: "Explorer: new folder",
+							onClick: handleNewFolder,
+						}}
+					>
 						<i className="icon-folder-add"></i>
-					</button>
-					<button>
+					</GenButton>
+
+					<GenButton
+						props={{
+							label: "Explorer: reload files",
+							onClick: () => console.log("reload"),
+						}}
+					>
 						<i className="icon-arrows-cw"></i>
-					</button>
+					</GenButton>
 				</span>
 			</div>
 			<div className={styles.body}>

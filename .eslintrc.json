@@ -18,6 +18,7 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
+		"quotes": "off",
 		"import/no-anonymous-default-export": [
 			"error",
 			{
@@ -25,7 +26,7 @@
 				"allowArrowFunction": true,
 				"allowAnonymousClass": false,
 				"allowAnonymousFunction": true,
-				"allowCallExpression": true, // The true value here is for backward compatibility
+				"allowCallExpression": true,
 				"allowLiteral": false,
 				"allowObject": true
 			}

@@ -1,6 +1,7 @@
 import { memo, useContext } from "react";
 import ContextIndex from "../../../../utils/context/index";
 import ContextGlobal from "../../../../utils/context/_global";
+import GenButton from "../../../gen/button";
 import GenImage from "../../../gen/image";
 import EditorFileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
@@ -24,33 +25,39 @@ const EditorSidebar: React.FC = () => {
 				}
 			>
 				<div className={`${styles.flexButtons} hoverParent`}>
-					<button
-						onClick={
-							session?.user !== undefined
-								? () => updateBarState({ type: "explorerOpen" })
-								: handleAlert
-						}
+					<GenButton
+						props={{
+							label: "Sidebar: toggle file explorer",
+							onClick:
+								session?.user !== undefined
+									? () => updateBarState({ type: "explorerOpen" })
+									: handleAlert,
+						}}
 					>
 						<i className={"icon-docs"}></i>
-					</button>
-					<button>
+					</GenButton>
+					<GenButton props={{ label: "Sidebar: search" }}>
 						<i className={"icon-search"}></i>
-					</button>
-					<button>
+					</GenButton>
+
+					<GenButton props={{ label: "Sidebar: save" }}>
 						<i className={"icon-floppy"}></i>
-					</button>
-					<button>
+					</GenButton>
+
+					<GenButton props={{ label: "Sidebar: language" }}>
 						<i className={"icon-globe"}></i>
-					</button>
-					<button>
+					</GenButton>
+
+					<GenButton props={{ label: "Sidebar: launch" }}>
 						<i className={"icon-rocket"}></i>
-					</button>
-					<button>
+					</GenButton>
+
+					<GenButton props={{ label: "Sidebar: more info" }}>
 						<i className={"icon-info-circled"}></i>
-					</button>
+					</GenButton>
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
-					<button>
+					<GenButton props={{ label: "Sidebar: profile" }}>
 						{session?.user.image !== undefined ? (
 							<GenImage
 								props={{
@@ -64,17 +71,22 @@ const EditorSidebar: React.FC = () => {
 						) : (
 							<i className={"icon-user-circle"}></i>
 						)}
-					</button>
-					<button onClick={() => setIsLightTheme((prev) => !prev)}>
+					</GenButton>
+					<GenButton
+						props={{
+							label: "Sidebar: toggle theme",
+							onClick: () => setIsLightTheme((prev) => !prev),
+						}}
+					>
 						{isLightTheme ? (
 							<i className={"icon-toggle-off"}></i>
 						) : (
 							<i className={"icon-toggle-on"}></i>
 						)}
-					</button>
-					<button>
+					</GenButton>
+					<GenButton props={{ label: "Sidebar: settings" }}>
 						<i className={"icon-cog"}></i>
-					</button>
+					</GenButton>
 				</div>
 			</section>
 			{explorerOpen && <EditorFileExplorer />}

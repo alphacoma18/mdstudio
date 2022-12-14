@@ -1,6 +1,7 @@
 import { memo, useContext } from "react";
 import ContextIndex from "../../../../../../utils/context/index";
 import { FSSchema } from "../../../../../../utils/db/account";
+import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
 interface Props {
@@ -13,26 +14,33 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 			const { _isDir, _files, _folders } = project;
 			if (!_isDir) return;
 			return (
-				<button
-					className={styles.folder}
-					onClick={() =>
-						updateEditorState({ type: "updateCurrentFolder", payload: "root" })
-					}
+				<GenButton
+					props={{
+						label: "Root folder",
+						className: styles.folder,
+						onClick: () =>
+							updateEditorState({
+								type: "updateCurrentFolder",
+								payload: "root",
+							}),
+					}}
 				>
 					{Object.keys(_files).map((file) => (
-						<button
+						<GenButton
 							key={`file-${file}`}
-							className={styles.rootFile}
-							onClick={() =>
-								updateEditorState({
-									type: "updateTextInput",
-									payload: _files[file]._content,
-								})
-							}
+							props={{
+								label: file,
+								className: styles.rootFile,
+								onClick: () =>
+									updateEditorState({
+										type: "updateTextInput",
+										payload: _files[file]._content,
+									}),
+							}}
 						>
 							<i className="icon-doc-text"></i>
 							{file}
-						</button>
+						</GenButton>
 					))}
 					{Object.keys(_folders).map((folder) => (
 						<EditorRecur
@@ -41,7 +49,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 							folder={_folders[folder] as FSSchema}
 						/>
 					))}
-				</button>
+				</GenButton>
 			);
 		} catch (error) {
 			console.log(error);

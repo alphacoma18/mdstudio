@@ -10,7 +10,7 @@
 4. Add dashboard and landing page
 5. Configure cloudinary for image uploads
 6. Fix file system implementation
-7. Fix context api
+7. Fix context API
 8. Configure database for calls
 9. Anonymous user support
 10. Dicebears for avatars
@@ -36,7 +36,7 @@
 
 ## Libraries
 
-1. react-md-editor bug fix
+1. react-md-editor bugfix
 
 ## Before production
 

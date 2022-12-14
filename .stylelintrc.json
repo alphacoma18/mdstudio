@@ -13,12 +13,11 @@
 		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
 		"order/properties-alphabetical-order": true,
 		"color-no-invalid-hex": true,
-		"unit-whitelist": ["rem", "%", "px", "ch", "fr", "vh", "vw"],
 		"unit-no-unknown": true,
 		"color-named": "never",
 		"at-rule-no-vendor-prefix": true,
 		"font-weight-notation": "named-where-possible",
-		"color-hex-case": "upper",
+		"color-hex-case": "lower",
 		"unicode-bom": "never",
 		"unit-case": "lower",
 		"selector-type-no-unknown": true,
@@ -34,7 +33,6 @@
 		"selector-attribute-quotes": "always",
 		"block-opening-brace-newline-after": "always",
 		"block-opening-brace-space-before": "always",
-		"no-indistinguishable-colors": true,
 		"no-eol-whitespace": true
 	},
 	"plugins": ["stylelint-order"]

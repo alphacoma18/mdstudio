@@ -1,19 +1,29 @@
 import { memo, useContext } from "react";
 import ContextIndex from "../../../../../utils/context/index";
+import GenButton from "../../../../gen/button";
 import GenLogo from "../../../../gen/logo";
 import GenReload from "../../../../gen/reload";
 import styles from "./index.module.css";
 interface Props {
-	func: () => void;
+	props: {
+		func: () => void;
+		label: string;
+	};
 }
-const MenuContainer: React.FC<Props> = ({ func }) => {
+const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
 	return (
 		<section>
-			<button className={styles.menuContainer} onClick={func}>
+			<GenButton
+				props={{
+					label: "Toggle ",
+					className: `${styles.menuContainer}`,
+					onClick: func,
+				}}
+			>
 				<div className={styles.menuLines}></div>
 				<div className={styles.menuLines}></div>
 				<div className={styles.menuLines}></div>
-			</button>
+			</GenButton>
 		</section>
 	);
 };
@@ -22,16 +32,21 @@ const EditorMobileNav: React.FC = () => {
 	const { updateBarState } = useContext(ContextIndex);
 	return (
 		<nav className={styles.mobileNav}>
-			<MenuContainer func={() => updateBarState({ type: "leftBarOpen" })} />
+			<MenuContainer
+				props={{
+					func: () => updateBarState({ type: "leftBarOpen" }),
+					label: "Toggle left menu bar",
+				}}
+			/>
 			<GenReload>
 				<GenLogo
-					logoLight={{
+					light={{
 						src: "/logo/anymd_mobile_logo_light_2.png",
 						height: 60,
 						width: 60,
 						alt: "AnyMD Light Theme Mobile Logo",
 					}}
-					logoDark={{
+					dark={{
 						src: "/logo/anymd_mobile_logo_dark_2.png",
 						height: 60,
 						width: 60,
@@ -39,7 +54,12 @@ const EditorMobileNav: React.FC = () => {
 					}}
 				/>
 			</GenReload>
-			<MenuContainer func={() => updateBarState({ type: "rightBarOpen" })} />
+			<MenuContainer
+				props={{
+					func: () => updateBarState({ type: "rightBarOpen" }),
+					label: "Toggle right menu bar",
+				}}
+			/>
 		</nav>
 	);
 };

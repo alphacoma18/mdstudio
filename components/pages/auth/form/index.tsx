@@ -1,9 +1,10 @@
 import { signIn } from "next-auth/react";
+import GenButton from "../../../gen/button";
 import GenFragment from "../../../gen/fragment";
 import styles from "./index.module.css";
 interface Props {
 	providers: { [key: string]: any };
-	csrfToken: any;
+	csrfToken: string | undefined;
 }
 const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 	return (
@@ -25,27 +26,31 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 								autoFocus
 								className={styles.input}
 							/>
-							<button
-								type="submit"
-								className={`${styles.button} ${styles.submit} icon-email`}
+							<GenButton
+								props={{
+									label: "Signin: Email",
+									type: "submit",
+									className: `${styles.button} ${styles.submit} icon-email`,
+								}}
 							>
-								Sign in with Email
-							</button>
+								{"Sign in with Email"}
+							</GenButton>
 							<p className={styles.or}>or sign in with</p>
 						</form>
 					) : (
-						<button
-							onClick={() => async () => {
-								await signIn(provider.id);
+						<GenButton
+							props={{
+								label: `Signin: ${provider.name as string} provider`,
+								className: `${styles.button} ${styles.itemMethod} ${
+									styles.name
+								} icon-${String(provider.name).toLowerCase()}`,
+								onClick: () => async () => {
+									await signIn(provider.id);
+								},
 							}}
-							name={provider.name}
-							className={`
-									${styles.button}
-									${styles.itemMethod}
-									${styles.name} icon-${String(provider.name).toLowerCase()}`}
 						>
 							{provider.name}
-						</button>
+						</GenButton>
 					)}
 				</GenFragment>
 			))}

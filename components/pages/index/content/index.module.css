@@ -7,7 +7,7 @@
 }
 
 .section div {
-	background-color: blue;
+	background: #0000ff;
 	padding: 1rem;
 	width: calc(50% - 0.2rem);
 }

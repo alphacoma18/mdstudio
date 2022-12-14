@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
 import ContextIndex from "../../../../utils/context/index";
+import GenButton from "../../../gen/button";
 import GenLogo from "../../../gen/logo";
 import GenReload from "../../../gen/reload";
 import styles from "./index.module.css";
-
 const EditorNav: React.FC = () => {
 	const {
 		barState: { rightBarOpen },
@@ -14,13 +14,13 @@ const EditorNav: React.FC = () => {
 			<div className={styles.desktopLogo}>
 				<GenReload>
 					<GenLogo
-						logoLight={{
+						light={{
 							src: "/logo/anymd_pc_logo_light.png",
 							height: 50,
 							width: 100,
 							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						logoDark={{
+						dark={{
 							src: "/logo/anymd_pc_logo_dark.png",
 							height: 50,
 							width: 100,
@@ -36,30 +36,30 @@ const EditorNav: React.FC = () => {
 						<span>Home</span>
 					</a>
 				</Link>
-				<button>
+				<GenButton props={{ label: "Nav: settings" }}>
 					<i className={"icon-wrench"}></i>
 					<span>Tools</span>
-				</button>
-				<button>
+				</GenButton>
+				<GenButton props={{ label: "Nav: help" }}>
 					<i className={"icon-help-circled"}></i>
 					<span>Help</span>
-				</button>
-				<button>
+				</GenButton>
+				<GenButton props={{ label: "Nav: share" }}>
 					<i className={"icon-share-squared"}></i>
 					<span>Share</span>
-				</button>
-				<button>
+				</GenButton>
+				<GenButton props={{ label: "Nav: download" }}>
 					<i className={"icon-download"}></i>
 					<span>Download</span>
-				</button>
-				<button>
+				</GenButton>
+				<GenButton props={{ label: "Nav: preview" }}>
 					<i className={"icon-eye"}></i>
 					<span>Preview</span>
-				</button>
-				<button>
+				</GenButton>
+				<GenButton props={{ label: "Nav: publish" }}>
 					<i className={"icon-publish"}></i>
 					<span>Publish</span>
-				</button>
+				</GenButton>
 			</div>
 		</nav>
 	);
