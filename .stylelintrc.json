@@ -1,9 +1,5 @@
 {
-	"extends": [
-		"stylelint-config-recommended",
-		"stylelint-config-css-modules",
-		"stylelint-config-prettier"
-	],
+	"extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
 	"ignoreFiles": [
 		"**/editor.min.css",
 		"**/globals.min.css",
@@ -17,23 +13,12 @@
 		"color-named": "never",
 		"at-rule-no-vendor-prefix": true,
 		"font-weight-notation": "named-where-possible",
-		"color-hex-case": "lower",
-		"unicode-bom": "never",
-		"unit-case": "lower",
 		"selector-type-no-unknown": true,
-		"string-quotes": "double",
 		"selector-no-vendor-prefix": true,
 		"selector-pseudo-element-no-unknown": true,
 		"selector-pseudo-class-no-unknown": true,
-		"selector-pseudo-class-case": "lower",
-		"selector-pseudo-element-case": "lower",
 		"at-rule-no-unknown": true,
-		"color-hex-length": "long",
-		"declaration-bang-space-before": "always",
-		"selector-attribute-quotes": "always",
-		"block-opening-brace-newline-after": "always",
-		"block-opening-brace-space-before": "always",
-		"no-eol-whitespace": true
+		"color-hex-length": "long"
 	},
 	"plugins": ["stylelint-order"]
 }

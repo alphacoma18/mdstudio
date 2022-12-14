@@ -44,9 +44,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 								className: `${styles.button} ${styles.itemMethod} ${
 									styles.name
 								} icon-${String(provider.name).toLowerCase()}`,
-								onClick: () => async () => {
-									await signIn(provider.id);
-								},
+								onClick: async () => await signIn(provider.id),
 							}}
 						>
 							{provider.name}

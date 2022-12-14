@@ -5,17 +5,17 @@ import GenButton from "../../../gen/button";
 import GenImage from "../../../gen/image";
 import EditorFileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
+function handleAlert() {
+	alert(
+		"Website publishing is for signed-in users only.\nYou can still publish your Markdown page anonymously."
+	);
+}
 const EditorSidebar: React.FC = () => {
 	const { isLightTheme, setIsLightTheme, session } = useContext(ContextGlobal);
 	const {
 		barState: { leftBarOpen, explorerOpen },
 		updateBarState,
 	} = useContext(ContextIndex);
-	function handleAlert() {
-		alert(
-			"Website publishing is for signed-in users only.\nYou can still publish your Markdown page anonymously."
-		);
-	}
 
 	return (
 		<>
@@ -29,9 +29,9 @@ const EditorSidebar: React.FC = () => {
 						props={{
 							label: "Sidebar: toggle file explorer",
 							onClick:
-								session?.user !== undefined
-									? () => updateBarState({ type: "explorerOpen" })
-									: handleAlert,
+								session?.user === undefined
+									? handleAlert
+									: () => updateBarState({ type: "explorerOpen" }),
 						}}
 					>
 						<i className={"icon-docs"}></i>
@@ -59,7 +59,9 @@ const EditorSidebar: React.FC = () => {
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<GenButton props={{ label: "Sidebar: profile" }}>
-						{session?.user.image !== undefined ? (
+						{session?.user.image === undefined ? (
+							<i className={"icon-user-circle"}></i>
+						) : (
 							<GenImage
 								props={{
 									src: session.user.image,
@@ -69,8 +71,6 @@ const EditorSidebar: React.FC = () => {
 									className: styles.profileImage,
 								}}
 							/>
-						) : (
-							<i className={"icon-user-circle"}></i>
 						)}
 					</GenButton>
 					<GenButton

@@ -29,6 +29,7 @@ export const authOptions: NextAuthOptions = {
 				url,
 				provider: { server, from },
 			}) {
+				// eslint-disable-next-line unicorn/prefer-module
 				const nodemailer = require("nodemailer");
 				const transporter = nodemailer.createTransport(server);
 				return transporter.sendMail({

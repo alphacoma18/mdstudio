@@ -4,7 +4,7 @@ import { project1 } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
-	const regex = /^[a-zA-Z]{1}[a-zA-Z0-9]{1,9}$/;
+	const regex = /^[A-Za-z][\dA-Za-z]{1,9}$/;
 	function handlePrompt(txt: string): string {
 		try {
 			const input = prompt(txt);

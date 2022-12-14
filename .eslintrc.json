@@ -20,6 +20,23 @@
 	"plugins": ["react", "prettier"],
 	"rules": {
 		"quotes": "off",
+		"unicorn/prevent-abbreviations": [
+			"error",
+			{
+				"extendDefaultReplacements": false,
+				"replacements": {
+					"cmd": {
+						"command": true
+					}
+				}
+			}
+		],
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false
+			}
+		],
 		"import/no-anonymous-default-export": [
 			"error",
 			{
