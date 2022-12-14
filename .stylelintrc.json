@@ -7,7 +7,7 @@
 	"ignoreFiles": [
 		"**/editor.min.css",
 		"**/globals.min.css",
-		"**/fontello/fontello-76f6c27b/css/*.css"
+		"**/public/fontello/fontello-76f6c27b/css/*.css"
 	],
 	"rules": {
 		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",

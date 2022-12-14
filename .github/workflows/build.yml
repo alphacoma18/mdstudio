@@ -30,6 +30,10 @@ jobs:
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+          LINTER_RULES_PATH: /
+          CSS_FILE_NAME: .stylelintrc.json
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
+
       - run: npm ci
       - run: npm run lint
       - run: npm run build

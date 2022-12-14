@@ -36,6 +36,7 @@ const EditorSidebar: React.FC = () => {
 					>
 						<i className={"icon-docs"}></i>
 					</GenButton>
+
 					<GenButton props={{ label: "Sidebar: search" }}>
 						<i className={"icon-search"}></i>
 					</GenButton>

@@ -28,5 +28,8 @@
 		"types/**/*.*",
 		"styles/theme.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "**/components/pages/editor/sidebar/index.tsx"],
+	"ts-standard": {
+		"project": "./tsconfig.json"
+	}
 }

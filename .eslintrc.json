@@ -8,6 +8,7 @@
 		"next/core-web-vitals",
 		"plugin:react/recommended",
 		"standard-with-typescript",
+		"@eslint-recommended/eslint-config-typescript",
 		"prettier"
 	],
 	"overrides": [],
