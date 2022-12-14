@@ -1,4 +1,4 @@
-import mongoose, { connect, ConnectOptions, model, Schema } from "mongoose";
+import mongoose, { ConnectOptions, model, Schema } from "mongoose";
 
 export interface FSSchema {
 	_isDir: true;
@@ -48,12 +48,12 @@ export interface ProjectSchema {
 	fileStructure: FSSchema;
 }
 
-export interface ProjectSchema {
+export interface UserSchema {
 	id: string;
 	projects: ProjectSchema[];
 }
 
-const x = new Schema<ProjectSchema>({
+const x = new Schema<UserSchema>({
 	id: {
 		type: String,
 		required: true,
@@ -159,16 +159,25 @@ const x = new Schema<ProjectSchema>({
 });
 
 const DB_PROJECTS =
-	mongoose.models.projects || model<ProjectSchema>("projects", x);
+	mongoose.models.projects ?? model<ProjectSchema>("projects", x);
 
-run().catch((err) => console.log(err));
 async function run() {
-	await connect(process.env.MONGO_URI!, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	} as ConnectOptions);
-	console.log("Connected to Distribution API Database - Initial Connection");
+	try {
+		const response = await mongoose.connect(
+			process.env.MONGO_URI as string,
+			{
+				useNewUrlParser: true,
+				useUnifiedTopology: true,
+				useCreateIndex: true,
+				useFindAndModify: false,
+				poolSize: Number.parseInt(process.env.POOL_SIZE as string),
+			} as ConnectOptions
+		);
+		console.log(response);
+	} catch (error) {
+		console.log(error);
+	}
 }
-run().catch((err) => console.log(err));
+void run();
 
 export default DB_PROJECTS;

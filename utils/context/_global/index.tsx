@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import Theme from "../../../styles/themes";
-import { IContextGlobal } from "./index.d";
+import { IContextGlobal } from "./type";
 const ContextGlobal = createContext<IContextGlobal>({
 	url: {
 		client: "",
@@ -29,7 +29,8 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		const value =
 			typeof window !== "undefined" &&
 			window.localStorage.getItem("theme-preference");
-		return value ? value === "dark" : true;
+		console.log(value);
+		return value === "dark";
 	});
 
 	useEffect(() => {

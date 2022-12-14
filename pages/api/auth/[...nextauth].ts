@@ -7,9 +7,9 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
+import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
 import DB_PROJECTS from "../../../utils/db/account";
-
 export const authOptions: NextAuthOptions = {
 	adapter: MongooseAdapter(process.env.MONGO_URI as string),
 	providers: [
@@ -29,15 +29,15 @@ export const authOptions: NextAuthOptions = {
 				url,
 				provider: { server, from },
 			}) {
-				// eslint-disable-next-line unicorn/prefer-module
-				const nodemailer = require("nodemailer");
-				const transporter = nodemailer.createTransport(server);
-				return transporter.sendMail({
-					from,
-					to: email,
-					subject: "Sign in to AnyMD: Markdown Publisher",
-					html: html({ url }),
-				});
+				void (async () => {
+					const transporter = nodeMailer.createTransport(server);
+					return await transporter.sendMail({
+						from,
+						to: email,
+						subject: "Sign in to AnyMD: Markdown Publisher",
+						html: html({ url }),
+					});
+				})();
 			},
 		}),
 		GoogleProvider({

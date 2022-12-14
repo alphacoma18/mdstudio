@@ -16,20 +16,21 @@ export default async function Mailer({
 			host: "smtp.gmail.com",
 			secure: true,
 			auth: {
-				user: process.env.EMAIL_USER!,
-				pass: process.env.EMAIL_PASSWORD!,
+				user: process.env.EMAIL_USER,
+				pass: process.env.EMAIL_PASSWORD,
 			},
 		});
 		const info = await transporter.sendMail({
-			from: process.env.EMAIL_USER!,
+			from: process.env.EMAIL_USER,
 			to: recipient,
 			subject,
 			text,
 			html,
 		});
-		if (info.rejected.length > 0) throw "Error: Unable to send email";
+		if (info.rejected.length > 0) throw new Error("Email not sent");
 		return true;
-	} catch (err: any) {
+	} catch (error: any) {
+		console.error(error);
 		return false;
 	}
 }

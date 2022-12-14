@@ -5,6 +5,7 @@
 		"node": true
 	},
 	"extends": [
+		"next",
 		"next/core-web-vitals",
 		"plugin:react/recommended",
 		"standard-with-typescript",
@@ -20,23 +21,10 @@
 	"plugins": ["react", "prettier"],
 	"rules": {
 		"quotes": "off",
-		"unicorn/prevent-abbreviations": [
-			"error",
-			{
-				"extendDefaultReplacements": false,
-				"replacements": {
-					"cmd": {
-						"command": true
-					}
-				}
-			}
-		],
-		"@typescript-eslint/no-misused-promises": [
-			"error",
-			{
-				"checksVoidReturn": false
-			}
-		],
+		"unicorn/prefer-top-level-await": "off",
+		"unicorn/no-null": "off",
+		"unicorn/prevent-abbreviations": "off",
+		
 		"import/no-anonymous-default-export": [
 			"error",
 			{
@@ -49,9 +37,22 @@
 				"allowObject": true
 			}
 		],
-		"react/prop-types": 0,
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false
+			}
+		],
+		"@typescript-eslint/consistent-type-assertions": [
+			"error",
+			{
+				"assertionStyle": "as",
+				"objectLiteralTypeAssertions": "allow"
+			}
+		],
 		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/no-var-requires": "off",
+		"react/prop-types": 0,
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-filename-extension": [
 			1,
