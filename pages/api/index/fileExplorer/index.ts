@@ -5,7 +5,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		const { method } = req;
 		console.log(method);
 		res.json({ message: "Hello World" });
-	} catch (error: any) {
-		res.status(500).json({ message: error.message });
+	} catch (error) {
+		if (error instanceof Error)
+			res.status(500).json({ message: error.message });
 	}
 }

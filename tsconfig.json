@@ -17,6 +17,7 @@
 	},
 	"include": [
 		".eslintrc.json",
+		"next.config.js",
 		"**/*.ts",
 		"**/*.tsx",
 		"pages/**/*",
@@ -26,9 +27,9 @@
 		"utils/**/*",
 		"types/*.*",
 		"types/**/*.*",
-		"styles/theme.ts"
+		"styles/theme.tsx"
 	],
-	"exclude": ["node_modules", "**/components/pages/editor/sidebar/index.tsx"],
+	"exclude": ["node_modules", "components/pages/editor/sidebar/index.tsx"],
 	"ts-standard": {
 		"project": "./tsconfig.json"
 	}

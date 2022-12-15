@@ -1,10 +1,6 @@
 {
 	"extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
-	"ignoreFiles": [
-		"**/editor.min.css",
-		"**/globals.min.css",
-		"**/public/fontello/fontello-76f6c27b/css/*.css"
-	],
+	"ignoreFiles": ["**/*.min.css", "public/fontello/fontello-*/css/*.*"],
 	"rules": {
 		"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
 		"order/properties-alphabetical-order": true,
