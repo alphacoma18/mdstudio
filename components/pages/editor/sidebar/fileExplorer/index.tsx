@@ -1,9 +1,12 @@
 import { memo } from "react";
+import { handleAxios } from "../../../../../utils/axios";
+// import ContextIndex from "../../../../../utils/context/index";
 import GenButton from "../../../../gen/button";
 import { project1 } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
+	// const { editorState } = useContext(ContextIndex);
 	const regex = /^[A-Za-z][\dA-Za-z]{1,9}$/;
 	function handlePrompt(txt: string): string {
 		try {
@@ -19,7 +22,10 @@ const EditorFileExplorer: React.FC = () => {
 	function handleNewFile() {
 		const result = handlePrompt("Enter file name:");
 		if (result === "") return;
-		console.log(result);
+		void handleAxios({
+			method: "get",
+			url: "/index/newFile",
+		});
 	}
 
 	function handleNewFolder() {

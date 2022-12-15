@@ -11,7 +11,7 @@ export interface FSSchema {
 		};
 	};
 	_folders: {
-		[key: string]: FSSchema | {};
+		[key: string]: FSSchema | Record<string, never>;
 	};
 }
 interface ProjectSettingSchema {
@@ -163,17 +163,13 @@ const DB_PROJECTS =
 
 async function run() {
 	try {
-		const response = await mongoose.connect(
+		await mongoose.connect(
 			process.env.MONGO_URI as string,
 			{
 				useNewUrlParser: true,
 				useUnifiedTopology: true,
-				useCreateIndex: true,
-				useFindAndModify: false,
-				poolSize: Number.parseInt(process.env.POOL_SIZE as string),
 			} as ConnectOptions
 		);
-		console.log(response);
 	} catch (error) {
 		console.log(error);
 	}

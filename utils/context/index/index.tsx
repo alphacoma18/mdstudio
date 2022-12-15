@@ -12,13 +12,17 @@ const ContextIndex = createContext<IContextIndex>({
 		textInput: "",
 		currentFolder: "",
 	},
-	updateEditorState: () => {},
+	updateEditorState: () => {
+		throw new Error("ContextIndex not initialized");
+	},
 	barState: {
 		leftBarOpen: false,
 		rightBarOpen: false,
 		explorerOpen: false,
 	},
-	updateBarState: () => {},
+	updateBarState: () => {
+		throw new Error("ContextIndex not initialized");
+	},
 });
 export default ContextIndex;
 interface Props {
@@ -35,6 +39,7 @@ export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
 			case "updateId":
 				return { ...state, id: action.payload };
 			case "updateCurrentFolder":
+				console.log("updateCurrentFolder", action.payload);
 				return { ...state, currentFolder: action.payload };
 			default:
 				return state;

@@ -48,14 +48,20 @@ export const project1: FSSchema = {
 								file_5: {
 									_isDir: false,
 									_content: "This is file 5",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_6: {
 									_isDir: false,
 									_content: "This is file 6",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_7: {
 									_isDir: false,
 									_content: "This is file 7",
+									_title: "hello world",
+									_description: "bye world",
 								},
 							},
 							_folders: {
@@ -66,62 +72,92 @@ export const project1: FSSchema = {
 										file_a: {
 											_isDir: false,
 											_content: "This is file a",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_b: {
 											_isDir: false,
 											_content: "This is file b",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_c: {
 											_isDir: false,
 											_content: "This is file c",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_d: {
 											_isDir: false,
 											_content: "This is file d",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_e: {
 											_isDir: false,
 											_content: "This is file e",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_f: {
 											_isDir: false,
 											_content: "This is file f",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_g: {
 											_isDir: false,
 											_content: "This is file g",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_h: {
 											_isDir: false,
 											_content: "This is file h",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_i: {
 											_isDir: false,
 											_content: "This is file i",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_j: {
 											_isDir: false,
 											_content: "This is file j",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_k: {
 											_isDir: false,
 											_content: "This is file k",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_l: {
 											_isDir: false,
 											_content: "This is file l",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_m: {
 											_isDir: false,
 											_content: "This is file m",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_n: {
 											_isDir: false,
 											_content: "This is file n",
+											_title: "hello world",
+											_description: "bye world",
 										},
 										file_o: {
 											_isDir: false,
 											_content: "This is file o",
+											_title: "hello world",
+											_description: "bye world",
 										},
 									},
 								},
@@ -132,10 +168,13 @@ export const project1: FSSchema = {
 							_folders: {
 								index: {
 									_isDir: true,
+									_folders: {},
 									_files: {
 										file_8: {
 											_isDir: false,
 											_content: "console.log('Hello World!');",
+											_title: "hello world",
+											_description: "bye world",
 										},
 									},
 								},
@@ -144,26 +183,38 @@ export const project1: FSSchema = {
 								file_9: {
 									_isDir: false,
 									_content: "This is file 9",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_10: {
 									_isDir: false,
 									_content: "This is file 10",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_11: {
 									_isDir: false,
 									_content: "This is file 11",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_12: {
 									_isDir: false,
 									_content: "This is file 12",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_13: {
 									_isDir: false,
 									_content: "This is file 13",
+									_title: "hello world",
+									_description: "bye world",
 								},
 								file_14: {
 									_isDir: false,
 									_content: "This is file 14",
+									_title: "hello world",
+									_description: "bye world",
 								},
 							},
 						},
@@ -176,14 +227,20 @@ export const project1: FSSchema = {
 						file_15: {
 							_isDir: false,
 							_content: "This is file 15",
+							_title: "hello world",
+							_description: "bye world",
 						},
 						file_16: {
 							_isDir: false,
 							_content: "This is file 16",
+							_title: "hello world",
+							_description: "bye world",
 						},
 						file_17: {
 							_isDir: false,
 							_content: "This is file 17",
+							_title: "hello world",
+							_description: "bye world",
 						},
 					},
 				},
@@ -194,6 +251,8 @@ export const project1: FSSchema = {
 			_files: {
 				file_18: {
 					_isDir: false,
+					_title: "hello world",
+					_description: "bye world",
 					_content: `# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
 ## What is AnyMD?
 

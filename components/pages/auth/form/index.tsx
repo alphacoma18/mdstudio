@@ -17,7 +17,11 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 							method="post"
 							className={styles.emailMethod}
 						>
-							<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+							<input
+								name="csrfToken"
+								type="hidden"
+								defaultValue={csrfToken ?? ""}
+							/>
 							<input
 								name="email"
 								type="email"
@@ -40,7 +44,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 					) : (
 						<GenButton
 							props={{
-								label: `Signin: ${provider.name as string} provider`,
+								label: `Signin: ${provider.name as string}`,
 								className: `${styles.button} ${styles.itemMethod} ${
 									styles.name
 								} icon-${String(provider.name).toLowerCase()}`,

@@ -15,6 +15,7 @@
 	"dependencies": {
 		"@builder.io/partytown": "^0.7.3",
 		"@choutkamartin/mongoose-adapter": "^0.1.0",
+		"@formkit/auto-animate": "^1.0.0-beta.5",
 		"axios": "^1.2.1",
 		"cloudinary": "^1.32.0",
 		"dompurify": "^2.4.1",
@@ -45,7 +46,6 @@
 		"eslint": "^8.29.0",
 		"eslint-config-next": "^13.0.6",
 		"eslint-config-prettier": "^8.5.0",
-		"eslint-config-standard": "^17.0.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.31.11",
 		"eslint-plugin-react-hooks": "^4.6.0",

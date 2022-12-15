@@ -4,10 +4,11 @@ import ContextGlobal from "../../../../../../../utils/context/_global";
 import { FSSchema } from "../../../../../../../utils/db/account";
 import GenButton from "../../../../../../gen/button";
 import styles from "../index.module.css";
-const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
-	folder,
-	name,
-}) => {
+const EditorRecur: React.FC<{
+	folder: FSSchema;
+	parent: string;
+	name: string;
+}> = ({ folder, parent: prev, name }) => {
 	const { isMobile } = useContext(ContextGlobal);
 	const { updateEditorState, updateBarState } = useContext(ContextIndex);
 	const [open, setOpen] = useState<boolean>(false);
@@ -21,7 +22,13 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 						props={{
 							label: name,
 							className: `${styles.folderName} ${styles.folder}`,
-							onClick: () => setOpen(!open),
+							onClick: () => {
+								updateEditorState({
+									type: "updateCurrentFolder",
+									payload: `${prev}/${name}`,
+								});
+								setOpen(!open);
+							},
 						}}
 					>
 						{open ? (
@@ -44,6 +51,10 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 												type: "updateTextInput",
 												payload: _files[file]._content,
 											});
+											updateEditorState({
+												type: "updateCurrentFolder",
+												payload: `${prev}/${name}`,
+											});
 											if (isMobile)
 												updateBarState({
 													type: "explorerClose",
@@ -59,6 +70,7 @@ const EditorRecur: React.FC<{ folder: FSSchema; name: string }> = ({
 								<EditorRecur
 									key={index}
 									name={folder}
+									parent={prev + "/" + name}
 									folder={_folders[folder] as FSSchema}
 								/>
 							))}

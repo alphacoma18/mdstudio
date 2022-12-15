@@ -14,17 +14,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 			const { _isDir, _files, _folders } = project;
 			if (!_isDir) return;
 			return (
-				<GenButton
-					props={{
-						label: "Root folder",
-						className: styles.folder,
-						onClick: () =>
-							updateEditorState({
-								type: "updateCurrentFolder",
-								payload: "root",
-							}),
-					}}
-				>
+				<section className={styles.folder}>
 					{Object.keys(_files).map((file) => (
 						<GenButton
 							key={`file-${file}`}
@@ -45,11 +35,12 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 					{Object.keys(_folders).map((folder) => (
 						<EditorRecur
 							key={`root-${folder}`}
+							parent={"root"}
 							name={folder}
 							folder={_folders[folder] as FSSchema}
 						/>
 					))}
-				</GenButton>
+				</section>
 			);
 		} catch (error) {
 			console.log(error);

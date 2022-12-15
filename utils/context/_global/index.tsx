@@ -10,7 +10,9 @@ const ContextGlobal = createContext<IContextGlobal>({
 	session: null,
 	status: "loading",
 	isLightTheme: true,
-	setIsLightTheme() {},
+	setIsLightTheme() {
+		return false;
+	},
 	isMobile: false,
 });
 export default ContextGlobal;
@@ -29,8 +31,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		const value =
 			typeof window !== "undefined" &&
 			window.localStorage.getItem("theme-preference");
-		console.log(value);
-		return value === "dark";
+		return value === "light";
 	});
 
 	useEffect(() => {
