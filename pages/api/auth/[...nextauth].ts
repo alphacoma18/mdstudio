@@ -9,8 +9,7 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
 import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
-import { mongooseId } from "../../../utils/db/account";
-import db_projects from "../../../utils/db/account/typegoose";
+import db_projects, { mongooseId } from "../../../utils/db/account";
 export const authOptions: NextAuthOptions = {
 	adapter: MongooseAdapter(process.env.MONGO_URI as string),
 	providers: [

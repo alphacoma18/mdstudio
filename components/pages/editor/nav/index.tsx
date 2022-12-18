@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
-import ContextIndex from "../../../../utils/context/index";
+import ContextEditor from "../../../../utils/context/editor/index";
 import GenButton from "../../../gen/button";
 import GenLogo from "../../../gen/logo";
 import GenReload from "../../../gen/reload";
@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 const EditorNav: React.FC = () => {
 	const {
 		barState: { rightBarOpen },
-	} = useContext(ContextIndex);
+	} = useContext(ContextEditor);
 	return (
 		<nav className={rightBarOpen ? styles.navOpen : styles.nav}>
 			<div className={styles.desktopLogo}>

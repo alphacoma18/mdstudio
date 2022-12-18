@@ -1,27 +1,9 @@
-import React, { createContext, ReactNode, useReducer } from "react";
-import {
-	IBarState,
-	IContextIndex,
-	IEditorState,
-	TBarState,
-	TEditorAction,
-} from "./type";
+import { ReactNode, createContext, useState } from "react";
+import { IContextIndex } from "./type";
 const ContextIndex = createContext<IContextIndex>({
-	editorState: {
-		id: "",
-		textInput: "",
-		currentFolder: "",
-	},
-	updateEditorState: () => {
-		return { type: "updateTextInput", payload: "" };
-	},
-	barState: {
-		leftBarOpen: false,
-		rightBarOpen: false,
-		explorerOpen: false,
-	},
-	updateBarState: () => {
-		return { type: "leftBarOpen" };
+	projects: [] as unknown as IContextIndex["projects"],
+	setProjects: () => {
+		return {};
 	},
 });
 export default ContextIndex;
@@ -29,63 +11,14 @@ interface Props {
 	children: ReactNode;
 }
 export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
-	function editorReducer(
-		state: IEditorState,
-		action: { type: TEditorAction; payload: string }
-	) {
-		switch (action.type) {
-			case "updateTextInput":
-				return { ...state, textInput: action.payload };
-			case "updateId":
-				return { ...state, id: action.payload };
-			case "updateCurrentFolder":
-				console.log("updateCurrentFolder", action.payload);
-				return { ...state, currentFolder: action.payload };
-			default:
-				return state;
-		}
-	}
-	const [editorState, updateEditorState] = useReducer(editorReducer, {
-		id: "",
-		textInput: "",
-		currentFolder: "",
-	});
-
-	function barReducer(state: IBarState, action: { type: TBarState }) {
-		switch (action.type) {
-			case "leftBarOpen":
-				return {
-					rightBarOpen: state.rightBarOpen && false,
-					explorerOpen: false,
-					leftBarOpen: !state.leftBarOpen,
-				};
-			case "rightBarOpen":
-				return {
-					leftBarOpen: state.leftBarOpen && false,
-					explorerOpen: false,
-					rightBarOpen: !state.rightBarOpen,
-				};
-			case "explorerOpen":
-				return { ...state, explorerOpen: !state.explorerOpen };
-			case "explorerClose":
-				return { ...state, explorerOpen: false };
-			default:
-				return state;
-		}
-	}
-	const [barState, updateBarState] = useReducer(barReducer, {
-		leftBarOpen: false,
-		rightBarOpen: false,
-		explorerOpen: false,
-	});
-
+	const [projects, setProjects] = useState<IContextIndex["projects"]>(
+		[] as unknown as IContextIndex["projects"]
+	);
 	return (
 		<ContextIndex.Provider
 			value={{
-				editorState,
-				updateEditorState,
-				barState,
-				updateBarState,
+				projects,
+				setProjects,
 			}}
 		>
 			{children}

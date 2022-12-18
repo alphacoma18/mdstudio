@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import ContextIndex from "../../../../../../utils/context/index";
+import ContextEditor from "../../../../../../utils/context/editor/index";
 import { FSSchema } from "../../../../../../utils/db/account";
 import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
@@ -8,7 +8,7 @@ interface Props {
 	project: FSSchema;
 }
 const EditorFolder: React.FC<Props> = ({ project }) => {
-	const { updateEditorState } = useContext(ContextIndex);
+	const { updateEditorState } = useContext(ContextEditor);
 	function render() {
 		try {
 			const { _isDir, _files, _folders } = project;

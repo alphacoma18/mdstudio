@@ -1,7 +1,13 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { unstable_getServerSession } from "next-auth/next";
 import dynamic from "next/dynamic";
+import { ReactElement, useContext, useEffect } from "react";
 import GenSuspense from "../components/gen/suspense";
 import IndexContent from "../components/pages/index/content";
+import ContextIndex, { ContextProviderIndex } from "../utils/context/index";
+import db_projects from "../utils/db/account";
 import { NextPageWithLayout } from "./_app";
+import { authOptions } from "./api/auth/[...nextauth]";
 
 const IndexNav = dynamic(
 	async () => await import("../components/pages/index/nav"),
@@ -16,7 +22,13 @@ const IndexFooter = dynamic(
 	}
 );
 
-const IndexPage: NextPageWithLayout = () => {
+const IndexPage: NextPageWithLayout<
+	InferGetServerSidePropsType<typeof getServerSideProps>
+> = (props) => {
+	const { setProjects } = useContext(ContextIndex);
+	useEffect(() => {
+		setProjects(props.projects);
+	}, [props.projects, setProjects]);
 	return (
 		<main>
 			<GenSuspense fallback="Loading Nav...">
@@ -31,5 +43,20 @@ const IndexPage: NextPageWithLayout = () => {
 		</main>
 	);
 };
-
+IndexPage.getLayout = function getLayout(page: ReactElement) {
+	return <ContextProviderIndex>{page}</ContextProviderIndex>;
+};
 export default IndexPage;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const session = await unstable_getServerSession(
+		context.req,
+		context.res,
+		authOptions
+	);
+	const res = await db_projects.find({ userId: session?.user?.userId });
+	return {
+		props: {
+			projects: res[0].projects,
+		},
+	};
+};

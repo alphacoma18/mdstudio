@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 import { ReactElement, useContext } from "react";
 import GenSuspense from "../../components/gen/suspense";
-import { ContextProviderIndex } from "../../utils/context/index/index";
 import ContextGlobal from "../../utils/context/_global";
+import { ContextProviderEditor } from "../../utils/context/editor/index";
 import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
 const EditorCanvas = dynamic(
@@ -58,6 +58,6 @@ const EditorPage: NextPageWithLayout = () => {
 	);
 };
 EditorPage.getLayout = function getLayout(page: ReactElement) {
-	return <ContextProviderIndex>{page}</ContextProviderIndex>;
+	return <ContextProviderEditor>{page}</ContextProviderEditor>;
 };
 export default EditorPage; // <--- memo() removed

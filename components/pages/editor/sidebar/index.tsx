@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
-import ContextIndex from "../../../../utils/context/index";
 import ContextGlobal from "../../../../utils/context/_global";
+import ContextEditor from "../../../../utils/context/editor/index";
 import GenButton from "../../../gen/button";
 import GenImage from "../../../gen/image";
 import EditorFileExplorer from "./fileExplorer";
@@ -15,7 +15,7 @@ const EditorSidebar: React.FC = () => {
 	const {
 		barState: { leftBarOpen, explorerOpen },
 		updateBarState,
-	} = useContext(ContextIndex);
+	} = useContext(ContextEditor);
 
 	return (
 		<>

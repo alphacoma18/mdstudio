@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import ContextIndex from "../../../../utils/context/index";
+import ContextEditor from "../../../../utils/context/editor/index";
 import EditorMain from "./editor";
 import styles from "./index.module.css";
 
 const EditorCanvas: React.FC = () => {
 	const {
 		barState: { explorerOpen },
-	} = useContext(ContextIndex);
+	} = useContext(ContextEditor);
 	return (
 		<span
 			className={`

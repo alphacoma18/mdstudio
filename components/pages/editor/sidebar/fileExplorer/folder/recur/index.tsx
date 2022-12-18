@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import ContextGlobal from "../../../../../../../utils/context/_global";
-import ContextIndex from "../../../../../../../utils/context/index";
+import ContextEditor from "../../../../../../../utils/context/editor/index";
 import { FSSchema } from "../../../../../../../utils/db/account";
 import GenButton from "../../../../../../gen/button";
 import styles from "../index.module.css";
@@ -10,7 +10,7 @@ const EditorRecur: React.FC<{
 	name: string;
 }> = ({ folder, parent: prev, name }) => {
 	const { device } = useContext(ContextGlobal);
-	const { updateEditorState, updateBarState } = useContext(ContextIndex);
+	const { updateEditorState, updateBarState } = useContext(ContextEditor);
 	const [open, setOpen] = useState<boolean>(false);
 	function render() {
 		try {

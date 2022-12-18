@@ -3,7 +3,7 @@ import { Options } from "easymde";
 import dynamic from "next/dynamic";
 import { memo, useContext, useMemo } from "react";
 import ContextGlobal from "../../../../../utils/context/_global";
-import ContextIndex from "../../../../../utils/context/index/index";
+import ContextEditor from "../../../../../utils/context/editor/index";
 import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(
 	async () => await import("react-simplemde-editor"),
@@ -13,7 +13,7 @@ const SimpleMdeReact = dynamic(
 );
 const EditorMain: React.FC = () => {
 	const { device } = useContext(ContextGlobal);
-	const { editorState, updateEditorState } = useContext(ContextIndex);
+	const { editorState, updateEditorState } = useContext(ContextEditor);
 
 	const mdOptions = useMemo(() => {
 		return {

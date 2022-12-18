@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import ContextIndex from "../../../../../utils/context/index";
+import ContextEditor from "../../../../../utils/context/editor/index";
 import GenButton from "../../../../gen/button";
 import GenLogo from "../../../../gen/logo";
 import GenReload from "../../../../gen/reload";
@@ -29,7 +29,7 @@ const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
 };
 
 const EditorMobileNav: React.FC = () => {
-	const { updateBarState } = useContext(ContextIndex);
+	const { updateBarState } = useContext(ContextEditor);
 	return (
 		<nav className={styles.mobileNav}>
 			<MenuContainer
