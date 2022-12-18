@@ -17,12 +17,12 @@ const axios = Axios.create({
 interface IAxios {
 	method: "get" | "post" | "put" | "delete";
 	url: string;
-	payload?: { [key: string]: any };
+	data?: { [key: string]: any };
 }
-export async function handleAxios({
+async function handleAxios({
 	method,
 	url,
-	payload,
+	data: payload,
 }: IAxios): Promise<any> {
 	try {
 		return await axios[method](url, payload);
@@ -31,4 +31,4 @@ export async function handleAxios({
 		return error;
 	}
 }
-export default axios;
+export default handleAxios;

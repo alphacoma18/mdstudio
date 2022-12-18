@@ -1,4 +1,4 @@
-import mongoose, { ConnectOptions, model, Schema } from "mongoose";
+import mongoose, { ConnectOptions, Schema, Types, model } from "mongoose";
 
 export interface FSSchema {
 	_isDir: true;
@@ -43,27 +43,19 @@ interface ProjectSettingSchema {
 	};
 }
 export interface ProjectSchema {
-	_id: string;
 	settings: ProjectSettingSchema;
 	fileStructure: FSSchema;
 }
 
 export interface UserSchema {
-	id: string;
+	userId: Types.ObjectId;
 	projects: ProjectSchema[];
 }
 
 const x = new Schema<UserSchema>({
-	id: {
-		type: String,
-		required: true,
-	},
+	userId: { type: Schema.Types.ObjectId, ref: "users" },
 	projects: [
 		{
-			_id: {
-				type: String,
-				required: true,
-			},
 			settings: {
 				UI: {
 					scrollIndicator: {
@@ -157,9 +149,12 @@ const x = new Schema<UserSchema>({
 		},
 	],
 });
-
+export function mongooseId(id: string) {
+	return new mongoose.Types.ObjectId(id);
+}
 const DB_PROJECTS =
-	mongoose.models.projects ?? model<ProjectSchema>("projects", x);
+	mongoose.models.projects ?? model<UserSchema>("projects", x);
+DB_PROJECTS;
 
 async function run() {
 	try {

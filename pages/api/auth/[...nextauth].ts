@@ -9,7 +9,8 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
 import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
-import DB_PROJECTS from "../../../utils/db/account";
+import { mongooseId } from "../../../utils/db/account";
+import db_projects from "../../../utils/db/account/typegoose";
 export const authOptions: NextAuthOptions = {
 	adapter: MongooseAdapter(process.env.MONGO_URI as string),
 	providers: [
@@ -89,10 +90,15 @@ export const authOptions: NextAuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
 	events: {
 		async signIn({ user, account, profile, isNewUser }) {
-			if (isNewUser === false) return;
-			const { id } = user;
-			await DB_PROJECTS.create({ id, projects: [] });
-			console.log("New user signed in", id);
+			try {
+				if (isNewUser === false) return;
+				const { id } = user;
+				// await DB_PROJECTS.create({ userId: mongooseId(id) });
+				await db_projects.create({ userId: mongooseId(id) });
+				console.log("New user signed in", id);
+			} catch (error) {
+				console.error(error);
+			}
 		},
 	},
 	callbacks: {
@@ -105,7 +111,8 @@ export const authOptions: NextAuthOptions = {
 			return baseUrl;
 		},
 		async session({ session, token, user }) {
-			// console.log("session", session, token, user);
+			// extend session with userId from user
+			session.user.userId = user.id;
 			return session;
 		},
 		async jwt({ token, user, account, profile, isNewUser }) {
@@ -126,7 +133,7 @@ export const authOptions: NextAuthOptions = {
 		logo: "http://localhost:3000/android-chrome-256x256.png",
 		buttonText: "#007acc",
 	},
-	// debug: process.env.NODE_ENV === "development",
+	debug: process.env.NODE_ENV === "development",
 };
 
 export default NextAuth(authOptions);

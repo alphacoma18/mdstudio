@@ -17,6 +17,11 @@ export type TEditorAction =
 	| "updateTextInput"
 	| "updateId"
 	| "updateCurrentFolder";
+export type TFocusAction =
+	| "focusNav"
+	| "focusEditor"
+	| "focusStatus"
+	| "focusExplorer";
 export interface IContextIndex {
 	editorState: IEditorState;
 	updateEditorState: React.Dispatch<{

@@ -15,7 +15,7 @@ const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
 		<section>
 			<GenButton
 				props={{
-					label: "Toggle ",
+					label,
 					className: `${styles.menuContainer}`,
 					onClick: func,
 				}}

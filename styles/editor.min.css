@@ -559,7 +559,7 @@ span.CodeMirror-selectedtext {
 	color: #959694;
 	font-size: 12px;
 	padding: 8px 10px;
-	position: sticky;
+	position: -webkit-sticky;
 	position: sticky;
 	text-align: right;
 }

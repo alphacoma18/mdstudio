@@ -5,7 +5,7 @@ import {
 	IEditorState,
 	TBarState,
 	TEditorAction,
-} from "./index.d";
+} from "./type";
 const ContextIndex = createContext<IContextIndex>({
 	editorState: {
 		id: "",
@@ -13,7 +13,7 @@ const ContextIndex = createContext<IContextIndex>({
 		currentFolder: "",
 	},
 	updateEditorState: () => {
-		throw new Error("ContextIndex not initialized");
+		return { type: "updateTextInput", payload: "" };
 	},
 	barState: {
 		leftBarOpen: false,
@@ -21,7 +21,7 @@ const ContextIndex = createContext<IContextIndex>({
 		explorerOpen: false,
 	},
 	updateBarState: () => {
-		throw new Error("ContextIndex not initialized");
+		return { type: "leftBarOpen" };
 	},
 });
 export default ContextIndex;
