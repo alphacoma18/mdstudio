@@ -1,7 +1,7 @@
 .flexMethods {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.4rem;
+	gap: var(--gap-md);
 	justify-content: center;
 	width: 100%;
 }
@@ -9,7 +9,7 @@
 .emailMethod {
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem;
+	gap: var(--gap-md);
 	width: 100%;
 }
 

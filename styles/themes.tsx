@@ -10,8 +10,6 @@ const DarkTheme = () => {
 					--canvas-bg: #233343;
 
 					--fx-hover: #233343;
-
-					--color-canvas-subtle: #161b22;
 					--border-1: 3px solid #ffffff;
 				}
 			`}
@@ -31,8 +29,6 @@ const LightTheme = () => {
 					--canvas-bg: #ffffff;
 
 					--fx-hover: #ddd;
-
-					--color-canvas-subtle: #f6f8fa;
 					--border-1: 3px solid #000000;
 				}
 			`}
@@ -41,6 +37,6 @@ const LightTheme = () => {
 };
 
 export default function Theme({ theme }: { theme: boolean }) {
-	if (theme === true) return <LightTheme />;
+	if (theme) return <LightTheme />;
 	return <DarkTheme />;
 }

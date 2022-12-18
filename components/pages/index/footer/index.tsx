@@ -1,6 +1,7 @@
+import styles from "./index.module.css";
 const IndexFooter: React.FC = () => {
 	return (
-		<footer>
+		<footer className={styles.footer}>
 			<h1>Hello World</h1>
 		</footer>
 	);

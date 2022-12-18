@@ -1,13 +1,48 @@
 .section {
 	align-items: center;
-	display: flex;
+	background: var(--canvas-bg);
+	box-shadow: var(--bs-full);
+	display: grid;
 	flex-wrap: wrap;
-	gap: 0.2rem;
+	gap: var(--gap-lg);
+	grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
 	justify-content: center;
+	margin: auto;
+	padding: var(--pd-lg);
+	width: 95vw;
 }
 
-.section div {
-	background: #0000ff;
+.section > button {
+	border: 2px solid var(--bg-blue);
+	border-radius: var(--br-md);
+	min-height: 200px;
+	padding: var(--pd-md);
+}
+
+.section > button:is(:hover, :focus, :active) {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+
+
+
+.mobileNew {
+	align-items: center;
+	background: var(--color-white);
+	bottom: 25px;
+	display: flex;
+	font-size: 4rem;
+	height: 20px;
+	justify-content: center;
 	padding: 1rem;
-	width: calc(50% - 0.2rem);
+	position: fixed;
+	right: 25px;
+	width: 20px;
+}
+.mobileNew i {
+	color: var(--color-blue);
+}
+
+.mobileNew:hover {
+	background: rgba(0, 0, 0, 0.1);
 }

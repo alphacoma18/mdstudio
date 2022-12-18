@@ -1,6 +1,6 @@
 .botbarSection {
 	background: var(--bg-2);
-	box-shadow: 0 -4px 8px rgb(0 0 0 / 40%);
+	box-shadow: var(--bs-top);
 	grid-area: 4 / 1 / 4 / 5;
 	overflow-x: auto;
 	z-index: 5;

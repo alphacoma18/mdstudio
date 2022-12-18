@@ -1,7 +1,6 @@
 .fileExplorer {
 	background: var(--bg-1);
-	box-shadow: var(--bs-side);
-	clip-path: inset(0 -15px 0 0);
+	box-shadow: var(--bs-right);
 	display: flex;
 	flex-direction: column;
 	grid-area: 2 / 2 / 4 / 3;
@@ -13,7 +12,7 @@
 .head {
 	align-items: center;
 	background: var(--bg-1);
-	box-shadow: var(--bs-side);
+	box-shadow: var(--bs-bottom);
 	clip-path: inset(0 0 -15px 0);
 	display: flex;
 	justify-content: space-evenly;

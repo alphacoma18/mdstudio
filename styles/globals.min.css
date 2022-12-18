@@ -2,31 +2,34 @@
 	--bg-white: #fff;
 	--bg-black: #1a2632;
 	--bg-blue: #007acc;
-	--bg-yellow: #faee0f;
-	--bg-green: #198754;
-	--bg-red: #dc3545;
 	--color-white: #fff;
 	--color-black: #000;
 	--color-blue: #007acc;
 	--color-red: #dc3545;
 	--border-blue: 3px solid var(--bg-blue);
-	--border-success: 3px solid var(--bg-green);
-	--border-error: 3px solid var(--bg-red);
-	--textarea-bg: #fff;
 	--input-black: #233343;
-	--br-sm: 3px;
-	--br-md: 5px;
-	--br-lg: 7px;
+	--br-sm: 0.2rem;
+	--br-md: 0.4rem;
+	--br-lg: 1rem;
 	--br-circle: 50%;
 	--mg-sm: 0.5rem;
 	--mg-md: 1rem;
 	--mg-lg: 1.5rem;
-	--bs-side: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+
+	--bs-shadow: rgba(0, 0, 0, 0.4);
+	--bs-down: 0px 4px 8px 0px var(--bs-shadow);
+	--bs-top: 0px -4px 8px 0px var(--bs-shadow);
+	--bs-left: -4px 0px 8px 0px var(--bs-shadow);
+	--bs-right: 4px 0px 8px 0px var(--bs-shadow);
+
 	--bs-full: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-	--border-box: border-box;
 	--pd-sm: 0.2rem;
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
+
+	--gap-sm: 0.2rem;
+	--gap-md: 0.4rem;
+	--gap-lg: 1rem;
 	--fast-transition: color 50ms linear 0s, background 50ms linear 0s;
 	--fast-transition-all: all 100ms linear 0s;
 }
@@ -86,7 +89,7 @@ body {
 }
 button,
 input {
-	background: 0 0;
+	background: 0;
 	border: none;
 	line-height: inherit;
 }

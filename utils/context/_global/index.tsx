@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/react";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import Theme from "../../../styles/themes";
 import { IContextGlobal } from "./type";
 const ContextGlobal = createContext<IContextGlobal>({
@@ -13,7 +13,7 @@ const ContextGlobal = createContext<IContextGlobal>({
 	setIsLightTheme() {
 		return false;
 	},
-	isMobile: false,
+	device: null,
 });
 export default ContextGlobal;
 
@@ -39,15 +39,20 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 			if (typeof window !== "undefined") {
 				window.localStorage.setItem(
 					"theme-preference",
-					prev ? "dark" : "light"
+					prev ? "light" : "dark"
 				);
 			}
 			return prev;
 		});
 	}, [isLightTheme]);
 
-	const [isMobile] = useState<boolean>(() => {
-		return typeof window !== "undefined" && window.innerWidth <= 768;
+	const [device] = useState<IContextGlobal["device"]>(() => {
+		if (typeof window === "undefined") return null;
+		const width = window.innerWidth;
+		if (width <= 480) return "mobile";
+		if (width <= 768) return "tablet";
+		if (width <= 1024) return "laptop";
+		return "desktop";
 	});
 	return (
 		<ContextGlobal.Provider
@@ -57,7 +62,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 				status,
 				isLightTheme,
 				setIsLightTheme,
-				isMobile,
+				device,
 			}}
 		>
 			<Theme theme={isLightTheme} />

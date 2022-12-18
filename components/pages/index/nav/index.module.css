@@ -2,12 +2,13 @@
 	align-items: center;
 	background: var(--bg-1);
 	border-top: 3px solid var(--bg-2);
-	box-shadow: var(--bs-side);
+	box-shadow: var(--bs-down);
 	display: flex;
 	grid-area: 1 / 1 / 1 / 5;
 	justify-content: space-between;
+	position: sticky;
+	top: 0;
 	width: 100%;
-	z-index: 10;
 }
 
 .desktopLogo {
@@ -20,6 +21,6 @@
 .flexAnchor {
 	align-items: center;
 	display: flex;
-	gap: 0.2rem;
+	gap: var(--gap-sm);
 	justify-content: center;
 }

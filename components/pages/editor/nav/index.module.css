@@ -3,7 +3,7 @@
 	align-items: center;
 	background: var(--bg-1);
 	border-top: 3px solid var(--bg-2);
-	box-shadow: var(--bs-side);
+	box-shadow: var(--bs-down);
 	display: flex;
 	grid-area: 1 / 1 / 1 / 5;
 	justify-content: space-between;
@@ -54,13 +54,12 @@
 
 	.flexButtons {
 		flex-direction: column;
-		gap: 0.2rem;
+		gap: var(--gap-sm);
 		overflow: hidden auto;
 	}
 
 	.navOpen {
 		border-top: none;
-		clip-path: inset(0 0 0 -15px);
 		flex-direction: column;
 		grid-area: 2 / 4 / 4 / 4;
 		padding: var(--pd-sm);

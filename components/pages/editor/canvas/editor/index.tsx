@@ -2,8 +2,8 @@ import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import dynamic from "next/dynamic";
 import { memo, useContext, useMemo } from "react";
-import ContextIndex from "../../../../../utils/context/index/index";
 import ContextGlobal from "../../../../../utils/context/_global";
+import ContextIndex from "../../../../../utils/context/index/index";
 import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(
 	async () => await import("react-simplemde-editor"),
@@ -12,7 +12,7 @@ const SimpleMdeReact = dynamic(
 	}
 );
 const EditorMain: React.FC = () => {
-	const { isMobile } = useContext(ContextGlobal);
+	const { device } = useContext(ContextGlobal);
 	const { editorState, updateEditorState } = useContext(ContextIndex);
 
 	const mdOptions = useMemo(() => {
@@ -63,18 +63,20 @@ const EditorMain: React.FC = () => {
 				"code",
 				"|",
 				"preview",
-				...(isMobile ? ["fullscreen"] : ["side-by-side", "fullscreen"]),
+				...(device === "tablet" || device === "mobile"
+					? ["fullscreen"]
+					: ["side-by-side", "fullscreen"]),
 				"|",
 				"guide",
 			],
 			status: ["autosave", "lines", "words", "cursor"],
-			lineNumbers: !isMobile,
+			lineNumbers: device === "laptop" || device === "desktop",
 			uploadImage: true,
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
 		};
-	}, [isMobile]);
+	}, [device]);
 	return (
 		<SimpleMdeReact
 			value={editorState.textInput}

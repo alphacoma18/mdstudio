@@ -1,0 +1,8 @@
+.footer {
+    background: var(--bg-1);
+    border-bottom: var(--border-blue);
+    box-shadow: 0 -4px 8px rgb(0 0 0 / 40%);
+    height: 500px;
+    padding: var(--pd-lg);
+    text-align: center;
+}

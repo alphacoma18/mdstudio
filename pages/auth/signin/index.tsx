@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import GenLogo from "../../../components/gen/logo";
 import GenSuspense from "../../../components/gen/suspense";
-import styles from "./index.module.css";
+import styles from "../index.module.css";
 const AuthForm = dynamic(
 	async () => await import("../../../components/pages/auth/form"),
 	{
@@ -18,6 +18,9 @@ const SignIn: NextPage<
 	return (
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
+				<Link href="/">
+					<a></a>
+				</Link>
 				<span className={styles.spanImage}>
 					<GenLogo
 						light={{

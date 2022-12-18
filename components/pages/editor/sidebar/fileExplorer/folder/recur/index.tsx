@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import ContextIndex from "../../../../../../../utils/context/index";
 import ContextGlobal from "../../../../../../../utils/context/_global";
+import ContextIndex from "../../../../../../../utils/context/index";
 import { FSSchema } from "../../../../../../../utils/db/account";
 import GenButton from "../../../../../../gen/button";
 import styles from "../index.module.css";
@@ -9,7 +9,7 @@ const EditorRecur: React.FC<{
 	parent: string;
 	name: string;
 }> = ({ folder, parent: prev, name }) => {
-	const { isMobile } = useContext(ContextGlobal);
+	const { device } = useContext(ContextGlobal);
 	const { updateEditorState, updateBarState } = useContext(ContextIndex);
 	const [open, setOpen] = useState<boolean>(false);
 	function render() {
@@ -55,7 +55,7 @@ const EditorRecur: React.FC<{
 												type: "updateCurrentFolder",
 												payload: `${prev}/${name}`,
 											});
-											if (isMobile)
+											if (device === "mobile" || device === "tablet")
 												updateBarState({
 													type: "explorerClose",
 												});

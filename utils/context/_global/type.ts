@@ -8,5 +8,5 @@ export interface IContextGlobal {
 	status: "authenticated" | "unauthenticated" | "loading";
 	isLightTheme: boolean;
 	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
-	isMobile: boolean;
+	device: "mobile" | "tablet" | "laptop" | "desktop" | null;
 }

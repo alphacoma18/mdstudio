@@ -1,7 +1,7 @@
 import { getModelForClass, prop } from "@typegoose/typegoose";
 import mongoose, { ConnectOptions, Types } from "mongoose";
 
-class FSClass {
+class FileSystem {
 	@prop()
 	_isDir!: true;
 
@@ -17,7 +17,7 @@ class FSClass {
 
 	@prop()
 	_folders?: {
-		[key: string]: FSClass;
+		[key: string]: FileSystem;
 	};
 }
 
@@ -62,22 +62,27 @@ class ProjectSetting {
 }
 
 class Project {
-	@prop({ required: true })
+	@prop()
 	settings!: ProjectSetting;
 
 	@prop()
-	fileStructure!: FSClass;
+	fileStructure!: FileSystem;
 }
 
 class Projects {
 	@prop({ type: Types.ObjectId, ref: "users" })
-	userId!: Types.ObjectId;
+	userId!: Types.ObjectId | string;
 
 	@prop({ type: () => [Project] })
 	projects!: Project[];
 }
 
 const db_projects = getModelForClass(Projects);
+type TProjects = Projects;
+type TProject = Project;
+type TProjectSetting = ProjectSetting;
+type TFileSystem = FileSystem;
+export type { TProjects, TProject, TProjectSetting, TFileSystem };
 
 async function run() {
 	try {
