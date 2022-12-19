@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import ContextGlobal from "../../../../../../../utils/context/_global";
 import ContextEditor from "../../../../../../../utils/context/editor/index";
-import { FSSchema } from "../../../../../../../utils/db/account";
+import { TFileSystem } from "../../../../../../../utils/db/account";
 import GenButton from "../../../../../../gen/button";
 import styles from "../index.module.css";
 const EditorRecur: React.FC<{
-	folder: FSSchema;
+	folder: TFileSystem;
 	parent: string;
 	name: string;
 }> = ({ folder, parent: prev, name }) => {
@@ -40,7 +40,7 @@ const EditorRecur: React.FC<{
 					</GenButton>
 					{open && (
 						<div className={styles.indent}>
-							{Object.keys(_files).map((file) => (
+							{Object.keys(_files ?? {}).map((file) => (
 								<GenButton
 									key={`file-${file}`}
 									props={{
@@ -49,7 +49,7 @@ const EditorRecur: React.FC<{
 										onClick: () => {
 											updateEditorState({
 												type: "updateTextInput",
-												payload: _files[file]._content,
+												payload: _files?.[file]._content as string,
 											});
 											updateEditorState({
 												type: "updateCurrentFolder",
@@ -66,12 +66,12 @@ const EditorRecur: React.FC<{
 									{file}
 								</GenButton>
 							))}
-							{Object.keys(_folders).map((folder, index) => (
+							{Object.keys(_folders ?? {}).map((folder, index) => (
 								<EditorRecur
 									key={index}
 									name={folder}
 									parent={prev + "/" + name}
-									folder={_folders[folder] as FSSchema}
+									folder={_folders?.[folder] as TFileSystem}
 								/>
 							))}
 						</div>

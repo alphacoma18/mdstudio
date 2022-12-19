@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import GenMeta from "../components/gen/meta";
-import styles from "./_basic.module.css";
+import styles from "./_error.module.css";
 const Fallback: NextPage = () => {
 	return (
 		<>

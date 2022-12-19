@@ -1,11 +1,11 @@
 import { memo, useContext } from "react";
 import ContextEditor from "../../../../../../utils/context/editor/index";
-import { FSSchema } from "../../../../../../utils/db/account";
+import { TFileSystem } from "../../../../../../utils/db/account";
 import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
 interface Props {
-	project: FSSchema;
+	project: TFileSystem;
 }
 const EditorFolder: React.FC<Props> = ({ project }) => {
 	const { updateEditorState } = useContext(ContextEditor);
@@ -15,7 +15,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 			if (!_isDir) return;
 			return (
 				<section className={styles.folder}>
-					{Object.keys(_files).map((file) => (
+					{Object.keys(_files ?? {}).map((file) => (
 						<GenButton
 							key={`file-${file}`}
 							props={{
@@ -24,7 +24,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 								onClick: () =>
 									updateEditorState({
 										type: "updateTextInput",
-										payload: _files[file]._content,
+										payload: _files?.[file]._content as string,
 									}),
 							}}
 						>
@@ -32,12 +32,12 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 							{file}
 						</GenButton>
 					))}
-					{Object.keys(_folders).map((folder) => (
+					{Object.keys(_folders ?? {}).map((folder) => (
 						<EditorRecur
 							key={`root-${folder}`}
 							parent={"root"}
 							name={folder}
-							folder={_folders[folder] as FSSchema}
+							folder={_folders?.[folder] as TFileSystem}
 						/>
 					))}
 				</section>

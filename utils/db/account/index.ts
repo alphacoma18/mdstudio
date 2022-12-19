@@ -1,6 +1,7 @@
-import { getModelForClass, prop } from "@typegoose/typegoose";
-import mongoose, { ConnectOptions, Types } from "mongoose";
+import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
+import mongoose, { ConnectOptions, Schema, Types } from "mongoose";
 
+@modelOptions({ options: { allowMixed: 0 } })
 class FileSystem {
 	@prop()
 	_isDir!: true;
@@ -26,7 +27,7 @@ class FileSystem {
 //     console.log(x);
 //     x?._folders["test"]._files["test"]._content;
 // });
-
+@modelOptions({ options: { allowMixed: 0 } })
 class ProjectSetting {
 	@prop()
 	UI!: {
@@ -61,8 +62,12 @@ class ProjectSetting {
 	};
 }
 
+@modelOptions({ options: { allowMixed: 0 } })
 class Project {
-	@prop({ required: true })
+	@prop({ required: true, type: () => Schema.Types.ObjectId })
+	projectId!: Schema.Types.ObjectId;
+
+	@prop({ required: true, maxlength: 20, match: /^[a-zA-Z0-9_]+$/ })
 	projectName!: string;
 
 	@prop()
@@ -72,11 +77,12 @@ class Project {
 	fileStructure!: FileSystem;
 }
 
+@modelOptions({ options: { allowMixed: 0 } })
 class Projects {
 	@prop({ type: Types.ObjectId, ref: "users" })
 	userId!: Types.ObjectId | string;
 
-	@prop({ type: () => [Project] })
+	@prop({ type: () => [Project], default: [] })
 	projects!: Project[];
 }
 

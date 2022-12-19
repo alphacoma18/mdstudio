@@ -1,5 +1,5 @@
-import { FSSchema } from "../../../../../utils/db/account";
-export const project1: FSSchema = {
+import { TFileSystem } from "../../../../../utils/db/account";
+export const project1: TFileSystem = {
 	_isDir: true,
 	_files: {
 		file_1: {
@@ -253,7 +253,7 @@ export const project1: FSSchema = {
 					_isDir: false,
 					_title: "hello world",
 					_description: "bye world",
-					_content: `# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
+					_content: `# [AnyMD: Markdown Publisher](http://localhost:3000)
 ## What is AnyMD?
 
 AnyMD is a simple yet modern and extensive cross-platform markdown publisher and publishing application. Featuring your most beloved features such as...

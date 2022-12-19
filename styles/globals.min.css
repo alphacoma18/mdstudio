@@ -119,9 +119,13 @@ textarea {
 	font-family: inherit;
 	font-size: inherit;
 }
+img {
+	display: block;
+	max-width: 100%;
+}
 button,
 input {
-	border-radius: var(--br-lg);
+	border-radius: var(--br-md);
 }
 .kf-fade-in-fast {
 	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;

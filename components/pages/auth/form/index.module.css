@@ -55,7 +55,7 @@
 
 .submit {
 	border: var(--border-blue);
-	border-radius: var(--br-lg);
+	border-radius: var(--br-md);
 	padding: var(--pd-md);
 	text-align: center;
 	width: 100%;

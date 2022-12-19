@@ -1,5 +1,5 @@
 export default function GenLorem() {
-	return `# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
+	return `# [AnyMD: Markdown Publisher](http://localhost:3000)
 ## What is AnyMD?
 
 AnyMD is a simple yet modern and extensive cross-platform markdown publisher and publishing application. Featuring your most beloved features such as...

@@ -3,7 +3,7 @@ interface Props {
 		label: string;
 		onClick?: () => void;
 		className?: string;
-		type?: "submit";
+		type?: "submit" | "button";
 	};
 	children?: React.ReactNode;
 }
