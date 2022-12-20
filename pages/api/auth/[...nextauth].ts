@@ -92,7 +92,6 @@ export const authOptions: NextAuthOptions = {
 			try {
 				if (isNewUser === false) return;
 				const { id } = user;
-				// await DB_PROJECTS.create({ userId: mongooseId(id) });
 				await db_projects.create({ userId: mongooseId(id) });
 				console.log("New user signed in", id);
 			} catch (error) {

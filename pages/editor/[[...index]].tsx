@@ -1,9 +1,12 @@
+import { GetServerSideProps } from "next";
+import { unstable_getServerSession } from "next-auth/next";
 import dynamic from "next/dynamic";
-import { ReactElement, useContext } from "react";
+import { ReactElement } from "react";
 import GenSuspense from "../../components/gen/suspense";
-import ContextGlobal from "../../utils/context/_global";
 import { ContextProviderEditor } from "../../utils/context/editor/index";
+import db_projects, { TProject } from "../../utils/db/account";
 import { NextPageWithLayout } from "../_app";
+import { authOptions } from "../api/auth/[...nextauth]";
 import styles from "./index.module.css";
 const EditorCanvas = dynamic(
 	async () => await import("../../components/pages/editor/canvas"),
@@ -35,10 +38,15 @@ const EditorMobileNav = dynamic(
 		suspense: true,
 	}
 );
-const EditorPage: NextPageWithLayout = () => {
-	const { isLightTheme } = useContext(ContextGlobal);
+const EditorPage: NextPageWithLayout<{ data: TProject }> = ({ data }) => {
+	// const { projects, setProjects } = useContext(ContextEditor);
+
+	// useEffect(() => {
+	// 	setProjects(data);
+	// }, [projects, data, setProjects]);
+
 	return (
-		<main className={isLightTheme ? styles.mainLight : styles.mainDark}>
+		<main className={styles.main}>
 			<GenSuspense fallback="Loading Nav...">
 				<EditorMobileNav />
 			</GenSuspense>
@@ -61,3 +69,26 @@ EditorPage.getLayout = function getLayout(page: ReactElement) {
 	return <ContextProviderEditor>{page}</ContextProviderEditor>;
 };
 export default EditorPage; // <--- memo() removed
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+	const session = await unstable_getServerSession(
+		context.req,
+		context.res,
+		authOptions
+	);
+	const projectId = context.params?.index?.[0] as string;
+	const data = await db_projects.findOne(
+		{
+			userId: session?.user.userId,
+			projects: { $elemMatch: { _id: projectId } },
+		},
+		{
+			"projects.$": 1,
+		}
+	);
+	return {
+		props: {
+			data: JSON.parse(JSON.stringify(data?.projects[0] ?? {})),
+		},
+	};
+};

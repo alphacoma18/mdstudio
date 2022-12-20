@@ -5,14 +5,14 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import GenLogo from "../../../components/gen/logo";
 import GenSuspense from "../../../components/gen/suspense";
-import styles from "../index.module.css";
+import styles from "./index.module.css";
 const AuthForm = dynamic(
 	async () => await import("../../../components/pages/auth/form"),
 	{
 		suspense: true,
 	}
 );
-const SignIn: NextPage<
+const AuthSignIn: NextPage<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ providers, csrfToken }) => {
 	return (
@@ -57,7 +57,7 @@ const SignIn: NextPage<
 		</section>
 	);
 };
-export default SignIn;
+export default AuthSignIn;
 export const getServerSideProps = async (context: CtxOrReq | undefined) => {
 	const providers = await getProviders();
 	const csrfToken = (await getCsrfToken(context)) ?? "";

@@ -64,10 +64,10 @@ class ProjectSetting {
 
 @modelOptions({ options: { allowMixed: 0 } })
 class Project {
-	@prop({ required: true, type: () => Schema.Types.ObjectId })
-	projectId!: Schema.Types.ObjectId;
+	@prop({ required: true, type: () => Types.ObjectId, auto: true })
+	_id!: Types.ObjectId;
 
-	@prop({ required: true, maxlength: 20, match: /^[a-zA-Z0-9_]+$/ })
+	@prop({ required: true, maxlength: 20, match: /^[A-Za-z][\dA-Za-z]{1,9}$/ })
 	projectName!: string;
 
 	@prop()

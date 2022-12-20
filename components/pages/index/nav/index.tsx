@@ -25,32 +25,33 @@ const IndexNav: React.FC = () => {
 					/>
 				</a>
 			</div>
-			<div className={styles.flexAnchor}>
+			<div className={`${styles.flexAnchor} hoverParent`}>
 				<Link href={"/editor"}>
-					<a href="">
+					<a>
+						<i className="icon-code"></i>
 						<span>Editor</span>
 					</a>
 				</Link>
 				{session?.user === undefined ? (
 					<Link href={"/auth/signin"}>
-						<a href="">
+						<a>
 							<span>Login</span>
 						</a>
 					</Link>
 				) : (
 					<Link href={"/auth/signout"}>
-						<a href="">
+						<a>
 							<span>Logout</span>
 						</a>
 					</Link>
 				)}
 				<Link href={"/"}>
-					<a href="">
+					<a>
 						<span>Docs</span>
 					</a>
 				</Link>
 				<Link href={"/"}>
-					<a href="">
+					<a>
 						<i className="icon-cog-alt"></i>
 						<span>Settings</span>
 					</a>

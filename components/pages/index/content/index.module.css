@@ -3,6 +3,7 @@
 	background: var(--canvas-bg);
 	box-shadow: var(--bs-full);
 	display: grid;
+	flex-wrap: wrap;
 	gap: var(--gap-lg);
 	grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
 	justify-content: center;
@@ -11,32 +12,24 @@
 	padding: var(--pd-lg);
 	width: 95vw;
 }
-.emptyTitle {
-	color: var(--color-blue);
-}
-.empty {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	width: 100%;
-}
 
-/* .section > button {
-	border: 10px solid var(--bg-blue);
+.section > button {
+	border: 2px solid var(--bg-blue);
 	border-radius: var(--br-md);
 	min-height: 200px;
 	padding: var(--pd-md);
-} */
+}
 
-/* .section > button:is(:hover, :focus, :active) {
+.section > button:is(:hover, :focus, :active) {
 	background: var(--bg-blue);
 	color: var(--color-white);
-} */
-.content {
-	border-radius: 10px;
-	height: 100%;
+}
+.empty {
+	text-align: center;
+	width: 100%;
+}
+.emptyTitle {
+	color: var(--color-blue);
 }
 
 .mobileNewProject {
@@ -45,13 +38,13 @@
 	border-radius: 50%;
 	bottom: 20px;
 	color: var(--color-whitesmoke);
-	display: none;
 	height: 70px;
 	justify-content: center;
 	position: fixed;
 	right: 20px;
 	text-align: center;
 	width: 70px;
+	/* display: none; */
 }
 .mobileNewProject i {
 	color: var(--color-white);
@@ -61,12 +54,11 @@
 	background: var(--bg-blue-op);
 	color: var(--color-white);
 }
-
 @media screen and (max-width: 768px) {
 	.section {
 		width: 100%;
 	}
 	.mobileNewProject {
-		display: flex;
+			display: flex;
 	}
 }

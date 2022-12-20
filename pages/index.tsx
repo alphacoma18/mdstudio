@@ -53,6 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		context.res,
 		authOptions
 	);
+	console.log("Hello World", context.req.url);
 	const res = await db_projects.find({ userId: session?.user?.userId });
 	return {
 		props: {

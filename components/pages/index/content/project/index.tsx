@@ -5,7 +5,7 @@ interface IProject {
 }
 const IndexContentProject: React.FC<IProject> = (props) => {
 	return (
-		<Link href={`/project/${props.project.projectId}`}>
+		<Link href={`/editor/${props.project._id}`}>
 			<a>{props.project.projectName}</a>
 		</Link>
 	);
