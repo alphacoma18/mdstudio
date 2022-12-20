@@ -21,6 +21,7 @@
 .flexAnchor {
 	align-items: center;
 	display: flex;
-	gap: var(--gap-sm);
+	font-weight: bold;
+	gap: var(--gap-lg);
 	justify-content: center;
 }

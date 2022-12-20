@@ -1,6 +1,5 @@
 .CodeMirror {
-	direction: ltr;
-	font-family: monospace;
+	font-family: var(--code-font);
 }
 .editor-preview * {
 	margin: revert;
@@ -215,7 +214,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	display: none;
 	outline: 0;
 	position: absolute;
-	z-index: 6;
+	z-index: 10;
 }
 .CodeMirror-vscrollbar {
 	overflow-x: hidden;
@@ -242,7 +241,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	min-height: 100%;
 	position: absolute;
 	top: 0;
-	z-index: 3;
+	z-index: 10;
 }
 .CodeMirror-gutter {
 	display: inline-block;
@@ -255,18 +254,18 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	background: 0 0;
 	border: none;
 	position: absolute;
-	z-index: 4;
+	z-index: 5;
 }
 .CodeMirror-gutter-background {
 	bottom: 0;
 	position: absolute;
 	top: 0;
-	z-index: 4;
+	z-index: 5;
 }
 .CodeMirror-gutter-elt {
 	cursor: default;
 	position: absolute;
-	z-index: 4;
+	z-index: 5;
 }
 .CodeMirrorwrapper ::-moz-selection {
 	background: 0 0;
@@ -296,7 +295,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 	-webkit-tap-highlight-color: transparent;
 	white-space: pre;
 	word-wrap: normal;
-	z-index: 2;
+	z-index: 5;
 }
 .CodeMirror-wrap pre.CodeMirror-line,
 .CodeMirror-wrap pre.CodeMirror-line-like {
@@ -315,7 +314,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-linewidget {
 	padding: 0.1px;
 	position: relative;
-	z-index: 2;
+	z-index: 5;
 }
 .CodeMirror-rtl pre {
 	direction: rtl;
@@ -340,7 +339,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 div.CodeMirror-cursors {
 	position: relative;
 	visibility: hidden;
-	z-index: 3;
+	z-index: 5;
 }
 div.CodeMirror-dragcursors {
 	visibility: visible;
@@ -452,11 +451,7 @@ span.CodeMirror-selectedtext {
 	overflow-y: hidden;
 	padding: 5px 10px;
 	position: sticky;
-	position: sticky;
 	top: 0;
-	user-select: none;
-	user-select: none;
-	user-select: none;
 	user-select: none;
 	z-index: 5;
 }
@@ -588,9 +583,10 @@ span.CodeMirror-selectedtext {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 7;
+	z-index: 5;
 }
 .editor-preview-side {
+	border-bottom: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	bottom: 0;
 	display: none;
@@ -601,6 +597,10 @@ span.CodeMirror-selectedtext {
 	width: 50%;
 	word-wrap: break-word;
 	z-index: 10;
+}
+.editor-preview-side li::marker {
+	color: var(--color-blue);
+	font-weight: bold;
 }
 .editor-preview-active-side {
 	display: block;

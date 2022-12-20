@@ -17,9 +17,6 @@ export const ContextProviderIndex: React.FC<Props> = ({ children }) => {
 	function handleProjects(_projects: IContextIndex["projects"]) {
 		setProjects(_projects);
 	}
-	useEffect(() => {
-		console.log(projects);
-	}, [projects]);
 	return (
 		<ContextIndex.Provider
 			value={{

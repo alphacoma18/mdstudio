@@ -27,6 +27,7 @@
 .flexButtons :is(button, a) {
 	align-items: center;
 	display: flex;
+	font-weight: bold;
 	justify-content: center;
 	margin: auto;
 	padding: var(--pd-md);

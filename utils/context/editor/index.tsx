@@ -39,7 +39,6 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 			case "updateId":
 				return { ...state, id: action.payload };
 			case "updateCurrentFolder":
-				console.log("updateCurrentFolder", action.payload);
 				return { ...state, currentFolder: action.payload };
 			default:
 				return state;

@@ -11,9 +11,7 @@
 
 .head {
 	align-items: center;
-	background: var(--bg-1);
-	box-shadow: var(--bs-bottom);
-	clip-path: inset(0 0 -15px 0);
+	box-shadow: var(--bs-down);
 	display: flex;
 	justify-content: space-evenly;
 	padding: var(--pd-md);

@@ -22,12 +22,13 @@ const IndexFooter = dynamic(
 	}
 );
 
-const IndexPage: NextPageWithLayout<TProjects["projects"]> = (props) => {
+const IndexPage: NextPageWithLayout<{ projects: TProjects["projects"] }> = ({
+	projects,
+}) => {
 	const { handleProjects } = useContext(ContextIndex);
-	props;
 	useEffect(() => {
-		if (props) handleProjects(props);
-	}, [handleProjects, props]);
+		if (projects) handleProjects(projects);
+	}, [projects, handleProjects]);
 	return (
 		<main>
 			<GenSuspense fallback="Loading Nav...">
@@ -53,12 +54,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		authOptions
 	);
 	const res = await db_projects.find({ userId: session?.user?.userId });
-	console.log("res", res?.[0]?.["projects"]);
-
 	return {
 		props: {
-			projects:
-				JSON.parse(JSON.stringify(res)) ?? JSON.parse(JSON.stringify([])),
+			projects: JSON.parse(JSON.stringify(res?.[0]?.projects ?? [])),
 		},
 	};
 };

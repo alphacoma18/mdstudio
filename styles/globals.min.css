@@ -6,7 +6,12 @@
 	--color-black: #000;
 	--color-blue: #007acc;
 	--color-red: #dc3545;
+
+	--bg-blue-op: #007accaa;
+
 	--border-blue: 3px solid var(--bg-blue);
+	--border-white: 3px solid var(--bg-white);
+
 	--input-black: #233343;
 	--br-sm: 0.2rem;
 	--br-md: 0.4rem;
@@ -21,11 +26,13 @@
 	--bs-top: 0px -4px 8px 0px var(--bs-shadow);
 	--bs-left: -4px 0px 8px 0px var(--bs-shadow);
 	--bs-right: 4px 0px 8px 0px var(--bs-shadow);
-
 	--bs-full: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
 	--pd-sm: 0.2rem;
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
+
+	--code-font: "JetBrains Mono-Regular",Menlo,Monaco,Consolas,monospace;
 
 	--gap-sm: 0.2rem;
 	--gap-md: 0.4rem;
@@ -49,7 +56,7 @@
 	background: var(--bg-2);
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: #007accaa;
+	background: var(--bg-blue-op);
 }
 ::-webkit-scrollbar {
 	height: 1vh;

@@ -13,7 +13,7 @@ const ContextGlobal = createContext<IContextGlobal>({
 	setIsLightTheme() {
 		return false;
 	},
-	device: null,
+	device: "desktop",
 });
 export default ContextGlobal;
 
@@ -47,7 +47,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	}, [isLightTheme]);
 
 	const [device] = useState<IContextGlobal["device"]>(() => {
-		if (typeof window === "undefined") return null;
+		if (typeof window === "undefined") return "desktop";
 		const width = window.innerWidth;
 		if (width <= 480) return "mobile";
 		if (width <= 768) return "tablet";
