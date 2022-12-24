@@ -1,9 +1,11 @@
 import { GetServerSideProps } from "next";
 import { unstable_getServerSession } from "next-auth/next";
 import dynamic from "next/dynamic";
-import { ReactElement } from "react";
+import { ReactElement, useContext, useEffect } from "react";
 import GenSuspense from "../../components/gen/suspense";
-import { ContextProviderEditor } from "../../utils/context/editor/index";
+import ContextEditor, {
+	ContextProviderEditor,
+} from "../../utils/context/editor/index";
 import db_projects, { TProject } from "../../utils/db/account";
 import { NextPageWithLayout } from "../_app";
 import { authOptions } from "../api/auth/[...nextauth]";
@@ -39,11 +41,11 @@ const EditorMobileNav = dynamic(
 	}
 );
 const EditorPage: NextPageWithLayout<{ data: TProject }> = ({ data }) => {
-	// const { projects, setProjects } = useContext(ContextEditor);
+	const { projectState, setProjectState } = useContext(ContextEditor);
 
-	// useEffect(() => {
-	// 	setProjects(data);
-	// }, [projects, data, setProjects]);
+	useEffect(() => {
+		setProjectState(data);
+	}, [projectState, setProjectState, data]);
 
 	return (
 		<main className={styles.main}>
@@ -77,6 +79,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		authOptions
 	);
 	const projectId = context.params?.index?.[0] as string;
+	console.log(projectId);
+
 	const data = await db_projects.findOne(
 		{
 			userId: session?.user.userId,
@@ -86,6 +90,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 			"projects.$": 1,
 		}
 	);
+	console.log(data);
 	return {
 		props: {
 			data: JSON.parse(JSON.stringify(data?.projects[0] ?? {})),

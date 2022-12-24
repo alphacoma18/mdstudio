@@ -1,88 +1,118 @@
-import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
-import mongoose, { ConnectOptions, Schema, Types } from "mongoose";
+import { getModelForClass, prop, modelOptions } from "@typegoose/typegoose";
+import mongoose, { ConnectOptions, Types } from "mongoose";
+
+class File {
+	@prop()
+	_id!: Types.ObjectId;
+
+	@prop()
+	fileName!: string;
+
+	@prop()
+	isDir!: false;
+
+	@prop()
+	content!: string;
+
+	@prop()
+	title!: string;
+
+	@prop()
+	description!: string;
+}
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FileSystem {
 	@prop()
-	_isDir!: true;
+	_id!: Types.ObjectId;
 
 	@prop()
-	_files?: {
-		[key: string]: {
-			_isDir: false;
-			_content: string;
-			_title: string;
-			_description: string;
-		};
-	};
+	folderName!: string;
 
 	@prop()
-	_folders?: {
-		[key: string]: FileSystem;
-	};
+	isDir!: true;
+
+	@prop()
+	files!: File[] | [];
+
+	@prop()
+	folders!: FileSystem[] | [];
 }
 
-// x.create({ _isDir: true, _files: {}, _folders: {} });
-// x.findOne({ _folders: true }).then((x) => {
-//     console.log(x);
-//     x?._folders["test"]._files["test"]._content;
-// });
+class Theme {
+	@prop()
+	bg1!: string;
+
+	@prop()
+	bg2!: string;
+
+	@prop()
+	bg3!: string;
+
+	@prop()
+	color!: string;
+
+	@prop()
+	font!: string;
+}
+
 @modelOptions({ options: { allowMixed: 0 } })
-class ProjectSetting {
+class UI {
 	@prop()
-	UI!: {
-		scrollIndicator?: boolean;
-		backToTop?: boolean;
-		width?: {
-			min?: string;
-			max?: string;
-		};
-		theme?: {
-			bg1?: string;
-			bg2?: string;
-			bg3?: string;
-			color?: string;
-			font?: string;
-		};
-	};
+	scrollIndicator!: boolean;
 
 	@prop()
-	Functionality!: {
-		autosave?: boolean;
-		smoothScroll?: boolean;
-		horizontalScroll?: boolean;
-		googleTranslate?: boolean;
-	};
+	backToTop!: boolean;
 
 	@prop()
-	Meta!: {
-		title?: string;
-		icon?: string;
-		description?: string;
-	};
+	themed!: Theme;
+}
+
+@modelOptions({ options: { allowMixed: 0 } })
+class Setting {
+	@prop()
+	ui!: UI;
+
+	// @prop()
+	// Functionality!: {
+	// 	autosave?: boolean;
+	// 	smoothScroll?: boolean;
+	// 	horizontalScroll?: boolean;
+	// 	googleTranslate?: boolean;
+	// };
+
+	// @prop()
+	// Meta!: {
+	// 	title?: string;
+	// 	icon?: string;
+	// 	description?: string;
+	// };
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
 class Project {
-	@prop({ required: true, type: () => Types.ObjectId, auto: true })
+	@prop()
 	_id!: Types.ObjectId;
 
-	@prop({ required: true, maxlength: 20, match: /^[A-Za-z][\dA-Za-z]{1,9}$/ })
+	@prop()
 	projectName!: string;
 
 	@prop()
-	settings!: ProjectSetting;
+	projectDescription!: string;
 
 	@prop()
-	fileStructure!: FileSystem;
+	settings!: Setting;
+
+	@prop()
+	fileSystem!: FileSystem;
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
 class Projects {
 	@prop({ type: Types.ObjectId, ref: "users" })
-	userId!: Types.ObjectId | string;
+	userId!: Types.ObjectId;
 
-	@prop({ type: () => [Project], default: [] })
+	@prop()
 	projects!: Project[];
 }
 
@@ -90,21 +120,18 @@ const db_projects = getModelForClass(Projects);
 export function mongooseId(id: string) {
 	return new mongoose.Types.ObjectId(id);
 }
-type TProjects = Projects;
 type TProject = Project;
-type TProjectSetting = ProjectSetting;
+type TProjects = Projects;
+type TProjectSetting = Setting;
 type TFileSystem = FileSystem;
-export type { TProjects, TProject, TProjectSetting, TFileSystem };
+export type { TProject, TProjects, TProjectSetting, TFileSystem };
 
 async function run() {
 	try {
-		await mongoose.connect(
-			process.env.MONGO_URI as string,
-			{
-				useNewUrlParser: true,
-				useUnifiedTopology: true,
-			} as ConnectOptions
-		);
+		await mongoose.connect(process.env.MONGO_URI ?? "", {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		} as ConnectOptions);
 	} catch (error) {
 		console.log(error);
 	}

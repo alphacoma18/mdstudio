@@ -1,6 +1,6 @@
+import { TProject } from "../../db/account";
 export interface IEditorState {
 	id: string;
-	textInput: string;
 	currentFolder: string;
 }
 export interface IBarState {
@@ -13,21 +13,16 @@ export type TBarState =
 	| "rightBarOpen"
 	| "explorerOpen"
 	| "explorerClose";
-export type TEditorAction =
-	| "updateTextInput"
-	| "updateId"
-	| "updateCurrentFolder";
 export type TFocusAction =
 	| "focusNav"
 	| "focusEditor"
 	| "focusStatus"
 	| "focusExplorer";
 export interface IContextEditor {
+	projectState: TProject;
+	setProjectState: React.Dispatch<React.SetStateAction<TProject>>;
 	editorState: IEditorState;
-	updateEditorState: React.Dispatch<{
-		type: TEditorAction;
-		payload: string;
-	}>;
+	setEditorState: React.Dispatch<React.SetStateAction<IEditorState>>;
 	barState: IBarState;
 	updateBarState: React.Dispatch<{
 		type: TBarState;

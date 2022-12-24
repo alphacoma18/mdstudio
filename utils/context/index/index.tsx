@@ -1,11 +1,6 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 import { IContextIndex } from "./type";
-const ContextIndex = createContext<IContextIndex>({
-	projects: [] as IContextIndex["projects"],
-	handleProjects: () => {
-		return;
-	},
-});
+const ContextIndex = createContext<IContextIndex>({} as IContextIndex);
 export default ContextIndex;
 interface Props {
 	children: ReactNode;

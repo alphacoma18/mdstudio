@@ -1,5 +1,4 @@
-import { memo, useContext } from "react";
-import ContextEditor from "../../../../../../utils/context/editor/index";
+import { memo } from "react";
 import { TFileSystem } from "../../../../../../utils/db/account";
 import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
@@ -8,45 +7,36 @@ interface Props {
 	project: TFileSystem;
 }
 const EditorFolder: React.FC<Props> = ({ project }) => {
-	const { updateEditorState } = useContext(ContextEditor);
-	function render() {
-		try {
-			const { _isDir, _files, _folders } = project;
-			if (!_isDir) return;
-			return (
-				<section className={styles.folder}>
-					{Object.keys(_files ?? {}).map((file) => (
-						<GenButton
-							key={`file-${file}`}
-							props={{
-								label: file,
-								className: styles.rootFile,
-								onClick: () =>
-									updateEditorState({
-										type: "updateTextInput",
-										payload: _files?.[file]._content as string,
-									}),
-							}}
-						>
-							<i className="icon-doc-text"></i>
-							{file}
-						</GenButton>
-					))}
-					{Object.keys(_folders ?? {}).map((folder) => (
-						<EditorRecur
-							key={`root-${folder}`}
-							parent={"root"}
-							name={folder}
-							folder={_folders?.[folder] as TFileSystem}
-						/>
-					))}
-				</section>
-			);
-		} catch (error) {
-			console.log(error);
-		}
-	}
-	return <>{render()}</>;
+	return (
+		<section className={styles.folder}>
+			{project.files?.map((file) => (
+				<GenButton
+					key={`file-${file.fileName}`}
+					props={{
+						label: file.fileName,
+						className: styles.rootFile,
+						onClick: () => {
+							// setEditorState({
+							// 	id: "root",
+							// 	currentFolder: "root",
+							// });
+						},
+					}}
+				>
+					<i className="icon-doc-text"></i>
+					{file.fileName}
+				</GenButton>
+			))}
+			{project.folders?.map((folder) => (
+				<EditorRecur
+					key={`root-${folder.folderName}`}
+					parent={"root"}
+					name={folder.folderName}
+					folder={folder}
+				/>
+			))}
+		</section>
+	);
 };
 
 export default memo(EditorFolder);

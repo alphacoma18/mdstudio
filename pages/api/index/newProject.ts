@@ -11,9 +11,16 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		const { projectName }: IBody = req.body;
 		const session = await unstable_getServerSession(req, res, authOptions);
 		if (!session?.user.userId) throw new MyError("Unauthorized", 401);
-		const x = await db_projects.updateOne(
+		// create new project in db with the name of projectName and add a default file structure with a default index.html file
+		await db_projects.findOneAndUpdate(
 			{ userId: session.user.userId },
-			{ $push: { projects: { projectName } } }
+			{
+				$push: {
+					projects: {
+						projectName,
+					},
+				},
+			}
 		);
 		res.status(200).redirect("/");
 	} catch (error) {

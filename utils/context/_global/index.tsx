@@ -2,19 +2,7 @@ import { useSession } from "next-auth/react";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import Theme from "../../../styles/themes";
 import { IContextGlobal } from "./type";
-const ContextGlobal = createContext<IContextGlobal>({
-	url: {
-		client: "",
-		server: "",
-	},
-	session: null,
-	status: "loading",
-	isLightTheme: true,
-	setIsLightTheme() {
-		return false;
-	},
-	device: "desktop",
-});
+const ContextGlobal = createContext<IContextGlobal>({} as IContextGlobal);
 export default ContextGlobal;
 
 interface Props {

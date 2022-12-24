@@ -10,77 +10,69 @@ const EditorRecur: React.FC<{
 	name: string;
 }> = ({ folder, parent: prev, name }) => {
 	const { device } = useContext(ContextGlobal);
-	const { updateEditorState, updateBarState } = useContext(ContextEditor);
+	const { setEditorState, updateBarState } = useContext(ContextEditor);
 	const [open, setOpen] = useState<boolean>(false);
 	function render() {
-		try {
-			const { _isDir, _files, _folders } = folder;
-			if (!_isDir) return;
-			return (
-				<>
-					<GenButton
-						props={{
-							label: name,
-							className: `${styles.folderName} ${styles.folder}`,
-							onClick: () => {
-								updateEditorState({
-									type: "updateCurrentFolder",
-									payload: `${prev}/${name}`,
-								});
-								setOpen(!open);
-							},
-						}}
-					>
-						{open ? (
-							<i className="icon-folder-open"></i>
-						) : (
-							<i className="icon-folder"></i>
-						)}
-						{name}
-					</GenButton>
-					{open && (
-						<div className={styles.indent}>
-							{Object.keys(_files ?? {}).map((file) => (
-								<GenButton
-									key={`file-${file}`}
-									props={{
-										label: file,
-										className: styles.file,
-										onClick: () => {
-											updateEditorState({
-												type: "updateTextInput",
-												payload: _files?.[file]._content as string,
-											});
-											updateEditorState({
-												type: "updateCurrentFolder",
-												payload: `${prev}/${name}`,
-											});
-											if (device === "mobile" || device === "tablet")
-												updateBarState({
-													type: "explorerClose",
-												});
-										},
-									}}
-								>
-									<i className="icon-doc-text"></i>
-									{file}
-								</GenButton>
-							))}
-							{Object.keys(_folders ?? {}).map((folder, index) => (
-								<EditorRecur
-									key={index}
-									name={folder}
-									parent={prev + "/" + name}
-									folder={_folders?.[folder] as TFileSystem}
-								/>
-							))}
-						</div>
+		const { files, folders, _id } = folder;
+		return (
+			<>
+				<GenButton
+					props={{
+						label: name,
+						className: `${styles.folderName} ${styles.folder}`,
+						onClick: () => {
+							setEditorState({
+								id: _id.toString(),
+								currentFolder: `${prev}/${name}`,
+							});
+							setOpen(!open);
+						},
+					}}
+				>
+					{open ? (
+						<i className="icon-folder-open"></i>
+					) : (
+						<i className="icon-folder"></i>
 					)}
-				</>
-			);
-		} catch (error) {
-			console.log(error);
-		}
+					{name}
+				</GenButton>
+				{open && (
+					<div className={styles.indent}>
+						{files?.map((file) => (
+							<GenButton
+								key={`file-${file}`}
+								props={{
+									label: file.fileName,
+									className: styles.file,
+									onClick: () => {
+										setEditorState({
+											id: _id.toString(),
+											currentFolder: `${prev}/${name}`,
+										});
+										if (device === "mobile" || device === "tablet")
+											updateBarState({
+												type: "explorerClose",
+											});
+									},
+								}}
+							>
+								<i className="icon-doc-text"></i>
+								{file.fileName}
+							</GenButton>
+						))}
+
+						{folders?.map((folder) => (
+							<EditorRecur
+								key={`folder-${folder}`}
+								parent={`${prev}/${name}`}
+								name={folder.folderName}
+								folder={folder}
+							/>
+						))}
+					</div>
+				)}
+			</>
+		);
 	}
 	return <>{render()}</>;
 };

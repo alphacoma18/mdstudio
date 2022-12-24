@@ -51,6 +51,7 @@
 				"allowObject": true
 			}
 		],
+		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/quotes": "off",
 		"@typescript-eslint/no-misused-promises": [
 			"error",

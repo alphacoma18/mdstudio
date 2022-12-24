@@ -1,10 +1,13 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import handleAxios from "../../../../../utils/axios";
+import ContextEditor from "../../../../../utils/context/editor";
 import GenButton from "../../../../gen/button";
-import { project1 } from "./data";
+import { data } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
+	const { projectState, editorState } = useContext(ContextEditor);
+
 	const regex = /^[A-Za-z][\dA-Za-z]{1,9}$/;
 	function handlePrompt(txt: string): string {
 		try {
@@ -17,22 +20,32 @@ const EditorFileExplorer: React.FC = () => {
 			return handlePrompt(txt);
 		}
 	}
-	function handleNewFile() {
-		const result = handlePrompt("Enter file name:");
-		if (result === "") return;
-		void handleAxios({
+	async function handleNewFile() {
+		const name = handlePrompt("Enter file name:");
+		if (name === "") return;
+		await handleAxios({
 			method: "post",
 			url: "/index/newFile",
 			data: {
-				fileName: result,
+				id: editorState.id,
+				path: editorState.currentFolder,
+				fileName: name,
 			},
 		});
 	}
 
-	function handleNewFolder() {
-		const result = handlePrompt("Enter folder name:");
-		if (result === null) return;
-		console.log(result);
+	async function handleNewFolder() {
+		const name = handlePrompt("Enter folder name:");
+		if (name === null) return;
+		await handleAxios({
+			method: "post",
+			url: "/index/newFolder",
+			data: {
+				id: editorState.id,
+				path: editorState.currentFolder,
+				folderName: name,
+			},
+		});
 	}
 	return (
 		<section className={styles.fileExplorer}>
@@ -71,7 +84,7 @@ const EditorFileExplorer: React.FC = () => {
 				</span>
 			</div>
 			<div className={styles.body}>
-				<EditorFolder project={project1} />
+				<EditorFolder project={data} />
 			</div>
 		</section>
 	);

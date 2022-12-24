@@ -1,54 +1,27 @@
-import { ReactNode, createContext, useReducer } from "react";
 import {
-	IBarState,
-	IContextEditor,
-	IEditorState,
-	TBarState,
-	TEditorAction,
-} from "./type";
-const ContextEditor = createContext<IContextEditor>({
-	editorState: {
-		id: "",
-		textInput: "",
-		currentFolder: "",
-	},
-	updateEditorState: () => {
-		return { type: "updateTextInput", payload: "" };
-	},
-	barState: {
-		leftBarOpen: false,
-		rightBarOpen: false,
-		explorerOpen: false,
-	},
-	updateBarState: () => {
-		return { type: "leftBarOpen" };
-	},
-});
+	ReactNode,
+	createContext,
+	useEffect,
+	useReducer,
+	useState,
+} from "react";
+import { IBarState, IContextEditor, IEditorState, TBarState } from "./type";
+const ContextEditor = createContext<IContextEditor>({} as IContextEditor);
 export default ContextEditor;
 interface Props {
 	children: ReactNode;
 }
 export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
-	function editorReducer(
-		state: IEditorState,
-		action: { type: TEditorAction; payload: string }
-	) {
-		switch (action.type) {
-			case "updateTextInput":
-				return { ...state, textInput: action.payload };
-			case "updateId":
-				return { ...state, id: action.payload };
-			case "updateCurrentFolder":
-				return { ...state, currentFolder: action.payload };
-			default:
-				return state;
-		}
-	}
-	const [editorState, updateEditorState] = useReducer(editorReducer, {
-		id: "",
-		textInput: "",
-		currentFolder: "",
-	});
+	const [projectState, setProjectState] = useState<
+		IContextEditor["projectState"]
+	>({} as IContextEditor["projectState"]);
+
+	const [editorState, setEditorState] = useState<IEditorState>(
+		{} as IEditorState
+	);
+	useEffect(() => {
+		console.log(editorState);
+	}, [editorState]);
 
 	function barReducer(state: IBarState, action: { type: TBarState }) {
 		switch (action.type) {
@@ -81,8 +54,10 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 	return (
 		<ContextEditor.Provider
 			value={{
+				projectState,
+				setProjectState,
 				editorState,
-				updateEditorState,
+				setEditorState,
 				barState,
 				updateBarState,
 			}}

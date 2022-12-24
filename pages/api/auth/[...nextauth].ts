@@ -11,7 +11,7 @@ import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
 import db_projects, { mongooseId } from "../../../utils/db/account";
 export const authOptions: NextAuthOptions = {
-	adapter: MongooseAdapter(process.env.MONGO_URI as string),
+	adapter: MongooseAdapter(process.env.MONGO_URI ?? "") ?? "",
 	providers: [
 		EmailProvider({
 			server: {
@@ -19,10 +19,10 @@ export const authOptions: NextAuthOptions = {
 				secure: true,
 				port: 465,
 				auth: {
-					user: process.env.EMAIL_USER as string,
-					pass: process.env.EMAIL_PASSWORD as string,
+					user: process.env.EMAIL_USER ?? "",
+					pass: process.env.EMAIL_PASSWORD ?? "",
 				},
-				from: process.env.EMAIL_FROM as string,
+				from: process.env.EMAIL_FROM ?? "",
 			},
 			sendVerificationRequest({
 				identifier: email,
@@ -41,20 +41,20 @@ export const authOptions: NextAuthOptions = {
 			},
 		}),
 		GoogleProvider({
-			clientId: process.env.GOOGLE_ID as string,
-			clientSecret: process.env.GOOGLE_SECRET as string,
+			clientId: process.env.GOOGLE_ID ?? "",
+			clientSecret: process.env.GOOGLE_SECRET ?? "",
 		}),
 		GithubProvider({
-			clientId: process.env.GITHUB_ID as string,
-			clientSecret: process.env.GITHUB_SECRET as string,
+			clientId: process.env.GITHUB_ID ?? "",
+			clientSecret: process.env.GITHUB_SECRET ?? "",
 		}),
 		FacebookProvider({
-			clientId: process.env.FACEBOOK_ID as string,
-			clientSecret: process.env.FACEBOOK_SECRET as string,
+			clientId: process.env.FACEBOOK_ID ?? "",
+			clientSecret: process.env.FACEBOOK_SECRET ?? "",
 		}),
 		LinkedInProvider({
-			clientId: process.env.LINKEDIN_ID as string,
-			clientSecret: process.env.LINKEDIN_SECRET as string,
+			clientId: process.env.LINKEDIN_ID ?? "",
+			clientSecret: process.env.LINKEDIN_SECRET ?? "",
 			token: {
 				url: "https://www.linkedin.com/oauth/v2/accessToken",
 				async request({ client, params, checks, provider }) {
@@ -64,8 +64,8 @@ export const authOptions: NextAuthOptions = {
 						checks,
 						{
 							exchangeBody: {
-								client_id: process.env.LINKEDIN_ID as string,
-								client_secret: process.env.LINKEDIN_SECRET as string,
+								client_id: process.env.LINKEDIN_ID ?? "",
+								client_secret: process.env.LINKEDIN_SECRET ?? "",
 							},
 						}
 					);
@@ -76,24 +76,23 @@ export const authOptions: NextAuthOptions = {
 			},
 		}),
 		TwitterProvider({
-			clientId: process.env.TWITTER_ID as string,
-			clientSecret: process.env.TWITTER_SECRET as string,
+			clientId: process.env.TWITTER_ID ?? "",
+			clientSecret: process.env.TWITTER_SECRET ?? "",
 			version: "2.0",
 		}),
 		Auth0Provider({
-			clientId: process.env.AUTH0_ID as string,
-			clientSecret: process.env.AUTH0_SECRET as string,
-			issuer: process.env.AUTH0_ISSUER,
+			clientId: process.env.AUTH0_ID ?? "",
+			clientSecret: process.env.AUTH0_SECRET ?? "",
+			issuer: process.env.AUTH0_ISSUER ?? "",
 		}),
 	],
-	secret: process.env.NEXTAUTH_SECRET,
+	secret: process.env.NEXTAUTH_SECRET ?? "",
 	events: {
 		async signIn({ user, account, profile, isNewUser }) {
 			try {
 				if (isNewUser === false) return;
 				const { id } = user;
 				await db_projects.create({ userId: mongooseId(id) });
-				console.log("New user signed in", id);
 			} catch (error) {
 				console.error(error);
 			}
@@ -131,7 +130,7 @@ export const authOptions: NextAuthOptions = {
 		logo: "http://localhost:3000/android-chrome-256x256.png",
 		buttonText: "#007acc",
 	},
-	debug: process.env.NODE_ENV === "development",
+	debug: process.env.NODE_ENV === "development" ?? "",
 };
 
 export default NextAuth(authOptions);

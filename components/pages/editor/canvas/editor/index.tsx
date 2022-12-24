@@ -13,7 +13,7 @@ const SimpleMdeReact = dynamic(
 );
 const EditorMain: React.FC = () => {
 	const { device } = useContext(ContextGlobal);
-	const { editorState, updateEditorState } = useContext(ContextEditor);
+	const { editorState } = useContext(ContextEditor);
 
 	const mdOptions = useMemo(() => {
 		return {
@@ -79,10 +79,10 @@ const EditorMain: React.FC = () => {
 	}, [device]);
 	return (
 		<SimpleMdeReact
-			value={editorState.textInput}
-			onChange={(value) => {
-				updateEditorState({ type: "updateTextInput", payload: value });
-			}}
+			// value={editorState.textInput}
+			// onChange={(value) => {
+			// 	updateEditorState({ type: "updateTextInput", payload: value });
+			// }}
 			// if control + shift + b is pressed, then prevent default
 			onKeyDown={(e) => {
 				if (e.ctrlKey && e.shiftKey && e.key === "B") {
