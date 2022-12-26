@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import handleAxios from "../../../../../utils/axios";
 import ContextEditor from "../../../../../utils/context/editor";
 import GenButton from "../../../../gen/button";
-import { data } from "./data";
+// import { data } from "./data";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
@@ -84,7 +84,7 @@ const EditorFileExplorer: React.FC = () => {
 				</span>
 			</div>
 			<div className={styles.body}>
-				<EditorFolder project={data} />
+				<EditorFolder project={projectState.fileSystem} />
 			</div>
 		</section>
 	);

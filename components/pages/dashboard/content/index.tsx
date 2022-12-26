@@ -1,10 +1,10 @@
-import { useContext, useState, memo } from "react";
-import ContextIndex from "../../../../utils/context/index";
+import { memo, useContext, useState } from "react";
+import ContextDashboard from "../../../../utils/context/dashboard/index";
 import GenButton from "../../../gen/button";
 import GenForm from "../../../gen/form";
 import styles from "./index.module.css";
-const IndexContent: React.FC = () => {
-	const { projects } = useContext(ContextIndex);
+const DashboardContent: React.FC = () => {
+	const { projects } = useContext(ContextDashboard);
 	const [isCreating, setIsCreating] = useState<boolean>(false);
 	async function handlePrompt() {
 		setIsCreating((prev) => !prev);
@@ -58,4 +58,4 @@ const IndexContent: React.FC = () => {
 	);
 };
 
-export default memo(IndexContent);
+export default memo(DashboardContent);

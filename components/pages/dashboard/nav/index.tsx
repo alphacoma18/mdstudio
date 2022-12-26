@@ -3,7 +3,7 @@ import { useContext } from "react";
 import ContextGlobal from "../../../../utils/context/_global";
 import GenLogo from "../../../gen/logo";
 import styles from "./index.module.css";
-const IndexNav: React.FC = () => {
+const DashboardNav: React.FC = () => {
 	const { session } = useContext(ContextGlobal);
 	return (
 		<nav className={styles.nav}>
@@ -61,4 +61,4 @@ const IndexNav: React.FC = () => {
 	);
 };
 
-export default IndexNav;
+export default DashboardNav;

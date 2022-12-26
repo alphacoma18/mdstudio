@@ -136,6 +136,11 @@ button,
 input {
 	border-radius: var(--br-md);
 }
+.hr-white {
+	background: var(--bg-white);
+	border: 1px solid var(--bg-white);
+	color: var(--color-white);
+}
 .kf-fade-in-fast {
 	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;

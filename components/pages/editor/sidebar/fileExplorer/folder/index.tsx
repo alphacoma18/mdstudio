@@ -9,7 +9,7 @@ interface Props {
 const EditorFolder: React.FC<Props> = ({ project }) => {
 	return (
 		<section className={styles.folder}>
-			{project.files?.map((file) => (
+			{project?.files?.map((file) => (
 				<GenButton
 					key={`file-${file.fileName}`}
 					props={{
@@ -27,7 +27,7 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 					{file.fileName}
 				</GenButton>
 			))}
-			{project.folders?.map((folder) => (
+			{project?.folders?.map((folder) => (
 				<EditorRecur
 					key={`root-${folder.folderName}`}
 					parent={"root"}
