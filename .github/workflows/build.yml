@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          # Fetch all commits
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -39,6 +40,7 @@ jobs:
       - run: npm run build
 
       - name: Semantic Versioning
+        id: versioning
         uses: PaulHatch/semantic-version@v4.0.2
         with:
           branch: master
@@ -46,3 +48,16 @@ jobs:
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
           format: "v${major}.${minor}.${patch}-prerelease${increment}"
+          # fix is the default pattern so we don't need to specify it
+      
+      - name: Create Release
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          tag_name: ${{ steps.versioning.outputs.version }}
+          release_name: ${{ steps.versioning.outputs.version }}
+          prerelease: true
+          # create a pre-release for every push to master
+      

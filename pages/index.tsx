@@ -1,16 +1,23 @@
 import { GetServerSideProps } from "next";
-import { unstable_getServerSession } from "next-auth/next";
 import dynamic from "next/dynamic";
 import { ReactElement, useContext, useEffect } from "react";
 import GenSuspense from "../components/gen/suspense";
-import IndexContent from "../components/pages/index/content";
+import {
+	authOptions,
+	unstable_getServerSession,
+} from "../exports/getServerSession";
 import ContextIndex, { ContextProviderIndex } from "../utils/context/index";
 import db_projects, { TProjects } from "../utils/db/account";
 import { NextPageWithLayout } from "./_app";
-import { authOptions } from "./api/auth/[...nextauth]";
 
 const IndexNav = dynamic(
 	async () => await import("../components/pages/index/nav"),
+	{
+		suspense: true,
+	}
+);
+const IndexContent = dynamic(
+	async () => await import("../components/pages/index/content"),
 	{
 		suspense: true,
 	}

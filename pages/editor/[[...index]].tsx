@@ -1,14 +1,16 @@
 import { GetServerSideProps } from "next";
-import { unstable_getServerSession } from "next-auth/next";
 import dynamic from "next/dynamic";
 import { ReactElement, useContext, useEffect } from "react";
 import GenSuspense from "../../components/gen/suspense";
+import {
+	authOptions,
+	unstable_getServerSession,
+} from "../../exports/getServerSession";
 import ContextEditor, {
 	ContextProviderEditor,
 } from "../../utils/context/editor/index";
 import db_projects, { TProject } from "../../utils/db/account";
 import { NextPageWithLayout } from "../_app";
-import { authOptions } from "../api/auth/[...nextauth]";
 import styles from "./index.module.css";
 const EditorCanvas = dynamic(
 	async () => await import("../../components/pages/editor/canvas"),

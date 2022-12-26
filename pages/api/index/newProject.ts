@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { unstable_getServerSession } from "next-auth/next";
 import db_projects from "../../../utils/db/account";
 import MyError from "../../../utils/gen/error";
-import { authOptions } from "../auth/[...nextauth]";
+import {
+	authOptions,
+	unstable_getServerSession,
+} from "../../../exports/getServerSession";
 interface IBody {
 	projectName: string;
 }
@@ -18,10 +20,15 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 				$push: {
 					projects: {
 						projectName,
+						projectDescription: "Hello WOrld",
+						settings: {},
+						fileSystem: {},
 					},
 				},
 			}
 		);
+		console.log("New project created");
+
 		res.status(200).redirect("/");
 	} catch (error) {
 		console.error(error);

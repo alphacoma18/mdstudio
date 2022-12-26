@@ -1,5 +1,5 @@
-import { getModelForClass, prop, modelOptions } from "@typegoose/typegoose";
-import mongoose, { ConnectOptions, Types } from "mongoose";
+import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
+import { connect, ConnectOptions, Types } from "mongoose";
 
 class File {
 	@prop()
@@ -65,7 +65,7 @@ class UI {
 	backToTop!: boolean;
 
 	@prop()
-	themed!: Theme;
+	theme!: Theme;
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
@@ -113,27 +113,27 @@ class Projects {
 	userId!: Types.ObjectId;
 
 	@prop()
-	projects!: Project[];
+	projects!: Project[] | [];
 }
 
 const db_projects = getModelForClass(Projects);
 export function mongooseId(id: string) {
-	return new mongoose.Types.ObjectId(id);
+	return new Types.ObjectId(id);
 }
+type TFile = File;
 type TProject = Project;
 type TProjects = Projects;
 type TProjectSetting = Setting;
 type TFileSystem = FileSystem;
-export type { TProject, TProjects, TProjectSetting, TFileSystem };
-
+export type { TFile, TProject, TProjects, TProjectSetting, TFileSystem };
 async function run() {
 	try {
-		await mongoose.connect(process.env.MONGO_URI ?? "", {
+		await connect(process.env.MONGO_URI ?? "", {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		} as ConnectOptions);
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 }
 void run();

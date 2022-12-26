@@ -1,11 +1,11 @@
 import { TFileSystem } from "../../../../../utils/db/account";
 export const data: TFileSystem = {
-	_id: "60a8b1b1b1b1b1b1b1b1b1b1" as any,
+	_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 	folderName: "root",
 	isDir: true,
 	files: [
 		{
-			_id: "60a8b1b1b1b1b1b1b1b1b1b2" as any,
+			_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 			fileName: "file1",
 			isDir: false,
 			content: "content",
@@ -13,7 +13,7 @@ export const data: TFileSystem = {
 			description: "description",
 		},
 		{
-			_id: "60a8b1b1b1b1b1b1b1b1b1b3" as any,
+			_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 			fileName: "file2",
 			isDir: false,
 			content: "content",
@@ -23,12 +23,12 @@ export const data: TFileSystem = {
 	],
 	folders: [
 		{
-			_id: "60a8b1b1b1b1b1b1b1b1b1b4" as any,
+			_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 			folderName: "folder2",
 			isDir: true,
 			files: [
 				{
-					_id: "60a8b1b1b1b1b1b1b1b1b1b5" as any,
+					_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 					fileName: "file1",
 					isDir: false,
 					content: "content",
@@ -39,12 +39,12 @@ export const data: TFileSystem = {
 			folders: [],
 		},
 		{
-			_id: "60a8b1b1b1b1b1b1b1b1b1b6" as any,
+			_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 			folderName: "folder3",
 			isDir: true,
 			files: [
 				{
-					_id: "60a8b1b1b1b1b1b1b1b1b1b7" as any,
+					_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 					fileName: "file1",
 					isDir: false,
 					content: "content",
@@ -54,19 +54,10 @@ export const data: TFileSystem = {
 			],
 			folders: [
 				{
-					_id: "60a8b1b1b1b1b1b1b1b1b1b8" as any,
+					_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 					folderName: "folder4",
 					isDir: true,
-					files: [
-						{
-							_id: "60a8b1b1b1b1b1b1b1b1b1b9" as any,
-							fileName: "file1",
-							isDir: false,
-							content: "content",
-							title: "title",
-							description: "description",
-						},
-					],
+					files: [],
 					folders: [],
 				},
 			],

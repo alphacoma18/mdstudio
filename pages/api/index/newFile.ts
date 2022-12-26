@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { unstable_getServerSession } from "next-auth/next";
+import {
+	authOptions,
+	unstable_getServerSession,
+} from "../../../exports/getServerSession";
 import MyError from "../../../utils/gen/error";
-import { authOptions } from "../auth/[...nextauth]";
 interface IBody {
 	id: string;
 	path: string;

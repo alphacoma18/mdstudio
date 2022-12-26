@@ -9,7 +9,7 @@ const IndexContent: React.FC = () => {
 	const [isCreating, setIsCreating] = useState<boolean>(false);
 	async function handlePrompt() {
 		const projectName = prompt("New Project Name:");
-		if (projectName === null || projectName === "") return;
+		if (!projectName) return;
 		await handleAxios({
 			method: "post",
 			data: { projectName },
@@ -36,11 +36,11 @@ const IndexContent: React.FC = () => {
 					</div>
 				</>
 			)}
-			{projects.map((project) => {
+			{/* {projects.map((project) => {
 				return (
 					<IndexContentProject key={project._id.toString()} project={project} />
 				);
-			})}
+			})} */}
 			<div>
 				<GenButton
 					props={{
