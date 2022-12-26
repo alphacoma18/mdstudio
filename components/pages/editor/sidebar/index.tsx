@@ -56,6 +56,14 @@ const EditorSidebar: React.FC = () => {
 					<GenButton props={{ label: "Sidebar: more info" }}>
 						<i className={"icon-info-circled"}></i>
 					</GenButton>
+
+					{/* TODO: add inline-css converter since html + css can be parsed */}
+
+					{/* <Link href="/inline-css">
+						<a>
+							<i className={"icon-info-circled"}></i>
+						</a>
+					</Link> */}
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<GenButton props={{ label: "Sidebar: profile" }}>
@@ -67,7 +75,7 @@ const EditorSidebar: React.FC = () => {
 									src: session.user.image,
 									height: 40,
 									width: 40,
-									alt: session.user.name,
+									alt: `User: ${session.user.name}`,
 									className: styles.profileImage,
 								}}
 							/>

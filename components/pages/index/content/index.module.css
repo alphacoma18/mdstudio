@@ -1,16 +1,21 @@
-.section {
+.section, .sectionNone {
 	align-items: center;
 	background: var(--canvas-bg);
 	box-shadow: var(--bs-full);
-	display: grid;
-	flex-wrap: wrap;
-	gap: var(--gap-lg);
-	grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
 	justify-content: center;
 	margin: auto;
 	min-height: 100vh;
 	padding: var(--pd-lg);
 	width: 95vw;
+}
+.section {
+	display: grid;
+	gap: var(--gap-lg);
+	grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+}
+.sectionNone {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .section > button {
@@ -26,7 +31,7 @@
 }
 .empty {
 	text-align: center;
-	width: 100%;
+	width: clamp(300px, 100%, 500px);
 }
 .emptyTitle {
 	color: var(--color-blue);
@@ -55,10 +60,10 @@
 	color: var(--color-white);
 }
 @media screen and (max-width: 768px) {
-	.section {
+	.section, .sectionNone {
 		width: 100%;
 	}
 	.mobileNewProject {
-			display: flex;
+		display: flex;
 	}
 }

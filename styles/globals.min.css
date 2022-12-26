@@ -37,8 +37,10 @@
 	--gap-sm: 0.2rem;
 	--gap-md: 0.4rem;
 	--gap-lg: 1rem;
-	--fast-transition: color 50ms linear 0s, background 50ms linear 0s;
-	--fast-transition-all: all 100ms linear 0s;
+
+	--transition: color 100ms ease-in-out, background 100ms ease-in-out;
+	--transition-border: border-color 100ms linear 0s;
+	--transition-opacity: opacity 100ms ease-in-out;
 }
 ::-moz-selection {
 	background: var(--bg-blue);
@@ -72,7 +74,7 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
-	transition: var(--fast-transition);
+	transition: var(--transition);
 }
 code,
 div,

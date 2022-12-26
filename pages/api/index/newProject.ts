@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import db_projects from "../../../utils/db/account";
-import MyError from "../../../utils/gen/error";
 import {
 	authOptions,
 	unstable_getServerSession,
 } from "../../../exports/getServerSession";
+import db_projects, { mongooseId } from "../../../utils/db/account";
+import MyError from "../../../utils/gen/error";
 interface IBody {
 	projectName: string;
 }
@@ -13,22 +13,20 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		const { projectName }: IBody = req.body;
 		const session = await unstable_getServerSession(req, res, authOptions);
 		if (!session?.user.userId) throw new MyError("Unauthorized", 401);
-		// create new project in db with the name of projectName and add a default file structure with a default index.html file
 		await db_projects.findOneAndUpdate(
 			{ userId: session.user.userId },
 			{
 				$push: {
 					projects: {
+						_id: mongooseId(),
 						projectName,
-						projectDescription: "Hello WOrld",
+						projectDescription: "Hello World",
 						settings: {},
 						fileSystem: {},
 					},
 				},
 			}
 		);
-		console.log("New project created");
-
 		res.status(200).redirect("/");
 	} catch (error) {
 		console.error(error);

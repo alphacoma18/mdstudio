@@ -1,40 +1,38 @@
-import { useContext, useState } from "react";
-import handleAxios from "../../../../utils/axios";
+import { useContext, useState, memo } from "react";
 import ContextIndex from "../../../../utils/context/index";
 import GenButton from "../../../gen/button";
+import GenForm from "../../../gen/form";
 import styles from "./index.module.css";
-import IndexContentProject from "./project";
 const IndexContent: React.FC = () => {
 	const { projects } = useContext(ContextIndex);
 	const [isCreating, setIsCreating] = useState<boolean>(false);
 	async function handlePrompt() {
-		const projectName = prompt("New Project Name:");
-		if (!projectName) return;
-		await handleAxios({
-			method: "post",
-			data: { projectName },
-			url: "/index/newProject",
-		});
+		setIsCreating((prev) => !prev);
+		// const projectName = prompt("New Project Name:");
+		// if (!projectName) return;
+		// await handleAxios({
+		// 	method: "post",
+		// 	data: { projectName },
+		// 	url: "/index/newProject",
+		// });
 	}
+	const isEmpty = projects.length === 0;
 
 	return (
-		<section className={styles.section}>
+		<section className={isEmpty ? styles.sectionNone : styles.section}>
 			{/* <button>
 				<div className={styles.content}>Hello World</div>
 			</button> */}
-			{projects.length === 0 && (
-				<>
-					<div></div>
-					<div className={styles.empty}>
-						<h1 className={styles.emptyTitle}>
-							You don&apos;t have any projects yet.
-						</h1>
-						<p className={styles.emptySubtitle}>
-							Click the button below to create a new project.
-						</p>
-						<hr />
-					</div>
-				</>
+			{isEmpty && (
+				<div className={styles.empty}>
+					<h1 className={styles.emptyTitle}>
+						You don&apos;t have any projects yet.
+					</h1>
+					<p className={styles.emptySubtitle}>
+						Click the button below to create a new project.
+					</p>
+					<hr />
+				</div>
 			)}
 			{/* {projects.map((project) => {
 				return (
@@ -53,8 +51,11 @@ const IndexContent: React.FC = () => {
 					<i className="icon-plus-circled"></i>
 				</GenButton>
 			</div>
+			<GenForm isActive={isCreating}>
+				<h1>Hello World</h1>
+			</GenForm>
 		</section>
 	);
 };
 
-export default IndexContent;
+export default memo(IndexContent);

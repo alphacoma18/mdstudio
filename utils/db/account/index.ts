@@ -1,5 +1,18 @@
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
-import { connect, ConnectOptions, Types } from "mongoose";
+import { ConnectOptions, Types, connect } from "mongoose";
+
+// Note:
+// 1. _id is now statically defined in each model that needs them
+// since pushing a new file/folder to the array will not create a new _id
+// even though `auto: true` and `strict: false` are set in modelOptions
+// refer: https://stackoverflow.com/questions/48176855/mongoose-findoneandupdate-upsert-doesnt-create-a-new-id
+//
+// 2. Unfortunately, you can insert fields into the database that are not defined in the model
+//
+// 3. Defining options such as `required: true`, `default: true`, and `type: <Type>`
+// in @props() is useless since it does not work at all.
+// Even with `upsert: true` and `setDefaultsOnInsert: true` on the updateOne() method
+// refer: https://stackoverflow.com/questions/26865357/default-value-not-set-while-using-update-with-upsert-as-true
 
 class File {
 	@prop()
@@ -117,7 +130,9 @@ class Projects {
 }
 
 const db_projects = getModelForClass(Projects);
-export function mongooseId(id: string) {
+
+// converts string to ObjectId or creates a new one
+export function mongooseId(id?: string) {
 	return new Types.ObjectId(id);
 }
 type TFile = File;

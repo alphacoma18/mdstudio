@@ -25,14 +25,14 @@
 	padding: var(--pd-sm);
 }
 
-.flexButtons button i {
+.flexButtons :is(button, a) i {
 	font-size: 2rem;
 }
 
 .profileImage {
 	border: var(--border-1);
 	border-radius: var(--br-circle);
-	transition: var(--fast-transition-all);
+	transition: var(--transition-border);
 }
 
 .profileImage:hover,

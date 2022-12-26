@@ -35,7 +35,7 @@
 }
 .CodeMirror div.CodeMirror-secondarycursor,
 .CodeMirror-cursor {
-	border-left: 1px solid var(--color-blue);
+	border-left: 1px solid var(--bg-blue);
 }
 .cm-fat-cursor .CodeMirror-cursor {
 	background: #7e7;
@@ -44,21 +44,6 @@
 }
 .cm-fat-cursor div.CodeMirror-cursors {
 	z-index: 1;
-}
-.cm-fat-cursor .CodeMirror-line > span::-moz-selection,
-.cm-fat-cursor .CodeMirror-line > span > span::-moz-selection,
-.cmcursor .CodeMirror-line::-moz-selection {
-	background: 0 0;
-}
-.cm-fat-cursor .CodeMirror-line > span::-moz-selection,
-.cm-fat-cursor .CodeMirror-line > span > span::-moz-selection,
-.cmcursor .CodeMirror-line::-moz-selection {
-	background: 0 0;
-}
-.cm-fat-cursor .CodeMirror-line::selection,
-.cm-fat-cursor .CodeMirror-line > span::selection,
-.cm-fat-cursor .CodeMirror-line > span > span::selection {
-	background: 0 0;
 }
 .cm-fat-cursor .CodeMirror-line > span::-moz-selection,
 .cm-fat-cursor .CodeMirror-line > span > span::-moz-selection,
@@ -626,9 +611,9 @@ span.CodeMirror-selectedtext {
 .editor-preview pre {
 	border: 2px solid var(--bg-blue);
 	border-radius: var(--br-md);
-	margin-bottom: 10px;
 	overflow-x: auto;
 	padding: var(--pd-lg);
+	background: #eee;
 }
 .editor-preview table td,
 .editor-preview table th {

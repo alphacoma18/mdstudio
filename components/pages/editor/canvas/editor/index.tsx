@@ -17,7 +17,7 @@ const EditorMain: React.FC = () => {
 
 	const mdOptions = useMemo(() => {
 		return {
-			spellChecker: false,
+			spellChecker: true,
 			minHeight: "100%",
 			renderingConfig: {
 				codeSyntaxHighlighting: true,
@@ -30,9 +30,14 @@ const EditorMain: React.FC = () => {
 			promptURLs: true,
 			toolbarTips: false,
 			styleSelectedText: true,
-			// shortcuts: {
-			// 	""
-			// },
+			shortcuts: {
+				toggleHeading1: "Cmd-Alt-1",
+				toggleHeading2: "Cmd-Alt-2",
+				toggleHeading3: "Cmd-Alt-3",
+				toggleHeading4: "Cmd-Alt-4",
+				toggleHeading5: "Cmd-Alt-5",
+				toggleHeading6: "Cmd-Alt-6",
+			},
 			toolbar: [
 				"undo",
 				"redo",
