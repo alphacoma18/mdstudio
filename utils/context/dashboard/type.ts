@@ -1,5 +1,5 @@
-import { TProjects } from "../../db/account";
+import { ITreeProjects } from "../../db/account/tree";
 export interface IContextDashboard {
-	projects: TProjects["projects"];
-	handleProjects: (_projects: TProjects["projects"]) => void;
+	projects: ITreeProjects["projects"];
+	handleProjects: (_projects: ITreeProjects["projects"]) => void;
 }

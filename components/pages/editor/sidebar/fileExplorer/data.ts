@@ -1,5 +1,5 @@
-import { TFileSystem } from "../../../../../utils/db/account";
-export const data: TFileSystem = {
+import { ITreeFolder } from "../../../../../utils/db/account/tree";
+export const data: ITreeFolder = {
 	_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 	folderName: "root",
 	isDir: true,
@@ -9,16 +9,12 @@ export const data: TFileSystem = {
 			fileName: "file1",
 			isDir: false,
 			content: "content",
-			title: "title",
-			description: "description",
 		},
 		{
 			_id: "5f9b5b0b0b9b0b0b0b0b0b0b" as any,
 			fileName: "file2",
 			isDir: false,
 			content: "content",
-			title: "title",
-			description: "description",
 		},
 	],
 	folders: [
@@ -32,8 +28,6 @@ export const data: TFileSystem = {
 					fileName: "file1",
 					isDir: false,
 					content: "content",
-					title: "title",
-					description: "description",
 				},
 			],
 			folders: [],
@@ -48,8 +42,6 @@ export const data: TFileSystem = {
 					fileName: "file1",
 					isDir: false,
 					content: "content",
-					title: "title",
-					description: "description",
 				},
 			],
 			folders: [

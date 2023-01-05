@@ -1,10 +1,10 @@
 import { memo } from "react";
-import { TFileSystem } from "../../../../../../utils/db/account";
+import { ITreeFolder } from "../../../../../../utils/db/account/tree";
 import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
 interface Props {
-	project: TFileSystem;
+	project: ITreeFolder;
 }
 const EditorFolder: React.FC<Props> = ({ project }) => {
 	return (

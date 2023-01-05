@@ -9,7 +9,8 @@ import {
 import ContextDashboard, {
 	ContextProviderDashboard,
 } from "../../utils/context/dashboard/index";
-import db_projects, { TProjects } from "../../utils/db/account";
+import db_projects from "../../utils/db/account/flat";
+import { ITreeProjects } from "../../utils/db/account/tree";
 import { NextPageWithLayout } from "../_app";
 
 const DashboardNav = dynamic(
@@ -31,9 +32,9 @@ const DashboardFooter = dynamic(
 	}
 );
 
-const IndexPage: NextPageWithLayout<{ projects: TProjects["projects"] }> = ({
-	projects,
-}) => {
+const IndexPage: NextPageWithLayout<{
+	projects: ITreeProjects["projects"];
+}> = ({ projects }) => {
 	const { handleProjects } = useContext(ContextDashboard);
 	useEffect(() => {
 		if (projects) handleProjects(projects);

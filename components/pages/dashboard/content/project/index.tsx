@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { TProject } from "../../../../../utils/db/account";
+import { ITreeProject } from "../../../../../utils/db/account/tree";
 interface IProject {
-	project: TProject;
+	project: ITreeProject;
 }
 const DashboardContentProject: React.FC<IProject> = (props) => {
 	return (

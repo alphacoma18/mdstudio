@@ -1,4 +1,4 @@
-import { TProject } from "../../db/account";
+import { ITreeProject } from "../../db/account/tree";
 export interface IEditorState {
 	id: string;
 	currentFolder: string;
@@ -19,8 +19,8 @@ export type TFocusAction =
 	| "focusStatus"
 	| "focusExplorer";
 export interface IContextEditor {
-	projectState: TProject;
-	setProjectState: React.Dispatch<React.SetStateAction<TProject>>;
+	projectState: ITreeProject;
+	setProjectState: React.Dispatch<React.SetStateAction<ITreeProject>>;
 	editorState: IEditorState;
 	setEditorState: React.Dispatch<React.SetStateAction<IEditorState>>;
 	barState: IBarState;

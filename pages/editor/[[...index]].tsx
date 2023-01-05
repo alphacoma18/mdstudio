@@ -9,7 +9,8 @@ import {
 import ContextEditor, {
 	ContextProviderEditor,
 } from "../../utils/context/editor/index";
-import db_projects, { TProject } from "../../utils/db/account";
+import db_projects from "../../utils/db/account/flat";
+import { ITreeProject } from "../../utils/db/account/tree";
 import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
 const EditorCanvas = dynamic(
@@ -42,7 +43,7 @@ const EditorMobileNav = dynamic(
 		suspense: true,
 	}
 );
-const EditorPage: NextPageWithLayout<{ data: TProject }> = ({ data }) => {
+const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 	const { projectState, setProjectState } = useContext(ContextEditor);
 
 	useEffect(() => {
