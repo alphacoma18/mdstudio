@@ -83,7 +83,13 @@ export default function Document() {
 
 				{/* Icons and browser stuff */}
 
-				{/* Do not put this meta tag if you want to work and debug with next.js on mobile */}
+				{/* Do not put this meta tag if you want to work and debug with next.js on mobile
+				Also check of node.exe is not blocked 
+				steps:
+				1. firewall & network setting
+				2. allow an app through firewall
+				3. allow node.exe on public
+				*/}
 
 				{/* <meta
 					httpEquiv="Content-Security-Policy"

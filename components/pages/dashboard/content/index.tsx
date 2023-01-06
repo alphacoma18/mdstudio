@@ -1,22 +1,21 @@
 import { memo, useContext, useState } from "react";
+import ContextGlobal from "../../../../utils/context/_global";
 import ContextDashboard from "../../../../utils/context/dashboard/index";
 import GenButton from "../../../gen/button";
 import GenForm from "../../../gen/form";
+import GenProfilePicture from "../../../gen/image/profilePicture";
 import styles from "./index.module.css";
 const DashboardContent: React.FC = () => {
+	const { session } = useContext(ContextGlobal);
+	const [projectName, setProjectName] = useState<string>("");
+	const [projectDescription, setProjectDescription] = useState<string>("");
 	const { projects } = useContext(ContextDashboard);
 	const [isCreating, setIsCreating] = useState<boolean>(false);
-	async function handlePrompt() {
-		setIsCreating((prev) => !prev);
-		// const projectName = prompt("New Project Name:");
-		// if (!projectName) return;
-		// await handleAxios({
-		// 	method: "post",
-		// 	data: { projectName },
-		// 	url: "/index/newProject",
-		// });
-	}
 	const isEmpty = projects.length === 0;
+
+	async function handleSubmit() {
+		alert("Submitted");
+	}
 
 	return (
 		<section className={isEmpty ? styles.sectionNone : styles.section}>
@@ -44,15 +43,71 @@ const DashboardContent: React.FC = () => {
 					props={{
 						label: "Create New Project",
 						type: "button",
-						onClick: () => handlePrompt(),
+						onClick: () => setIsCreating((prev) => !prev),
 						className: styles.mobileNewProject,
 					}}
 				>
-					<i className="icon-plus-circled"></i>
+					{isCreating ? (
+						<i className="icon-cancel-circled"></i>
+					) : (
+						<i className="icon-plus-circled"></i>
+					)}
 				</GenButton>
 			</div>
-			<GenForm isActive={isCreating}>
-				<h1>Hello World</h1>
+			<GenForm
+				props={{
+					isActive: isCreating,
+					title: "Create New Project",
+					submitFunc: handleSubmit,
+				}}
+			>
+				<div className={styles.formDiv}>
+					<div>
+						<p>Enter Project Name:</p>
+						<div className={styles.username}>
+							<GenProfilePicture
+								props={{
+									isCircle: true,
+									height: 30,
+									width: 30,
+								}}
+							></GenProfilePicture>
+							<p>{session?.user.email}/</p>
+						</div>
+						<input
+							type="text"
+							placeholder=">> Project name"
+							minLength={1}
+							maxLength={20}
+							required
+							pattern="^[A-Za-z]+$"
+							className={styles.input}
+							value={projectName}
+							onChange={(e) => setProjectName(e.currentTarget.value)}
+						/>
+					</div>
+					<p>
+						Enter Project Description <span className="note">(optional)</span>
+					</p>
+					<input
+						type="text"
+						placeholder=">> Project description"
+						minLength={15}
+						maxLength={100}
+						pattern="^[A-Za-z]+$"
+						className={styles.input}
+						value={projectDescription}
+						onChange={(e) => setProjectDescription(e.currentTarget.value)}
+					/>
+					<button className={styles.createButton}>Create Project</button>
+					<hr />
+					<details>
+						<summary>What is a project?</summary>
+						<p className="summaryNote">
+							A project contains all your files, folders, media, and settings.
+						</p>
+					</details>
+				</div>
 			</GenForm>
 		</section>
 	);

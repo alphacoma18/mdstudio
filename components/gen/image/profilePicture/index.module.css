@@ -1,0 +1,13 @@
+.circled {
+    border-radius: var(--br-circle);
+}
+
+.profilePicture {
+    border: var(--border-1);
+    transition: var(--transition-border);
+}
+
+.profilePicture:is(:hover, :focus, :active) {
+    border: var(--border-blue);
+    cursor: pointer;
+}

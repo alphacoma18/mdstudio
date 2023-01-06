@@ -5,7 +5,6 @@ export interface IContextGlobal {
 		server: string;
 	};
 	session: Session | null;
-	status: "authenticated" | "unauthenticated" | "loading";
 	isLightTheme: boolean;
 	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
 	device: "mobile" | "tablet" | "laptop" | "desktop";

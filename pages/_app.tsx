@@ -50,6 +50,15 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 								);
 							}}
 						/>
+						<div
+							style={{
+								background: "#007acc",
+								height: "3px",
+								position: "fixed",
+								width: "100%",
+								zIndex: 100,
+							}}
+						></div>
 						{/* <Script src="https://example.com/script.js" type="" /> */}
 						<Component {...pageProps} />
 					</ContextProviderGlobal>

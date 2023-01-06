@@ -29,20 +29,6 @@
 	font-size: 2rem;
 }
 
-.profileImage {
-	border: var(--border-1);
-	border-radius: var(--br-circle);
-	transition: var(--transition-border);
-}
-
-.profileImage:hover,
-.profileImage:active,
-.profileImage:focus,
-.profileImage:focus-within,
-.profileImage:focus-visible {
-	border: var(--border-blue);
-}
-
 @media screen and (max-width: 480px) {
 	.sidebarSection {
 		display: none;

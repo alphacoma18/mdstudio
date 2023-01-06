@@ -27,7 +27,10 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 								type="email"
 								placeholder="email@example.com"
 								required
-								autoFocus
+								minLength={3}
+								maxLength={254}
+								autoComplete="off"
+								spellCheck="false"
 								className={styles.input}
 							/>
 							<GenButton

@@ -1,12 +1,10 @@
 .bg {
 	align-items: center;
 	background: var(--canvas-bg);
-	border-top: var(--border-blue);
 	display: flex;
-	height: 100vh;
+	height: calc(100vh - 3px);
 	justify-content: center;
 	overflow-y: auto;
-	width: 100vw;
 }
 
 .flexDiv {
@@ -60,6 +58,7 @@
 		padding: var(--pd-lg);
 	}
 }
+
 .signout {
 	border: var(--border-blue);
 	box-shadow: var(--bs-full);
@@ -67,6 +66,7 @@
 	margin: var(--mg-sm);
 	padding: var(--pd-lg);
 }
+
 .signout:hover {
 	background: var(--bg-blue);
 }

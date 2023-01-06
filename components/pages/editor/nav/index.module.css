@@ -2,7 +2,6 @@
 .navOpen {
 	align-items: center;
 	background: var(--bg-1);
-	border-top: 3px solid var(--bg-2);
 	box-shadow: var(--bs-down);
 	display: flex;
 	grid-area: 1 / 1 / 1 / 5;
@@ -60,7 +59,6 @@
 	}
 
 	.navOpen {
-		border-top: none;
 		flex-direction: column;
 		grid-area: 2 / 4 / 4 / 4;
 		padding: var(--pd-sm);

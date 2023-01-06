@@ -1,17 +1,30 @@
 import styles from "./index.module.css";
 interface Props {
 	children: React.ReactNode;
-	isActive: boolean;
+	props: {
+		isActive: boolean;
+		title: string;
+		submitFunc: () => void;
+	};
 }
-const GenForm: React.FC<Props> = ({ children, isActive }) => {
+const GenForm: React.FC<Props> = ({
+	children,
+	props: { isActive, title, submitFunc },
+}) => {
 	return (
-		<section
-			className={`${styles.section} ${
-				isActive ? styles.active : styles.inactive
-			}`}
+		<form
+			className={`${styles.form} ${isActive ? styles.active : styles.inactive}`}
+			onSubmit={(e) => {
+				e.preventDefault();
+				submitFunc();
+			}}
 		>
-			{children}
-		</section>
+			<div className={styles.limit}>
+				<h1>{title}</h1>
+				<hr />
+				{children}
+			</div>
+		</form>
 	);
 };
 export default GenForm;

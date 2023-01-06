@@ -26,21 +26,7 @@
 	width: 100%;
 }
 
-.input::selection {
-	background: var(--bg-white);
-	color: var(--color-blue);
-}
-
-.input:valid {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
-
-.button:hover,
-.button:active,
-.button:focus,
-.button:focus-within,
-.button:focus-visible {
+.button:is(:hover, :focus, :active) {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }

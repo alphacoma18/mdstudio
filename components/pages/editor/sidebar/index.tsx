@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import ContextGlobal from "../../../../utils/context/_global";
 import ContextEditor from "../../../../utils/context/editor/index";
 import GenButton from "../../../gen/button";
-import GenImage from "../../../gen/image";
+import GenProfilePicture from "../../../gen/image/profilePicture";
 import EditorFileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
 function handleAlert() {
@@ -67,19 +67,13 @@ const EditorSidebar: React.FC = () => {
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<GenButton props={{ label: "Sidebar: profile" }}>
-						{session?.user.image === undefined ? (
-							<i className={"icon-user-circle"}></i>
-						) : (
-							<GenImage
-								props={{
-									src: session.user.image,
-									height: 40,
-									width: 40,
-									alt: `User: ${session.user.name}`,
-									className: styles.profileImage,
-								}}
-							/>
-						)}
+						<GenProfilePicture
+							props={{
+								isCircle: true,
+								height: 40,
+								width: 40,
+							}}
+						></GenProfilePicture>
 					</GenButton>
 					<GenButton
 						props={{

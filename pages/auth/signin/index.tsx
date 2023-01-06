@@ -18,6 +18,7 @@ const AuthSignIn: NextPage<
 	return (
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
+				{/* TODO: Make back button */}
 				<Link href="/">
 					<a></a>
 				</Link>
@@ -44,14 +45,16 @@ const AuthSignIn: NextPage<
 				<hr />
 				<details className={styles.why}>
 					<summary>But Why Sign In?</summary>
-					By signing in, we can keep track of your identity and serve you all
-					your markdowns to allow multi-project edits. By using the guest
-					account, we generate a random hash each markdown publication for
-					edits. This is hectic to keep track of and so we encourage a signup
-					for full control over your projects. Read more at our{" "}
-					<Link href="/faqs">
-						<a className={styles.faqsLink}>FAQs.</a>
-					</Link>
+					<p className="summaryNote">
+						By signing in, we can keep track of your identity and serve you all
+						your markdowns to allow multi-project edits. By using the guest
+						account, we generate a random hash each markdown publication for
+						edits. This is hectic to keep track of and so we encourage a signup
+						for full control over your projects. Read more at our{" "}
+						<Link href="/faqs">
+							<a className={styles.faqsLink}>FAQs.</a>
+						</Link>
+					</p>
 				</details>
 			</div>
 		</section>

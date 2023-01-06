@@ -32,7 +32,19 @@
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
 
-	--code-font: "JetBrains Mono-Regular",Menlo,Monaco,Consolas,monospace;
+	--code-font: "JetBrains Mono-Regular", ui-monospace,
+		Menlo,
+		Monaco,
+		"Cascadia Mono",
+		"Segoe UI Mono",
+		"Roboto Mono",
+		"Oxygen Mono",
+		"Ubuntu Monospace",
+		"Source Code Pro",
+		"Fira Mono",
+		"Droid Sans Mono",
+		"Courier New",
+		monospace;
 
 	--gap-sm: 0.2rem;
 	--gap-md: 0.4rem;
@@ -42,33 +54,41 @@
 	--transition-border: border-color 100ms linear 0s;
 	--transition-opacity: opacity 100ms ease-in-out;
 }
+
 ::-moz-selection {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
+
 ::selection,
 ::target-text {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
+
 ::-webkit-scrollbar-track {
 	background: 0 0;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: var(--bg-2);
 }
+
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--bg-blue-op);
 }
+
 ::-webkit-scrollbar {
 	height: 1vh;
 	width: 1vh;
 }
+
 *,
 ::after,
 ::before {
 	box-sizing: border-box;
 }
+
 *,
 html {
 	color: var(--color);
@@ -76,6 +96,7 @@ html {
 	padding: 0;
 	transition: var(--transition);
 }
+
 code,
 div,
 html,
@@ -86,6 +107,7 @@ textarea {
 	scrollbar-color: var(--bg-2) transparent;
 	scrollbar-width: thin;
 }
+
 body {
 	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
@@ -96,12 +118,24 @@ body {
 	font-size: 16px;
 	line-height: 1.6rem;
 }
+
 button,
 input {
 	background: 0;
 	border: none;
 	line-height: inherit;
 }
+
+input:valid {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+
+input:valid::selection {
+	background: var(--bg-white);
+	color: var(--color-blue);
+}
+
 button {
 	cursor: pointer;
 	-webkit-user-select: none;
@@ -109,10 +143,12 @@ button {
 	-ms-user-select: none;
 	user-select: none;
 }
+
 a {
 	color: inherit;
 	text-decoration: none;
 }
+
 hr {
 	background: var(--bg-blue);
 	border: 1px solid var(--bg-blue);
@@ -121,6 +157,7 @@ hr {
 	margin: 0.4rem auto;
 	width: 100%;
 }
+
 button,
 input,
 textarea {
@@ -128,44 +165,59 @@ textarea {
 	font-family: inherit;
 	font-size: inherit;
 }
+
 img {
 	display: block;
 	max-width: 100%;
 }
+
 button,
 input {
 	border-radius: var(--br-md);
 }
+
 .hr-white {
 	background: var(--bg-white);
 	border: 1px solid var(--bg-white);
 	color: var(--color-white);
 }
+
 .kf-fade-in-fast {
 	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 }
+
 @-webkit-keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
 }
+
 @keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
 }
+
 .imageAnchor {
 	line-height: 0;
 }
+
 .hoverParent :is(a, button):focus :is(p, i, span),
 .hoverParent :is(a, button):hover :is(p, i, span),
 .hoverParent:is(a, button):active:is(p, i, span) {
 	color: var(--color-blue);
+}
+
+.inputNote,
+.summaryNote {
+	font-size: .8rem;
 }

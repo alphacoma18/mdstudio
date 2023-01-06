@@ -13,7 +13,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		client: "http://localhost:3000",
 		server: "http://localhost:3000/api",
 	};
-	const { data: session, status } = useSession();
+	const { data: session } = useSession();
 
 	const [isLightTheme, setIsLightTheme] = useState<boolean>(() => {
 		const value =
@@ -47,7 +47,6 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 			value={{
 				url,
 				session,
-				status,
 				isLightTheme,
 				setIsLightTheme,
 				device,

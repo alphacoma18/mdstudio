@@ -1,7 +1,6 @@
 .section {
 	align-items: center;
 	background: var(--bg-1);
-	border-top: var(--border-blue);
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
