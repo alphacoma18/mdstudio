@@ -1,7 +1,7 @@
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
 import { ConnectOptions, Types, connect } from "mongoose";
 
-class FlatFile {
+class File {
 	@prop()
 	_id!: Types.ObjectId;
 
@@ -46,7 +46,7 @@ class FlatProject {
 	projectDescription!: string;
 
 	@prop()
-	fileSystem!: (FlatFile | FlatFolder)[];
+	fileSystem!: (File | FlatFolder)[];
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
@@ -64,13 +64,13 @@ const db_projects = getModelForClass(FlatProjects);
 export function mongooseId(id?: string) {
 	return new Types.ObjectId(id);
 }
-type TFlatFile = FlatFile;
+type TFile = File;
 type TFlatFolder = FlatFolder;
 type TFlatProject = FlatProject;
 type TFlatFileSystem = FlatProject["fileSystem"];
 type TFlatProjects = FlatProjects;
 export type {
-	TFlatFile,
+	TFile,
 	TFlatFolder,
 	TFlatProject,
 	TFlatFileSystem,

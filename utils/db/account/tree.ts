@@ -1,26 +1,23 @@
 import { Types } from "mongoose";
-
-interface ITreeFile {
-	_id: Types.ObjectId;
-	fileName: string;
-	content: string;
-	isDir: false;
-}
-export interface ITreeFolder {
+import { TFile } from "./flat";
+interface ITreeFolder {
 	_id: Types.ObjectId;
 	folderName: string;
 	isDir: true;
-	files: ITreeFile[];
+	files: TFile[];
 	folders: ITreeFolder[];
+	parentId?: Types.ObjectId;
 }
-export interface ITreeProject {
+interface ITreeProject {
 	_id: Types.ObjectId;
 	projectName: string;
 	projectDescription: string;
 	fileSystem: ITreeFolder;
 }
 
-export interface ITreeProjects {
+interface ITreeProjects {
 	userId: Types.ObjectId;
 	projects: ITreeProject[];
 }
+type TTreeFileSystem = (TFile | ITreeFolder)[];
+export type { ITreeFolder, ITreeProject, ITreeProjects, TTreeFileSystem };
