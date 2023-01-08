@@ -37,9 +37,3 @@ AnyMD offers a built-in Markdown tool bar that allows you to easily format your 
 - [ ] Customizable Themes
 - [ ] Extensive Settings Menu
 - [ ] Commenting and Discussion Feature
-
-## Contributors
-
-AnyMD is a free and open source project, open for contributions and collaborations.
-
-1. Alpha Romer N. Coma

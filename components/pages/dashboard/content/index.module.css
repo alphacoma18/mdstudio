@@ -47,6 +47,7 @@
 	background: var(--bg-blue);
 	border-radius: 50%;
 	bottom: 20px;
+	box-shadow: var(--bs-full);
 	color: var(--color-whitesmoke);
 	height: 70px;
 	justify-content: center;
