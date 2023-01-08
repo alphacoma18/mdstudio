@@ -54,8 +54,7 @@
 	right: 20px;
 	text-align: center;
 	width: 70px;
-	z-index: 10;
-	/* display: none; */
+	z-index: 12;
 }
 
 .mobileNewProject i {
@@ -83,7 +82,7 @@
 }
 
 .input:not(:required):placeholder-shown {
-	background: transparent;	
+	background: transparent;
 	color: #777777;
 }
 
@@ -103,7 +102,12 @@
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
-
+.projectName {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 var(--gap-md);
+	justify-content: space-between;
+}
 @media screen and (max-width: 768px) {
 
 	.section,

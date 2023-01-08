@@ -1,12 +1,17 @@
-import { memo, useContext } from "react";
+import { memo, useContext, useRef, useState } from "react";
 import handleAxios from "../../../../../utils/axios";
 import ContextEditor from "../../../../../utils/context/editor";
 import GenButton from "../../../../gen/button";
-// import { data } from "./data";
+import GenForm from "../../../../gen/form";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {
 	const { projectState, editorState } = useContext(ContextEditor);
+	const [isCreating, setIsCreating] = useState({
+		isFile: false,
+		creating: false,
+	});
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const regex = /^[A-Za-z][\dA-Za-z]{1,9}$/;
 	function handlePrompt(txt: string): string {
@@ -25,7 +30,7 @@ const EditorFileExplorer: React.FC = () => {
 		if (name === "") return;
 		await handleAxios({
 			method: "post",
-			url: "/index/newFile",
+			url: "/editor/newFile",
 			data: {
 				id: editorState.id,
 				path: editorState.currentFolder,
@@ -39,7 +44,7 @@ const EditorFileExplorer: React.FC = () => {
 		if (name === null) return;
 		await handleAxios({
 			method: "post",
-			url: "/index/newFolder",
+			url: "/editor/newFolder",
 			data: {
 				id: editorState.id,
 				path: editorState.currentFolder,
@@ -48,45 +53,113 @@ const EditorFileExplorer: React.FC = () => {
 		});
 	}
 	return (
-		<section className={styles.fileExplorer}>
-			<div className={styles.head}>
-				<span className={`${styles.headItem} hoverParent`}>
-					<GenButton props={{ label: "Explorer: upload to cloud" }}>
-						<i className="icon-upload-cloud"></i>
-					</GenButton>
-				</span>
-				<span className={`${styles.headItem} hoverParent`}>
-					<GenButton
-						props={{
-							label: "Explorer: new file",
-							onClick: handleNewFile,
-						}}
-					>
-						<i className="icon-doc-add"></i>
-					</GenButton>
-					<GenButton
-						props={{
-							label: "Explorer: new folder",
-							onClick: handleNewFolder,
-						}}
-					>
-						<i className="icon-folder-add"></i>
-					</GenButton>
+		<>
+			<section className={styles.fileExplorer}>
+				<div className={styles.head}>
+					<span className={`${styles.headItem} hoverParent`}>
+						<GenButton props={{ label: "Explorer: upload to cloud" }}>
+							<i className="icon-upload-cloud"></i>
+						</GenButton>
+					</span>
+					<span className={`${styles.headItem} hoverParent`}>
+						<GenButton
+							props={{
+								label: "Explorer: new file",
+								onClick: () => {
+									// setIsCreating(true);
+									setIsCreating({ isFile: true, creating: true });
+									inputRef.current?.focus();
+								},
+							}}
+						>
+							<i className="icon-doc-add"></i>
+						</GenButton>
+						<GenButton
+							props={{
+								label: "Explorer: new folder",
+								onClick: () => {
+									setIsCreating({ isFile: false, creating: true });
+									inputRef.current?.focus();
+								},
+							}}
+						>
+							<i className="icon-folder-add"></i>
+						</GenButton>
 
+						<GenButton
+							props={{
+								label: "Explorer: reload files",
+								onClick: () => console.log("reload"),
+							}}
+						>
+							<i className="icon-arrows-cw"></i>
+						</GenButton>
+					</span>
+				</div>
+				<div className={styles.body}>
+					<EditorFolder project={projectState.fileSystem} />
+				</div>
+			</section>
+			<GenForm
+				props={{
+					isActive: isCreating.creating,
+					title: `Create new ${isCreating.isFile ? "file" : "folder"}`,
+					submitFunc: () => {},
+				}}
+			>
+				<p className="inputNote">Note: Create at &quot;/&quot;</p>
+				<input
+					type="text"
+					className="inputThin"
+					required
+					placeholder={`>> Enter ${isCreating.isFile ? "file" : "folder"} name`}
+					minLength={1}
+					maxLength={20}
+					ref={inputRef}
+					onKeyDown={(e) => {
+						if (e.key === "Escape") {
+							setIsCreating({
+								isFile: isCreating.isFile,
+								creating: false,
+							});
+						}
+					}}
+				/>
+				<div className={styles.buttonParent}>
 					<GenButton
 						props={{
-							label: "Explorer: reload files",
-							onClick: () => console.log("reload"),
+							label: "Cancel creating",
+							className: "inputButton",
+							onClick() {
+								setIsCreating({
+									isFile: isCreating.isFile,
+									creating: false,
+								});
+							},
 						}}
 					>
-						<i className="icon-arrows-cw"></i>
+						Cancel
 					</GenButton>
-				</span>
-			</div>
-			<div className={styles.body}>
-				<EditorFolder project={projectState.fileSystem} />
-			</div>
-		</section>
+					<GenButton
+						props={{
+							label: "Clear input",
+							className: "inputButton",
+						}}
+					>
+						Clear
+					</GenButton>
+					<GenButton
+						props={{
+							label: "Submit input",
+							className: "inputButton",
+						}}
+					>
+						Create
+					</GenButton>
+				</div>
+				<hr />
+			</GenForm>
+		</>
 	);
 };
 

@@ -31,13 +31,13 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 								maxLength={254}
 								autoComplete="off"
 								spellCheck="false"
-								className={styles.input}
+								className={"inputThick"}
 							/>
 							<GenButton
 								props={{
 									label: "Signin: Email",
 									type: "submit",
-									className: `${styles.button} ${styles.submit} icon-email`,
+									className: `${styles.button} inputButton icon-email`,
 								}}
 							>
 								{"Sign in with Email"}

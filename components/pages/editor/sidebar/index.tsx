@@ -29,9 +29,9 @@ const EditorSidebar: React.FC = () => {
 						props={{
 							label: "Sidebar: toggle file explorer",
 							onClick:
-								session?.user === undefined
-									? handleAlert
-									: () => updateBarState({ type: "explorerOpen" }),
+								// session?.user === undefined
+								// 	? handleAlert
+								() => updateBarState({ type: "explorerOpen" }),
 						}}
 					>
 						<i className={"icon-docs"}></i>

@@ -1,9 +1,8 @@
-import { memo, useContext, useState } from "react";
+import { memo, useContext, useRef, useState } from "react";
 import ContextGlobal from "../../../../utils/context/_global";
 import ContextDashboard from "../../../../utils/context/dashboard/index";
 import GenButton from "../../../gen/button";
 import GenForm from "../../../gen/form";
-import GenProfilePicture from "../../../gen/image/profilePicture";
 import styles from "./index.module.css";
 const DashboardContent: React.FC = () => {
 	const { session } = useContext(ContextGlobal);
@@ -11,6 +10,7 @@ const DashboardContent: React.FC = () => {
 	const [projectDescription, setProjectDescription] = useState<string>("");
 	const { projects } = useContext(ContextDashboard);
 	const [isCreating, setIsCreating] = useState<boolean>(false);
+	const inputRef = useRef<HTMLInputElement>(null);
 	const isEmpty = projects.length === 0;
 
 	async function handleSubmit() {
@@ -43,7 +43,10 @@ const DashboardContent: React.FC = () => {
 					props={{
 						label: "Create New Project",
 						type: "button",
-						onClick: () => setIsCreating((prev) => !prev),
+						onClick: () => {
+							setIsCreating((prev) => !prev);
+							if (inputRef.current && !isCreating) inputRef.current.focus();
+						},
 						className: styles.mobileNewProject,
 					}}
 				>
@@ -61,53 +64,51 @@ const DashboardContent: React.FC = () => {
 					submitFunc: handleSubmit,
 				}}
 			>
-				<div className={styles.formDiv}>
-					<div>
-						<p>Enter Project Name:</p>
-						<div className={styles.username}>
-							<GenProfilePicture
-								props={{
-									isCircle: true,
-									height: 30,
-									width: 30,
-								}}
-							></GenProfilePicture>
-							<p>{session?.user.email}/</p>
-						</div>
-						<input
-							type="text"
-							placeholder=">> Project name"
-							minLength={1}
-							maxLength={20}
-							required
-							pattern="^[A-Za-z]+$"
-							className={styles.input}
-							value={projectName}
-							onChange={(e) => setProjectName(e.currentTarget.value)}
-						/>
-					</div>
-					<p>
-						Enter Project Description <span className="note">(optional)</span>
-					</p>
+				<div className={styles.projectName}>
+					<span>Enter Project Name:</span>
+					<span>
+						anymd.tech/{session && session.user.name}/
+						{projectName.toLowerCase().replace(/ /g, "-")}
+					</span>
+				</div>
+				<div>
 					<input
 						type="text"
-						placeholder=">> Project description"
-						minLength={15}
-						maxLength={100}
-						pattern="^[A-Za-z]+$"
-						className={styles.input}
-						value={projectDescription}
-						onChange={(e) => setProjectDescription(e.currentTarget.value)}
+						placeholder=">> Project name"
+						minLength={1}
+						maxLength={20}
+						required
+						pattern="^[A-Za-z0-9]{1,20}+$"
+						className="inputThin"
+						value={projectName}
+						onChange={(e) => setProjectName(e.currentTarget.value)}
+						ref={inputRef}
+						onKeyDown={(e) => {
+							if (e.key === "Escape") setIsCreating(false);
+						}}
 					/>
-					<button className={styles.createButton}>Create Project</button>
-					<hr />
-					<details>
-						<summary>What is a project?</summary>
-						<p className="summaryNote">
-							A project contains all your files, folders, media, and settings.
-						</p>
-					</details>
 				</div>
+				<p>
+					Enter Project Description <span className="note">(optional)</span>
+				</p>
+				<input
+					type="text"
+					placeholder=">> Project description"
+					maxLength={100}
+					pattern="^[A-Za-z0-9]{,100}+$"
+					className="inputThin"
+					value={projectDescription}
+					onChange={(e) => setProjectDescription(e.currentTarget.value)}
+				/>
+				<button className="inputButton">Create Project</button>
+				<hr />
+				<details>
+					<summary>What is a project?</summary>
+					<p className="summaryNote">
+						A project contains all your files, folders, media, and settings.
+						They can be kept private or published publicly for others to view.
+					</p>
+				</details>
 			</GenForm>
 		</section>
 	);

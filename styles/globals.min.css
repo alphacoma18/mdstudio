@@ -176,6 +176,8 @@ input {
 	border-radius: var(--br-md);
 }
 
+
+/* Custom Global Styles */
 .hr-white {
 	background: var(--bg-white);
 	border: 1px solid var(--bg-white);
@@ -220,4 +222,40 @@ input {
 .inputNote,
 .summaryNote {
 	font-size: .8rem;
+}
+
+.inputThin,
+.inputThick {
+	border: var(--border-blue);
+	outline: 0;
+	padding: 17.5px 29px;
+	width: 100%;
+}
+
+.inputThin {
+	height: 32px;
+}
+
+.inputThin:not(:required):placeholder-shown,
+.inputThick:not(:required):placeholder-shown {
+	background: transparent;
+	color: #777777;
+}
+
+.inputButton {
+	border: var(--border-blue);
+	border-radius: var(--br-md);
+	padding: var(--pd-md);
+	text-align: center;
+	width: 100%;
+}
+
+.inputButton:is(:hover, :focus, :active) {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+@media screen and (max-width: 480px) {
+	.inputThick {
+		height: 32px;
+	}
 }

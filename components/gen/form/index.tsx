@@ -20,7 +20,7 @@ const GenForm: React.FC<Props> = ({
 			}}
 		>
 			<div className={styles.limit}>
-				<h1>{title}</h1>
+				<p className={styles.title}>{title}</p>
 				<hr />
 				{children}
 			</div>

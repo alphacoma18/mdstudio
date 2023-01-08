@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import {
-	unstable_getServerSession,
 	authOptions,
+	unstable_getServerSession,
 } from "../../../exports/getServerSession";
-import MyError from "../../../utils/gen/error";
+import GenError from "../../../utils/gen/error";
 interface IBody {
 	id: string;
 	path: string;
@@ -13,7 +13,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const { id, path, folderName }: IBody = req.body;
 		const session = await unstable_getServerSession(req, res, authOptions);
-		if (!session?.user.userId) throw new MyError("Unauthorized", 401);
+		if (!session?.user.userId) throw new GenError("Unauthorized", 401);
 		const pathArr = path.split("/");
 		console.log(id, pathArr, folderName);
 

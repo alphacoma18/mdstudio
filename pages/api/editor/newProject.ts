@@ -4,7 +4,7 @@ import {
 	unstable_getServerSession,
 } from "../../../exports/getServerSession";
 import db_projects, { mongooseId } from "../../../utils/db/account/flat";
-import MyError from "../../../utils/gen/error";
+import GenError from "../../../utils/gen/error";
 interface IBody {
 	projectName: string;
 }
@@ -12,7 +12,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const { projectName }: IBody = req.body;
 		const session = await unstable_getServerSession(req, res, authOptions);
-		if (!session?.user.userId) throw new MyError("Unauthorized", 401);
+		if (!session?.user.userId) throw new GenError("Unauthorized", 401);
 		await db_projects.findOneAndUpdate(
 			{ userId: session.user.userId },
 			{

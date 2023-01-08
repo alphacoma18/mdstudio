@@ -38,6 +38,7 @@ const EditorMain: React.FC = () => {
 				toggleHeading5: "Cmd-Alt-5",
 				toggleHeading6: "Cmd-Alt-6",
 			},
+			previewImagesInEditor: true,
 			toolbar: [
 				"undo",
 				"redo",
@@ -77,6 +78,7 @@ const EditorMain: React.FC = () => {
 			status: ["autosave", "lines", "words", "cursor"],
 			lineNumbers: device === "laptop" || device === "desktop",
 			uploadImage: true,
+			// TODO: change this to the actual endpoint
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
@@ -89,12 +91,6 @@ const EditorMain: React.FC = () => {
 			// 	updateEditorState({ type: "updateTextInput", payload: value });
 			// }}
 			// if control + shift + b is pressed, then prevent default
-			onKeyDown={(e) => {
-				if (e.ctrlKey && e.shiftKey && e.key === "B") {
-					e.preventDefault();
-					console.log("ctrl key pressed");
-				}
-			}}
 			placeholder="Type or paste your text here..."
 			options={mdOptions as Options}
 			className={`${styles.editor} kf-fade-in-fast`}
