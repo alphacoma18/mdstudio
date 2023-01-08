@@ -46,6 +46,9 @@ class FlatProject {
 	projectDescription!: string;
 
 	@prop()
+	isPublished!: boolean;
+
+	@prop()
 	fileSystem!: (File | FlatFolder)[];
 }
 

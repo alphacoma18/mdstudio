@@ -1,11 +1,17 @@
-@media screen and (max-width: 768px) {
-	.mobileCut {
-		display: none;
-	}
+.section {
+	align-items: center;
+	display: flex;
+	gap: var(--gap-sm);
+	justify-content: space-between;
+	overflow-x: auto;
+	padding: var(--pd-sm);
+	scrollbar-color: var(--bg-white) var(--bg-blue);
+	width: 100%;
 }
 
+
 @media screen and (max-width: 480px) {
-	.credits {
-		display: none;
+	.section i {
+		font-size: 1.4rem;
 	}
 }

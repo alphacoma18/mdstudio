@@ -1,26 +1,46 @@
 .nav {
-	align-items: center;
+	align-items: stretch;
 	background: var(--bg-1);
 	box-shadow: var(--bs-down);
 	display: flex;
+	gap: var(--gap-lg);
 	grid-area: 1 / 1 / 1 / 5;
 	justify-content: space-between;
+	padding: 0 var(--pd-lg);
 	position: sticky;
 	top: 0;
 	width: 100%;
 }
 
-.desktopLogo {
+.logo {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	margin-left: var(--mg-sm);
+	min-width: 122px;
 }
 
 .flexAnchor {
-	align-items: center;
 	display: flex;
 	font-weight: bold;
 	gap: var(--gap-lg);
+	overflow-x: auto;
+}
+.flexAnchor a {
+	align-items: center;
+	display: flex;
 	justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+	.flexAnchor {
+		gap: var(--gap-md);
+	}
+
+	.flexAnchor span {
+		display: none;
+	}
+
+	.flexAnchor i {
+		font-size: 1.2rem;
+	}
 }

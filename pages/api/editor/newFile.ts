@@ -15,7 +15,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		const session = await unstable_getServerSession(req, res, authOptions);
 		if (!session?.user.userId) throw new GenError("Unauthorized", 401);
 		res.status(200).json({ message: "success" });
-	} catch (error: unknown) {
+	} catch (error) {
 		if (error instanceof GenError) {
 			console.error(error);
 			res.status(error.status).json({ error: error.message });

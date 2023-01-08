@@ -7,29 +7,33 @@ import db_projects, { mongooseId } from "../../../utils/db/account/flat";
 import GenError from "../../../utils/gen/error";
 interface IBody {
 	projectName: string;
+	projectDescription: string;
 }
 export default async function (req: NextApiRequest, res: NextApiResponse) {
 	try {
-		const { projectName }: IBody = req.body;
+		const { projectName, projectDescription }: IBody = req.body;
 		const session = await unstable_getServerSession(req, res, authOptions);
 		if (!session?.user.userId) throw new GenError("Unauthorized", 401);
+		if (projectName.length < 1 || projectName.length > 20)
+			throw new GenError("Invalid project name", 400);
+		const _id = mongooseId();
 		await db_projects.findOneAndUpdate(
 			{ userId: session.user.userId },
 			{
 				$push: {
 					projects: {
-						_id: mongooseId(),
+						_id,
 						projectName,
-						projectDescription: "Hello World",
-						settings: {},
-						fileSystem: {},
+						projectDescription,
+						fileSystem: [],
 					},
 				},
 			}
 		);
+		console.log("New project created");
 		res.status(200).redirect("/");
 	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error: "Internal server error" });
+		if (error instanceof GenError)
+			res.status(error.status).json({ error: error.message });
 	}
 }

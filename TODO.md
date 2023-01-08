@@ -6,11 +6,11 @@
 
 1. ~~Re brand application to anymd~~
 2. ~~Add various auth methods~~
-3. Configure auth methods with database
+3. ~~Configure auth methods with database~~
 4. Add dashboard and landing page
 5. Configure cloudinary for image uploads
-6. Fix file system implementation
-7. Fix context API
+6. ~~Fix file system implementation~~
+7. ~~Fix context API~~
 8. Configure database for calls
 9. Anonymous user support
 10. Dicebears for avatars

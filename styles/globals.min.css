@@ -32,7 +32,25 @@
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
 
-	--code-font: "JetBrains Mono-Regular", ui-monospace,
+	--ff-sans: -apple-system,
+		BlinkMacSystemFont,
+		Segoe UI,
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		Fira Sans,
+		Droid Sans,
+		Helvetica Neue,
+		sans-serif;
+
+	--ff-serif: Georgia,
+		Cambria,
+		"Times New Roman",
+		Times,
+		serif;
+
+	--ff-mono: "JetBrains Mono-Regular", ui-monospace,
 		Menlo,
 		Monaco,
 		"Cascadia Mono",
@@ -45,6 +63,7 @@
 		"Droid Sans Mono",
 		"Courier New",
 		monospace;
+
 
 	--gap-sm: 0.2rem;
 	--gap-md: 0.4rem;
@@ -113,8 +132,7 @@ body {
 	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	background: var(--bg-1);
 	caret-color: var(--color-blue);
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: var(--ff-sans);
 	font-size: 16px;
 	line-height: 1.6rem;
 }
@@ -166,9 +184,23 @@ textarea {
 	font-size: inherit;
 }
 
-img {
+/* img {
 	display: block;
 	max-width: 100%;
+} */
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: var(--bg-2);
+	border: var(--border-white);
+	padding: var(--pd-sm) var(--pd-md);
+	text-align: center;
+}
+
+select::selection {
+	background: red;
+	color: var(--color-white);
 }
 
 button,
@@ -254,6 +286,7 @@ input {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
+
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;

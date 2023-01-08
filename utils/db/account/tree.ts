@@ -12,6 +12,7 @@ interface ITreeProject {
 	_id: Types.ObjectId;
 	projectName: string;
 	projectDescription: string;
+	isPublished: boolean;
 	fileSystem: ITreeFolder;
 }
 

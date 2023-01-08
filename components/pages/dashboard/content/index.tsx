@@ -1,4 +1,5 @@
 import { memo, useContext, useRef, useState } from "react";
+import handleAxios from "../../../../utils/axios";
 import ContextGlobal from "../../../../utils/context/_global";
 import ContextDashboard from "../../../../utils/context/dashboard/index";
 import GenButton from "../../../gen/button";
@@ -14,7 +15,18 @@ const DashboardContent: React.FC = () => {
 	const isEmpty = projects.length === 0;
 
 	async function handleSubmit() {
-		alert("Submitted");
+		try {
+			const res = await handleAxios({
+				method: "post",
+				url: "/dashboard/newProject",
+				data: {
+					projectName,
+					projectDescription,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	return (

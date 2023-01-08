@@ -15,7 +15,8 @@ const Fallback: NextPage = () => {
 				<p>Please check your internet connection</p>
 				<p>AnyMD will automatically reload the page when you go online!</p>
 				<p className={styles.credit}>
-					MIT License Copyright (c) 2022 Alpha Romer N. Coma
+					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights
+					reserved
 				</p>
 			</section>
 		</>

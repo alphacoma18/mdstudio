@@ -1,5 +1,5 @@
 .CodeMirror {
-	font-family: var(--code-font);
+	font-family: var(--ff-mono);
 }
 
 .editor-preview * {

@@ -46,14 +46,9 @@ const AuthSignIn: NextPage<
 				<details className={styles.why}>
 					<summary>But Why Sign In?</summary>
 					<p className="summaryNote">
-						By signing in, we can keep track of your identity and serve you all
-						your markdowns to allow multi-project edits. By using the guest
-						account, we generate a random hash each markdown publication for
-						edits. This is hectic to keep track of and so we encourage a signup
-						for full control over your projects. Read more at our{" "}
-						<Link href="/faqs">
-							<a className={styles.faqsLink}>FAQs.</a>
-						</Link>
+						By signing in, we can keep track of your progress and projects, and
+						enable you to use the dashboard for multi-project editing, custom
+						publications, and more advanced features.
 					</p>
 				</details>
 			</div>

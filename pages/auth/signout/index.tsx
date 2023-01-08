@@ -21,7 +21,8 @@ const AuthSignOut: NextPage = () => {
 					<button onClick={() => signOut()}>Sign Out</button>
 				</div>
 				<p className={styles.credit}>
-					MIT License Copyright (c) 2022 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma
+					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights
+					reserved
 				</p>
 			</section>
 		</>

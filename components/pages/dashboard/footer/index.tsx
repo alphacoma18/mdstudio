@@ -23,7 +23,7 @@ const DashboardFooter: React.FC = () => {
 				Made with <i className="icon-heart"></i> in the Philippines
 			</p>
 			<p className={styles.credit}>
-				MIT License Copyright (c) 2022 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma
+				Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights reserved
 			</p>
 		</footer>
 	);

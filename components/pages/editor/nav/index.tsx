@@ -30,7 +30,7 @@ const EditorNav: React.FC = () => {
 				</GenReload>
 			</div>
 			<div className={`${styles.flexButtons} hoverParent`}>
-				<Link href="/">
+				<Link href="/dashboard">
 					<a>
 						<i className={"icon-home"}></i>
 						<span>Home</span>

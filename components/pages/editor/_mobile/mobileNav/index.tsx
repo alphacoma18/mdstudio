@@ -10,7 +10,7 @@ interface Props {
 		label: string;
 	};
 }
-const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
+export const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
 	return (
 		<section>
 			<GenButton
