@@ -64,7 +64,7 @@
     "type": "git",
     "url": "git+https://github.com/alphacoma18/anymd.git"
   },
-  "author": "Alpha Romer Coma",
+  "author": "Alpha Romer Coma <alphacoma18@gmail.com>",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/alphacoma18/anymd/issues"

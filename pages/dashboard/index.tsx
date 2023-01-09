@@ -9,8 +9,8 @@ import {
 import ContextDashboard, {
 	ContextProviderDashboard,
 } from "../../utils/context/dashboard/index";
-import db_projects from "../../utils/db/account/flat";
-import { ITreeProjects } from "../../utils/db/account/tree";
+import db_projects from "../../utils/db/projects/flat";
+import { ITreeProjects } from "../../utils/db/projects/tree";
 import { NextPageWithLayout } from "../_app";
 
 const DashboardNav = dynamic(

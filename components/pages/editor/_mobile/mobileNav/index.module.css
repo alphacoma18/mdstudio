@@ -10,6 +10,7 @@
 
 .menuLines {
 	background: var(--bg-2);
+	border-radius: var(--br-lg);
 	height: 6px;
 	margin: 4px 0;
 	width: 35px;

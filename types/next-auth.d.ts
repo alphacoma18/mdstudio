@@ -14,4 +14,11 @@ declare module "next-auth" {
 			userId: string;
 		} & DefaultSession["user"];
 	}
+	/**
+	 * The shape of the user object returned in the OAuth providers' `profile` callback,
+	 * or the second parameter of the `session` callback, when using a database.
+	 */
+	interface User extends DefaultSession["user"] {
+		displayName: string;
+	}
 }

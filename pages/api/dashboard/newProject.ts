@@ -3,7 +3,7 @@ import {
 	authOptions,
 	unstable_getServerSession,
 } from "../../../exports/getServerSession";
-import db_projects, { mongooseId } from "../../../utils/db/account/flat";
+import db_projects, { mongooseId } from "../../../utils/db/projects/flat";
 import GenError from "../../../utils/gen/error";
 interface IBody {
 	projectName: string;

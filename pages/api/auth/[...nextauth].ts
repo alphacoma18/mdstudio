@@ -1,4 +1,3 @@
-import { MongooseAdapter } from "@choutkamartin/mongoose-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
 import EmailProvider from "next-auth/providers/email";
@@ -9,9 +8,10 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
 import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
-import db_projects, { mongooseId } from "../../../utils/db/account/flat";
+import { TypegooseAdapter } from "../../../utils/adapter";
+import db_projects, { mongooseId } from "../../../utils/db/projects/flat";
 export const authOptions: NextAuthOptions = {
-	adapter: MongooseAdapter(process.env.MONGO_URI ?? "") ?? "",
+	adapter: TypegooseAdapter(process.env.MONGO_URI ?? "") ?? "",
 	providers: [
 		EmailProvider({
 			server: {
@@ -100,7 +100,7 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
-			console.log("signIn", user, account, profile, email, credentials);
+			// console.log("signIn", user, account, profile, email, credentials);
 			return true;
 		},
 		async redirect({ url, baseUrl }) {

@@ -728,7 +728,6 @@ span.CodeMirror-selectedtext {
 	border-radius: var(--br-md);
 	overflow-x: auto;
 	padding: var(--pd-lg);
-	background: #eee;
 }
 
 .editor-preview table td,
