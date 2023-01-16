@@ -11,7 +11,7 @@ import { html } from "../../../types/email";
 import { TypegooseAdapter } from "../../../utils/adapter";
 import db_projects, { mongooseId } from "../../../utils/db/projects/flat";
 export const authOptions: NextAuthOptions = {
-	adapter: TypegooseAdapter(process.env.MONGO_URI ?? "") ?? "",
+	adapter: TypegooseAdapter(),
 	providers: [
 		EmailProvider({
 			server: {

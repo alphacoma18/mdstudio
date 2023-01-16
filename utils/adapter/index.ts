@@ -16,8 +16,8 @@
  * create it using the utility function `mongooseId`.
  */
 
-import { ObjectId } from "mongodb";
-import { createConnection } from "mongoose";
+import { ConnectOptions, ObjectId } from "mongodb";
+import { connect } from "mongoose";
 import type {
 	Adapter,
 	AdapterAccount,
@@ -51,16 +51,14 @@ export function _id(hex?: string) {
 	return new ObjectId(hex);
 }
 
-export function TypegooseAdapter(uri: string): Adapter {
+export function TypegooseAdapter(): Adapter {
 	const { from } = format;
-	createConnection(uri);
-
+	const userId = mongooseId();
 	return {
 		async createUser(data) {
 			const user = await db_user.create({
-				_id: mongooseId(),
+				_id: userId,
 				...data,
-				userId: mongooseId(),
 			});
 			return from<AdapterUser>(user);
 		},
@@ -74,7 +72,7 @@ export function TypegooseAdapter(uri: string): Adapter {
 			}
 		},
 		async getUserByEmail(email) {
-			const user = await db_user.findOne({ email: email }).lean();
+			const user = await db_user.findOne({ email }).lean();
 			if (!user) return null;
 			return from<AdapterUser>(user);
 		},
@@ -103,7 +101,7 @@ export function TypegooseAdapter(uri: string): Adapter {
 			const account = await db_account.create({
 				_id: mongooseId(),
 				...data,
-				userId: mongooseId(),
+				userId,
 			});
 			return from<AdapterAccount>(account);
 		},
@@ -130,7 +128,7 @@ export function TypegooseAdapter(uri: string): Adapter {
 			const session = await db_session.create({
 				_id: mongooseId(),
 				...data,
-				userId: mongooseId(),
+				userId,
 			});
 			return from<AdapterSession>(session);
 		},

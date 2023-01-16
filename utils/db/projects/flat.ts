@@ -79,15 +79,4 @@ export type {
 	TFlatFileSystem,
 	TFlatProjects,
 };
-async function run() {
-	try {
-		await connect(process.env.MONGO_URI ?? "", {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		} as ConnectOptions);
-	} catch (error) {
-		console.error(error);
-	}
-}
-void run();
 export default db_projects;
