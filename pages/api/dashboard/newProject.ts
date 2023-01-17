@@ -17,19 +17,19 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		if (projectName.length < 1 || projectName.length > 20)
 			throw new GenError("Invalid project name", 400);
 		const _id = mongooseId();
-		await db_projects.findOneAndUpdate(
-			{ userId: session.user.userId },
-			{
-				$push: {
-					projects: {
-						_id,
-						projectName,
-						projectDescription,
-						fileSystem: [],
-					},
-				},
-			}
-		);
+		// await db_projects.findOneAndUpdate(
+		// 	{ userId: session.user.userId },
+		// 	{
+		// 		$push: {
+		// 			projects: {
+		// 				_id,
+		// 				projectName,
+		// 				projectDescription,
+		// 				fileSystem: [],
+		// 			},
+		// 		},
+		// 	}
+		// );
 		console.log("New project created");
 		res.status(200).redirect("/");
 	} catch (error) {

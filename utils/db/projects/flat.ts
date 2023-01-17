@@ -1,5 +1,5 @@
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
-import { ConnectOptions, Types, connect } from "mongoose";
+import { Types } from "mongoose";
 
 class File {
 	@prop()

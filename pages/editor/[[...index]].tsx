@@ -84,19 +84,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const projectId = context.params?.index?.[0] as string;
 	console.log(projectId);
 
-	const data = await db_projects.findOne(
-		{
-			userId: session?.user.userId,
-			projects: { $elemMatch: { _id: projectId } },
-		},
-		{
-			"projects.$": 1,
-		}
-	);
-	console.log(data);
+	// const data = await db_projects.findOne(
+	// 	{
+	// 		userId: session?.user.userId,
+	// 		projects: { $elemMatch: { _id: projectId } },
+	// 	},
+	// 	{
+	// 		"projects.$": 1,
+	// 	}
+	// );
 	return {
 		props: {
-			data: JSON.parse(JSON.stringify(data?.projects[0] ?? {})),
+			data: JSON.parse(JSON.stringify({})),
 		},
 	};
 };

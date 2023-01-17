@@ -64,10 +64,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		authOptions
 	);
 	console.log("Hello World", context.req.url);
-	const res = await db_projects.find({ userId: session?.user?.userId });
+	// const res = await db_projects.find({ userId: session?.user?.userId });
 	return {
 		props: {
-			projects: JSON.parse(JSON.stringify(res?.[0]?.projects ?? [])),
+			projects: JSON.parse(JSON.stringify([])),
+			// projects: JSON.parse(JSON.stringify(res?.[0]?.projects ?? [])),
 		},
 	};
 };

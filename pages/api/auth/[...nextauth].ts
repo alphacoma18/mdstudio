@@ -1,3 +1,4 @@
+import { MongoClient } from "mongodb";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
 import EmailProvider from "next-auth/providers/email";
@@ -8,10 +9,16 @@ import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
 import nodeMailer from "nodemailer";
 import { html } from "../../../types/email";
-import { TypegooseAdapter } from "../../../utils/adapter";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import db_projects, { mongooseId } from "../../../utils/db/projects/flat";
+const client = new MongoClient(process.env.MONGO_URI, {
+	minPoolSize: 20,
+	maxPoolSize: 400,
+	appName: "AnyMD",
+});
+const clientPromise = client.connect();
 export const authOptions: NextAuthOptions = {
-	adapter: TypegooseAdapter(),
+	adapter: MongoDBAdapter(clientPromise),
 	providers: [
 		EmailProvider({
 			server: {

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-
+const { MongoClient } = require('mongodb');
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: process.env.NODE_ENV === 'development',
@@ -29,3 +29,25 @@ module.exports = withPWA({
     ]
   }
 })
+
+async function run() {
+  try {
+    const client = new MongoClient(process.env.MONGO_URI, {
+		minPoolSize: 20,
+		maxPoolSize: 400,
+		appName: "AnyMD",
+	});
+  await client.connect();
+		// if (process.env.NODE_ENV !== "production") return;
+		// await connect(process.env.MONGO_URI ?? "", {
+		// 	useNewUrlParser: true,
+		// 	useUnifiedTopology: true,
+		// 	minPoolSize: 20,
+		// 	maxPoolSize: 400,
+		// });
+		console.log("Connected to MongoDB");
+	} catch (error) {
+		console.error(error);
+	}
+}
+void run();
