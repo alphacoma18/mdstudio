@@ -50,48 +50,34 @@ const DashboardNav: React.FC = () => {
 			<div className={`${styles.flexAnchor} hoverParent`}>
 				{session?.user === undefined ? (
 					<Link href={"/auth/signin"}>
-						<a>
-							<i className="icon-login"></i>
-							<span>Login</span>
-						</a>
+						<i className="icon-login"></i>
+						<span>Login</span>
 					</Link>
 				) : (
 					<Link href={"/auth/signout"}>
-						<a>
-							<i className="icon-logout"></i>
-							<span>Logout</span>
-						</a>
+						<i className="icon-logout"></i>
+						<span>Logout</span>
 					</Link>
 				)}
 				<Link href={"/"}>
-					<a>
-						<i className="icon-code"></i>
-						<span>API</span>
-					</a>
+					<i className="icon-code"></i>
+					<span>API</span>
 				</Link>
 				<Link href={"/"}>
-					<a>
-						<i className="icon-pencil"></i>
-						<span>Feedback</span>
-					</a>
+					<i className="icon-pencil"></i>
+					<span>Feedback</span>
 				</Link>
 				<Link href={"/"}>
-					<a>
-						<i className="icon-doc-text-1"></i>
-						<span>Changelog</span>
-					</a>
+					<i className="icon-doc-text-1"></i>
+					<span>Changelog</span>
 				</Link>
 				<Link href={"/"}>
-					<a>
-						<i className="icon-inbox"></i>
-						<span>Inbox</span>
-					</a>
+					<i className="icon-inbox"></i>
+					<span>Inbox</span>
 				</Link>
 				<Link href={"/"}>
-					<a>
-						<i className="icon-cog-alt"></i>
-						<span>Settings</span>
-					</a>
+					<i className="icon-cog-alt"></i>
+					<span>Settings</span>
 				</Link>
 			</div>
 		</nav>

@@ -13,7 +13,6 @@ const AuthSignIn: NextPage<
 			<div className={styles.flexDiv}>
 				{/* TODO: Make back button */}
 				<Link href="/">
-					<a></a>
 				</Link>
 				<span className={styles.spanImage}>
 					<GenLogo

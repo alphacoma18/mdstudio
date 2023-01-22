@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { memo, useContext } from "react";
 import ContextEditor from "@/context/editor";
 import GenButton from "@/gen/button";
 import GenLogo from "@/gen/logo";
 import GenReload from "@/gen/reload";
+import Link from "next/link";
+import { memo, useContext } from "react";
 import styles from "./index.module.css";
 const EditorNav: React.FC = () => {
 	const {
@@ -31,10 +31,8 @@ const EditorNav: React.FC = () => {
 			</div>
 			<div className={`${styles.flexButtons} hoverParent`}>
 				<Link href="/dashboard">
-					<a>
-						<i className={"icon-home"}></i>
-						<span>Home</span>
-					</a>
+					<i className={"icon-home"}></i>
+					<span>Home</span>
 				</Link>
 				<GenButton props={{ label: "Nav: settings" }}>
 					<i className={"icon-wrench"}></i>

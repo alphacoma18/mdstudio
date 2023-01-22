@@ -46,6 +46,7 @@
 }
 
 @media screen and (max-width: 768px) {
+
 	.section,
 	.sectionNone {
 		width: 100%;

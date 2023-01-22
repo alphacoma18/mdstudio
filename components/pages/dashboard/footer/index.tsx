@@ -8,14 +8,10 @@ const DashboardFooter: React.FC = () => {
 			<div></div>
 			<div>
 				<Link href="">
-					<a>
-						<i className="icon-github"></i>
-					</a>
+					<i className="icon-github"></i>
 				</Link>
 				<Link href="">
-					<a>
-						<i className="icon-linkedin"></i>
-					</a>
+					<i className="icon-linkedin"></i>
 				</Link>
 			</div>
 			<hr className="hr-white" />

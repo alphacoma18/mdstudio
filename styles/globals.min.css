@@ -1,16 +1,21 @@
 :root {
-	--bg-white: #fff;
-	--bg-black: #1a2632;
-	--bg-blue: #007acc;
-	--color-white: #fff;
-	--color-black: #000;
-	--color-blue: #007acc;
-	--color-red: #dc3545;
+	--blue: #007acc;
+	--white: #fff;
+	--black: #000;
+	--red: #dc3545;
+
+	--bg-white: var(--white);
+	--bg-black: var(--black);
+	--bg-blue: var(--blue);
+	--color-white: var(--white);
+	--color-black: var(--black);
+	--color-blue: var(--blue);
+	--color-red: var(--red);
 
 	--bg-blue-op: #007accaa;
 
-	--border-blue: 3px solid var(--bg-blue);
-	--border-white: 3px solid var(--bg-white);
+	--border-blue: 3px solid var(--blue);
+	--border-white: 3px solid var(--white);
 
 	--input-black: #233343;
 	--br-sm: 0.2rem;
@@ -74,11 +79,7 @@
 	--transition-opacity: opacity 100ms ease-in-out;
 }
 
-::-moz-selection {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
-
+::-moz-selection,
 ::selection,
 ::target-text {
 	background: var(--bg-blue);
@@ -86,7 +87,7 @@
 }
 
 ::-webkit-scrollbar-track {
-	background: 0 0;
+	background: 0;
 }
 
 ::-webkit-scrollbar-thumb {
