@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { memo, useContext } from "react";
-import ContextEditor from "../../../../utils/context/editor/index";
-import GenButton from "../../../gen/button";
-import GenLogo from "../../../gen/logo";
-import GenReload from "../../../gen/reload";
+import ContextEditor from "@/context/editor";
+import GenButton from "@/gen/button";
+import GenLogo from "@/gen/logo";
+import GenReload from "@/gen/reload";
 import styles from "./index.module.css";
 const EditorNav: React.FC = () => {
 	const {

@@ -1,9 +1,9 @@
+import ContextGlobal from "@/context/_global";
+import ContextEditor from "@/context/editor";
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import dynamic from "next/dynamic";
 import { memo, useContext, useMemo } from "react";
-import ContextGlobal from "../../../../../utils/context/_global";
-import ContextEditor from "../../../../../utils/context/editor/index";
 import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(
 	async () => await import("react-simplemde-editor"),

@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react";
-import GenButton from "../../../gen/button";
-import GenFragment from "../../../gen/fragment";
+import GenButton from "@/gen/button";
+import GenFragment from "@/gen/fragment";
 import styles from "./index.module.css";
 interface Props {
 	providers: { [key: string]: any };
@@ -47,7 +47,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 					) : (
 						<GenButton
 							props={{
-								label: `Signin: ${provider.name as string}`,
+								label: `Signin: ${provider.name}`,
 								className: `${styles.button} ${styles.itemMethod} ${
 									styles.name
 								} icon-${String(provider.name).toLowerCase()}`,

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import GenImage, { IImage } from "..";
-import ContextGlobal from "../../../../utils/context/_global";
+import ContextGlobal from "@/context/_global";
 import styles from "./index.module.css";
 interface Props {
 	props: {

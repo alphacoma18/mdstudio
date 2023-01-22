@@ -1,6 +1,6 @@
+import handleAxios from "@/axios";
+import GenForm from "@/gen/form";
 import { useRef, useState } from "react";
-import handleAxios from "../../../../../utils/axios";
-import GenForm from "../../../../gen/form";
 interface Props {
 	props: {
 		isActive: boolean;

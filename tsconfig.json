@@ -15,7 +15,19 @@
 		"jsx": "preserve",
 		"incremental": true,
 		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true
+		"emitDecoratorMetadata": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/gen/*": ["components/gen/*"],
+			"@/context/*": ["utils/context/*"],
+			"@/dynamic/*": ["components/pages/*/index.tsx"],
+			"@/serverSession": ["exports/getServerSession.ts"],
+			"@/public/*": ["public/*"],
+			"@/styles/*": ["styles/*"],
+			"@/types/*": ["types/*"],
+			"@/axios": ["utils/axios/index.ts"],
+			"@/db/*": ["utils/db/*"],
+		}
 	},
 	"include": [
 		".eslintrc.json",

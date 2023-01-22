@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useContext } from "react";
-import ContextGlobal from "../../../utils/context/_global";
+import ContextGlobal from "@/context/_global";
 import { IImage } from "../image";
 interface Props {
 	light: IImage["props"];

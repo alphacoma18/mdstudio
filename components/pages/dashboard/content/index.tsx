@@ -1,8 +1,8 @@
 import { memo, useContext, useState } from "react";
-import ContextDashboard from "../../../../utils/context/dashboard/index";
-import GenButton from "../../../gen/button";
+import ContextDashboard from "@/context/dashboard";
+import GenButton from "@/gen/button";
 import styles from "./index.module.css";
-import DashboardContentNewProject from "./newProject";
+import { DashboardContentNewProject } from "..";
 const DashboardContent: React.FC = () => {
 	const { projects } = useContext(ContextDashboard);
 	const [isActive, setIsActive] = useState<boolean>(false);

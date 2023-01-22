@@ -1,6 +1,6 @@
+import GenButton from "@/gen/button";
+import { ITreeFolder } from "@/db/projects/tree";
 import { memo } from "react";
-import { ITreeFolder } from "../../../../../../utils/db/projects/tree";
-import GenButton from "../../../../../gen/button";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
 interface Props {

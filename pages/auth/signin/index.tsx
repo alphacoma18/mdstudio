@@ -1,17 +1,10 @@
+import AuthForm from "@/dynamic/auth/form";
+import GenLogo from "@/gen/logo";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import { CtxOrReq } from "next-auth/client/_utils";
 import { getCsrfToken, getProviders } from "next-auth/react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import GenLogo from "../../../components/gen/logo";
-import GenSuspense from "../../../components/gen/suspense";
 import styles from "./index.module.css";
-const AuthForm = dynamic(
-	async () => await import("../../../components/pages/auth/form"),
-	{
-		suspense: true,
-	}
-);
 const AuthSignIn: NextPage<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ providers, csrfToken }) => {
@@ -39,9 +32,7 @@ const AuthSignIn: NextPage<
 					/>
 				</span>
 				<hr />
-				<GenSuspense fallback="Loading Form...">
-					<AuthForm providers={providers ?? {}} csrfToken={csrfToken} />
-				</GenSuspense>
+				<AuthForm providers={providers ?? {}} csrfToken={csrfToken} />
 				<hr />
 				<details className={styles.why}>
 					<summary>But Why Sign In?</summary>

@@ -1,10 +1,7 @@
+import { mongooseId } from "@/db/projects/flat";
 import { NextApiRequest, NextApiResponse } from "next";
-import {
-	authOptions,
-	unstable_getServerSession,
-} from "../../../exports/getServerSession";
-import db_projects, { mongooseId } from "../../../utils/db/projects/flat";
-import GenError from "../../../utils/gen/error";
+import GenError from "utils/gen/error";
+import { authOptions, unstable_getServerSession } from "@/serverSession";
 interface IBody {
 	projectName: string;
 	projectDescription: string;

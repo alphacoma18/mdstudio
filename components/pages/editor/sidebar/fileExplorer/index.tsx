@@ -1,8 +1,8 @@
+import handleAxios from "@/axios";
+import ContextEditor from "@/context/editor";
+import GenButton from "@/gen/button";
+import GenForm from "@/gen/form";
 import { memo, useContext, useRef, useState } from "react";
-import handleAxios from "../../../../../utils/axios";
-import ContextEditor from "../../../../../utils/context/editor";
-import GenButton from "../../../../gen/button";
-import GenForm from "../../../../gen/form";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
 const EditorFileExplorer: React.FC = () => {

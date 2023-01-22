@@ -1,36 +1,16 @@
-import { GetServerSideProps } from "next";
-import dynamic from "next/dynamic";
-import { ReactElement, useContext, useEffect } from "react";
-import GenSuspense from "../../components/gen/suspense";
-import {
-	authOptions,
-	unstable_getServerSession,
-} from "../../exports/getServerSession";
 import ContextDashboard, {
 	ContextProviderDashboard,
-} from "../../utils/context/dashboard/index";
-import db_projects from "../../utils/db/projects/flat";
-import { ITreeProjects } from "../../utils/db/projects/tree";
+} from "@/context/dashboard";
+import {
+	DashboardContent,
+	DashboardFooter,
+	DashboardNav,
+} from "@/dynamic/dashboard";
+import { GetServerSideProps } from "next";
+import { ReactElement, useContext, useEffect } from "react";
+import { authOptions, unstable_getServerSession } from "@/serverSession";
+import { ITreeProjects } from "@/db/projects/tree";
 import { NextPageWithLayout } from "../_app";
-
-const DashboardNav = dynamic(
-	async () => await import("../../components/pages/dashboard/nav"),
-	{
-		suspense: true,
-	}
-);
-const DashboardContent = dynamic(
-	async () => await import("../../components/pages/dashboard/content"),
-	{
-		suspense: true,
-	}
-);
-const DashboardFooter = dynamic(
-	async () => await import("../../components/pages/dashboard/footer"),
-	{
-		suspense: true,
-	}
-);
 
 const IndexPage: NextPageWithLayout<{
 	projects: ITreeProjects["projects"];
@@ -41,15 +21,9 @@ const IndexPage: NextPageWithLayout<{
 	}, [projects, handleProjects]);
 	return (
 		<main>
-			<GenSuspense fallback="Loading Nav...">
-				<DashboardNav />
-			</GenSuspense>
-			<GenSuspense fallback="Loading Content...">
-				<DashboardContent />
-			</GenSuspense>
-			<GenSuspense fallback="Loading Footer...">
-				<DashboardFooter />
-			</GenSuspense>
+			<DashboardNav />
+			<DashboardContent />
+			<DashboardFooter />
 		</main>
 	);
 };

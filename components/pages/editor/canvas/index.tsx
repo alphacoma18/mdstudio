@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ContextEditor from "../../../../utils/context/editor/index";
+import ContextEditor from "@/context/editor";
 import EditorMain from "./editor";
 import styles from "./index.module.css";
 

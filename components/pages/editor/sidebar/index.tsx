@@ -1,15 +1,10 @@
+import ContextGlobal from "@/context/_global";
+import ContextEditor from "@/context/editor";
+import GenButton from "@/gen/button";
+import GenProfilePicture from "@/gen/image/profilePicture";
 import { memo, useContext } from "react";
-import ContextGlobal from "../../../../utils/context/_global";
-import ContextEditor from "../../../../utils/context/editor/index";
-import GenButton from "../../../gen/button";
-import GenProfilePicture from "../../../gen/image/profilePicture";
 import EditorFileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
-function handleAlert() {
-	alert(
-		"Website publishing is for signed-in users only.\nYou can still publish your Markdown page anonymously."
-	);
-}
 const EditorSidebar: React.FC = () => {
 	const { isLightTheme, setIsLightTheme, session } = useContext(ContextGlobal);
 	const {
@@ -28,10 +23,7 @@ const EditorSidebar: React.FC = () => {
 					<GenButton
 						props={{
 							label: "Sidebar: toggle file explorer",
-							onClick:
-								// session?.user === undefined
-								// 	? handleAlert
-								() => updateBarState({ type: "explorerOpen" }),
+							onClick: () => updateBarState({ type: "explorerOpen" }),
 						}}
 					>
 						<i className={"icon-docs"}></i>

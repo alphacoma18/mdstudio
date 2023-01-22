@@ -1,7 +1,7 @@
 interface Params {
 	url: string;
 }
-export function html(params: Params) {
+export default function html(params: Params) {
 	const { url } = params;
 	return `
     <body
@@ -91,8 +91,4 @@ export function html(params: Params) {
 		</div>
 	</body>
 `;
-}
-
-function text(params: Params) {
-	return `Sign in to AnyMD: Markdown Publisher\n${params.url}\n\n`;
 }

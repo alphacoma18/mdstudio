@@ -1,9 +1,6 @@
+import { authOptions, unstable_getServerSession } from "@/serverSession";
 import { NextApiRequest, NextApiResponse } from "next";
-import {
-	authOptions,
-	unstable_getServerSession,
-} from "../../../exports/getServerSession";
-import GenError from "../../../utils/gen/error";
+import GenError from "utils/gen/error";
 interface IBody {
 	id: string;
 	path: string;

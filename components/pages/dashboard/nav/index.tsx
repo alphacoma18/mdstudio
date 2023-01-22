@@ -1,8 +1,8 @@
+import ContextGlobal from "@/context/_global";
+import GenProfilePicture from "@/gen/image/profilePicture";
+import GenLogo from "@/gen/logo";
 import Link from "next/link";
 import { useContext } from "react";
-import ContextGlobal from "../../../../utils/context/_global";
-import GenProfilePicture from "../../../gen/image/profilePicture";
-import GenLogo from "../../../gen/logo";
 import styles from "./index.module.css";
 const DashboardNav: React.FC = () => {
 	const { session } = useContext(ContextGlobal);

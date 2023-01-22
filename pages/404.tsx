@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import GenMeta from "../components/gen/meta";
+import GenMeta from "@/gen/meta";
 import styles from "./_error.module.css";
 const Error404: NextPage = () => {
 	return (

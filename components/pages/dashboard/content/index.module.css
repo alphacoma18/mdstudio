@@ -2,7 +2,6 @@
 	align-items: center;
 	background: var(--canvas-bg);
 	box-shadow: var(--bs-full);
-	/* display: grid; */
 	display: flex;
 	gap: var(--gap-lg);
 	justify-content: center;

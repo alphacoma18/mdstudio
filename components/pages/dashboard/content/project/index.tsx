@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ITreeProject } from "../../../../../utils/db/projects/tree";
+import { ITreeProject } from "@/db/projects/tree";
 interface IProject {
 	project: ITreeProject;
 }
