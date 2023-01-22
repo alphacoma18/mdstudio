@@ -10,6 +10,11 @@
     z-index: 10;
 }
 
+.back {
+    float: left;
+    font-size: 1.6rem;
+}
+
 .form {
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
@@ -25,8 +30,10 @@
 
 .title {
     font-size: 1.4rem;
-    font-weight: bold;
+    font-weight: var(--fw-bold);
+    margin: auto;
     text-align: center;
+    width: 100%;
 }
 
 .limit {

@@ -55,7 +55,7 @@ export default function html(params: Params) {
 					display: block;
 					text-decoration: none;
 					border-radius: 0.6rem;
-					font-weight: bold;
+					font-weight: var(--fw-bold);
 					border: var(--border-blue);
 					box-sizing: content-box;
 					padding: 0.2rem;

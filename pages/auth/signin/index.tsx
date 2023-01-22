@@ -12,8 +12,7 @@ const AuthSignIn: NextPage<
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
 				{/* TODO: Make back button */}
-				<Link href="/">
-				</Link>
+				<Link href="/"></Link>
 				<span className={styles.spanImage}>
 					<GenLogo
 						light={{

@@ -1,5 +1,5 @@
-import { NextPage } from "next";
 import GenMeta from "@/gen/meta";
+import { NextPage } from "next";
 import styles from "./_error.module.css";
 const Fallback: NextPage = () => {
 	return (
@@ -15,8 +15,8 @@ const Fallback: NextPage = () => {
 				<p>Please check your internet connection</p>
 				<p>AnyMD will automatically reload the page when you go online!</p>
 				<p className={styles.credit}>
-					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights
-					reserved
+					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma.
+					All&nbsp;rights&nbsp;reserved
 				</p>
 			</section>
 		</>

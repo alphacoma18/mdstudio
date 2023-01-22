@@ -4,10 +4,11 @@ import { useRef, useState } from "react";
 interface Props {
 	props: {
 		isActive: boolean;
+		setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 	};
 }
 const DashboardContentNewProject: React.FC<Props> = ({
-	props: { isActive },
+	props: { isActive, setIsActive },
 }) => {
 	const [projectName, setProjectName] = useState<string>("");
 	const [projectDescription, setProjectDescription] = useState<string>("");
@@ -32,6 +33,7 @@ const DashboardContentNewProject: React.FC<Props> = ({
 				isActive,
 				title: "Create New Project",
 				submitFunc: handleSubmit,
+				backFunc: () => setIsActive(false),
 			}}
 		>
 			<p>Enter Project Name:</p>

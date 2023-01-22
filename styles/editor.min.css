@@ -693,7 +693,7 @@ span.CodeMirror-selectedtext {
 
 .editor-preview-side li::marker {
 	color: var(--color-blue);
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 }
 
 .editor-preview-active-side {

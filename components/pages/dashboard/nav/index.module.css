@@ -5,8 +5,7 @@
 	display: flex;
 	gap: var(--gap-lg);
 	grid-area: 1 / 1 / 1 / 5;
-	justify-content: space-between;
-	padding: 0 var(--pd-lg);
+	justify-content: space-around;
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -21,10 +20,11 @@
 
 .flexAnchor {
 	display: flex;
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	gap: var(--gap-lg);
 	overflow-x: auto;
 }
+
 .flexAnchor a {
 	align-items: center;
 	display: flex;
@@ -40,7 +40,31 @@
 		display: none;
 	}
 
-	.flexAnchor i {
-		font-size: 1.2rem;
+	.flexAnchor a {
+		font-size: 1.8rem;
+		padding: .2rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.logo {
+		display: none;
+	}
+
+	.nav {
+		bottom: 0;
+		box-shadow: var(--bs-top);
+		position: fixed;
+		top: revert;
+		width: 100%;
+	}
+
+	.flexAnchor {
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.flexAnchor a {
+		width: 100%;
 	}
 }

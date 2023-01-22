@@ -29,7 +29,7 @@
 
 .name {
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 }
 
 .why {
@@ -37,7 +37,7 @@
 }
 
 .or {
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	text-align: center;
 	width: 100%;
 }
@@ -62,7 +62,7 @@
 .signout {
 	border: var(--border-blue);
 	box-shadow: var(--bs-full);
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	margin: var(--mg-sm);
 	padding: var(--pd-lg);
 }

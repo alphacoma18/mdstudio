@@ -25,7 +25,8 @@ const Error500: NextPage = () => {
 				<Link href="/editor">Editor</Link>
 			</div>
 			<p className={styles.credit}>
-				Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights reserved
+				Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma.
+				All&nbsp;rights&nbsp;reserved
 			</p>
 		</section>
 	);

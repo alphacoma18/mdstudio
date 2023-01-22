@@ -11,7 +11,7 @@
 }
 
 .folder {
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 }
 
 .indent > .folder {

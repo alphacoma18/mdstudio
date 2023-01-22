@@ -23,8 +23,3 @@ export const DashboardNav = dynamic(() => import("./nav"), {
 	loading: () => <p>Loading...</p>,
 	ssr: false,
 });
-
-export const DashboardFooter = dynamic(() => import("./footer"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});

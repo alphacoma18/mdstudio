@@ -49,7 +49,7 @@
 
 .name {
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 }
 
 .flexMethods button {
@@ -101,7 +101,7 @@
 }
 
 .or {
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	text-align: center;
 	width: 100%;
 }

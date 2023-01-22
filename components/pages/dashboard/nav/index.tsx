@@ -48,36 +48,42 @@ const DashboardNav: React.FC = () => {
 				></GenProfilePicture>
 			</div>
 			<div className={`${styles.flexAnchor} hoverParent`}>
-				{session?.user === undefined ? (
-					<Link href={"/auth/signin"}>
-						<i className="icon-login"></i>
-						<span>Login</span>
-					</Link>
-				) : (
-					<Link href={"/auth/signout"}>
-						<i className="icon-logout"></i>
-						<span>Logout</span>
-					</Link>
-				)}
+				<Link href={"/"}>
+					<i className="icon-home"></i>
+					<span>Home</span>
+				</Link>
 				<Link href={"/"}>
 					<i className="icon-code"></i>
 					<span>API</span>
 				</Link>
 				<Link href={"/"}>
-					<i className="icon-pencil"></i>
-					<span>Feedback</span>
-				</Link>
-				<Link href={"/"}>
-					<i className="icon-doc-text-1"></i>
-					<span>Changelog</span>
+					<GenLogo
+						light={{
+							src: "/logo/anymd_mobile_logo_light_2.png",
+							height: 50,
+							width: 50,
+							alt: "AnyMD Light Theme Desktop Logo",
+						}}
+						dark={{
+							src: "/logo/anymd_mobile_logo_dark.png",
+							height: 50,
+							width: 50,
+							alt: "AnyMD Dark Theme Desktop Logo",
+						}}
+					/>
 				</Link>
 				<Link href={"/"}>
 					<i className="icon-inbox"></i>
 					<span>Inbox</span>
 				</Link>
-				<Link href={"/"}>
-					<i className="icon-cog-alt"></i>
-					<span>Settings</span>
+				<Link href={"/profile"}>
+					<GenProfilePicture
+						props={{
+							isCircle: true,
+							height: 40,
+							width: 40,
+						}}
+					></GenProfilePicture>
 				</Link>
 			</div>
 		</nav>

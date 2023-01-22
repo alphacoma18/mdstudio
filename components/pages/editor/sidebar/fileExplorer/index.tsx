@@ -10,6 +10,7 @@ const EditorFileExplorer: React.FC = () => {
 	const [isCreating, setIsCreating] = useState({
 		isFile: false,
 		creating: false,
+		value: "",
 	});
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -66,8 +67,7 @@ const EditorFileExplorer: React.FC = () => {
 							props={{
 								label: "Explorer: new file",
 								onClick: () => {
-									// setIsCreating(true);
-									setIsCreating({ isFile: true, creating: true });
+									setIsCreating({ isFile: true, creating: true, value: "" });
 									inputRef.current?.focus();
 								},
 							}}
@@ -78,7 +78,7 @@ const EditorFileExplorer: React.FC = () => {
 							props={{
 								label: "Explorer: new folder",
 								onClick: () => {
-									setIsCreating({ isFile: false, creating: true });
+									setIsCreating({ isFile: false, creating: true, value: "" });
 									inputRef.current?.focus();
 								},
 							}}
@@ -105,6 +105,9 @@ const EditorFileExplorer: React.FC = () => {
 					isActive: isCreating.creating,
 					title: `Create new ${isCreating.isFile ? "file" : "folder"}`,
 					submitFunc: () => {},
+					backFunc: () => {
+						setIsCreating((prev) => ({ ...prev, creating: false }));
+					},
 				}}
 			>
 				<p className="inputNote">Note: Create at &quot;/&quot;</p>
@@ -116,34 +119,25 @@ const EditorFileExplorer: React.FC = () => {
 					minLength={1}
 					maxLength={20}
 					ref={inputRef}
+					onChange={(e) => {
+						setIsCreating((prev) => ({ ...prev, value: e.target.value }));
+					}}
+					value={isCreating.value}
 					onKeyDown={(e) => {
-						if (e.key === "Escape") {
-							setIsCreating({
-								isFile: isCreating.isFile,
+						if (e.key === "Escape")
+							setIsCreating((prev) => ({
+								...prev,
+								value: "",
 								creating: false,
-							});
-						}
+							}));
 					}}
 				/>
 				<div className={styles.buttonParent}>
 					<GenButton
 						props={{
-							label: "Cancel creating",
-							className: "inputButton",
-							onClick() {
-								setIsCreating({
-									isFile: isCreating.isFile,
-									creating: false,
-								});
-							},
-						}}
-					>
-						Cancel
-					</GenButton>
-					<GenButton
-						props={{
 							label: "Clear input",
 							className: "inputButton",
+							onClick: () => setIsCreating((prev) => ({ ...prev, value: "" })),
 						}}
 					>
 						Clear

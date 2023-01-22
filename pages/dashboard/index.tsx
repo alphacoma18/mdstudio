@@ -1,15 +1,11 @@
 import ContextDashboard, {
 	ContextProviderDashboard,
 } from "@/context/dashboard";
-import {
-	DashboardContent,
-	DashboardFooter,
-	DashboardNav,
-} from "@/dynamic/dashboard";
+import { ITreeProjects } from "@/db/projects/tree";
+import { DashboardContent, DashboardNav } from "@/dynamic/dashboard";
+import { authOptions, unstable_getServerSession } from "@/serverSession";
 import { GetServerSideProps } from "next";
 import { ReactElement, useContext, useEffect } from "react";
-import { authOptions, unstable_getServerSession } from "@/serverSession";
-import { ITreeProjects } from "@/db/projects/tree";
 import { NextPageWithLayout } from "../_app";
 
 const IndexPage: NextPageWithLayout<{
@@ -23,7 +19,6 @@ const IndexPage: NextPageWithLayout<{
 		<main>
 			<DashboardNav />
 			<DashboardContent />
-			<DashboardFooter />
 		</main>
 	);
 };

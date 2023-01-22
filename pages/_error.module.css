@@ -20,13 +20,13 @@
 
 .credit {
 	bottom: 0;
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	position: fixed;
 }
 
 .section a {
 	color: var(--color-blue);
 	display: inline;
-	font-weight: bold;
+	font-weight: var(--fw-bold);
 	padding: var(--pd-md);
 }

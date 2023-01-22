@@ -26,17 +26,18 @@
 	--mg-md: 1rem;
 	--mg-lg: 1.5rem;
 
-	--bs-shadow: rgba(0, 0, 0, 0.4);
+	--bs-shadow: #007acc66;
 	--bs-down: 0px 4px 8px 0px var(--bs-shadow);
 	--bs-top: 0px -4px 8px 0px var(--bs-shadow);
 	--bs-left: -4px 0px 8px 0px var(--bs-shadow);
 	--bs-right: 4px 0px 8px 0px var(--bs-shadow);
-	--bs-full: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+	--bs-full: 0px 0px 8px 0px var(--bs-shadow);
 
 	--pd-sm: 0.2rem;
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
 
+	--fw-bold: bold;
 	--ff-sans: -apple-system,
 		BlinkMacSystemFont,
 		Segoe UI,

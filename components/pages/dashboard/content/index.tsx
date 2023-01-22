@@ -1,8 +1,8 @@
-import { memo, useContext, useState } from "react";
 import ContextDashboard from "@/context/dashboard";
+import { memo, useContext, useState } from "react";
+import { DashboardContentNewProject } from "..";
 import GenButton from "@/gen/button";
 import styles from "./index.module.css";
-import { DashboardContentNewProject } from "..";
 const DashboardContent: React.FC = () => {
 	const { projects } = useContext(ContextDashboard);
 	const [isActive, setIsActive] = useState<boolean>(false);
@@ -18,6 +18,15 @@ const DashboardContent: React.FC = () => {
 						Click the button below to create a new project.
 					</p>
 					<hr />
+					<GenButton
+						props={{
+							label: "Create new project",
+							onClick: () => setIsActive(true),
+							className: styles.create,
+						}}
+					>
+						Create your first project
+					</GenButton>
 				</div>
 			)}
 			{/* {projects.map((project) => {
@@ -25,25 +34,10 @@ const DashboardContent: React.FC = () => {
 					<IndexContentProject key={project._id.toString()} project={project} />
 				);
 			})} */}
-			<div>
-				<GenButton
-					props={{
-						label: "Create New Project",
-						type: "button",
-						onClick: () => setIsActive((prev) => !prev),
-						className: styles.genNewProject,
-					}}
-				>
-					{isActive ? (
-						<i className="icon-cancel-circled"></i>
-					) : (
-						<i className="icon-plus-circled"></i>
-					)}
-				</GenButton>
-			</div>
 			<DashboardContentNewProject
 				props={{
 					isActive,
+					setIsActive,
 				}}
 			/>
 		</section>
