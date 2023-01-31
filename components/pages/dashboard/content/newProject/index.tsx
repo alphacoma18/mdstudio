@@ -25,6 +25,7 @@ const DashboardContentNewProject: React.FC<Props> = ({
 					projectDescription,
 				},
 			});
+			console.log(res);
 			if (res.status === 200) router.push(`/editor/${res.data.id}`);
 		} catch (error) {
 			console.error(error);

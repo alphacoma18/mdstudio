@@ -3,13 +3,14 @@ import GenButton from "@/gen/button";
 import { memo, useContext, useState } from "react";
 import { DashboardContentNewProject } from "..";
 import styles from "./index.module.css";
+import DashboardContentProject from "./project";
 const DashboardContent: React.FC = () => {
 	const { projects } = useContext(ContextDashboard);
 	const [isActive, setIsActive] = useState<boolean>(false);
 	const isEmpty = projects.length === 0;
 	return (
 		<section className={styles.section}>
-			{isEmpty && (
+			{isEmpty ? (
 				<div className={styles.empty}>
 					<h1 className={styles.emptyTitle}>
 						You don&apos;t have any projects yet.
@@ -28,12 +29,16 @@ const DashboardContent: React.FC = () => {
 						Create your first project
 					</GenButton>
 				</div>
+			) : (
+				<>
+					{projects.map((project) => (
+						<DashboardContentProject
+							key={project._id.toString()}
+							project={project}
+						/>
+					))}
+				</>
 			)}
-			{/* {projects.map((project) => {
-				return (
-					<IndexContentProject key={project._id.toString()} project={project} />
-				);
-			})} */}
 			<DashboardContentNewProject
 				props={{
 					isActive,

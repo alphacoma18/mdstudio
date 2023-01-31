@@ -1,24 +1,18 @@
 /** @type {import('next').NextConfig} */
-const runtimeCaching = require("next-pwa/cache");
+const runtimeCaching = require('next-pwa/cache');
 const nextDataIndex = runtimeCaching.findIndex(
-  (entry) => entry.options.cacheName === "next-data"
+  (entry) => entry.options.cacheName === 'next-data'
 );
 
 if (nextDataIndex !== -1) {
-  runtimeCaching[nextDataIndex].handler = "NetworkFirst";
+  runtimeCaching[nextDataIndex].handler = 'NetworkFirst';
 } else {
-  throw new Error("Failed to find next-data object in runtime caching");
+  throw new Error('Failed to find next-data object in runtime caching');
 }
 
 const withPWA = require('next-pwa')({
   dest: 'public',
   runtimeCaching,
-  buildExcludes: [/middleware-manifest.json$/],
-  disable: true,
-  // disable: process.env.NODE_ENV === 'development',
-  skipWaiting: true,
-  scope: '/',
-  sw: 'service-worker.js',
   // cacheOnFrontEndNav: true,
   fallbacks: {
     document: '/_offline',
@@ -26,7 +20,12 @@ const withPWA = require('next-pwa')({
     font: '/fonts/fallback.woff2',
     audio: '',
     video: ''
-  }
+  },
+  buildExcludes: [/middleware-manifest.json$/],
+  skipWaiting: true,
+  scope: '/',
+  sw: 'service-worker.js',
+  disable: process.env.NODE_ENV === 'development',
 })
 
 module.exports = withPWA({

@@ -11,14 +11,11 @@ export const ContextProviderDashboard: React.FC<Props> = ({ children }) => {
 	const [projects, setProjects] = useState<IContextDashboard["projects"]>(
 		[] as IContextDashboard["projects"]
 	);
-	function handleProjects(_projects: IContextDashboard["projects"]) {
-		setProjects(_projects);
-	}
 	return (
 		<ContextDashboard.Provider
 			value={{
 				projects,
-				handleProjects,
+				setProjects,
 			}}
 		>
 			{children}
