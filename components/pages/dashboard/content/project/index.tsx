@@ -1,13 +1,18 @@
 import { ITreeProject } from "@/db/projects/tree";
-import Link from "next/link";
+import GenLink from "@/gen/link";
 interface IProject {
 	project: ITreeProject;
 }
-const DashboardContentProject: React.FC<IProject> = (props) => {
+const DashboardContentProject: React.FC<IProject> = ({ project }) => {
 	return (
-		<Link href={`/editor/${props.project._id}`}>
-			{props.project.projectName}
-		</Link>
+		<GenLink
+			props={{
+				href: `/editor/${project._id}`,
+				label: `Navigate to project ${project.projectName}`,
+			}}
+		>
+			{project.projectName}
+		</GenLink>
 	);
 };
 export default DashboardContentProject;

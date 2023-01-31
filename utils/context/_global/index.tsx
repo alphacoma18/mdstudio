@@ -19,6 +19,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		const value =
 			typeof window !== "undefined" &&
 			window.localStorage.getItem("theme-preference");
+		console.log(value);
 		return value === "light";
 	});
 

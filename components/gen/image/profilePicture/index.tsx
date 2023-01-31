@@ -7,6 +7,7 @@ interface Props {
 		isCircle?: boolean;
 		height: IImage["props"]["height"];
 		width: IImage["props"]["width"];
+		className?: string;
 	};
 }
 const GenProfilePicture: React.FC<Props> = ({ props }) => {
@@ -19,7 +20,7 @@ const GenProfilePicture: React.FC<Props> = ({ props }) => {
 				height: props.height,
 				width: props.width,
 				alt: `User: ${session.user.name}`,
-				className: `${styles.profilePicture} ${
+				className: `${props.className} ${styles.profilePicture} ${
 					props.isCircle ? styles.circled : ""
 				}`,
 			}}

@@ -3,7 +3,6 @@ import GenLogo from "@/gen/logo";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import { CtxOrReq } from "next-auth/client/_utils";
 import { getCsrfToken, getProviders } from "next-auth/react";
-import Link from "next/link";
 import styles from "./index.module.css";
 const AuthSignIn: NextPage<
 	InferGetServerSidePropsType<typeof getServerSideProps>
@@ -11,8 +10,6 @@ const AuthSignIn: NextPage<
 	return (
 		<section className={styles.bg}>
 			<div className={styles.flexDiv}>
-				{/* TODO: Make back button */}
-				<Link href="/"></Link>
 				<span className={styles.spanImage}>
 					<GenLogo
 						light={{

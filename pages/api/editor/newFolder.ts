@@ -1,37 +1,12 @@
-import { authOptions, unstable_getServerSession } from "@/serverSession";
-import { NextApiRequest, NextApiResponse } from "next";
+import serverWrapper from "components/server/wrapper";
 import GenError from "utils/gen/error";
 interface IBody {
 	id: string;
 	path: string;
 	folderName: string;
 }
-export default async function (req: NextApiRequest, res: NextApiResponse) {
-	try {
-		const { id, path, folderName }: IBody = req.body;
-		const session = await unstable_getServerSession(req, res, authOptions);
-		if (!session?.user.userId) throw new GenError("Unauthorized", 401);
-		const pathArr = path.split("/");
-		console.log(id, pathArr, folderName);
-
-		// // console.log(id, pathArr, folderName);
-		// for (let i = 0; i < 10; i++) {
-		// 	console.log(id);
-		// }
-		// const data = await db_projects.findOne(
-		// 	{
-		// 		userId: session?.user.userId,
-		// 		projects: { $elemMatch: { _id: projectId } },
-		// 	},
-		// 	{
-		// 		"projects.$": 1,
-		// 	}
-		// );
-
-		// console.log(data);
-		res.status(200).json({ message: "success" });
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error: "Internal server error" });
-	}
-}
+export default serverWrapper(async (req, res, session) => {
+	const { id, path, folderName }: IBody = req.body;
+	if (!session?.user.userId) throw new GenError("Unauthorized", 401);
+	res.status(200).json({ message: "success" });
+});

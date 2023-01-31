@@ -91,9 +91,11 @@ export const authOptions: NextAuthOptions = {
 	events: {
 		async signIn({ user, account, profile, isNewUser }) {
 			try {
+				console.log(isNewUser, user);
 				if (!isNewUser) return;
 				const { id } = user;
-				await db_projects.create({ userId: mongooseId(id) });
+				await db_projects.create({ userId: mongooseId(id), projects: [] });
+				console.log("created");
 			} catch (error) {
 				console.error(error);
 			}

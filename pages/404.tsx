@@ -1,6 +1,6 @@
 import GenMeta from "@/gen/meta";
 import { NextPage } from "next";
-import Link from "next/link";
+import GenLink from "@/gen/link";
 import styles from "./_error.module.css";
 const Error404: NextPage = () => {
 	return (
@@ -17,9 +17,30 @@ const Error404: NextPage = () => {
 				<hr />
 			</div>
 			<div>
-				<Link href="/">Home</Link>
-				<Link href="/dashboard">Dashboard</Link>
-				<Link href="/editor">Editor</Link>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to home page",
+					}}
+				>
+					Home
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/dashboard",
+						label: "Navigate to dashboard",
+					}}
+				>
+					Dashboard
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/editor",
+						label: "Navigate to editor",
+					}}
+				>
+					Editor
+				</GenLink>
 			</div>
 			<p className={styles.credit}>
 				Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma.

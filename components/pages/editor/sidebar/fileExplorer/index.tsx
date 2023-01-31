@@ -102,6 +102,7 @@ const EditorFileExplorer: React.FC = () => {
 			</section>
 			<GenForm
 				props={{
+					id: "createFile",
 					isActive: isCreating.creating,
 					title: `Create new ${isCreating.isFile ? "file" : "folder"}`,
 					submitFunc: () => {},

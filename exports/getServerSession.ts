@@ -1,3 +1,3 @@
-import { unstable_getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "../pages/api/auth/[...nextauth]";
-export { unstable_getServerSession, authOptions };
+export { getServerSession, authOptions };

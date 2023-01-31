@@ -1,6 +1,6 @@
-import { signIn } from "next-auth/react";
 import GenButton from "@/gen/button";
 import GenFragment from "@/gen/fragment";
+import { signIn } from "next-auth/react";
 import styles from "./index.module.css";
 interface Props {
 	providers: { [key: string]: any };

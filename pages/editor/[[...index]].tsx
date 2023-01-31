@@ -7,7 +7,7 @@ import {
 	EditorSidebar,
 	EditorStatusBar,
 } from "@/dynamic/editor";
-import { authOptions, unstable_getServerSession } from "@/serverSession";
+import { authOptions, getServerSession } from "@/serverSession";
 import { GetServerSideProps } from "next";
 import { ReactElement, useContext, useEffect } from "react";
 import { NextPageWithLayout } from "../_app";
@@ -35,11 +35,7 @@ EditorPage.getLayout = function getLayout(page: ReactElement) {
 export default EditorPage; // <--- memo() removed
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	const session = await unstable_getServerSession(
-		context.req,
-		context.res,
-		authOptions
-	);
+	const session = await getServerSession(context.req, context.res, authOptions);
 	const projectId = context.params?.index?.[0] as string;
 	console.log(projectId);
 

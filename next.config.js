@@ -1,9 +1,22 @@
 /** @type {import('next').NextConfig} */
-const { MongoClient } = require('mongodb');
+const runtimeCaching = require("next-pwa/cache");
+const nextDataIndex = runtimeCaching.findIndex(
+  (entry) => entry.options.cacheName === "next-data"
+);
+
+if (nextDataIndex !== -1) {
+  runtimeCaching[nextDataIndex].handler = "NetworkFirst";
+} else {
+  throw new Error("Failed to find next-data object in runtime caching");
+}
+
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
-  register: true,
+  runtimeCaching,
+  buildExcludes: [/middleware-manifest.json$/],
+  disable: true,
+  // disable: process.env.NODE_ENV === 'development',
+  skipWaiting: true,
   scope: '/',
   sw: 'service-worker.js',
   // cacheOnFrontEndNav: true,
@@ -25,29 +38,8 @@ module.exports = withPWA({
       'avatars.githubusercontent.com',
       'platform-lookaside.fbsbx.com',
       'media-exp1.licdn.com',
-      'pbs.twimg.com'
+      'pbs.twimg.com',
+      'media.licdn.com',
     ]
   }
 })
-
-async function run() {
-  try {
-    const client = new MongoClient(process.env.MONGO_URI, {
-		minPoolSize: 20,
-		maxPoolSize: 400,
-		appName: "AnyMD",
-	});
-  await client.connect();
-		// if (process.env.NODE_ENV !== "production") return;
-		// await connect(process.env.MONGO_URI ?? "", {
-		// 	useNewUrlParser: true,
-		// 	useUnifiedTopology: true,
-		// 	minPoolSize: 20,
-		// 	maxPoolSize: 400,
-		// });
-		console.log("Connected to MongoDB");
-	} catch (error) {
-		console.error(error);
-	}
-}
-void run();

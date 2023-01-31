@@ -1,7 +1,7 @@
 import ContextDashboard from "@/context/dashboard";
+import GenButton from "@/gen/button";
 import { memo, useContext, useState } from "react";
 import { DashboardContentNewProject } from "..";
-import GenButton from "@/gen/button";
 import styles from "./index.module.css";
 const DashboardContent: React.FC = () => {
 	const { projects } = useContext(ContextDashboard);

@@ -60,6 +60,7 @@
 	}
 
 	.flexAnchor {
+		gap: revert;
 		justify-content: space-between;
 		width: 100%;
 	}

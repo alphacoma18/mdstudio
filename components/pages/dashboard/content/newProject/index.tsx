@@ -1,5 +1,6 @@
 import handleAxios from "@/axios";
 import GenForm from "@/gen/form";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 interface Props {
 	props: {
@@ -10,6 +11,7 @@ interface Props {
 const DashboardContentNewProject: React.FC<Props> = ({
 	props: { isActive, setIsActive },
 }) => {
+	const router = useRouter();
 	const [projectName, setProjectName] = useState<string>("");
 	const [projectDescription, setProjectDescription] = useState<string>("");
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -23,6 +25,7 @@ const DashboardContentNewProject: React.FC<Props> = ({
 					projectDescription,
 				},
 			});
+			if (res.status === 200) router.push(`/editor/${res.data.id}`);
 		} catch (error) {
 			console.error(error);
 		}
@@ -34,31 +37,40 @@ const DashboardContentNewProject: React.FC<Props> = ({
 				title: "Create New Project",
 				submitFunc: handleSubmit,
 				backFunc: () => setIsActive(false),
+				id: "newProjectForm",
 			}}
 		>
-			<p>Enter Project Name:</p>
+			<label htmlFor="newProjectName" form="newProjectForm">
+				Enter Project Name:
+			</label>
 			<div>
 				<input
+					id="newProjectName"
 					type="text"
 					placeholder=">> Project name"
 					minLength={1}
 					maxLength={20}
 					required
-					pattern="^[A-Za-z0-9]{1,20}+$"
+					autoComplete="off"
+					autoCapitalize="off"
+					autoCorrect="off"
 					className="inputThin"
 					value={projectName}
 					onChange={(e) => setProjectName(e.currentTarget.value)}
 					ref={inputRef}
 				/>
 			</div>
-			<p>
+			<label htmlFor="newProjectDescription">
 				Enter Project Description <span className="note">(optional)</span>
-			</p>
+			</label>
 			<input
+				id="newProjectDescription"
 				type="text"
 				placeholder=">> Project description"
 				maxLength={100}
-				pattern="^[A-Za-z0-9]{,100}+$"
+				autoComplete="off"
+				autoCapitalize="off"
+				autoCorrect="off"
 				className="inputThin"
 				value={projectDescription}
 				onChange={(e) => setProjectDescription(e.currentTarget.value)}

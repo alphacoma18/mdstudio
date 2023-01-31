@@ -1,5 +1,5 @@
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
-import { Types } from "mongoose";
+import mongoose, { Types } from "mongoose";
 
 class File {
 	@prop()
@@ -80,3 +80,23 @@ export type {
 	TFlatProjects,
 };
 export default db_projects;
+const isConnectionOpen = mongoose.connection.readyState === 1;
+async function run() {
+	try {
+		if (!isConnectionOpen) {
+			await mongoose.disconnect();
+			await mongoose.connect(process.env.MONGO_URI, {
+				minPoolSize: 20,
+				maxPoolSize: 400,
+				keepAlive: true,
+				appName: "AnyMD",
+			});
+		} else {
+			console.log("Connection already open");
+		}
+		console.log("Connected to MongoDB");
+	} catch (error) {
+		console.error(error);
+	}
+}
+void run();

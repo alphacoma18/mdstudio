@@ -1,8 +1,8 @@
 import ContextEditor from "@/context/editor";
 import GenButton from "@/gen/button";
+import GenLink from "@/gen/link";
 import GenLogo from "@/gen/logo";
 import GenReload from "@/gen/reload";
-import Link from "next/link";
 import { memo, useContext } from "react";
 import styles from "./index.module.css";
 const EditorNav: React.FC = () => {
@@ -30,10 +30,15 @@ const EditorNav: React.FC = () => {
 				</GenReload>
 			</div>
 			<div className={`${styles.flexButtons} hoverParent`}>
-				<Link href="/dashboard">
+				<GenLink
+					props={{
+						href: "/dashboard",
+						label: "Nav: home",
+					}}
+				>
 					<i className={"icon-home"}></i>
 					<span>Home</span>
-				</Link>
+				</GenLink>
 				<GenButton props={{ label: "Nav: settings" }}>
 					<i className={"icon-wrench"}></i>
 					<span>Tools</span>

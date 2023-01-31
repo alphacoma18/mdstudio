@@ -274,8 +274,16 @@ input {
 	color: var(--color-white);
 }
 
+.omitMobile {
+	display: none !important;
+}
+
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;
+	}
+	
+	.omitMobile {
+		display: flex !important;
 	}
 }

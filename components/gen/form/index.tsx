@@ -5,17 +5,19 @@ interface Props {
 	props: {
 		isActive: boolean;
 		title: string;
+		id: string;
 		submitFunc: () => void;
-		backFunc?: () => void;
+		backFunc: () => void;
 	};
 }
 const GenForm: React.FC<Props> = ({
 	children,
-	props: { isActive, title, submitFunc, backFunc },
+	props: { isActive, title, submitFunc, backFunc, id },
 }) => {
 	return (
 		<form
 			className={`${styles.form} ${isActive ? styles.active : styles.inactive}`}
+			id={id}
 			onSubmit={(e) => {
 				e.preventDefault();
 				submitFunc();
@@ -27,9 +29,7 @@ const GenForm: React.FC<Props> = ({
 						props={{
 							type: "button",
 							label: "Back button",
-							onClick: () => {
-								if (backFunc) backFunc();
-							},
+							onClick: backFunc,
 							className: styles.back,
 						}}
 					>

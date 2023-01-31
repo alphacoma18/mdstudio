@@ -1,11 +1,9 @@
-import ContextGlobal from "@/context/_global";
 import GenProfilePicture from "@/gen/image/profilePicture";
 import GenLogo from "@/gen/logo";
-import Link from "next/link";
-import { useContext } from "react";
+// import GenLink from "next/GenLink";
+import GenLink from "@/gen/link";
 import styles from "./index.module.css";
 const DashboardNav: React.FC = () => {
-	const { session } = useContext(ContextGlobal);
 	return (
 		<nav className={styles.nav}>
 			<div className={styles.logo}>
@@ -48,15 +46,31 @@ const DashboardNav: React.FC = () => {
 				></GenProfilePicture>
 			</div>
 			<div className={`${styles.flexAnchor} hoverParent`}>
-				<Link href={"/"}>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to home page",
+					}}
+				>
 					<i className="icon-home"></i>
 					<span>Home</span>
-				</Link>
-				<Link href={"/"}>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/dashboard",
+						label: "Navigate to dashboard",
+					}}
+				>
 					<i className="icon-code"></i>
-					<span>API</span>
-				</Link>
-				<Link href={"/"}>
+					<span>Dashboard</span>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to home page",
+						className: "omitMobile",
+					}}
+				>
 					<GenLogo
 						light={{
 							src: "/logo/anymd_mobile_logo_light_2.png",
@@ -71,12 +85,40 @@ const DashboardNav: React.FC = () => {
 							alt: "AnyMD Dark Theme Desktop Logo",
 						}}
 					/>
-				</Link>
-				<Link href={"/"}>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to inbox",
+					}}
+				>
 					<i className="icon-inbox"></i>
 					<span>Inbox</span>
-				</Link>
-				<Link href={"/profile"}>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to help page",
+					}}
+				>
+					<i className="icon-help-circled"></i>
+					<span>Help</span>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to settings page",
+					}}
+				>
+					<i className="icon-cog-alt"></i>
+					<span>Settings</span>
+				</GenLink>
+				<GenLink
+					props={{
+						href: "/",
+						label: "Navigate to profile page",
+					}}
+				>
 					<GenProfilePicture
 						props={{
 							isCircle: true,
@@ -84,7 +126,7 @@ const DashboardNav: React.FC = () => {
 							width: 40,
 						}}
 					></GenProfilePicture>
-				</Link>
+				</GenLink>
 			</div>
 		</nav>
 	);
