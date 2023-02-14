@@ -203,11 +203,6 @@ input {
 	color: var(--color-white);
 }
 
-.kf-fade-in-fast {
-	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
-	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
-}
-
 @-webkit-keyframes fade-in {
 	0% {
 		opacity: 0;
@@ -274,16 +269,14 @@ input {
 	color: var(--color-white);
 }
 
-.omitMobile {
-	display: none !important;
+.pseudoBg:is(:hover, :focus, :active) {
+	background: var(--bg-blue);
+	color: var(--color-white);
 }
+
 
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;
-	}
-	
-	.omitMobile {
-		display: flex !important;
 	}
 }

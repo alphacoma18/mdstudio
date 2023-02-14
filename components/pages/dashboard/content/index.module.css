@@ -1,13 +1,8 @@
 .section {
-	align-items: center;
 	background: var(--canvas-bg);
 	box-shadow: var(--bs-full);
-	display: flex;
-	gap: var(--gap-lg);
-	justify-content: center;
 	margin: auto;
 	min-height: 100vh;
-	padding: var(--pd-lg);
 	width: 95vw;
 }
 
@@ -20,8 +15,17 @@
 }
 
 .create {
+	border: 1px solid var(--color-blue);
 	color: var(--color-blue);
 	font-weight: var(--fw-bold);
+	padding: var(--pd-lg);
+}
+
+.height {
+	display: grid;
+	gap: var(--gap-lg);
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	padding: var(--pd-lg);
 }
 
 
@@ -34,6 +38,12 @@
 }
 
 @media screen and (max-width: 480px) {
+
+	.section,
+	.sectionNone {
+		grid-template-columns: 1fr;
+	}
+
 	.genNewProject {
 		display: none;
 	}

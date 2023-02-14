@@ -7,8 +7,8 @@ import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
 import { ReactElement, ReactNode } from "react";
 import "../public/fontello/fontello-76f6c27b/css/fontello.css";
-import "../styles/editor.min.css";
-import "../styles/globals.min.css";
+import "../styles/editor.css";
+import "../styles/globals.css";
 import { ContextProviderGlobal } from "../utils/context/_global";
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
 	P,

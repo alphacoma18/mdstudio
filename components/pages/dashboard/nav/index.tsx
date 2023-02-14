@@ -108,6 +108,7 @@ const DashboardNav: React.FC = () => {
 					props={{
 						href: "/",
 						label: "Navigate to settings page",
+						className: "omitMobile",
 					}}
 				>
 					<i className="icon-cog-alt"></i>

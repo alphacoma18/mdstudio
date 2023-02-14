@@ -10,41 +10,53 @@ const DashboardContent: React.FC = () => {
 	const isEmpty = projects.length === 0;
 	return (
 		<section className={styles.section}>
-			{isEmpty ? (
-				<div className={styles.empty}>
-					<h1 className={styles.emptyTitle}>
-						You don&apos;t have any projects yet.
-					</h1>
-					<p className={styles.emptySubtitle}>
-						Click the button below to create a new project.
-					</p>
-					<hr />
-					<GenButton
-						props={{
-							label: "Create new project",
-							onClick: () => setIsActive(true),
-							className: styles.create,
-						}}
-					>
-						Create your first project
-					</GenButton>
-				</div>
-			) : (
-				<>
-					{projects.map((project) => (
-						<DashboardContentProject
-							key={project._id.toString()}
-							project={project}
-						/>
-					))}
-				</>
-			)}
-			<DashboardContentNewProject
-				props={{
-					isActive,
-					setIsActive,
-				}}
-			/>
+			<div className={styles.height}>
+				{isEmpty ? (
+					<div className={styles.empty}>
+						<h1 className={styles.emptyTitle}>
+							You don&apos;t have any projects yet.
+						</h1>
+						<p className={styles.emptySubtitle}>
+							Click the button below to create a new project.
+						</p>
+						<hr />
+						<GenButton
+							props={{
+								label: "Create new project",
+								onClick: () => setIsActive(true),
+								className: styles.create,
+							}}
+						>
+							Create your first project
+						</GenButton>
+					</div>
+				) : (
+					<>
+						<GenButton
+							props={{
+								label: "Create new project",
+								onClick: () => setIsActive(true),
+								className: styles.create,
+							}}
+						>
+							<i className="icon-plus-circled"></i>
+							<span>Create new project</span>
+						</GenButton>
+						{projects.map((project) => (
+							<DashboardContentProject
+								key={project._id.toString()}
+								project={project}
+							/>
+						))}
+					</>
+				)}
+				<DashboardContentNewProject
+					props={{
+						isActive,
+						setIsActive,
+					}}
+				/>
+			</div>
 		</section>
 	);
 };

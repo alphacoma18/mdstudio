@@ -1,2 +1,2 @@
-!**/*.min.css
+!styles/*.css
 !public/fontello/fontello-*/css/*.*

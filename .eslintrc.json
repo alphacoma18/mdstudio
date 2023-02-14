@@ -16,7 +16,7 @@
 		"plugin:@next/next/recommended",
 		"prettier"
 	],
-	"ignorePatterns": ["**/*.min.css", "public/fontello/fontello-*/css/*.*"],
+	"ignorePatterns": ["**/styles/*.css", "public/fontello/fontello-*/css/*.*"],
 	"overrides": [],
 	"parserOptions": {
 		"ecmaVersion": "latest",
