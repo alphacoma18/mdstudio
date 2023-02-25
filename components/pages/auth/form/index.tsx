@@ -37,7 +37,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 								props={{
 									label: "Signin: Email",
 									type: "submit",
-									className: `${styles.button} inputButton icon-email`,
+									className: `inputBtn btnPseudoBC icon-email`,
 								}}
 							>
 								{"Sign in with Email"}
@@ -47,11 +47,11 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 					) : (
 						<GenButton
 							props={{
-								label: `Signin: ${provider.name}`,
+								label: `Signin via ${provider.name}`,
 								className: `${styles.button} ${styles.itemMethod} ${
 									styles.name
-								} icon-${String(provider.name).toLowerCase()}`,
-								onClick: async () => await signIn(provider.id),
+								} btnPseudoO icon-${String(provider.name).toLowerCase()}`,
+								onClick: () => signIn(provider.id),
 							}}
 						>
 							{provider.name}

@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/react";
-import { ReactNode, createContext, useLayoutEffect, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import Theme from "../../../styles/themes";
 import { IContextGlobal } from "./type";
 const ContextGlobal = createContext<IContextGlobal>({} as IContextGlobal);
@@ -23,7 +23,7 @@ export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 		return value === "light";
 	});
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		setIsLightTheme((prev) => {
 			if (typeof window !== "undefined") {
 				window.localStorage.setItem(

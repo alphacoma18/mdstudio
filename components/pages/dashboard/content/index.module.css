@@ -5,8 +5,13 @@
 	min-height: 100vh;
 	width: 95vw;
 }
-
 .empty {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	max-width: 500px;
 	text-align: center;
 }
 
@@ -21,11 +26,17 @@
 	padding: var(--pd-lg);
 }
 
-.height {
+.container {
 	display: grid;
 	gap: var(--gap-lg);
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
 	padding: var(--pd-lg);
+}
+
+.emptyContainer {
+	display: flex;
+	min-height: 100vh;
 }
 
 

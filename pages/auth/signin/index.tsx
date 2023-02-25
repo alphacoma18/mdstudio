@@ -31,7 +31,7 @@ const AuthSignIn: NextPage<
 				<hr />
 				<details className={styles.why}>
 					<summary>But Why Sign In?</summary>
-					<p className="summaryNote">
+					<p className="note">
 						By signing in, we can keep track of your progress and projects, and
 						enable you to use the dashboard for multi-project editing, custom
 						publications, and more advanced features.

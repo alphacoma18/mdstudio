@@ -33,14 +33,10 @@
 .headItem:last-child {
 	text-align: end;
 }
-.buttonParent {
+
+.btnCtr {
 	display: flex;
 	gap: var(--gap-md);
-}
-.buttons {
-	align-items: center;
-	display: flex;
-	justify-content: space-evenly;
 }
 
 @media screen and (max-width: 768px) {

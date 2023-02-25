@@ -10,7 +10,7 @@ const DashboardContent: React.FC = () => {
 	const isEmpty = projects.length === 0;
 	return (
 		<section className={styles.section}>
-			<div className={styles.height}>
+			<div className={isEmpty ? styles.emptyContainer : styles.container}>
 				{isEmpty ? (
 					<div className={styles.empty}>
 						<h1 className={styles.emptyTitle}>
@@ -24,7 +24,7 @@ const DashboardContent: React.FC = () => {
 							props={{
 								label: "Create new project",
 								onClick: () => setIsActive(true),
-								className: styles.create,
+								className: `${styles.create} btnPseudoBC`,
 							}}
 						>
 							Create your first project
@@ -36,10 +36,10 @@ const DashboardContent: React.FC = () => {
 							props={{
 								label: "Create new project",
 								onClick: () => setIsActive(true),
-								className: styles.create,
+								className: `${styles.create} btnPseudoBC`,
 							}}
 						>
-							<i className="icon-plus-circled"></i>
+							<i className="icon-plus-squared"></i>
 							<span>Create new project</span>
 						</GenButton>
 						{projects.map((project) => (

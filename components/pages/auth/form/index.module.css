@@ -26,10 +26,6 @@
 	width: 100%;
 }
 
-.button:is(:hover, :focus, :active) {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
 
 .itemMethod {
 	border: var(--border-blue);
@@ -53,51 +49,42 @@
 }
 
 .flexMethods button {
-	transition: var(--fast-transition);
+	transition: var(--transition);
 }
 
-.flexMethods button[name="Signin: Google"] {
+.flexMethods button:not([name="Signin via Google"]) {
+	color: var(--color-white);
+}
+
+.flexMethods button[name="Signin via Google"] {
 	background: var(--bg-white);
 	border: 3px solid #f5f5f5;
 	color: var(--color-black);
 }
 
-.flexMethods button[name="Signin: GitHub"] {
+.flexMethods button[name="Signin via GitHub"] {
 	background: #171515;
 	border: 3px solid #171515;
-	color: var(--color-white);
 }
 
-.flexMethods button[name="Signin: Facebook"] {
+.flexMethods button[name="Signin via Facebook"] {
 	background: #4267b2;
 	border: 3px solid #4267b2;
-	color: var(--color-white);
 }
 
-.flexMethods button[name="Signin: LinkedIn"] {
+.flexMethods button[name="Signin via LinkedIn"] {
 	background: #0077b5;
 	border: 3px solid #0077b5;
-	color: var(--color-white);
 }
 
-.flexMethods button[name="Signin: Twitter"] {
+.flexMethods button[name="Signin via Twitter"] {
 	background: #1da1f2;
 	border: 3px solid #1da1f2;
-	color: var(--color-white);
 }
 
-.flexMethods button[name="Signin: Auth0"] {
+.flexMethods button[name="Signin via Auth0"] {
 	background: #1e212a;
 	border: 3px solid #1e212a;
-	color: var(--color-white);
-}
-
-.flexMethods button:hover,
-.flexMethods button:active,
-.flexMethods button:focus,
-.flexMethods:focus-within,
-.flexMethods:focus-visible {
-	opacity: 0.8;
 }
 
 .or {

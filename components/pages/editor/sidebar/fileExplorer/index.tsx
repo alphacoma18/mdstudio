@@ -111,7 +111,7 @@ const EditorFileExplorer: React.FC = () => {
 					},
 				}}
 			>
-				<p className="inputNote">Note: Create at &quot;/&quot;</p>
+				<p className="note">Note: Create at &quot;/&quot;</p>
 				<input
 					type="text"
 					className="inputThin"
@@ -133,11 +133,11 @@ const EditorFileExplorer: React.FC = () => {
 							}));
 					}}
 				/>
-				<div className={styles.buttonParent}>
+				<div className={styles.btnCtr}>
 					<GenButton
 						props={{
 							label: "Clear input",
-							className: "inputButton",
+							className: "inputBtn",
 							onClick: () => setIsCreating((prev) => ({ ...prev, value: "" })),
 						}}
 					>
@@ -146,7 +146,7 @@ const EditorFileExplorer: React.FC = () => {
 					<GenButton
 						props={{
 							label: "Submit input",
-							className: "inputButton",
+							className: "inputBtn",
 						}}
 					>
 						Create

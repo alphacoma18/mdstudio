@@ -23,14 +23,14 @@ const GenForm: React.FC<Props> = ({
 				submitFunc();
 			}}
 		>
-			<div className={styles.limit}>
+			<div className={styles.ctr}>
 				<p className={styles.title}>
 					<GenButton
 						props={{
 							type: "button",
 							label: "Back button",
 							onClick: backFunc,
-							className: styles.back,
+							className: `${styles.back} btnPseudoC `,
 						}}
 					>
 						<i className={`icon-back`} />

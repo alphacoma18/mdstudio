@@ -11,11 +11,11 @@ const DashboardContentProject: React.FC<IProject> = ({ project }) => {
 				props={{
 					href: `/editor/${project._id}`,
 					label: `Navigate to project ${project.projectName}`,
-					className: styles.project,
+					className: `${styles.project} btnPseudoBC`,
 				}}
 			>
-				{project.projectName}
-				<p>{project.projectDescription}</p>
+				<p className={styles.projectTitle}>{project.projectName}</p>
+				{project.projectDescription}
 			</GenLink>
 		</>
 	);

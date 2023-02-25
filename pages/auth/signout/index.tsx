@@ -1,6 +1,6 @@
+import GenMeta from "@/gen/meta";
 import { NextPage } from "next";
 import { signOut } from "next-auth/react";
-import GenMeta from "@/gen/meta";
 import styles from "../../_error.module.css";
 const AuthSignOut: NextPage = () => {
 	return (
@@ -21,8 +21,8 @@ const AuthSignOut: NextPage = () => {
 					<button onClick={() => signOut()}>Sign Out</button>
 				</div>
 				<p className={styles.credit}>
-					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma. All rights
-					reserved
+					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma.
+					All&nbsp;rights&nbsp;reserved
 				</p>
 			</section>
 		</>

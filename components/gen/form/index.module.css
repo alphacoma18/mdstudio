@@ -16,10 +16,6 @@
     position: absolute;
 }
 
-.back:is(:hover, :focus, :active) i {
-    color: var(--color-blue);
-}
-
 .form {
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
@@ -28,7 +24,7 @@
     justify-content: center;
     left: 0;
     top: 0;
-    transition: var(--transition-opacity);
+    transition: var(--tr-opacity);
     width: 100%;
 }
 
@@ -40,7 +36,7 @@
     width: 100%;
 }
 
-.limit {
+.ctr {
     background: var(--bg-1);
     border-radius: var(--br-lg);
     box-shadow: var(--bs-full);
@@ -56,7 +52,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .limit {
+    .ctr {
         border-radius: 0;
         min-height: 100vh;
         min-width: 100vw;

@@ -76,11 +76,11 @@ const DashboardContentNewProject: React.FC<Props> = ({
 				value={projectDescription}
 				onChange={(e) => setProjectDescription(e.currentTarget.value)}
 			/>
-			<button className="inputButton">Create Project</button>
+			<button className="inputBtn btnPseudoBC">Create Project</button>
 			<hr />
 			<details>
 				<summary>What is a project?</summary>
-				<p className="summaryNote">
+				<p className="note">
 					A project contains all your files, folders, media, and settings. They
 					can be kept private or published publicly for others to view.
 				</p>

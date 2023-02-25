@@ -1,7 +1,7 @@
 :root {
 	--blue: #007acc;
-	--white: #fff;
-	--black: #000;
+	--white: #ffffff;
+	--black: rgb(0, 0, 0);
 	--red: #dc3545;
 
 	--bg-white: var(--white);
@@ -36,6 +36,10 @@
 	--pd-sm: 0.2rem;
 	--pd-md: 0.4rem;
 	--pd-lg: 1rem;
+
+	--fs-sm: 0.8rem;
+	--fs-md: 1rem;
+	--fs-lg: 1.2rem;
 
 	--fw-bold: bold;
 	--ff-sans: -apple-system,
@@ -75,9 +79,10 @@
 	--gap-md: 0.4rem;
 	--gap-lg: 1rem;
 
-	--transition: color 100ms ease-in-out, background 100ms ease-in-out;
-	--transition-border: border-color 100ms linear 0s;
-	--transition-opacity: opacity 100ms ease-in-out;
+	--tr: background 100ms ease-in-out,
+		100ms ease-in-out;
+	--tr-border: border-color 100ms linear;
+	--tr-opacity: opacity 100ms ease-in-out;
 }
 
 ::-moz-selection,
@@ -115,7 +120,7 @@ html {
 	color: var(--color);
 	margin: 0;
 	padding: 0;
-	transition: var(--transition);
+	transition: var(--tr);
 }
 
 code,
@@ -130,12 +135,10 @@ textarea {
 }
 
 body {
-	-webkit-animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
-	animation: fade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
 	background: var(--bg-1);
 	caret-color: var(--color-blue);
 	font-family: var(--ff-sans);
-	font-size: 16px;
+	font-size: var(--fs-md);
 	line-height: 1.6rem;
 }
 
@@ -203,26 +206,6 @@ input {
 	color: var(--color-white);
 }
 
-@-webkit-keyframes fade-in {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fade-in {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
 .imageAnchor {
 	line-height: 0;
 }
@@ -233,9 +216,8 @@ input {
 	color: var(--color-blue);
 }
 
-.inputNote,
-.summaryNote {
-	font-size: .8rem;
+.note {
+	font-size: var(--fs-sm);
 }
 
 .inputThin,
@@ -256,7 +238,7 @@ input {
 	color: #777777;
 }
 
-.inputButton {
+.inputBtn {
 	border: var(--border-blue);
 	border-radius: var(--br-md);
 	padding: var(--pd-md);
@@ -264,14 +246,17 @@ input {
 	width: 100%;
 }
 
-.inputButton:is(:hover, :focus, :active) {
+.btnPseudoC:is(:hover, :focus, :active) {
+	color: var(--color-white);
+}
+
+.btnPseudoBC:is(:hover, :focus, :active) {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
 
-.pseudoBg:is(:hover, :focus, :active) {
-	background: var(--bg-blue);
-	color: var(--color-white);
+.btnPseudoO:is(:hover, :focus, :active) {
+	opacity: 0.8;
 }
 
 

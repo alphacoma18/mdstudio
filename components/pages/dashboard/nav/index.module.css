@@ -4,11 +4,11 @@
 	box-shadow: var(--bs-down);
 	display: flex;
 	gap: var(--gap-lg);
-	grid-area: 1 / 1 / 1 / 5;
-	justify-content: space-around;
+	justify-content: space-between;
 	position: sticky;
 	top: 0;
 	width: 100%;
+	z-index: 10;
 }
 
 .logo {
@@ -19,6 +19,7 @@
 }
 
 .flexAnchor {
+	background: var(--bg-1);
 	display: flex;
 	font-weight: var(--fw-bold);
 	gap: var(--gap-lg);
@@ -52,8 +53,8 @@
 	}
 
 	.nav {
+		border-top: 1px solid var(--bg-2);
 		bottom: 0;
-		box-shadow: var(--bs-top);
 		position: fixed;
 		top: revert;
 		width: 100%;
