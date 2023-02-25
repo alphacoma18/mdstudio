@@ -3,6 +3,7 @@ import GenLink from "@/gen/link";
 import styles from "./index.module.css";
 interface IProject {
 	project: ITreeProject;
+	userId: string;
 }
 const DashboardContentProject: React.FC<IProject> = ({ project }) => {
 	return (

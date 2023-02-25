@@ -91,11 +91,9 @@ export const authOptions: NextAuthOptions = {
 	events: {
 		async signIn({ user, account, profile, isNewUser }) {
 			try {
-				console.log(isNewUser, user);
 				if (!isNewUser) return;
 				const { id } = user;
 				await db_projects.create({ userId: mongooseId(id), projects: [] });
-				console.log("created");
 			} catch (error) {
 				console.error(error);
 			}
@@ -103,11 +101,9 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {
-			// console.log("signIn", user, account, profile, email, credentials);
 			return true;
 		},
 		async redirect({ url, baseUrl }) {
-			// console.log("redirect", url, baseUrl);
 			return baseUrl;
 		},
 		async session({ session, token, user }) {
@@ -116,7 +112,6 @@ export const authOptions: NextAuthOptions = {
 			return session;
 		},
 		async jwt({ token, user, account, profile, isNewUser }) {
-			// console.log("jwt", token, user, account, profile, isNewUser);
 			return token;
 		},
 	},

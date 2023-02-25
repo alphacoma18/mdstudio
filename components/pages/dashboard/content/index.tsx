@@ -1,3 +1,4 @@
+import ContextGlobal from "@/context/_global";
 import ContextDashboard from "@/context/dashboard";
 import GenButton from "@/gen/button";
 import { memo, useContext, useState } from "react";
@@ -6,6 +7,7 @@ import styles from "./index.module.css";
 import DashboardContentProject from "./project";
 const DashboardContent: React.FC = () => {
 	const { projects } = useContext(ContextDashboard);
+	const { session } = useContext(ContextGlobal);
 	const [isActive, setIsActive] = useState<boolean>(false);
 	const isEmpty = projects.length === 0;
 	return (
@@ -40,12 +42,13 @@ const DashboardContent: React.FC = () => {
 							}}
 						>
 							<i className="icon-plus-squared"></i>
-							<span>Create new project</span>
+							Create new project
 						</GenButton>
 						{projects.map((project) => (
 							<DashboardContentProject
 								key={project._id.toString()}
 								project={project}
+								userId={session?.user.id as string}
 							/>
 						))}
 					</>

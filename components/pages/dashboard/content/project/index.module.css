@@ -1,5 +1,5 @@
 .projectTitle {
-    font-size: var(--fs-lg);
+    color: inherit;
     font-weight: var(--fw-bold);
 }
 .project {

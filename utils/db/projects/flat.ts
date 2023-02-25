@@ -1,54 +1,58 @@
-import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
+import {
+	getModelForClass,
+	index,
+	modelOptions,
+	prop,
+} from "@typegoose/typegoose";
 import mongoose, { Types } from "mongoose";
 
+@index({ fileName: 1, parentId: 1 }, { unique: true })
 class File {
-	@prop()
+	@prop({ required: true, unique: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({ required: true, unique: true })
 	fileName!: string;
 
-	@prop()
+	@prop({ required: true })
 	isDir!: false;
 
-	@prop()
+	@prop({ required: true })
 	content!: string;
 
-	@prop()
+	@prop({ required: true })
 	parentId!: Types.ObjectId;
 }
 class FlatFolder {
-	@prop()
+	@prop({ required: true, unique: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({ required: true, unique: true })
 	folderName!: string;
 
-	@prop()
+	@prop({ required: true })
 	isDir!: true;
-
-	@prop()
-	files!: Types.ObjectId[];
 
 	@prop()
 	parentId?: Types.ObjectId;
 }
 
+@index({ projectName: 1, userId: 1 }, { unique: true })
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProject {
-	@prop()
+	@prop({ required: true, unique: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({ required: true, unique: true })
 	projectName!: string;
 
 	@prop()
 	projectDescription!: string;
 
-	@prop()
+	@prop({ required: true })
 	isPublished!: boolean;
 
-	@prop()
+	@prop({ required: true })
 	fileSystem!: (File | FlatFolder)[];
 }
 
@@ -92,9 +96,9 @@ async function run() {
 				appName: "AnyMD",
 			});
 		} else {
-			console.log("Connection already open");
+			console.info("Connection already open");
 		}
-		console.log("Connected to MongoDB");
+		console.info("Connected to MongoDB");
 	} catch (error) {
 		console.error(error);
 	}

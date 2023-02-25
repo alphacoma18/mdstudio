@@ -2,10 +2,13 @@ import handleAxios from "@/axios";
 import ContextEditor from "@/context/editor";
 import GenButton from "@/gen/button";
 import GenForm from "@/gen/form";
+import { useRouter } from "next/router";
 import { memo, useContext, useRef, useState } from "react";
 import EditorFolder from "./folder";
 import styles from "./index.module.css";
+
 const EditorFileExplorer: React.FC = () => {
+	const router = useRouter();
 	const { projectState, editorState } = useContext(ContextEditor);
 	const [isCreating, setIsCreating] = useState({
 		isFile: false,
@@ -13,43 +16,14 @@ const EditorFileExplorer: React.FC = () => {
 		value: "",
 	});
 	const inputRef = useRef<HTMLInputElement>(null);
-
-	const regex = /^[A-Za-z][\dA-Za-z]{1,9}$/;
-	function handlePrompt(txt: string): string {
-		try {
-			const input = prompt(txt);
-			if (input === null) return "";
-			if (!regex.test(input)) throw new Error("Invalid input");
-			return input;
-		} catch (error) {
-			alert(error);
-			return handlePrompt(txt);
-		}
-	}
-	async function handleNewFile() {
-		const name = handlePrompt("Enter file name:");
-		if (name === "") return;
+	async function handleCreate() {
 		await handleAxios({
 			method: "post",
-			url: "/editor/newFile",
+			url: `editor/create/${router.query.index?.[0]}`,
 			data: {
-				id: editorState.id,
-				path: editorState.currentFolder,
-				fileName: name,
-			},
-		});
-	}
-
-	async function handleNewFolder() {
-		const name = handlePrompt("Enter folder name:");
-		if (name === null) return;
-		await handleAxios({
-			method: "post",
-			url: "/editor/newFolder",
-			data: {
-				id: editorState.id,
-				path: editorState.currentFolder,
-				folderName: name,
+				isFile: isCreating.isFile,
+				parent: editorState.currentFolder ?? "/",
+				name: isCreating.value,
 			},
 		});
 	}
@@ -58,6 +32,9 @@ const EditorFileExplorer: React.FC = () => {
 			<section className={styles.fileExplorer}>
 				<div className={styles.head}>
 					<span className={`${styles.headItem} hoverParent`}>
+						<GenButton props={{ label: "Explorer: change view mode" }}>
+							<i className="icon-box"></i>
+						</GenButton>
 						<GenButton props={{ label: "Explorer: upload to cloud" }}>
 							<i className="icon-upload-cloud"></i>
 						</GenButton>
@@ -105,10 +82,9 @@ const EditorFileExplorer: React.FC = () => {
 					id: "createFile",
 					isActive: isCreating.creating,
 					title: `Create new ${isCreating.isFile ? "file" : "folder"}`,
-					submitFunc: () => {},
-					backFunc: () => {
-						setIsCreating((prev) => ({ ...prev, creating: false }));
-					},
+					submitFunc: handleCreate,
+					backFunc: () =>
+						setIsCreating((prev) => ({ ...prev, creating: false })),
 				}}
 			>
 				<p className="note">Note: Create at &quot;/&quot;</p>
@@ -120,9 +96,9 @@ const EditorFileExplorer: React.FC = () => {
 					minLength={1}
 					maxLength={20}
 					ref={inputRef}
-					onChange={(e) => {
-						setIsCreating((prev) => ({ ...prev, value: e.target.value }));
-					}}
+					onChange={(e) =>
+						setIsCreating((prev) => ({ ...prev, value: e.target.value }))
+					}
 					value={isCreating.value}
 					onKeyDown={(e) => {
 						if (e.key === "Escape")
@@ -137,7 +113,7 @@ const EditorFileExplorer: React.FC = () => {
 					<GenButton
 						props={{
 							label: "Clear input",
-							className: "inputBtn",
+							className: "inputBtn btnPseudoBC",
 							onClick: () => setIsCreating((prev) => ({ ...prev, value: "" })),
 						}}
 					>
@@ -146,7 +122,8 @@ const EditorFileExplorer: React.FC = () => {
 					<GenButton
 						props={{
 							label: "Submit input",
-							className: "inputBtn",
+							className: "inputBtn btnPseudoBC",
+							type: "submit",
 						}}
 					>
 						Create

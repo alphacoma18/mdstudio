@@ -15,7 +15,7 @@ const serverWrapper = (
 			const session = await getServerSession(req, res, authOptions);
 			await fn(req, res, session);
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			if (e instanceof GenError)
 				res.status(e.status).json({ error: e.message });
 			else res.status(500).json({ error: "Internal Server Error" });

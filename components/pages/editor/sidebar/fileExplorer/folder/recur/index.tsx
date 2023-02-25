@@ -49,7 +49,7 @@ const EditorRecur: React.FC<{
 											id: _id.toString(),
 											currentFolder: `${prev}/${name}`,
 										});
-										if (device === "mobile" || device === "tablet")
+										if (device === "mobile" ?? device === "tablet")
 											updateBarState({
 												type: "explorerClose",
 											});

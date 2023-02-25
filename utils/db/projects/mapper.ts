@@ -29,7 +29,7 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 		// get current item
 		if (item.parentId && item.isDir) {
 			// if current item has parent id, then it is a child
-			const parentItem = arrMap.get(item.parentId.toString());
+			const parentItem = arrMap.get(item.parentId?.toString());
 			// get parent item from map
 			// important: this is passed by reference, so any changes to parentItem will be reflected in arrMap
 
@@ -46,7 +46,7 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 				}
 			}
 		} else if (!item.isDir) {
-			const parentItem = arrMap.get(item.parentId.toString());
+			const parentItem = arrMap.get(item.parentId?.toString());
 			if (parentItem) {
 				const { files } = parentItem;
 				if (files) {
@@ -61,5 +61,3 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 	}
 	return tree;
 }
-
-// console.log(JSON.stringify(toTree(dataOrig), null, 2));

@@ -69,14 +69,14 @@ const EditorMain: React.FC = () => {
 				"code",
 				"|",
 				"preview",
-				...(device === "tablet" || device === "mobile"
+				...(device === "tablet" ?? device === "mobile"
 					? ["fullscreen"]
 					: ["side-by-side", "fullscreen"]),
 				"|",
 				"guide",
 			],
 			status: ["autosave", "lines", "words", "cursor"],
-			lineNumbers: device === "laptop" || device === "desktop",
+			lineNumbers: device === "laptop" ?? device === "desktop",
 			uploadImage: true,
 			// TODO: change this to the actual endpoint
 			imageUploadEndpoint: "/api/upload",
