@@ -1,10 +1,4 @@
-import {
-	ReactNode,
-	createContext,
-	useEffect,
-	useReducer,
-	useState,
-} from "react";
+import { ReactNode, createContext, useReducer, useState } from "react";
 import { IBarState, IContextEditor, IEditorState, TBarState } from "./type";
 const ContextEditor = createContext<IContextEditor>({} as IContextEditor);
 export default ContextEditor;
@@ -16,13 +10,9 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 		IContextEditor["projectState"]
 	>({} as IContextEditor["projectState"]);
 
-	const [editorState, setEditorState] = useState<IEditorState>({
-		id: "/",
-		pid: "root",
-	});
-	useEffect(() => {
-		console.log(editorState);
-	}, [editorState]);
+	const [editorState, setEditorState] = useState<IEditorState>(
+		{} as IEditorState
+	);
 
 	function barReducer(state: IBarState, action: { type: TBarState }) {
 		switch (action.type) {

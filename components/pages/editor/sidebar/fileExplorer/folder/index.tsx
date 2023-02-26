@@ -1,25 +1,28 @@
+import ContextEditor from "@/context/editor";
 import { ITreeFolder } from "@/db/projects/tree";
 import GenButton from "@/gen/button";
-import { memo } from "react";
+import { memo, useContext } from "react";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
 interface Props {
-	project: ITreeFolder;
+	folder: ITreeFolder;
 }
-const EditorFolder: React.FC<Props> = ({ project }) => {
+const EditorFolder: React.FC<Props> = ({ folder }) => {
+	const { setEditorState } = useContext(ContextEditor);
 	return (
 		<section className={styles.folder}>
-			{project?.files?.map((file) => (
+			{folder?.files?.map((file) => (
 				<GenButton
 					key={`file-${file.fileName}`}
 					props={{
 						label: file.fileName,
 						className: styles.rootFile,
 						onClick: () => {
-							// setEditorState({
-							// 	id: "root",
-							// 	currentFolder: "root",
-							// });
+							setEditorState((prev) => ({
+								...prev,
+								id: file._id.toString(),
+								pid: folder._id.toString(),
+							}));
 						},
 					}}
 				>
@@ -27,11 +30,12 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 					{file.fileName}
 				</GenButton>
 			))}
-			{project?.folders?.map((folder) => (
+			{folder?.folders?.map((fol) => (
 				<EditorRecur
-					key={`root-${folder.folderName}`}
-					name={folder.folderName}
-					folder={folder}
+					key={`root-${fol.folderName}`}
+					parent=""
+					name={fol.folderName}
+					folder={fol}
 				/>
 			))}
 		</section>

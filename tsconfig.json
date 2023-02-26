@@ -19,12 +19,12 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/gen/*": ["components/gen/*"],
-			"@/context/*": ["utils/context/*"],
 			"@/dynamic/*": ["components/pages/*/index.tsx"],
 			"@/serverSession": ["exports/getServerSession.ts"],
 			"@/public/*": ["public/*"],
 			"@/styles/*": ["styles/*"],
 			"@/types/*": ["types/*"],
+			"@/context/*": ["utils/context/*"],
 			"@/axios": ["utils/axios/index.ts"],
 			"@/db/*": ["utils/db/*"],
 		}

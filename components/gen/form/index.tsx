@@ -30,7 +30,7 @@ const GenForm: React.FC<Props> = ({
 							type: "button",
 							label: "Back button",
 							onClick: backFunc,
-							className: `${styles.back} btnPseudoC `,
+							className: `${styles.back} btnPseudoBC `,
 						}}
 					>
 						<i className={`icon-back`} />

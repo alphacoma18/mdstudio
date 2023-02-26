@@ -1,6 +1,7 @@
+import ContextGlobal from "@/context/_global";
+import GenLink from "@/gen/link";
 import { useContext } from "react";
 import GenImage, { IImage } from "..";
-import ContextGlobal from "@/context/_global";
 import styles from "./index.module.css";
 interface Props {
 	props: {
@@ -12,7 +13,17 @@ interface Props {
 }
 const GenProfilePicture: React.FC<Props> = ({ props }) => {
 	const { session } = useContext(ContextGlobal);
-	if (!session) return <i className="icon-user-circle"></i>;
+	if (!session)
+		return (
+			<GenLink
+				props={{
+					href: "/auth/signin",
+					label: "Sign in",
+				}}
+			>
+				<i className="icon-user-circle"></i>
+			</GenLink>
+		);
 	return (
 		<GenImage
 			props={{

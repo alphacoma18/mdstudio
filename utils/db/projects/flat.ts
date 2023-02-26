@@ -70,6 +70,10 @@ const db_projects = getModelForClass(FlatProjects);
 export function mongooseId(id?: string) {
 	return new Types.ObjectId(id);
 }
+export function isObjectId(id: string | Types.ObjectId | undefined | null) {
+	if (!id) return false;
+	return Types.ObjectId.isValid(id);
+}
 type TFile = File;
 type TFlatFolder = FlatFolder;
 type TFlatProject = FlatProject;

@@ -112,7 +112,7 @@
 
 .cm-header,
 .cm-strong {
-	font-weight: 700;
+	font-weight: var(--fw-bold);
 }
 
 .cm-em {
@@ -573,7 +573,7 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-toolbar button {
-	font-weight: 700;
+	font-weight: var(--fw-bold);
 	min-width: 30px;
 	padding: 0 6px;
 	white-space: nowrap;
@@ -583,6 +583,7 @@ span.CodeMirror-selectedtext {
 .editor-toolbar button:hover {
 	background: var(--bg-blue);
 	border-color: #95a5a6;
+	color: var(--color-white);
 }
 
 .editor-toolbar i.separator {
@@ -832,7 +833,7 @@ span.CodeMirror-selectedtext {
 	z-index: 5;
 }
 
-.easymde-dropdown:is(:active, :focus-within) .easymde-dropdown-content {
+.easymde-dropdown:is(:hover) .easymde-dropdown-content {
 	visibility: visible;
 }
 

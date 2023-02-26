@@ -8,7 +8,11 @@
 	width: 240px;
 	z-index: 9;
 }
-
+.path {
+	overflow-x: auto;
+	white-space: nowrap;
+	width: 100%;
+}
 .head {
 	align-items: center;
 	box-shadow: var(--bs-down);

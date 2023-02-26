@@ -27,12 +27,10 @@ const EditorFileExplorer: React.FC = () => {
 				name: isCreating.value,
 			},
 		});
-		console.log(res.data.data);
-
-		// setProjectState((prev) => ({
-		// 	...prev,
-		// 	fileSystem: res.data,
-		// }));
+		setProjectState((prev) => ({
+			...prev,
+			fileSystem: res.data.fileSystem,
+		}));
 		setIsCreating((prev) => ({ ...prev, creating: false }));
 	}
 	return (
@@ -82,7 +80,7 @@ const EditorFileExplorer: React.FC = () => {
 					</span>
 				</div>
 				<div className={styles.body}>
-					<EditorFolder project={projectState.fileSystem} />
+					<EditorFolder folder={projectState.fileSystem} />
 				</div>
 			</section>
 			<GenForm
@@ -95,7 +93,9 @@ const EditorFileExplorer: React.FC = () => {
 						setIsCreating((prev) => ({ ...prev, creating: false })),
 				}}
 			>
-				<p className="note">Note: Create at &quot;/&quot;</p>
+				<p className={`note ${styles.path}`}>
+					Note: Create at <code>{editorState.path}</code>
+				</p>
 				<input
 					type="text"
 					className="inputThin"

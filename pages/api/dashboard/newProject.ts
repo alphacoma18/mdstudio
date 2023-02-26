@@ -11,10 +11,10 @@ export default serverWrapper(async (req, res, session) => {
 	if (projectName.length < 1 || projectName.length > 20)
 		throw new GenError("Invalid project name", 400);
 	const _id = mongooseId();
-	const data = await db_projects.findOneAndUpdate(
+	await db_projects.updateOne(
 		{ userId: session.user.userId },
 		{
-			$set: {
+			$push: {
 				projects: {
 					_id,
 					projectName,
@@ -31,6 +31,5 @@ export default serverWrapper(async (req, res, session) => {
 			},
 		}
 	);
-	if (!data) throw new GenError("Failed to create project", 500);
-	res.status(200).json({ id: _id.toString() });
+	res.json({ id: _id.toString() });
 });

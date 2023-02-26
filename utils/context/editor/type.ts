@@ -2,6 +2,7 @@ import { ITreeProject } from "@/db/projects/tree";
 export interface IEditorState {
 	id: string;
 	pid: string;
+	path: string;
 }
 export interface IBarState {
 	leftBarOpen: boolean;

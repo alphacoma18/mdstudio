@@ -15,7 +15,7 @@ const DashboardPage: NextPageWithLayout<{
 	const { setProjects } = useContext(ContextDashboard);
 	useEffect(() => {
 		setProjects(projects);
-	}, [projects]);
+	}, [projects, setProjects]);
 	return (
 		<main>
 			<DashboardNav />
@@ -29,7 +29,7 @@ DashboardPage.getLayout = function getLayout(page: ReactElement) {
 export default DashboardPage; // Note: Do not memoize pages AT ALL
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const session = await getServerSession(context.req, context.res, authOptions);
-	const res = await db_projects.find({ userId: session?.user?.userId });
+	const res = await db_projects.find({ userId: session?.user?.userId }).lean();
 	return {
 		props: {
 			projects: JSON.parse(JSON.stringify(res?.[0]?.projects ?? [])),

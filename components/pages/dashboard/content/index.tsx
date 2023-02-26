@@ -25,6 +25,7 @@ const DashboardContent: React.FC = () => {
 						<GenButton
 							props={{
 								label: "Create new project",
+								type: "button",
 								onClick: () => setIsActive(true),
 								className: `${styles.create} btnPseudoBC`,
 							}}
@@ -37,6 +38,7 @@ const DashboardContent: React.FC = () => {
 						<GenButton
 							props={{
 								label: "Create new project",
+								type: "button",
 								onClick: () => setIsActive(true),
 								className: `${styles.create} btnPseudoBC`,
 							}}

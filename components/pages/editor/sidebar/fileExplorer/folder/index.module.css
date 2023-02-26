@@ -3,6 +3,7 @@
 .rootFile {
 	display: block;
 	text-align: left;
+	white-space: nowrap;
 	width: 100%;
 }
 
@@ -14,18 +15,17 @@
 	font-weight: var(--fw-bold);
 }
 
-.indent > .folder {
-	border-left: 1px solid var(--bg-blue);
-}
-
+.indent > .folder,
 .file {
 	border-left: 1px solid var(--bg-blue);
 }
 
-.file:is(:hover, :active, :focus) {
+.file:is(:hover, :active, :focus),
+.indent > .folder:is(:hover, :active, :focus) {
 	background: var(--bg-blue);
+	color: var(--color-white);
 }
 
 .folder button {
-	border-radius: 0;
+	border-radius: revert;
 }
