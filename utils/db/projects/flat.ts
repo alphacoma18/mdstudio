@@ -34,10 +34,9 @@ class FlatFolder {
 	isDir!: true;
 
 	@prop()
-	parentId?: Types.ObjectId;
+	parentId: Types.ObjectId | null = null;
 }
 
-@index({ projectName: 1, userId: 1 }, { unique: true })
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProject {
 	@prop({ required: true, unique: true })

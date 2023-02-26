@@ -1,7 +1,7 @@
 import { ITreeProject } from "@/db/projects/tree";
 export interface IEditorState {
 	id: string;
-	currentFolder: string;
+	pid: string;
 }
 export interface IBarState {
 	leftBarOpen: boolean;

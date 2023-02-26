@@ -14,7 +14,7 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 				isDir: true,
 				files: [],
 				folders: [],
-				parentId: item.parentId,
+				parentId: item.parentId || null,
 			};
 			arr.push(folder);
 			arrMap.set(arr[i]._id.toString(), folder);

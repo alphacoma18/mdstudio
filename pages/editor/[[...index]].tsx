@@ -15,11 +15,18 @@ import toTree from "../../utils/db/projects/mapper";
 import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
 const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
-	const { projectState, setProjectState } = useContext(ContextEditor);
+	const { setProjectState, setEditorState } = useContext(ContextEditor);
 
 	useEffect(() => {
 		setProjectState(data);
-	}, [projectState, setProjectState, data]);
+	}, [data, setProjectState]);
+
+	useEffect(() => {
+		setEditorState({
+			id: data.fileSystem?._id?.toString(),
+			pid: data.fileSystem?._id?.toString(),
+		});
+	}, [data, setEditorState]);
 
 	return (
 		<main className={styles.main}>
@@ -38,23 +45,21 @@ export default EditorPage; // <--- memo() removed
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const session = await getServerSession(context.req, context.res, authOptions);
-	const projectId = context.params?.index?.[0] as string;
+	const projectId = context.params?.index?.[0] ?? "";
 
-	const data = await db_projects.findOne(
-		{
-			userId: session?.user.userId,
-			projects: { $elemMatch: { _id: mongooseId(projectId) } },
-		},
-		{
-			"projects.$": 1,
-		}
-	);
+	const data = await db_projects.findOne({
+		userId: session?.user.userId,
+		projects: { $elemMatch: { _id: mongooseId(projectId) } },
+	});
+	const data2 = toTree(data?.projects[0].fileSystem ?? []);
+	const projects = {
+		...data?.projects[0],
+		fileSystem: data2[0],
+	};
 
 	return {
 		props: {
-			data: JSON.parse(
-				JSON.stringify(toTree(data?.projects[0].fileSystem ?? []))
-			),
+			data: JSON.parse(JSON.stringify(projects)),
 		},
 	};
 };

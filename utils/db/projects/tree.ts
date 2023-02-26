@@ -6,7 +6,7 @@ interface ITreeFolder {
 	isDir: true;
 	files: TFile[];
 	folders: ITreeFolder[];
-	parentId?: Types.ObjectId;
+	parentId: Types.ObjectId | null;
 }
 interface ITreeProject {
 	_id: Types.ObjectId;

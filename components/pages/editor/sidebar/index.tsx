@@ -6,7 +6,7 @@ import { memo, useContext } from "react";
 import EditorFileExplorer from "./fileExplorer";
 import styles from "./index.module.css";
 const EditorSidebar: React.FC = () => {
-	const { isLightTheme, setIsLightTheme, session } = useContext(ContextGlobal);
+	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
 	const {
 		barState: { leftBarOpen, explorerOpen },
 		updateBarState,

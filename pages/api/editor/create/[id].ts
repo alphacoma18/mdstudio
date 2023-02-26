@@ -3,14 +3,14 @@ import serverWrapper from "components/server/wrapper";
 import GenError from "utils/gen/error";
 interface IBody {
 	isFile: boolean;
-	parent: string;
+	pid: string;
 	name: string;
 }
 export default serverWrapper(async (req, res, session) => {
-	const { isFile, parent, name }: IBody = req.body;
+	const { isFile, pid, name }: IBody = req.body;
 	const { id } = req.query;
-	if (!session?.user.userId ?? !id) throw new GenError("Unauthorized", 401);
-	if (!parent ?? !name) throw new GenError("Invalid body", 400);
+	if (!session?.user.userId || !id) throw new GenError("Unauthorized", 401);
+	if (!pid || !name) throw new GenError("Invalid body", 400);
 	const data = await db_projects.findOneAndUpdate(
 		{
 			userId: session.user.userId,
@@ -25,12 +25,12 @@ export default serverWrapper(async (req, res, session) => {
 								fileName: name,
 								isDir: false,
 								content: "",
-								// parentId: mongooseId(parent),
+								parentId: mongooseId(pid),
 						  }
 						: {
 								folderName: name,
 								isDir: true,
-								// parentId: mongooseId(parent),
+								parentId: mongooseId(pid),
 						  }),
 				},
 			},
@@ -39,7 +39,6 @@ export default serverWrapper(async (req, res, session) => {
 			new: true,
 		}
 	);
-	console.log(data);
-
-	res.status(200).json({ message: "success" });
+	// TODO: return the new file/folder
+	res.status(200).json({ data });
 });

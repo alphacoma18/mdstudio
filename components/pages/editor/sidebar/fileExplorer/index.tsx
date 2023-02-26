@@ -9,7 +9,8 @@ import styles from "./index.module.css";
 
 const EditorFileExplorer: React.FC = () => {
 	const router = useRouter();
-	const { projectState, editorState } = useContext(ContextEditor);
+	const { projectState, setProjectState, editorState } =
+		useContext(ContextEditor);
 	const [isCreating, setIsCreating] = useState({
 		isFile: false,
 		creating: false,
@@ -17,15 +18,22 @@ const EditorFileExplorer: React.FC = () => {
 	});
 	const inputRef = useRef<HTMLInputElement>(null);
 	async function handleCreate() {
-		await handleAxios({
+		const res = await handleAxios({
 			method: "post",
 			url: `editor/create/${router.query.index?.[0]}`,
 			data: {
 				isFile: isCreating.isFile,
-				parent: editorState.currentFolder ?? "/",
+				pid: editorState.pid,
 				name: isCreating.value,
 			},
 		});
+		console.log(res.data.data);
+
+		// setProjectState((prev) => ({
+		// 	...prev,
+		// 	fileSystem: res.data,
+		// }));
+		setIsCreating((prev) => ({ ...prev, creating: false }));
 	}
 	return (
 		<>

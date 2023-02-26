@@ -6,9 +6,8 @@ import { useContext, useState } from "react";
 import styles from "../index.module.css";
 const EditorRecur: React.FC<{
 	folder: ITreeFolder;
-	parent: string;
 	name: string;
-}> = ({ folder, parent: prev, name }) => {
+}> = ({ folder, name }) => {
 	const { device } = useContext(ContextGlobal);
 	const { setEditorState, updateBarState } = useContext(ContextEditor);
 	const [open, setOpen] = useState<boolean>(false);
@@ -23,7 +22,7 @@ const EditorRecur: React.FC<{
 						onClick: () => {
 							setEditorState({
 								id: _id.toString(),
-								currentFolder: `${prev}/${name}`,
+								pid: folder._id.toString(),
 							});
 							setOpen(!open);
 						},
@@ -47,9 +46,9 @@ const EditorRecur: React.FC<{
 									onClick: () => {
 										setEditorState({
 											id: _id.toString(),
-											currentFolder: `${prev}/${name}`,
+											pid: folder._id.toString(),
 										});
-										if (device === "mobile" ?? device === "tablet")
+										if (device === "mobile" || device === "tablet")
 											updateBarState({
 												type: "explorerClose",
 											});
@@ -64,7 +63,6 @@ const EditorRecur: React.FC<{
 						{folders?.map((folder) => (
 							<EditorRecur
 								key={`folder-${folder}`}
-								parent={`${prev}/${name}`}
 								name={folder.folderName}
 								folder={folder}
 							/>

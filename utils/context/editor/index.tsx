@@ -16,9 +16,10 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 		IContextEditor["projectState"]
 	>({} as IContextEditor["projectState"]);
 
-	const [editorState, setEditorState] = useState<IEditorState>(
-		{} as IEditorState
-	);
+	const [editorState, setEditorState] = useState<IEditorState>({
+		id: "/",
+		pid: "root",
+	});
 	useEffect(() => {
 		console.log(editorState);
 	}, [editorState]);

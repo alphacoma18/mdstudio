@@ -1,5 +1,5 @@
-import GenButton from "@/gen/button";
 import { ITreeFolder } from "@/db/projects/tree";
+import GenButton from "@/gen/button";
 import { memo } from "react";
 import styles from "./index.module.css";
 import EditorRecur from "./recur";
@@ -30,7 +30,6 @@ const EditorFolder: React.FC<Props> = ({ project }) => {
 			{project?.folders?.map((folder) => (
 				<EditorRecur
 					key={`root-${folder.folderName}`}
-					parent={"root"}
 					name={folder.folderName}
 					folder={folder}
 				/>
