@@ -30,14 +30,16 @@ const EditorFolder: React.FC<Props> = ({ folder }) => {
 					{file.fileName}
 				</GenButton>
 			))}
-			{folder?.folders?.map((fol) => (
-				<EditorRecur
-					key={`root-${fol.folderName}`}
-					parent=""
-					name={fol.folderName}
-					folder={fol}
-				/>
-			))}
+			<div className={styles.rootFolder}>
+				{folder?.folders?.map((fol) => (
+					<EditorRecur
+						key={`root-${fol.folderName}`}
+						parent=""
+						name={fol.folderName}
+						folder={fol}
+					/>
+				))}
+			</div>
 		</section>
 	);
 };

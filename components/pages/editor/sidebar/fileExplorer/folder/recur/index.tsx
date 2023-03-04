@@ -21,11 +21,11 @@ const EditorRecur: React.FC<{
 						label: name,
 						className: `${styles.folderName} ${styles.folder}`,
 						onClick: () => {
-							setEditorState({
-								id: _id.toString(),
-								pid: folder._id.toString(),
+							setEditorState((_prev) => ({
+								..._prev,
+								pid: _id.toString(),
 								path: `${prev}/${name}`,
-							});
+							}));
 							setOpen(!open);
 						},
 					}}
@@ -47,7 +47,7 @@ const EditorRecur: React.FC<{
 									className: styles.file,
 									onClick: () => {
 										setEditorState({
-											id: _id.toString(),
+											id: file._id.toString(),
 											pid: folder._id.toString(),
 											path: `${prev}/${name}`,
 										});

@@ -1,9 +1,10 @@
+import handleAxios from "@/axios";
 import ContextGlobal from "@/context/_global";
 import ContextEditor from "@/context/editor";
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import dynamic from "next/dynamic";
-import { memo, useContext, useMemo } from "react";
+import { memo, useContext, useEffect, useMemo, useState } from "react";
 import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(
 	async () => await import("react-simplemde-editor"),
@@ -14,6 +15,18 @@ const SimpleMdeReact = dynamic(
 const EditorMain: React.FC = () => {
 	const { device } = useContext(ContextGlobal);
 	const { editorState } = useContext(ContextEditor);
+	const [content, setContent] = useState<string>(() => {
+		return "";
+	});
+	useEffect(() => {
+		(async () => {
+			const res = await handleAxios({
+				url: `editor/get/${editorState.id}`,
+				method: "get",
+			});
+			if (res.data) setContent(res.data.content);
+		})();
+	}, [editorState.id]);
 
 	const mdOptions = useMemo(() => {
 		return {
@@ -86,10 +99,8 @@ const EditorMain: React.FC = () => {
 	}, [device]);
 	return (
 		<SimpleMdeReact
-			// value={editorState.textInput}
-			// onChange={(value) => {
-			// 	updateEditorState({ type: "updateTextInput", payload: value });
-			// }}
+			value={content}
+			onChange={(value) => setContent(value)}
 			// if control + shift + b is pressed, then prevent default
 			placeholder="Type or paste your text here..."
 			options={mdOptions as Options}

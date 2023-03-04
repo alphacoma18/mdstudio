@@ -21,10 +21,14 @@
 }
 
 .file:is(:hover, :active, :focus),
-.indent > .folder:is(:hover, :active, :focus) {
+.indent > .folder:is(:hover, :active, :focus),
+.rootFile:is(:hover, :active, :focus),
+.rootFolder > .folder:is(:hover, :active, :focus) {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
+
+
 
 .folder button {
 	border-radius: revert;

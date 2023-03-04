@@ -10,7 +10,8 @@ export default serverWrapper(async (req, res, session) => {
 	if (!session?.user.userId) throw new GenError("Unauthorized", 401);
 	if (projectName.length < 1 || projectName.length > 20)
 		throw new GenError("Invalid project name", 400);
-	const _id = mongooseId();
+	const _id = mongooseId(),
+		rootId = mongooseId();
 	await db_projects.updateOne(
 		{ userId: mongooseId(session.user.userId) },
 		{
@@ -22,10 +23,16 @@ export default serverWrapper(async (req, res, session) => {
 					isPublished: false,
 					fileSystem: [
 						{
-							_id: mongooseId(),
+							_id: rootId,
 							folderName: "_root",
 							isDir: true,
 							parentId: null,
+						},
+						{
+							_id: mongooseId(),
+							fileName: "index",
+							isDir: false,
+							parentId: rootId,
 						},
 					],
 				},
