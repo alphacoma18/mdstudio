@@ -1,6 +1,10 @@
 import AuthForm from "@/dynamic/auth/form";
 import GenLogo from "@/gen/logo";
-import { InferGetServerSidePropsType, NextPage } from "next";
+import {
+	GetServerSideProps,
+	InferGetServerSidePropsType,
+	NextPage,
+} from "next";
 import { CtxOrReq } from "next-auth/client/_utils";
 import { getCsrfToken, getProviders } from "next-auth/react";
 import styles from "./index.module.css";
@@ -42,7 +46,9 @@ const AuthSignIn: NextPage<
 	);
 };
 export default AuthSignIn;
-export const getServerSideProps = async (context: CtxOrReq | undefined) => {
+export const getServerSideProps: GetServerSideProps = async (
+	context: CtxOrReq | undefined
+) => {
 	const providers = await getProviders();
 	const csrfToken = (await getCsrfToken(context)) ?? "";
 	return {

@@ -13,6 +13,7 @@ const serverWrapper = (
 	return async (req: NextApiRequest, res: NextApiResponse) => {
 		try {
 			const session = await getServerSession(req, res, authOptions);
+			if (!session) throw new GenError("Unauthorized", 401);
 			await fn(req, res, session);
 		} catch (e) {
 			console.error(e);

@@ -1,36 +1,30 @@
-import {
-	getModelForClass,
-	index,
-	modelOptions,
-	prop,
-} from "@typegoose/typegoose";
+import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
 import mongoose, { Types } from "mongoose";
 
-@index({ fileName: 1, parentId: 1 }, { unique: true })
 class File {
-	@prop({ required: true, unique: true })
+	@prop()
 	_id!: Types.ObjectId;
 
-	@prop({ required: true, unique: true })
+	@prop()
 	fileName!: string;
 
-	@prop({ required: true })
+	@prop()
 	isDir!: false;
 
-	@prop({ required: true })
+	@prop()
 	content!: string;
 
-	@prop({ required: true })
+	@prop()
 	parentId!: Types.ObjectId;
 }
 class FlatFolder {
-	@prop({ required: true, unique: true })
+	@prop()
 	_id!: Types.ObjectId;
 
-	@prop({ required: true, unique: true })
+	@prop()
 	folderName!: string;
 
-	@prop({ required: true })
+	@prop()
 	isDir!: true;
 
 	@prop()
@@ -39,19 +33,19 @@ class FlatFolder {
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProject {
-	@prop({ required: true, unique: true })
+	@prop()
 	_id!: Types.ObjectId;
 
-	@prop({ required: true, unique: true })
+	@prop()
 	projectName!: string;
 
 	@prop()
 	projectDescription!: string;
 
-	@prop({ required: true })
+	@prop()
 	isPublished!: boolean;
 
-	@prop({ required: true })
+	@prop()
 	fileSystem!: (File | FlatFolder)[];
 }
 
@@ -106,4 +100,4 @@ async function run() {
 		console.error(error);
 	}
 }
-void run();
+run();

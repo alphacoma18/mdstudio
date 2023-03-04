@@ -1,7 +1,7 @@
-import { TFile, TFlatFileSystem } from "./flat";
+import { TFlatFileSystem } from "./flat";
 import { ITreeFolder, TTreeFileSystem } from "./tree";
 
-export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
+export default function toTree(data: TFlatFileSystem): ITreeFolder {
 	const arrMap: Map<string, ITreeFolder> = new Map();
 	const arr: TTreeFileSystem = [],
 		dataLen = data.length;
@@ -19,10 +19,10 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 			arr.push(folder);
 			arrMap.set(arr[i]._id.toString(), folder);
 		} else {
-			arr.push(item as TFile);
+			arr.push(item);
 		}
 	}
-	const tree: ITreeFolder[] = [],
+	const tree: ITreeFolder = {} as ITreeFolder,
 		arrLen = arr.length;
 	for (let i = 0; i < arrLen; ++i) {
 		const item = arr[i];
@@ -50,13 +50,20 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder[] {
 			if (parentItem) {
 				const { files } = parentItem;
 				if (files) {
-					parentItem.files.push(item as TFile);
+					parentItem.files.push(item);
 				} else {
-					parentItem.files = [item as TFile];
+					parentItem.files = [item];
 				}
 			}
 		} else {
-			tree.push(item);
+			// if current item has no parent id and is a folder, then it is a root
+			tree._id = item._id;
+			tree.folderName = item.folderName;
+			tree.isDir = true;
+			tree.files = [];
+			tree.folders = [];
+			tree.parentId = null;
+			arrMap.set(item._id.toString(), tree);
 		}
 	}
 	return tree;

@@ -1,5 +1,6 @@
 import ContextEditor, { ContextProviderEditor } from "@/context/editor";
 import db_projects, { isObjectId, mongooseId } from "@/db/projects/flat";
+import toTree from "@/db/projects/mapper";
 import { ITreeProject } from "@/db/projects/tree";
 import {
 	EditorCanvas,
@@ -8,9 +9,7 @@ import {
 	EditorSidebar,
 	EditorStatusBar,
 } from "@/dynamic/editor";
-import { authOptions, getServerSession } from "@/serverSession";
-import toTree from "utils/db/projects/mapper";
-import { GetServerSideProps } from "next";
+import ssrWrapper from "components/server/ssrWrapper";
 import { ReactElement, useContext, useEffect } from "react";
 import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
@@ -19,11 +18,15 @@ const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 
 	useEffect(() => {
 		setEditorState({
-			id: data.fileSystem?._id?.toString(),
-			pid: data.fileSystem?._id?.toString(),
+			id: data.fileSystem._id.toString(),
+			pid: data.fileSystem._id.toString(),
 			path: "/",
 		});
 		setProjectState(data);
+		return () => {
+			setEditorState({ id: "", pid: "", path: "" });
+			setProjectState({} as ITreeProject);
+		};
 	}, [data, setProjectState, setEditorState]);
 
 	return (
@@ -41,26 +44,41 @@ EditorPage.getLayout = function getLayout(page: ReactElement) {
 };
 export default EditorPage; // <--- memo() removed
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-	const session = await getServerSession(context.req, context.res, authOptions);
+export const getServerSideProps = ssrWrapper(async (context, session) => {
 	const projectId = context.params?.index?.[0];
 	if (!isObjectId(projectId)) return { notFound: true };
-	const data = await db_projects
-		.findOne({
-			userId: session?.user.userId,
-			projects: { $elemMatch: { _id: mongooseId(projectId) } },
-		})
-		.lean();
-	const data2 = toTree(data?.projects[0].fileSystem ?? []);
-
+	const dbData = await db_projects.aggregate([
+		{
+			$match: {
+				$and: [
+					{ userId: mongooseId(session?.user.userId) },
+					{ projects: { $elemMatch: { _id: mongooseId(projectId) } } },
+				],
+			},
+		},
+		{
+			$project: {
+				projects: {
+					$filter: {
+						input: "$projects",
+						as: "project",
+						cond: { $eq: ["$$project._id", mongooseId(projectId)] },
+					},
+				},
+			},
+		},
+		{
+			$unwind: "$projects",
+		},
+	]);
 	return {
 		props: {
 			data: JSON.parse(
 				JSON.stringify({
-					...data?.projects[0],
-					fileSystem: data2[0],
+					...dbData[0].projects,
+					fileSystem: toTree(dbData[0].projects.fileSystem || []),
 				})
 			),
 		},
 	};
-};
+});

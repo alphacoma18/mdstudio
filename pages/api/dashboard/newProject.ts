@@ -1,5 +1,5 @@
 import db_projects, { mongooseId } from "@/db/projects/flat";
-import serverWrapper from "components/server/wrapper";
+import serverWrapper from "components/server/serverWrapper";
 import GenError from "utils/gen/error";
 interface IBody {
 	projectName: string;
@@ -12,7 +12,7 @@ export default serverWrapper(async (req, res, session) => {
 		throw new GenError("Invalid project name", 400);
 	const _id = mongooseId();
 	await db_projects.updateOne(
-		{ userId: session.user.userId },
+		{ userId: mongooseId(session.user.userId) },
 		{
 			$push: {
 				projects: {
@@ -23,8 +23,9 @@ export default serverWrapper(async (req, res, session) => {
 					fileSystem: [
 						{
 							_id: mongooseId(),
-							folderName: "root",
+							folderName: "_root",
 							isDir: true,
+							parentId: null,
 						},
 					],
 				},
