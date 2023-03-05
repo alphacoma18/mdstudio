@@ -18,8 +18,9 @@ const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 
 	useEffect(() => {
 		setEditorState({
-			id: data.fileSystem._id.toString(),
-			pid: data.fileSystem._id.toString(),
+			// set id to first file in project
+			id: data.fileSystem.files[0]._id.toString() || "",
+			pid: data.fileSystem._id.toString() || "",
 			path: "/",
 		});
 		setProjectState(data);

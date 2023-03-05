@@ -12,12 +12,49 @@ const SimpleMdeReact = dynamic(
 		ssr: false,
 	}
 );
+let isChanged = false;
 const EditorMain: React.FC = () => {
 	const { device } = useContext(ContextGlobal);
-	const { editorState } = useContext(ContextEditor);
-	const [content, setContent] = useState<string>(() => {
-		return "";
-	});
+	const { editorState, projectState } = useContext(ContextEditor);
+	const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+	const [content, setContent] = useState<string>("");
+	useEffect(() => {
+		(async () => {
+			if (!editorState.id) return;
+			const res = await handleAxios({
+				url: `editor/get/${editorState.id}`,
+				method: "get",
+			});
+			if (!res.data.content) return setContent("");
+			setContent(res.data.content);
+		})();
+	}, []);
+	useEffect(() => {
+		(() => {
+			if (timer) {
+				clearTimeout(timer);
+				setTimer(null);
+			}
+			setTimer(
+				setTimeout(async () => {
+					if (!editorState.id) return;
+					if (isChanged) {
+						console.log("saving...");
+						await handleAxios({
+							url: `editor/update/${editorState.id}`,
+							method: "post",
+							payload: {
+								projectId: projectState._id.toString(),
+								content,
+							},
+						});
+					}
+					isChanged = false;
+				}, 8000)
+			);
+			isChanged = true;
+		})();
+	}, [content, editorState.id, projectState._id]);
 	useEffect(() => {
 		(async () => {
 			const res = await handleAxios({
@@ -25,6 +62,7 @@ const EditorMain: React.FC = () => {
 				method: "get",
 			});
 			if (res.data) setContent(res.data.content);
+			isChanged = false;
 		})();
 	}, [editorState.id]);
 

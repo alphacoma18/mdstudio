@@ -21,7 +21,7 @@ const EditorFileExplorer: React.FC = () => {
 		const res = await handleAxios({
 			method: "post",
 			url: `editor/create/${router.query.index?.[0]}`,
-			data: {
+			payload: {
 				isFile: isCreating.isFile,
 				pid: editorState.pid,
 				name: isCreating.value,

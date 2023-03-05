@@ -146,9 +146,16 @@ button,
 input {
 	background: 0;
 	border: none;
+	border-radius: var(--br-md);
 	line-height: inherit;
 }
-
+button,
+input,
+textarea {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
 input:valid {
 	background: var(--bg-blue);
 	caret-color: var(--color-white);
@@ -183,21 +190,9 @@ hr {
 	width: 100%;
 }
 
-button,
-input,
-textarea {
-	color: inherit;
-	font-family: inherit;
-	font-size: inherit;
-}
 
 img {
 	max-width: 100%;
-}
-
-button,
-input {
-	border-radius: var(--br-md);
 }
 
 

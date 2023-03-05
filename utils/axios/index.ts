@@ -1,7 +1,5 @@
 import Axios from "axios";
 
-// import axios property interface
-
 const axios = Axios.create({
 	baseURL: "http://localhost:3000/api",
 	headers: {
@@ -17,14 +15,11 @@ const axios = Axios.create({
 interface IAxios {
 	method: "get" | "post" | "put" | "delete";
 	url: string;
-	data?: { [key: string]: any };
+	payload?: { [key: string]: any };
 }
-async function handleAxios({
-	method,
-	url,
-	data: payload,
-}: IAxios): Promise<any> {
+async function handleAxios({ method, url, payload }: IAxios): Promise<any> {
 	try {
+		if (method === "get") return await axios[method](url);
 		return await axios[method](url, payload);
 	} catch (error) {
 		console.error(error);

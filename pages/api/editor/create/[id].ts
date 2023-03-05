@@ -45,6 +45,5 @@ export default serverWrapper(async (req, res, session) => {
 			new: true,
 		}
 	);
-
 	res.json({ fileSystem: toTree(data?.projects[0].fileSystem ?? []) });
 });

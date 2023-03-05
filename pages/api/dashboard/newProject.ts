@@ -33,6 +33,7 @@ export default serverWrapper(async (req, res, session) => {
 							fileName: "index",
 							isDir: false,
 							parentId: rootId,
+							content: "",
 						},
 					],
 				},

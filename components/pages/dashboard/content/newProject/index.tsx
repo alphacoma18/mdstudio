@@ -20,7 +20,7 @@ const DashboardContentNewProject: React.FC<Props> = ({
 			const res = await handleAxios({
 				method: "post",
 				url: "/dashboard/newProject",
-				data: {
+				payload: {
 					projectName,
 					projectDescription,
 				},

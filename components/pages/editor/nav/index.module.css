@@ -55,6 +55,7 @@
 	.flexButtons {
 		flex-direction: column;
 		gap: var(--gap-sm);
+		justify-content: flex-start;
 		overflow: hidden auto;
 	}
 
