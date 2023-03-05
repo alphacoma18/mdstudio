@@ -10,8 +10,8 @@ interface Props {
 }
 export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	const url: IContextGlobal["url"] = {
-		client: "http://localhost:3000",
-		server: "http://localhost:3000/api",
+		client: "https://anymd.vercel.app",
+		server: "https://anymd.vercel.app/api",
 	};
 	const { data: session } = useSession();
 

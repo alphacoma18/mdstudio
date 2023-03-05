@@ -50,6 +50,6 @@
 	],
 	"theme_color": "#007acc",
 	"background_color": "#007acc",
-	"start_url": "http://localhost:3000",
+	"start_url": "https://anymd.vercel.app",
 	"display": "standalone"
 }

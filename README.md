@@ -1,4 +1,4 @@
-# [AnyMD: Markdown Publisher](http://localhost:3000)
+# [AnyMD: Markdown Publisher](https://anymd.vercel.app)
 
 ## What is AnyMD?
 

@@ -27,7 +27,7 @@ export default function html(params: Params) {
 			"
 		>
 			<img
-				src="http://localhost:3000/logo/anymd_pc_logo_light.png"
+				src="https://anymd.vercel.app/logo/anymd_pc_logo_light.png"
 				alt="AnyMD Light Theme Desktop Logo"
 				height="80"
 				width="160"
@@ -78,9 +78,9 @@ export default function html(params: Params) {
 			</p>
 			<p style="padding: 0; margin: 0">
 				From the AnyMD Team [
-				<a href="http://localhost:3000">
+				<a href="https://anymd.vercel.app">
 					<img
-						src="http://localhost:3000/logo/anymd_mobile_logo_light_2.png"
+						src="https://anymd.vercel.app/logo/anymd_mobile_logo_light_2.png"
 						width="25"
 						height="25"
 						alt="AnyMD Light Theme Mobile Logo"

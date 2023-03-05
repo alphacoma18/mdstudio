@@ -15,7 +15,7 @@ export default function Document() {
 					name="description"
 					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
 				/>
-				<meta name="url" content="http://localhost:3000" />
+				<meta name="url" content="https://anymd.vercel.app" />
 				<meta
 					name="keywords"
 					content="Markdown, editor, markdown publisher, publish, markdown publishing"
@@ -44,7 +44,7 @@ export default function Document() {
 					property="og:description"
 					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
 				/>
-				<meta property="og:url" content="http://localhost:3000" />
+				<meta property="og:url" content="https://anymd.vercel.app" />
 				<meta property="og:site_name" content="AnyMD | Markdown Publisher" />
 				<meta property="og:type" content="website" />
 				<meta property="og:image" content="" />
@@ -66,7 +66,7 @@ export default function Document() {
 					property="twitter:description"
 					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
 				/>
-				<meta property="twitter:url" content="http://localhost:3000" />
+				<meta property="twitter:url" content="https://anymd.vercel.app" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:app:country" content="EN" />
 				<meta name="twitter:image" content="" />
@@ -79,7 +79,7 @@ export default function Document() {
 				<meta name="twitter:image:height" content="630" />
 				<meta name="twitter:site" content="@senodesuzo" />
 				<meta name="twitter:creator" content="@senodesuzo" />
-				<link rel="canonical" href="http://localhost:3000" />
+				<link rel="canonical" href="https://anymd.vercel.app" />
 
 				{/* Icons and browser stuff */}
 
