@@ -1,6 +1,2 @@
-import dynamic from "next/dynamic";
-
-export const AuthForm = dynamic(() => import("./form"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
+import dynamicWrapper from "components/wrapper/dynamicWrapper";
+export const AuthForm = dynamicWrapper(() => import("./form"));

@@ -1,6 +1,6 @@
+import GenLink from "@/gen/link";
 import GenMeta from "@/gen/meta";
 import { NextPage } from "next";
-import GenLink from "@/gen/link";
 import styles from "./_error.module.css";
 const Error404: NextPage = () => {
 	return (
@@ -13,7 +13,7 @@ const Error404: NextPage = () => {
 			/>
 			<h1>Error 404 - Page&nbsp;Not&nbsp;Found</h1>
 			<p>The page you are looking for does not exist or have moved</p>
-			<div className={styles.delimit}>
+			<div className={styles.container}>
 				<hr />
 			</div>
 			<div>

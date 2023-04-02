@@ -7,5 +7,8 @@ export interface IContextGlobal {
 	session: Session | null;
 	isLightTheme: boolean;
 	setIsLightTheme: React.Dispatch<React.SetStateAction<boolean>>;
-	device: "mobile" | "tablet" | "laptop" | "desktop";
+	device: {
+		type: "mobile" | "tablet" | "laptop" | "desktop";
+		isHandheld: boolean;
+	};
 }

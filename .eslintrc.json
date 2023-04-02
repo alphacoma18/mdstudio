@@ -14,7 +14,8 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:n/recommended",
 		"plugin:@next/next/recommended",
-		"prettier"
+		"prettier",
+		"next/core-web-vitals"
 	],
 	"ignorePatterns": ["**/styles/*.css", "public/fontello/fontello-*/css/*.*"],
 	"overrides": [],
@@ -26,16 +27,12 @@
 	"plugins": [
 		"react",
 		"promise",
-		"unicorn",
 		"import",
 		"@typescript-eslint",
 		"prettier"
 	],
 	"rules": {
 		"quotes": "off",
-		"unicorn/prefer-top-level-await": "off",
-		"unicorn/no-null": "off",
-		"unicorn/prevent-abbreviations": "off",
 		"n/no-unsupported-features/es-syntax": "off",
 		"n/no-missing-import": "off",
 		"n/no-extraneous-import": "off",
@@ -71,6 +68,7 @@
 		"@typescript-eslint/no-explicit-any": "off",
 		"react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }],
 		"react/prop-types": 0,
+		"react/display-name": 0,
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-filename-extension": [
 			1,

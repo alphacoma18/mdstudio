@@ -3,23 +3,24 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "next-auth";
 import GenError from "utils/gen/error";
 
-const method = ["GET", "POST", "PUT", "DELETE"] as const;
-type TMethod = typeof method[number];
+const methods = ["GET", "POST", "PUT", "DELETE"] as const;
+type TMethod = (typeof methods)[number];
 const serverWrapper = (
 	fn: (
 		req: NextApiRequest,
 		res: NextApiResponse,
-		session: Session | null,
-		method: string | TMethod
+		session: Session,
+		method: TMethod
 	) => Promise<void>
 ) => {
 	return async (req: NextApiRequest, res: NextApiResponse) => {
 		try {
 			const session = await getServerSession(req, res, authOptions);
 			if (!session) throw new GenError("Unauthorized", 401);
-			if (!method.includes(req.method as TMethod))
+			const { method } = req;
+			if (!method || !methods.includes(method as TMethod))
 				throw new GenError("Method Not Allowed", 405);
-			await fn(req, res, session, req.method as TMethod);
+			await fn(req, res, session, method as TMethod);
 		} catch (e) {
 			console.error(e);
 			if (e instanceof GenError)

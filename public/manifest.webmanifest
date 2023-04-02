@@ -1,6 +1,6 @@
 {
 	"name": "AnyMD: Markdown Publisher",
-	"short_name": "Markdown Publisher",
+	"short_name": "AnyMD",
 	"icons": [
 		{
 			"src": "/android-chrome-36x36.png",
@@ -51,5 +51,65 @@
 	"theme_color": "#007acc",
 	"background_color": "#007acc",
 	"start_url": "https://anymd.vercel.app",
-	"display": "standalone"
+	"display": "standalone",
+	"description": "AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML.",
+	"categories": [
+		"productivity",
+		"tools",
+		"utilities",
+		"notes",
+		"markdown",
+		"html",
+		"no-code",
+		"website-builder",
+		"website-publisher",
+		"website",
+		"blog",
+		"documentation",
+		"wiki"
+	],
+	"shortcuts": [
+		{
+			"name": "Home",
+			"short_name": "Home",
+			"url": "/",
+			"description": "AnyMD Home",
+			"icons": [
+				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
+				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },
+				{ "src": "/android-chrome-72x72.png", "sizes": "72x72" },
+				{ "src": "/android-chrome-96x96.png", "sizes": "96x96" },
+				{ "src": "/android-chrome-144x144.png", "sizes": "144x144" },
+				{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }
+			]
+		},
+		{
+			"name": "Dashboard",
+			"short_name": "Dashboard",
+			"url": "/dashboard",
+			"description": "AnyMD Dashboard",
+			"icons": [
+				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
+				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },
+				{ "src": "/android-chrome-72x72.png", "sizes": "72x72" },
+				{ "src": "/android-chrome-96x96.png", "sizes": "96x96" },
+				{ "src": "/android-chrome-144x144.png", "sizes": "144x144" },
+				{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }
+			]
+		},
+		{
+			"name": "Signin",
+			"short_name": "Signin",
+			"url": "/auth/signin",
+			"description": "AnyMD Signin",
+			"icons": [
+				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
+				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },
+				{ "src": "/android-chrome-72x72.png", "sizes": "72x72" },
+				{ "src": "/android-chrome-96x96.png", "sizes": "96x96" },
+				{ "src": "/android-chrome-144x144.png", "sizes": "144x144" },
+				{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }
+			]
+		}
+	]
 }

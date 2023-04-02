@@ -2,6 +2,7 @@
 .folder,
 .rootFile {
 	display: block;
+	font-size: var(--fs-lg);
 	text-align: left;
 	white-space: nowrap;
 	width: 100%;
@@ -28,7 +29,10 @@
 	color: var(--color-white);
 }
 
-
+.cog {
+	float: right;
+	display: inline-block;
+}
 
 .folder button {
 	border-radius: revert;

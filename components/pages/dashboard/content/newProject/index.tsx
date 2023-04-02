@@ -8,9 +8,8 @@ interface Props {
 		setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 	};
 }
-const DashboardContentNewProject: React.FC<Props> = ({
-	props: { isActive, setIsActive },
-}) => {
+
+export default ({ props: { isActive, setIsActive } }: Props) => {
 	const router = useRouter();
 	const [projectName, setProjectName] = useState<string>("");
 	const [projectDescription, setProjectDescription] = useState<string>("");
@@ -87,5 +86,3 @@ const DashboardContentNewProject: React.FC<Props> = ({
 		</GenForm>
 	);
 };
-
-export default DashboardContentNewProject;

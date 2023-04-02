@@ -1,25 +1,10 @@
-import dynamic from "next/dynamic";
+import dynamicWrapper from "components/wrapper/dynamicWrapper";
 
-export const DashboardContent = dynamic(() => import("./content"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-export const DashboardContentProject = dynamic(
-	() => import("./content/project"),
-	{
-		loading: () => <p>Loading...</p>,
-		ssr: false,
-	}
+export const DashboardContent = dynamicWrapper(() => import("./content"));
+export const DashboardContentProject = dynamicWrapper(
+	() => import("./content/project")
 );
-
-export const DashboardContentNewProject = dynamic(
-	() => import("./content/newProject"),
-	{
-		loading: () => <p>Loading...</p>,
-		ssr: false,
-	}
+export const DashboardContentNewProject = dynamicWrapper(
+	() => import("./content/newProject")
 );
-export const DashboardNav = dynamic(() => import("./nav"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
+export const DashboardNav = dynamicWrapper(() => import("./nav"));

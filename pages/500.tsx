@@ -16,7 +16,7 @@ const Error500: NextPage = () => {
 				The server encountered an internal error and was unable to complete your
 				request.
 			</p>
-			<div className={styles.delimit}>
+			<div className={styles.container}>
 				<hr />
 			</div>
 			<div>

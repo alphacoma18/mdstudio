@@ -1,30 +1,13 @@
-import dynamic from "next/dynamic";
+import dynamicWrapper from "components/wrapper/dynamicWrapper";
 
-export const EditorMobileNav = dynamic(() => import("./_mobile/mobileNav"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-
-export const EditorCanvas = dynamic(() => import("./canvas"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-
-export const EditorMain = dynamic(() => import("./canvas/editor"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-export const EditorNav = dynamic(() => import("./nav"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-
-export const EditorSidebar = dynamic(() => import("./sidebar"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
-
-export const EditorStatusBar = dynamic(() => import("./statusbar"), {
-	loading: () => <p>Loading...</p>,
-	ssr: false,
-});
+export const EditorMobileNav = dynamicWrapper(
+	() => import("./_mobile/mobileNav")
+);
+export const EditorCanvas = dynamicWrapper(() => import("./canvas"));
+export const EditorMain = dynamicWrapper(() => import("./canvas/editor"));
+export const EditorNav = dynamicWrapper(() => import("./nav"));
+export const EditorSidebar = dynamicWrapper(() => import("./sidebar"));
+export const EditorStatusBar = dynamicWrapper(() => import("./statusbar"));
+export const EditorFileExplorer = dynamicWrapper(
+	() => import("./sidebar/fileExplorer")
+);

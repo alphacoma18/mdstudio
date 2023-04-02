@@ -5,7 +5,8 @@ import GenLogo from "@/gen/logo";
 import GenReload from "@/gen/reload";
 import { memo, useContext } from "react";
 import styles from "./index.module.css";
-const EditorNav: React.FC = () => {
+
+export default memo(() => {
 	const {
 		barState: { rightBarOpen },
 	} = useContext(ContextEditor);
@@ -66,6 +67,4 @@ const EditorNav: React.FC = () => {
 			</div>
 		</nav>
 	);
-};
-
-export default memo(EditorNav);
+});

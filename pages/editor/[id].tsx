@@ -1,5 +1,9 @@
 import ContextEditor, { ContextProviderEditor } from "@/context/editor";
-import db_projects, { isObjectId, mongooseId } from "@/db/projects/flat";
+import db_projects, {
+	isObjectId,
+	mongooseId,
+	serializeJSON,
+} from "@/db/projects/flat";
 import toTree from "@/db/projects/mapper";
 import { ITreeProject } from "@/db/projects/tree";
 import {
@@ -9,29 +13,30 @@ import {
 	EditorSidebar,
 	EditorStatusBar,
 } from "@/dynamic/editor";
-import ssrWrapper from "components/server/ssrWrapper";
+import GenMeta from "@/gen/meta";
+import ssrWrapper from "components/wrapper/ssrWrapper";
 import { ReactElement, useContext, useEffect } from "react";
 import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
 const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 	const { setProjectState, setEditorState } = useContext(ContextEditor);
-
 	useEffect(() => {
 		setEditorState({
-			// set id to first file in project
-			id: data.fileSystem.files[0]._id.toString() || "",
-			pid: data.fileSystem._id.toString() || "",
+			id: data.fileSystem.files[0]._id.toString(),
+			pid: data.fileSystem._id.toString(),
 			path: "/",
 		});
 		setProjectState(data);
-		return () => {
-			setEditorState({ id: "", pid: "", path: "" });
-			setProjectState({} as ITreeProject);
-		};
 	}, [data, setProjectState, setEditorState]);
 
 	return (
 		<main className={styles.main}>
+			<GenMeta
+				props={{
+					title: `${data.projectName} | AnyMD Publisher`,
+					description: `${data.projectDescription}`,
+				}}
+			/>
 			<EditorMobileNav />
 			<EditorNav />
 			<EditorSidebar />
@@ -46,40 +51,46 @@ EditorPage.getLayout = function getLayout(page: ReactElement) {
 export default EditorPage; // <--- memo() removed
 
 export const getServerSideProps = ssrWrapper(async (context, session) => {
-	const projectId = context.params?.index?.[0];
-	if (!isObjectId(projectId)) return { notFound: true };
-	const dbData = await db_projects.aggregate([
-		{
-			$match: {
-				$and: [
-					{ userId: mongooseId(session?.user.userId) },
-					{ projects: { $elemMatch: { _id: mongooseId(projectId) } } },
-				],
+	const id = context.params?.id;
+	if (!isObjectId(id)) return { notFound: true };
+	const _id = mongooseId(id as string);
+	const [data] = await db_projects
+		.aggregate([
+			{
+				$match: {
+					$and: [
+						{ userId: mongooseId(session?.user.userId) },
+						{ projects: { $elemMatch: { _id } } },
+					],
+				},
 			},
-		},
-		{
-			$project: {
-				projects: {
-					$filter: {
-						input: "$projects",
-						as: "project",
-						cond: { $eq: ["$$project._id", mongooseId(projectId)] },
+			{
+				$project: {
+					projects: {
+						$filter: {
+							input: "$projects",
+							as: "project",
+							cond: { $eq: ["$$project._id", _id] },
+						},
 					},
 				},
 			},
-		},
-		{
-			$unwind: "$projects",
-		},
-	]);
+			{
+				$unwind: "$projects",
+			},
+			{
+				$replaceRoot: {
+					newRoot: "$projects",
+				},
+			},
+		])
+		.limit(1);
 	return {
 		props: {
-			data: JSON.parse(
-				JSON.stringify({
-					...dbData[0].projects,
-					fileSystem: toTree(dbData[0].projects.fileSystem || []),
-				})
-			),
+			data: serializeJSON({
+				...data,
+				fileSystem: toTree(data.fileSystem),
+			}),
 		},
 	};
 });

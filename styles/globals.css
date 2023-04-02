@@ -256,9 +256,15 @@ img {
 	opacity: 0.8;
 }
 
+.mobileOnly {
+	display: none !important;
+}
 
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;
+	}
+	.mobileOnly {
+		display: inline-flex !important;
 	}
 }

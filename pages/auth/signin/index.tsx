@@ -1,5 +1,6 @@
 import AuthForm from "@/dynamic/auth/form";
 import GenLogo from "@/gen/logo";
+import GenMeta from "@/gen/meta";
 import {
 	GetServerSideProps,
 	InferGetServerSidePropsType,
@@ -13,6 +14,12 @@ const AuthSignIn: NextPage<
 > = ({ providers, csrfToken }) => {
 	return (
 		<section className={styles.bg}>
+			<GenMeta
+				props={{
+					title: "Sign In | AnyMD Publisher",
+					description: "Sign in to AnyMD Publisher",
+				}}
+			/>
 			<div className={styles.flexDiv}>
 				<span className={styles.spanImage}>
 					<GenLogo

@@ -38,6 +38,16 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      
+      - name: next cache
+        uses: actions/checkout@v3
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Semantic Versioning
         id: versioning

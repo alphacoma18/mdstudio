@@ -11,7 +11,9 @@ interface Props {
 		className?: string;
 	};
 }
-const GenProfilePicture: React.FC<Props> = ({ props }) => {
+const GenProfilePicture: React.FC<Props> = ({
+	props: { isCircle, height, width, className },
+}) => {
 	const { session } = useContext(ContextGlobal);
 	if (!session)
 		return (
@@ -28,12 +30,12 @@ const GenProfilePicture: React.FC<Props> = ({ props }) => {
 		<GenImage
 			props={{
 				src: session.user.image,
-				height: props.height,
-				width: props.width,
+				height: height,
+				width: width,
 				alt: `User: ${session.user.name}`,
-				className: `${props.className} ${styles.profilePicture} ${
-					props.isCircle ? styles.circled : ""
-				}`,
+				className: `${styles.profilePicture} ${
+					isCircle ? styles.circled : ""
+				} ${className ? className : ""}`,
 			}}
 		></GenImage>
 	);

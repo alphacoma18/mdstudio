@@ -1,0 +1,7 @@
+.options {
+    float: right;
+}
+
+.options:is(:hover, :focus) {
+    color: var(--bg-blue);
+}

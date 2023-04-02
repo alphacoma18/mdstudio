@@ -3,22 +3,18 @@ import GenLink from "@/gen/link";
 import styles from "./index.module.css";
 interface IProject {
 	project: ITreeProject;
-	userId: string;
 }
-const DashboardContentProject: React.FC<IProject> = ({ project }) => {
+export default ({ project }: IProject) => {
 	return (
-		<>
-			<GenLink
-				props={{
-					href: `/editor/${project._id}`,
-					label: `Navigate to project ${project.projectName}`,
-					className: `${styles.project} btnPseudoBC`,
-				}}
-			>
-				<p className={styles.projectTitle}>{project.projectName}</p>
-				{project.projectDescription}
-			</GenLink>
-		</>
+		<GenLink
+			props={{
+				href: `/editor/${project._id.toString()}`,
+				label: `Navigate to project ${project.projectName}`,
+				className: `${styles.project} btnPseudoBC`,
+			}}
+		>
+			<p className={styles.projectTitle}>{project.projectName}</p>
+			{project.projectDescription}
+		</GenLink>
 	);
 };
-export default DashboardContentProject;

@@ -4,10 +4,10 @@ import GenButton from "@/gen/button";
 import GenForm from "@/gen/form";
 import { useRouter } from "next/router";
 import { memo, useContext, useRef, useState } from "react";
-import EditorFolder from "./folder";
+import EditorFS from "./fs";
 import styles from "./index.module.css";
 
-const EditorFileExplorer: React.FC = () => {
+export default memo(() => {
 	const router = useRouter();
 	const { projectState, setProjectState, editorState } =
 		useContext(ContextEditor);
@@ -20,7 +20,7 @@ const EditorFileExplorer: React.FC = () => {
 	async function handleCreate() {
 		const res = await handleAxios({
 			method: "post",
-			url: `editor/create/${router.query.index?.[0]}`,
+			url: `editor/create/${router.query.id}`,
 			payload: {
 				isFile: isCreating.isFile,
 				pid: editorState.pid,
@@ -72,7 +72,7 @@ const EditorFileExplorer: React.FC = () => {
 						<GenButton
 							props={{
 								label: "Explorer: reload files",
-								onClick: () => console.log("reload"),
+								onClick: () => router.replace(router.asPath),
 							}}
 						>
 							<i className="icon-arrows-cw"></i>
@@ -80,7 +80,7 @@ const EditorFileExplorer: React.FC = () => {
 					</span>
 				</div>
 				<div className={styles.body}>
-					<EditorFolder folder={projectState.fileSystem} />
+					<EditorFS folder={projectState.fileSystem} />
 				</div>
 			</section>
 			<GenForm
@@ -141,6 +141,4 @@ const EditorFileExplorer: React.FC = () => {
 			</GenForm>
 		</>
 	);
-};
-
-export default memo(EditorFileExplorer);
+});

@@ -1,8 +1,8 @@
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
-import mongoose, { Types } from "mongoose";
+import { Types } from "mongoose";
 
 class File {
-	@prop()
+	@prop({ index: true })
 	_id!: Types.ObjectId;
 
 	@prop()
@@ -18,7 +18,7 @@ class File {
 	parentId!: Types.ObjectId;
 }
 class FlatFolder {
-	@prop()
+	@prop({ index: true })
 	_id!: Types.ObjectId;
 
 	@prop()
@@ -33,7 +33,7 @@ class FlatFolder {
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProject {
-	@prop()
+	@prop({ index: true })
 	_id!: Types.ObjectId;
 
 	@prop()
@@ -45,13 +45,13 @@ class FlatProject {
 	@prop()
 	isPublished!: boolean;
 
-	@prop()
+	@prop({})
 	fileSystem!: (File | FlatFolder)[];
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProjects {
-	@prop({ type: Types.ObjectId, ref: "users" })
+	@prop({ type: Types.ObjectId, ref: "users", index: true })
 	userId!: Types.ObjectId;
 
 	@prop()
@@ -60,44 +60,31 @@ class FlatProjects {
 
 const db_projects = getModelForClass(FlatProjects);
 
-// converts string to ObjectId or creates a new one
 export function mongooseId(id?: string) {
+	if (arguments.length === 0) return new Types.ObjectId();
+	if (!isObjectId(id)) throw new Error("Not a valid string for ObjectId");
 	return new Types.ObjectId(id);
 }
-export function isObjectId(id: string | Types.ObjectId | undefined | null) {
+export function isObjectId(id: any) {
 	if (!id) return false;
+	if (typeof id !== "string") return false;
 	return Types.ObjectId.isValid(id);
+}
+
+export function serializeJSON<T>(obj: T) {
+	return JSON.parse(JSON.stringify(obj)) as T;
 }
 type TFile = File;
 type TFlatFolder = FlatFolder;
 type TFlatProject = FlatProject;
 type TFlatFileSystem = FlatProject["fileSystem"];
 type TFlatProjects = FlatProjects;
+export type TObjectId = Types.ObjectId;
 export type {
 	TFile,
+	TFlatFileSystem,
 	TFlatFolder,
 	TFlatProject,
-	TFlatFileSystem,
 	TFlatProjects,
 };
 export default db_projects;
-const isConnectionOpen = mongoose.connection.readyState === 1;
-async function run() {
-	try {
-		if (!isConnectionOpen) {
-			await mongoose.disconnect();
-			await mongoose.connect(process.env.MONGO_URI, {
-				minPoolSize: 20,
-				maxPoolSize: 400,
-				keepAlive: true,
-				appName: "AnyMD",
-			});
-		} else {
-			console.info("Connection already open");
-		}
-		console.info("Connected to MongoDB");
-	} catch (error) {
-		console.error(error);
-	}
-}
-run();

@@ -12,11 +12,13 @@ const SimpleMdeReact = dynamic(
 		ssr: false,
 	}
 );
+
 let isChanged = false;
-const EditorMain: React.FC = () => {
-	const { device } = useContext(ContextGlobal);
+export default memo(() => {
+	const {
+		device: { isHandheld },
+	} = useContext(ContextGlobal);
 	const { editorState, projectState } = useContext(ContextEditor);
-	const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 	const [content, setContent] = useState<string>("");
 	useEffect(() => {
 		(async () => {
@@ -28,32 +30,24 @@ const EditorMain: React.FC = () => {
 			if (!res.data.content) return setContent("");
 			setContent(res.data.content);
 		})();
-	}, []);
+	}, [editorState.id]);
 	useEffect(() => {
-		(() => {
-			if (timer) {
-				clearTimeout(timer);
-				setTimer(null);
-			}
-			setTimer(
-				setTimeout(async () => {
-					if (!editorState.id) return;
-					if (isChanged) {
-						console.log("saving...");
-						await handleAxios({
-							url: `editor/update/${editorState.id}`,
-							method: "post",
-							payload: {
-								projectId: projectState._id.toString(),
-								content,
-							},
-						});
-					}
-					isChanged = false;
-				}, 8000)
-			);
+		if (!isChanged) {
 			isChanged = true;
-		})();
+			return;
+		}
+		const timeoutID = window.setTimeout(async () => {
+			console.log("saving...");
+			await handleAxios({
+				url: `editor/update/${editorState.id}`,
+				method: "post",
+				payload: {
+					projectId: projectState._id.toString(),
+					content,
+				},
+			});
+		}, 1000);
+		return () => window.clearTimeout(timeoutID);
 	}, [content, editorState.id, projectState._id]);
 	useEffect(() => {
 		(async () => {
@@ -69,6 +63,7 @@ const EditorMain: React.FC = () => {
 	const mdOptions = useMemo(() => {
 		return {
 			spellChecker: true,
+			nativeSpellcheck: true,
 			minHeight: "100%",
 			renderingConfig: {
 				codeSyntaxHighlighting: true,
@@ -120,21 +115,19 @@ const EditorMain: React.FC = () => {
 				"code",
 				"|",
 				"preview",
-				...(device === "tablet" || device === "mobile"
-					? ["fullscreen"]
-					: ["side-by-side", "fullscreen"]),
+				...(isHandheld ? ["fullscreen"] : ["side-by-side", "fullscreen"]),
 				"|",
 				"guide",
 			],
 			status: ["autosave", "lines", "words", "cursor"],
-			lineNumbers: device === "laptop" || device === "desktop",
+			lineNumbers: !isHandheld,
 			uploadImage: true,
 			// TODO: change this to the actual endpoint
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
 		};
-	}, [device]);
+	}, [isHandheld]);
 	return (
 		<SimpleMdeReact
 			value={content}
@@ -145,6 +138,4 @@ const EditorMain: React.FC = () => {
 			className={`${styles.editor} kf-fade-in-fast`}
 		/>
 	);
-};
-
-export default memo(EditorMain); // <--- memo() here
+});

@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-
+import mongoose from "mongoose";
 const URI = process.env.MONGO_URI;
 const options = {
 	minPoolSize: 20,
@@ -28,3 +28,23 @@ if (process.env.NODE_ENV === "development") {
 // Export a module-scoped MongoClient promise. By doing this in a
 // separate module, the client can be shared across functions.
 export default clientPromise;
+const isConnectionOpen = mongoose.connection.readyState === 1;
+export async function run() {
+	try {
+		if (!isConnectionOpen) {
+			await mongoose.disconnect();
+			await mongoose.connect(process.env.MONGO_URI, {
+				minPoolSize: 20,
+				maxPoolSize: 400,
+				keepAlive: true,
+				appName: "AnyMD",
+			});
+		} else {
+			console.info("Connection already open");
+		}
+		console.info("Connected to MongoDB");
+	} catch (error) {
+		console.error(error);
+	}
+}
+run();

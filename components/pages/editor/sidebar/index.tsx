@@ -3,9 +3,10 @@ import ContextEditor from "@/context/editor";
 import GenButton from "@/gen/button";
 import GenProfilePicture from "@/gen/image/profilePicture";
 import { memo, useContext } from "react";
-import EditorFileExplorer from "./fileExplorer";
+import { EditorFileExplorer } from "..";
 import styles from "./index.module.css";
-const EditorSidebar: React.FC = () => {
+
+export default memo(() => {
 	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
 	const {
 		barState: { leftBarOpen, explorerOpen },
@@ -48,14 +49,6 @@ const EditorSidebar: React.FC = () => {
 					<GenButton props={{ label: "Sidebar: more info" }}>
 						<i className={"icon-info-circled"}></i>
 					</GenButton>
-
-					{/* TODO: add inline-css converter since html + css can be parsed */}
-
-					{/* <Link href="/inline-css">
-						<a>
-							<i className={"icon-info-circled"}></i>
-						</a>
-					</Link> */}
 				</div>
 				<div className={`${styles.flexButtons} hoverParent`}>
 					<GenButton props={{ label: "Sidebar: profile" }}>
@@ -80,13 +73,11 @@ const EditorSidebar: React.FC = () => {
 						)}
 					</GenButton>
 					<GenButton props={{ label: "Sidebar: settings" }}>
-						<i className={"icon-cog"}></i>
+						<i className={"icon-cog-alt"}></i>
 					</GenButton>
 				</div>
 			</section>
 			{explorerOpen && <EditorFileExplorer />}
 		</>
 	);
-};
-
-export default memo(EditorSidebar);
+});

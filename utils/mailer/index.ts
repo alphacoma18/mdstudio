@@ -29,7 +29,7 @@ export default async function Mailer({
 		});
 		if (info.rejected.length > 0) throw new Error("Email not sent");
 		return true;
-	} catch (error: any) {
+	} catch (error) {
 		console.error(error);
 		return false;
 	}

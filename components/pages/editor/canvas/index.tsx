@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import ContextEditor from "@/context/editor";
-import EditorMain from "./editor";
+import { useContext } from "react";
+import { EditorMain } from "..";
 import styles from "./index.module.css";
 
-const EditorCanvas: React.FC = () => {
+export default () => {
 	const {
 		barState: { explorerOpen },
 	} = useContext(ContextEditor);
@@ -18,5 +18,3 @@ const EditorCanvas: React.FC = () => {
 		</span>
 	);
 };
-
-export default EditorCanvas;

@@ -14,7 +14,7 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder {
 				isDir: true,
 				files: [],
 				folders: [],
-				parentId: item.parentId || null,
+				parentId: item.parentId,
 			};
 			arr.push(folder);
 			arrMap.set(arr[i]._id.toString(), folder);
@@ -68,3 +68,53 @@ export default function toTree(data: TFlatFileSystem): ITreeFolder {
 	}
 	return tree;
 }
+/**
+export default function toTree(data: TFlatFileSystem): ITreeFolder {
+	const arrMap: Map<string, ITreeFolder> = new Map();
+	const tree: ITreeFolder = {} as ITreeFolder;
+	
+	for (let i = 0; i < data.length; ++i) {
+		const item = data[i];
+		let node: ITreeFolder | TFlatFile;
+		
+		if (item.isDir) {
+			const folder: ITreeFolder = {
+				_id: item._id,
+				folderName: item.folderName,
+				isDir: true,
+				files: [],
+				folders: [],
+				parentId: item.parentId || null,
+			};
+			node = folder;
+		} else {
+			node = item;
+		}
+		
+		const { parentId } = node;
+		if (parentId) {
+			const parentItem = arrMap.get(parentId.toString());
+			if (parentItem) {
+				if (parentItem.isDir) {
+					parentItem.folders.push(node as ITreeFolder);
+				} else {
+					throw new Error(`Parent item with ID ${parentId} is not a directory.`);
+				}
+			} else {
+				throw new Error(`Parent item with ID ${parentId} not found in the map.`);
+			}
+		} else {
+			if (node.isDir) {
+				Object.assign(tree, node);
+			} else {
+				throw new Error(`Root node cannot be a file.`);
+			}
+		}
+		
+		arrMap.set(node._id.toString(), node as ITreeFolder);
+	}
+	
+	return tree;
+}
+
+ */

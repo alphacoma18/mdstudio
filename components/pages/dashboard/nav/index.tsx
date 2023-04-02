@@ -2,7 +2,7 @@ import GenProfilePicture from "@/gen/image/profilePicture";
 import GenLink from "@/gen/link";
 import GenLogo from "@/gen/logo";
 import styles from "./index.module.css";
-const DashboardNav: React.FC = () => {
+export default () => {
 	return (
 		<nav className={styles.nav}>
 			<div className={styles.logo}>
@@ -44,7 +44,7 @@ const DashboardNav: React.FC = () => {
 					props={{
 						href: "/",
 						label: "Navigate to home page",
-						className: "omitMobile",
+						className: "mobileOnly",
 					}}
 				>
 					<GenLogo
@@ -90,5 +90,3 @@ const DashboardNav: React.FC = () => {
 		</nav>
 	);
 };
-
-export default DashboardNav;

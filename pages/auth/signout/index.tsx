@@ -8,13 +8,13 @@ const AuthSignOut: NextPage = () => {
 			<section className={styles.section}>
 				<GenMeta
 					props={{
-						title: "404 | AnyMD Markdown Publisher",
-						description: "Page Not Found",
+						title: "Sign Out | AnyMD Publisher",
+						description: "Sign out of AnyMD Publisher",
 					}}
 				/>
 				<h1>Signing out already? See you soon!</h1>
 				<p> We hope you enjoyed your project publications.</p>
-				<div className={styles.delimit}>
+				<div className={styles.container}>
 					<hr />
 				</div>
 				<div>

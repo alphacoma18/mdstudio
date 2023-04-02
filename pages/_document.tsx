@@ -27,7 +27,10 @@ export default function Document() {
 				<meta name="rating" content="General" />
 				<meta name="subject" content="Markdown Publisher" />
 				<meta name="topic" content="Markdown Publisher" />
-				<meta name="abstract" content="" />
+				<meta
+					name="abstract"
+					content="AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML."
+				/>
 
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />
@@ -47,8 +50,11 @@ export default function Document() {
 				<meta property="og:url" content="https://anymd.vercel.app" />
 				<meta property="og:site_name" content="AnyMD | Markdown Publisher" />
 				<meta property="og:type" content="website" />
-				<meta property="og:image" content="" />
-				<meta property="og:image:type" content="image/jpg" />
+				<meta
+					property="og:image"
+					content="https://anymd.vercel.app/logo/anymd_pc_logo_dark_2.png"
+				/>
+				<meta property="og:image:type" content="image/png" />
 				<meta
 					property="og:image:alt"
 					content="Logo of AnyMD Markdown Publisher"
@@ -69,8 +75,11 @@ export default function Document() {
 				<meta property="twitter:url" content="https://anymd.vercel.app" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:app:country" content="EN" />
-				<meta name="twitter:image" content="" />
-				<meta name="twitter:image:type" content="image/jpg" />
+				<meta
+					name="twitter:image"
+					content="https://anymd.vercel.app/logo/anymd_pc_logo_dark_2.png"
+				/>
+				<meta name="twitter:image:type" content="image/png" />
 				<meta
 					name="twitter:image:alt"
 					content="Logo of AnyMD Markdown Publisher"

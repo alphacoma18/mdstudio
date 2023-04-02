@@ -28,7 +28,7 @@ export const MenuContainer: React.FC<Props> = ({ props: { func, label } }) => {
 	);
 };
 
-const EditorMobileNav: React.FC = () => {
+export default memo(() => {
 	const { updateBarState } = useContext(ContextEditor);
 	return (
 		<nav className={styles.mobileNav}>
@@ -62,6 +62,4 @@ const EditorMobileNav: React.FC = () => {
 			/>
 		</nav>
 	);
-};
-
-export default memo(EditorMobileNav);
+});

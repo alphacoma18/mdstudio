@@ -1,7 +1,6 @@
 {
 	"recommendations": [
 		"maptz.camelcasenavigation",
-		"1000ch.clean-css",
 		"streetsidesoftware.code-spell-checker",
 		"davidanson.vscode-markdownlint",
 		"redhat.vscode-yaml",
