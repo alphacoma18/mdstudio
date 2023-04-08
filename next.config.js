@@ -12,7 +12,7 @@ if (nextDataIndex !== -1) {
 const withPWA = require('next-pwa')({
   dest: 'public',
   runtimeCaching,
-  // cacheOnFrontEndNav: true,
+  cacheOnFrontEndNav: process.env.NODE_ENV === 'production',
   fallbacks: {
     document: '/_offline',
     image: '/android-chrome-512x512.png',
@@ -26,7 +26,7 @@ const withPWA = require('next-pwa')({
   sw: 'service-worker.js',
   disable: process.env.NODE_ENV === 'development',
 });
-
+;
 
 // https://nextjs.org/docs/advanced-features/security-headers
 const securityHeaders = [
@@ -63,6 +63,13 @@ module.exports = withPWA({
       'pbs.twimg.com',
       'media.licdn.com',
     ]
+  },
+  env: {
+    MIN_NOT_EMPTY_STRING_LENGTH: 1,
+    MAX_FILE_NAME_LENGTH: 20,
+    MAX_PROJECT_NAME_LENGTH: 20,
+    MAX_PROJECT_DESCRIPTION_LENGTH: 100,
+    AUTO_SAVE_INTERVAL: 10000,
   },
   async headers () {
     return [

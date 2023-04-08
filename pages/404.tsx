@@ -7,7 +7,7 @@ const Error404: NextPage = () => {
 		<section className={styles.section}>
 			<GenMeta
 				props={{
-					title: "404 | AnyMD Markdown Publisher",
+					title: "404 | Markdown Studio",
 					description: "Page Not Found",
 				}}
 			/>

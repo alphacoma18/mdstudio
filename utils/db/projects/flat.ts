@@ -2,13 +2,18 @@ import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose";
 import { Types } from "mongoose";
 
 class File {
-	@prop({ index: true })
+	@prop({ index: true, unique: true, required: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({
+		unique: true,
+		required: true,
+		minlength: process.env.MIN_NOT_EMPTY_STRING_LENGTH,
+		maxlength: process.env.MAX_FILE_NAME_LENGTH,
+	})
 	fileName!: string;
 
-	@prop()
+	@prop({ required: true })
 	isDir!: false;
 
 	@prop()
@@ -18,13 +23,13 @@ class File {
 	parentId!: Types.ObjectId;
 }
 class FlatFolder {
-	@prop({ index: true })
+	@prop({ index: true, unique: true, required: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({ index: true, unique: true, required: true })
 	folderName!: string;
 
-	@prop()
+	@prop({ required: true })
 	isDir!: true;
 
 	@prop()
@@ -33,25 +38,37 @@ class FlatFolder {
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProject {
-	@prop({ index: true })
+	@prop({ index: true, unique: true, required: true })
 	_id!: Types.ObjectId;
 
-	@prop()
+	@prop({
+		unique: true,
+		minlength: process.env.MIN_NOT_EMPTY_STRING_LENGTH,
+		maxlength: process.env.MAX_PROJECT_NAME_LENGTH,
+	})
 	projectName!: string;
 
-	@prop()
+	@prop({
+		maxlength: process.env.MAX_PROJECT_DESCRIPTION_LENGTH,
+	})
 	projectDescription!: string;
 
 	@prop()
 	isPublished!: boolean;
 
-	@prop({})
+	@prop({ index: true })
 	fileSystem!: (File | FlatFolder)[];
 }
 
 @modelOptions({ options: { allowMixed: 0 } })
 class FlatProjects {
-	@prop({ type: Types.ObjectId, ref: "users", index: true })
+	@prop({
+		type: Types.ObjectId,
+		ref: "users",
+		index: true,
+		unique: true,
+		required: true,
+	})
 	userId!: Types.ObjectId;
 
 	@prop()

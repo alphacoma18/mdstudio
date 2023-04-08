@@ -16,16 +16,16 @@ const DashboardPage: NextPageWithLayout<{
 		setProjects(projects);
 	}, [projects, setProjects]);
 	return (
-		<main>
+		<section>
 			<GenMeta
 				props={{
-					title: "Dashboard | AnyMD Publisher",
-					description: "Dashboard for AnyMD Publisher",
+					title: "Dashboard | Markdown Studio",
+					description: "Dashboard for Markdown Studio",
 				}}
 			/>
 			<DashboardNav />
 			<DashboardContent />
-		</main>
+		</section>
 	);
 };
 DashboardPage.getLayout = function getLayout(page: ReactElement) {
@@ -34,12 +34,12 @@ DashboardPage.getLayout = function getLayout(page: ReactElement) {
 export default DashboardPage; // Note: Do not memoize pages AT ALL
 
 export const getServerSideProps = ssrWrapper(async (_, session) => {
-	const res = await db_projects
+	const [res] = await db_projects
 		.find({ userId: mongooseId(session?.user?.userId) })
 		.lean();
 	return {
 		props: {
-			projects: serializeJSON(res[0].projects),
+			projects: serializeJSON(res.projects),
 		},
 	};
 });

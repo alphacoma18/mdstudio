@@ -1,6 +1,6 @@
 {
-	"name": "AnyMD: Markdown Publisher",
-	"short_name": "AnyMD",
+	"name": "Markdown Studio",
+	"short_name": "MD Studio",
 	"icons": [
 		{
 			"src": "/android-chrome-36x36.png",
@@ -50,9 +50,9 @@
 	],
 	"theme_color": "#007acc",
 	"background_color": "#007acc",
-	"start_url": "https://anymd.vercel.app",
+	"start_url": "https://markdownstudio.tech",
 	"display": "standalone",
-	"description": "AnyMD is a modern, customizable, and cross-platform no-code website builder/publisher using Markdown/HTML.",
+	"description": "The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML.",
 	"categories": [
 		"productivity",
 		"tools",
@@ -73,7 +73,7 @@
 			"name": "Home",
 			"short_name": "Home",
 			"url": "/",
-			"description": "AnyMD Home",
+			"description": "Markdown Studio Home",
 			"icons": [
 				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
 				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },
@@ -87,7 +87,7 @@
 			"name": "Dashboard",
 			"short_name": "Dashboard",
 			"url": "/dashboard",
-			"description": "AnyMD Dashboard",
+			"description": "Markdown Studio Dashboard",
 			"icons": [
 				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
 				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },
@@ -101,7 +101,7 @@
 			"name": "Signin",
 			"short_name": "Signin",
 			"url": "/auth/signin",
-			"description": "AnyMD Signin",
+			"description": "Markdown Studio Signin",
 			"icons": [
 				{ "src": "/android-chrome-36x36.png", "sizes": "36x36" },
 				{ "src": "/android-chrome-48x48.png", "sizes": "48x48" },

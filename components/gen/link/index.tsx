@@ -7,10 +7,8 @@ interface Props {
 	};
 	children: React.ReactNode;
 }
-const GenLink: React.FC<Props> = ({
-	children,
-	props: { href, label, className },
-}) => {
+const GenLink: React.FC<Props> = ({ children, props }) => {
+	const { href, label, className } = props;
 	return (
 		<Link
 			href={href}

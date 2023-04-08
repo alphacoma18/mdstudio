@@ -36,7 +36,7 @@ export default memo(() => {
 			isChanged = true;
 			return;
 		}
-		const timeoutID = window.setTimeout(async () => {
+		const timeoutID = setTimeout(async () => {
 			console.log("saving...");
 			await handleAxios({
 				url: `editor/update/${editorState.id}`,
@@ -46,8 +46,8 @@ export default memo(() => {
 					content,
 				},
 			});
-		}, 1000);
-		return () => window.clearTimeout(timeoutID);
+		}, +process.env.AUTO_SAVE_INTERVAL);
+		return () => clearTimeout(timeoutID);
 	}, [content, editorState.id, projectState._id]);
 	useEffect(() => {
 		(async () => {
@@ -119,22 +119,21 @@ export default memo(() => {
 				"|",
 				"guide",
 			],
-			status: ["autosave", "lines", "words", "cursor"],
+			status: isHandheld ? [] : ["autosave", "lines", "words", "cursor"],
 			lineNumbers: !isHandheld,
 			uploadImage: true,
 			// TODO: change this to the actual endpoint
 			imageUploadEndpoint: "/api/upload",
 			imageAccept: "image/*",
 			imageMaxSize: 1 * 1024 * 1024, // 1MB
-		};
+		} as Options;
 	}, [isHandheld]);
 	return (
 		<SimpleMdeReact
 			value={content}
 			onChange={(value) => setContent(value)}
-			// if control + shift + b is pressed, then prevent default
 			placeholder="Type or paste your text here..."
-			options={mdOptions as Options}
+			options={mdOptions}
 			className={`${styles.editor} kf-fade-in-fast`}
 		/>
 	);

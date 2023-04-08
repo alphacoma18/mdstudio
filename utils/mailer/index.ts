@@ -13,7 +13,8 @@ export default async function Mailer({
 }: MailerOptions) {
 	try {
 		const transporter = nodeMailer.createTransport({
-			host: "smtp.gmail.com",
+			host: process.env.EMAIL_SERVER_HOST,
+			port: +process.env.EMAIL_SERVER_PORT,
 			secure: true,
 			auth: {
 				user: process.env.EMAIL_USER,

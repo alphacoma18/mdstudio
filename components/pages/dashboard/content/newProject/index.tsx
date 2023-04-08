@@ -1,7 +1,7 @@
-import handleAxios from "@/axios";
 import GenForm from "@/gen/form";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
+import handleAxios from "@/axios";
 interface Props {
 	props: {
 		isActive: boolean;
@@ -24,6 +24,7 @@ export default ({ props: { isActive, setIsActive } }: Props) => {
 					projectDescription,
 				},
 			});
+			console.log(res);
 			if (res.status === 200) router.push(`/editor/${res.data.id}`);
 		} catch (error) {
 			console.error(error);
@@ -37,6 +38,7 @@ export default ({ props: { isActive, setIsActive } }: Props) => {
 				submitFunc: handleSubmit,
 				backFunc: () => setIsActive(false),
 				id: "newProjectForm",
+				mobileModal: false,
 			}}
 		>
 			<label htmlFor="newProjectName" form="newProjectForm">
@@ -47,8 +49,8 @@ export default ({ props: { isActive, setIsActive } }: Props) => {
 					id="newProjectName"
 					type="text"
 					placeholder=">> Project name"
-					minLength={1}
-					maxLength={20}
+					minLength={+process.env.MIN_NOT_EMPTY_STRING_LENGTH}
+					maxLength={+process.env.MAX_PROJECT_NAME_LENGTH}
 					required
 					autoComplete="off"
 					autoCapitalize="off"
@@ -66,7 +68,7 @@ export default ({ props: { isActive, setIsActive } }: Props) => {
 				id="newProjectDescription"
 				type="text"
 				placeholder=">> Project description"
-				maxLength={100}
+				maxLength={+process.env.MAX_PROJECT_DESCRIPTION_LENGTH}
 				autoComplete="off"
 				autoCapitalize="off"
 				autoCorrect="off"

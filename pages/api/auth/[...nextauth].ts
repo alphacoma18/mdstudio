@@ -16,14 +16,14 @@ export const authOptions: NextAuthOptions = {
 	providers: [
 		EmailProvider({
 			server: {
-				host: "smtp.gmail.com",
+				host: process.env.EMAIL_SERVER_HOST,
 				secure: true,
-				port: 465,
+				port: +process.env.EMAIL_SERVER_PORT,
 				auth: {
-					user: process.env.EMAIL_USER ?? "",
-					pass: process.env.EMAIL_PASSWORD ?? "",
+					user: process.env.EMAIL_USER,
+					pass: process.env.EMAIL_PASSWORD,
 				},
-				from: process.env.EMAIL_FROM ?? "",
+				from: process.env.EMAIL_USER,
 			},
 			sendVerificationRequest({
 				identifier: email,
@@ -35,27 +35,27 @@ export const authOptions: NextAuthOptions = {
 					return await transporter.sendMail({
 						from,
 						to: email,
-						subject: "Sign in to AnyMD: Markdown Publisher",
+						subject: "Sign in to Markdown Studio",
 						html: html({ url }),
 					});
 				})();
 			},
 		}),
 		GoogleProvider({
-			clientId: process.env.GOOGLE_ID ?? "",
-			clientSecret: process.env.GOOGLE_SECRET ?? "",
+			clientId: process.env.GOOGLE_ID,
+			clientSecret: process.env.GOOGLE_SECRET,
 		}),
 		GithubProvider({
-			clientId: process.env.GITHUB_ID ?? "",
-			clientSecret: process.env.GITHUB_SECRET ?? "",
+			clientId: process.env.GITHUB_ID,
+			clientSecret: process.env.GITHUB_SECRET,
 		}),
 		FacebookProvider({
-			clientId: process.env.FACEBOOK_ID ?? "",
-			clientSecret: process.env.FACEBOOK_SECRET ?? "",
+			clientId: process.env.FACEBOOK_ID,
+			clientSecret: process.env.FACEBOOK_SECRET,
 		}),
 		LinkedInProvider({
-			clientId: process.env.LINKEDIN_ID ?? "",
-			clientSecret: process.env.LINKEDIN_SECRET ?? "",
+			clientId: process.env.LINKEDIN_ID,
+			clientSecret: process.env.LINKEDIN_SECRET,
 			token: {
 				url: "https://www.linkedin.com/oauth/v2/accessToken",
 				async request({ client, params, checks, provider }) {
@@ -65,8 +65,8 @@ export const authOptions: NextAuthOptions = {
 						checks,
 						{
 							exchangeBody: {
-								client_id: process.env.LINKEDIN_ID ?? "",
-								client_secret: process.env.LINKEDIN_SECRET ?? "",
+								client_id: process.env.LINKEDIN_ID,
+								client_secret: process.env.LINKEDIN_SECRET,
 							},
 						}
 					);
@@ -77,17 +77,17 @@ export const authOptions: NextAuthOptions = {
 			},
 		}),
 		TwitterProvider({
-			clientId: process.env.TWITTER_ID ?? "",
-			clientSecret: process.env.TWITTER_SECRET ?? "",
+			clientId: process.env.TWITTER_ID,
+			clientSecret: process.env.TWITTER_SECRET,
 			version: "2.0",
 		}),
 		Auth0Provider({
-			clientId: process.env.AUTH0_ID ?? "",
-			clientSecret: process.env.AUTH0_SECRET ?? "",
-			issuer: process.env.AUTH0_ISSUER ?? "",
+			clientId: process.env.AUTH0_ID,
+			clientSecret: process.env.AUTH0_SECRET,
+			issuer: process.env.AUTH0_ISSUER,
 		}),
 	],
-	secret: process.env.NEXTAUTH_SECRET ?? "",
+	secret: process.env.NEXTAUTH_SECRET,
 	events: {
 		async signIn({ user, account, profile, isNewUser }) {
 			try {
@@ -107,7 +107,6 @@ export const authOptions: NextAuthOptions = {
 			return baseUrl;
 		},
 		async session({ session, token, user }) {
-			// extend session with userId from user
 			session.user.userId = user.id;
 			return session;
 		},
@@ -125,10 +124,10 @@ export const authOptions: NextAuthOptions = {
 	theme: {
 		colorScheme: "auto",
 		brandColor: "#1a2632",
-		logo: "https://anymd.vercel.app/android-chrome-256x256.png",
+		logo: "https://markdownstudio.tech/android-chrome-256x256.png",
 		buttonText: "#007acc",
 	},
-	debug: process.env.NODE_ENV === "development" ?? "",
+	debug: process.env.NODE_ENV === "development",
 };
 
 export default NextAuth(authOptions);

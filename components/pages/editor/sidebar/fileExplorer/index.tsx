@@ -91,6 +91,7 @@ export default memo(() => {
 					submitFunc: handleCreate,
 					backFunc: () =>
 						setIsCreating((prev) => ({ ...prev, creating: false })),
+					mobileModal: true,
 				}}
 			>
 				<p className={`note ${styles.path}`}>
@@ -101,8 +102,8 @@ export default memo(() => {
 					className="inputThin"
 					required
 					placeholder={`>> Enter ${isCreating.isFile ? "file" : "folder"} name`}
-					minLength={1}
-					maxLength={20}
+					minLength={+process.env.MIN_NOT_EMPTY_STRING_LENGTH}
+					maxLength={+process.env.MAX_FILE_NAME_LENGTH}
 					ref={inputRef}
 					onChange={(e) =>
 						setIsCreating((prev) => ({ ...prev, value: e.target.value }))

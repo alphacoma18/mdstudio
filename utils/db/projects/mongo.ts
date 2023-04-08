@@ -37,7 +37,7 @@ export async function run() {
 				minPoolSize: 20,
 				maxPoolSize: 400,
 				keepAlive: true,
-				appName: "AnyMD",
+				appName: "Markdown Studio",
 			});
 		} else {
 			console.info("Connection already open");

@@ -1,8 +1,6 @@
-# AnyMD: TODO.md
+# Markdown Studio TODO.md
 
 ## Todo
-
-// use router.reload instead of router.refresh
 
 1. ~~Re brand application to anymd~~
 2. ~~Add various auth methods~~
@@ -14,6 +12,7 @@
 8. Configure database for calls
 9. Anonymous user support
 10. Dicebears for avatars
+11. Rebrand to Markdown Studio
 
 ## Soon
 

@@ -27,14 +27,14 @@ export default function html(params: Params) {
 			"
 		>
 			<img
-				src="https://anymd.vercel.app/logo/anymd_pc_logo_light.png"
-				alt="AnyMD Light Theme Desktop Logo"
+				src="https://markdownstudio.tech/logo/og_blue.png"
+				alt="Markdown Studio Logo"
 				height="80"
 				width="160"
 				style="display: block; margin: auto"
 			/>
 			<h2 style="padding: 0; margin: 0; text-align: center">
-				AnyMD&nbsp;Markdown Publisher&nbsp;Verify
+				Markdown&nbsp;Studio&nbsp;Verify
 			</h2>
 			<hr
 				style="
@@ -45,7 +45,7 @@ export default function html(params: Params) {
 				"
 			/>
 			<p style="padding: 0; margin: 0">
-				Thank you for signing up for AnyMD Markdown Publisher. Please click the link
+				Thank you for signing up for Markdown Studio. Please click the link
 				below to verify your account.
 			</p>
 
@@ -73,17 +73,17 @@ export default function html(params: Params) {
 				"
 			/>
 			<p style="padding: 0; margin: 0">
-				If you did not sign up for AnyMD Markdown Publisher, please ignore this
+				If you did not sign up for Markdown Studio, please ignore this
 				email.
 			</p>
 			<p style="padding: 0; margin: 0">
-				From the AnyMD Team [
-				<a href="https://anymd.vercel.app">
+				From the MD Studio Team [
+				<a href="https://markdownstudio.tech">
 					<img
-						src="https://anymd.vercel.app/logo/anymd_mobile_logo_light_2.png"
+						src="https://markdownstudio.tech/logo/square_blue.png"
 						width="25"
 						height="25"
-						alt="AnyMD Light Theme Mobile Logo"
+						alt="Markdown Studio Logo"
 						style="vertical-align: middle"
 				/></a>
 				]

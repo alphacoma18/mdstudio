@@ -10,14 +10,15 @@ export interface IImage {
 }
 
 const GenImage: React.FC<IImage> = ({ props }) => {
+	const { src, height, width, alt, className } = props;
 	return (
 		<Image
-			src={props.src}
-			height={props.height}
-			width={props.width}
-			title={props.alt}
-			alt={props.alt}
-			className={props.className}
+			src={src}
+			height={height}
+			width={width}
+			title={alt}
+			alt={alt}
+			className={className}
 		/>
 	);
 };

@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const axios = Axios.create({
-	baseURL: "https://anymd.vercel.app/api",
+	baseURL: "https://markdownstudio.tech/api",
 	headers: {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Credentials": true,

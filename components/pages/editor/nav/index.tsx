@@ -15,18 +15,11 @@ export default memo(() => {
 			<div className={styles.desktopLogo}>
 				<GenReload>
 					<GenLogo
-						light={{
-							src: "/logo/anymd_pc_logo_light.png",
+						props={{
 							height: 50,
 							width: 100,
-							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						dark={{
-							src: "/logo/anymd_pc_logo_dark.png",
-							height: 50,
-							width: 100,
-							alt: "AnyMD Dark Theme Desktop Logo",
-						}}
+						type="wideClear"
 					/>
 				</GenReload>
 			</div>

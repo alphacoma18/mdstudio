@@ -6,14 +6,16 @@ const Fallback: NextPage = () => {
 		<>
 			<GenMeta
 				props={{
-					title: "Offline | AnyMD Markdown Publisher",
+					title: "Offline | Markdown Studio",
 					description: "Went offline while loading the page...",
 				}}
 			/>
 			<section className={styles.section}>
 				<h1>Went offline while loading the page...</h1>
 				<p>Please check your internet connection</p>
-				<p>AnyMD will automatically reload the page when you go online!</p>
+				<p>
+					Markdown Studio will automatically reload the page when you go online!
+				</p>
 				<p className={styles.credit}>
 					Copyright © 2023 Alpha&nbsp;Romer&nbsp;N.&nbsp;Coma.
 					All&nbsp;rights&nbsp;reserved

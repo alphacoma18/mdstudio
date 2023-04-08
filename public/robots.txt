@@ -1,4 +1,4 @@
-Sitemap: https://anymd.vercel.app/sitemap.xml
+Sitemap: https://markdownstudio.tech/sitemap.xml
 User-agent: *
 Allow: /*
 Disallow: /api/*

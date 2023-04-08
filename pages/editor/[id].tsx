@@ -33,7 +33,7 @@ const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 		<main className={styles.main}>
 			<GenMeta
 				props={{
-					title: `${data.projectName} | AnyMD Publisher`,
+					title: `${data.projectName} | Markdown Studio`,
 					description: `${data.projectDescription}`,
 				}}
 			/>

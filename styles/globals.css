@@ -1,7 +1,7 @@
 :root {
 	--blue: #007acc;
 	--white: #ffffff;
-	--black: rgb(0, 0, 0);
+	--black: #1a2632;
 	--red: #dc3545;
 
 	--bg-white: var(--white);
@@ -42,23 +42,6 @@
 	--fs-lg: 1.2rem;
 
 	--fw-bold: bold;
-	--ff-sans: -apple-system,
-		BlinkMacSystemFont,
-		Segoe UI,
-		Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		Fira Sans,
-		Droid Sans,
-		Helvetica Neue,
-		sans-serif;
-
-	--ff-serif: Georgia,
-		Cambria,
-		"Times New Roman",
-		Times,
-		serif;
 
 	--ff-mono: "JetBrains Mono-Regular", ui-monospace,
 		Menlo,
@@ -79,8 +62,7 @@
 	--gap-md: 0.4rem;
 	--gap-lg: 1rem;
 
-	--tr: background 100ms ease-in-out,
-		100ms ease-in-out;
+	--tr: 100ms ease-in-out;
 	--tr-border: border-color 100ms linear;
 	--tr-opacity: opacity 100ms ease-in-out;
 }
@@ -137,7 +119,6 @@ textarea {
 body {
 	background: var(--bg-1);
 	caret-color: var(--color-blue);
-	font-family: var(--ff-sans);
 	font-size: var(--fs-md);
 	line-height: 1.6rem;
 }
@@ -149,6 +130,7 @@ input {
 	border-radius: var(--br-md);
 	line-height: inherit;
 }
+
 button,
 input,
 textarea {
@@ -156,6 +138,7 @@ textarea {
 	font-family: inherit;
 	font-size: inherit;
 }
+
 input:valid {
 	background: var(--bg-blue);
 	caret-color: var(--color-white);
@@ -264,6 +247,7 @@ img {
 	.inputThick {
 		height: 32px;
 	}
+
 	.mobileOnly {
 		display: inline-flex !important;
 	}

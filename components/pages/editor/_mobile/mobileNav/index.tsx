@@ -40,18 +40,11 @@ export default memo(() => {
 			/>
 			<GenReload>
 				<GenLogo
-					light={{
-						src: "/logo/anymd_mobile_logo_light_2.png",
-						height: 60,
-						width: 60,
-						alt: "AnyMD Light Theme Mobile Logo",
+					props={{
+						height: 50,
+						width: 50,
 					}}
-					dark={{
-						src: "/logo/anymd_mobile_logo_dark_2.png",
-						height: 60,
-						width: 60,
-						alt: "AnyMD Dark Theme Mobile Logo",
-					}}
+					type="squareClear"
 				/>
 			</GenReload>
 			<MenuContainer

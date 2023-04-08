@@ -1,24 +1,17 @@
 import GenProfilePicture from "@/gen/image/profilePicture";
 import GenLink from "@/gen/link";
-import GenLogo from "@/gen/logo";
 import styles from "./index.module.css";
+import GenLogo from "@/gen/logo";
 export default () => {
 	return (
 		<nav className={styles.nav}>
 			<div className={styles.logo}>
 				<GenLogo
-					light={{
-						src: "/logo/anymd_pc_logo_light.png",
+					props={{
 						height: 50,
 						width: 100,
-						alt: "AnyMD Light Theme Desktop Logo",
 					}}
-					dark={{
-						src: "/logo/anymd_pc_logo_dark.png",
-						height: 50,
-						width: 100,
-						alt: "AnyMD Dark Theme Desktop Logo",
-					}}
+					type="wideClear"
 				/>
 			</div>
 			<div className={`${styles.flexAnchor} hoverParent`}>
@@ -48,18 +41,11 @@ export default () => {
 					}}
 				>
 					<GenLogo
-						light={{
-							src: "/logo/anymd_mobile_logo_light_2.png",
+						props={{
 							height: 50,
 							width: 50,
-							alt: "AnyMD Light Theme Desktop Logo",
 						}}
-						dark={{
-							src: "/logo/anymd_mobile_logo_dark.png",
-							height: 50,
-							width: 50,
-							alt: "AnyMD Dark Theme Desktop Logo",
-						}}
+						type="squareClear"
 					/>
 				</GenLink>
 				<GenLink
@@ -74,8 +60,8 @@ export default () => {
 
 				<GenLink
 					props={{
-						href: "/",
-						label: "Navigate to profile page",
+						href: "/auth/signout",
+						label: "Sign out",
 					}}
 				>
 					<GenProfilePicture

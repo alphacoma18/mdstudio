@@ -16,26 +16,14 @@ const AuthSignIn: NextPage<
 		<section className={styles.bg}>
 			<GenMeta
 				props={{
-					title: "Sign In | AnyMD Publisher",
-					description: "Sign in to AnyMD Publisher",
+					title: "Sign In | Markdown Studio",
+					description: "Sign in to Markdown Studio",
 				}}
 			/>
 			<div className={styles.flexDiv}>
 				<span className={styles.spanImage}>
-					<GenLogo
-						light={{
-							src: "/logo/anymd_pc_logo_light.png",
-							height: 80,
-							width: 160,
-							alt: "AnyMD Light Theme Desktop Logo",
-						}}
-						dark={{
-							src: "/logo/anymd_pc_logo_dark.png",
-							height: 80,
-							width: 160,
-							alt: "AnyMD Dark Theme Desktop Logo",
-						}}
-					/>
+					<GenLogo type="squareBlue" props={{ height: 64, width: 64 }} />
+					<h1>Markdown Studio</h1>
 				</span>
 				<hr />
 				<AuthForm providers={providers ?? {}} csrfToken={csrfToken} />
@@ -57,7 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (
 	context: CtxOrReq | undefined
 ) => {
 	const providers = await getProviders();
-	const csrfToken = (await getCsrfToken(context)) ?? "";
+	const csrfToken = await getCsrfToken(context);
 	return {
 		props: {
 			providers,

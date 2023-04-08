@@ -8,12 +8,18 @@ interface Props {
 		id: string;
 		submitFunc: () => void;
 		backFunc: () => void;
+		mobileModal?: boolean;
 	};
 }
-const GenForm: React.FC<Props> = ({
-	children,
-	props: { isActive, title, submitFunc, backFunc, id },
-}) => {
+const GenForm: React.FC<Props> = ({ children, props }) => {
+	const {
+		isActive,
+		title,
+		id,
+		submitFunc,
+		backFunc,
+		mobileModal = false,
+	} = props;
 	return (
 		<form
 			className={`${styles.form} ${isActive ? styles.active : styles.inactive}`}
@@ -23,7 +29,7 @@ const GenForm: React.FC<Props> = ({
 				submitFunc();
 			}}
 		>
-			<div className={styles.ctr}>
+			<div className={mobileModal ? styles.mobCtr : styles.ctr}>
 				<p className={styles.title}>
 					<GenButton
 						props={{

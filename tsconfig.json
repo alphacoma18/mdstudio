@@ -27,7 +27,7 @@
 			"@/types/*": ["types/*"],
 			"@/context/*": ["utils/context/*"],
 			"@/axios": ["utils/axios/index.ts"],
-			"@/db/*": ["utils/db/*"],
+			"@/db/*": ["utils/db/*"]
 		}
 	},
 	"include": [
@@ -44,7 +44,7 @@
 		"types/**/*.*",
 		"styles/theme.tsx"
 	],
-	"exclude": ["node_modules", "components/pages/editor/sidebar/index.tsx"],
+	"exclude": ["node_modules"],
 	"ts-standard": {
 		"project": "./tsconfig.json"
 	}

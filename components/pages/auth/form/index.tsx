@@ -17,11 +17,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 							method="post"
 							className={styles.emailMethod}
 						>
-							<input
-								name="csrfToken"
-								type="hidden"
-								defaultValue={csrfToken ?? ""}
-							/>
+							<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 							<input
 								name="email"
 								type="email"
@@ -40,7 +36,7 @@ const AuthForm: React.FC<Props> = ({ providers, csrfToken }) => {
 									className: `inputBtn btnPseudoBC icon-email`,
 								}}
 							>
-								{"Sign in with Email"}
+								Sign in with Email
 							</GenButton>
 							<p className={styles.or}>or sign in with</p>
 						</form>
