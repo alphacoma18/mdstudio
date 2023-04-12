@@ -52,7 +52,7 @@ const securityHeaders = [
   }
 ];
 module.exports = withPWA({
-  reactStrictMode: true,
+  // reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: [

@@ -7,7 +7,7 @@ const Error500: NextPage = () => {
 		<section className={styles.section}>
 			<GenMeta
 				props={{
-					title: "500 | Markdown Studio",
+					title: "500 Server Error",
 					description: "Internal Server Error",
 				}}
 			/>

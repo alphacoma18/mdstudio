@@ -19,7 +19,7 @@ const DashboardPage: NextPageWithLayout<{
 		<section>
 			<GenMeta
 				props={{
-					title: "Dashboard | Markdown Studio",
+					title: "Dashboard",
 					description: "Dashboard for Markdown Studio",
 				}}
 			/>

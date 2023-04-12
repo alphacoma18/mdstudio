@@ -4,7 +4,7 @@ import ContextEditor from "@/context/editor";
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import dynamic from "next/dynamic";
-import { memo, useContext, useEffect, useMemo, useState } from "react";
+import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./index.module.css";
 const SimpleMdeReact = dynamic(
 	async () => await import("react-simplemde-editor"),
@@ -13,50 +13,64 @@ const SimpleMdeReact = dynamic(
 	}
 );
 
-let isChanged = false;
+async function postContent(projectId: string, fileId: string, content: string) {
+	return handleAxios({
+		url: `editor/update/${fileId}`,
+		method: "post",
+		payload: {
+			projectId,
+			content,
+		},
+	});
+}
+async function getContent(fileId: string) {
+	return handleAxios({
+		url: `editor/get/${fileId}`,
+		method: "get",
+	});
+}
 export default memo(() => {
+	const changeRef = useRef<boolean>(false);
 	const {
 		device: { isHandheld },
 	} = useContext(ContextGlobal);
-	const { editorState, projectState } = useContext(ContextEditor);
+	const { editorState, projectState, prevFileId } = useContext(ContextEditor);
 	const [content, setContent] = useState<string>("");
+
 	useEffect(() => {
-		(async () => {
-			if (!editorState.id) return;
-			const res = await handleAxios({
-				url: `editor/get/${editorState.id}`,
-				method: "get",
-			});
-			if (!res.data.content) return setContent("");
-			setContent(res.data.content);
-		})();
-	}, [editorState.id]);
-	useEffect(() => {
-		if (!isChanged) {
-			isChanged = true;
+		if (!changeRef.current) {
+			changeRef.current = true;
 			return;
 		}
+
 		const timeoutID = setTimeout(async () => {
 			console.log("saving...");
-			await handleAxios({
-				url: `editor/update/${editorState.id}`,
-				method: "post",
-				payload: {
-					projectId: projectState._id.toString(),
-					content,
-				},
-			});
+			// Insert content into CURRENT file
+			await postContent(projectState._id.toString(), editorState.id, content);
+			console.log("saved");
 		}, +process.env.AUTO_SAVE_INTERVAL);
 		return () => clearTimeout(timeoutID);
 	}, [content, editorState.id, projectState._id]);
+
 	useEffect(() => {
-		(async () => {
-			const res = await handleAxios({
-				url: `editor/get/${editorState.id}`,
-				method: "get",
-			});
-			if (res.data) setContent(res.data.content);
-			isChanged = false;
+		(async () => {			
+			const getRes = getContent(editorState.id);
+			if (!prevFileId) {
+				const getResData = await getRes;
+				if (!getResData) return;
+				setContent(getResData.data.content);
+			} else {
+				// Insert content into PREVIOUS file
+				const postRes = postContent(
+					projectState._id.toString(),
+					prevFileId,
+					content
+				);
+				const [getResData, postResData] = await Promise.all([getRes, postRes]);
+				if (!getResData || !postResData) return;
+				setContent(getResData.data.content);
+			}
+			changeRef.current = false;
 		})();
 	}, [editorState.id]);
 
@@ -132,7 +146,7 @@ export default memo(() => {
 		<SimpleMdeReact
 			value={content}
 			onChange={(value) => setContent(value)}
-			placeholder="Type or paste your text here..."
+			placeholder="Type or paste your markdown here..."
 			options={mdOptions}
 			className={`${styles.editor} kf-fade-in-fast`}
 		/>

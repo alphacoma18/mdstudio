@@ -6,7 +6,7 @@ const Fallback: NextPage = () => {
 		<>
 			<GenMeta
 				props={{
-					title: "Offline | Markdown Studio",
+					title: "Offline",
 					description: "Went offline while loading the page...",
 				}}
 			/>

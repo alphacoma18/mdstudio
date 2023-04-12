@@ -8,7 +8,7 @@ const AuthSignOut: NextPage = () => {
 			<section className={styles.section}>
 				<GenMeta
 					props={{
-						title: "Sign Out | Markdown Studio",
+						title: "Sign Out",
 						description: "Sign out of Markdown Studio",
 					}}
 				/>
