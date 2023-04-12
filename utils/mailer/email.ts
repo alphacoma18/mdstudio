@@ -27,7 +27,7 @@ export default function html(params: Params) {
 			"
 		>
 			<img
-				src="https://markdownstudio.tech/logo/og_blue.png"
+				src="http://localhost:3000/logo/og_blue.png"
 				alt="Markdown Studio Logo"
 				height="80"
 				width="160"
@@ -78,9 +78,9 @@ export default function html(params: Params) {
 			</p>
 			<p style="padding: 0; margin: 0">
 				From the MD Studio Team [
-				<a href="https://markdownstudio.tech">
+				<a href="http://localhost:3000">
 					<img
-						src="https://markdownstudio.tech/logo/square_blue.png"
+						src="http://localhost:3000/logo/square_blue.png"
 						width="25"
 						height="25"
 						alt="Markdown Studio Logo"

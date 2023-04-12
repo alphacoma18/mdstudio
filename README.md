@@ -1,4 +1,4 @@
-# [Markdown Studio](https://markdownstudio.tech)
+# [Markdown Studio](http://localhost:3000)
 
 ## What is Markdown Studio?
 

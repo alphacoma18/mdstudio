@@ -1,6 +1,7 @@
 import { ITreeProject } from "@/db/projects/tree";
 export interface IEditorState {
 	id: string;
+	name: string;
 	pid: string;
 	path: string;
 }
@@ -28,4 +29,5 @@ export interface IContextEditor {
 	updateBarState: React.Dispatch<{
 		type: TBarState;
 	}>;
+	prevFileId: string;
 }

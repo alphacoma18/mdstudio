@@ -124,7 +124,7 @@ export const authOptions: NextAuthOptions = {
 	theme: {
 		colorScheme: "auto",
 		brandColor: "#1a2632",
-		logo: "https://markdownstudio.tech/android-chrome-256x256.png",
+		logo: "http://localhost:3000/android-chrome-256x256.png",
 		buttonText: "#007acc",
 	},
 	debug: process.env.NODE_ENV === "development",

@@ -16,7 +16,7 @@ const AuthSignIn: NextPage<
 		<section className={styles.bg}>
 			<GenMeta
 				props={{
-					title: "Sign In | Markdown Studio",
+					title: "Sign In",
 					description: "Sign in to Markdown Studio",
 				}}
 			/>

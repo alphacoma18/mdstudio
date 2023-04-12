@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useReducer, useState } from "react";
+import { ReactNode, createContext, useReducer, useState, useRef } from "react";
 import { IBarState, IContextEditor, IEditorState, TBarState } from "./type";
+import usePrevious from "utils/hooks/usePrevious";
 const ContextEditor = createContext<IContextEditor>({} as IContextEditor);
 export default ContextEditor;
 interface Props {
@@ -13,6 +14,8 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 	const [editorState, setEditorState] = useState<IEditorState>(
 		{} as IEditorState
 	);
+
+	const prevFileId = usePrevious(editorState.id || "");
 
 	function barReducer(state: IBarState, action: { type: TBarState }) {
 		switch (action.type) {
@@ -51,6 +54,7 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 				setEditorState,
 				barState,
 				updateBarState,
+				prevFileId,
 			}}
 		>
 			{children}

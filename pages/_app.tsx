@@ -40,7 +40,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					name="description"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
 				/>
-				<meta name="url" content="https://markdownstudio.tech" />
+				<meta name="url" content="http://localhost:3000" />
 				<meta
 					name="abstract"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
@@ -79,7 +79,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					property="og:description"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
 				/>
-				<meta property="og:url" content="https://markdownstudio.tech" />
+				<meta property="og:url" content="http://localhost:3000" />
 				<meta
 					property="og:site_name"
 					content="Markdown Studio - MD Unleashed"
@@ -87,7 +87,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:image"
-					content="https://markdownstudio.tech/logo/og_blue.png"
+					content="http://localhost:3000/logo/og_blue.png"
 				/>
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:alt" content="Logo of Markdown Studio" />
@@ -107,12 +107,12 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					property="twitter:description"
 					content="The modern customizable, and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
 				/>
-				<meta property="twitter:url" content="https://markdownstudio.tech" />
+				<meta property="twitter:url" content="http://localhost:3000" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:app:country" content="EN" />
 				<meta
 					name="twitter:image"
-					content="https://markdownstudio.tech/logo/og_blue.png"
+					content="http://localhost:3000/logo/og_blue.png"
 				/>
 				<meta name="twitter:image:type" content="image/png" />
 				<meta name="twitter:image:alt" content="Logo of Markdown Studio" />
@@ -120,7 +120,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="twitter:image:height" content="630" />
 				<meta name="twitter:site" content="@senodesuzo" />
 				<meta name="twitter:creator" content="@senodesuzo" />
-				<link rel="canonical" href="https://markdownstudio.tech" />
+				<link rel="canonical" href="http://localhost:3000" />
 
 				{/* Icons and browser stuff */}
 

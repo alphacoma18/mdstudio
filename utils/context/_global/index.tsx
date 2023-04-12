@@ -12,8 +12,8 @@ interface Props {
 }
 export const ContextProviderGlobal: React.FC<Props> = ({ children }) => {
 	const url: IContextGlobal["url"] = {
-		client: "https://markdownstudio.tech",
-		server: "https://markdownstudio.tech/api",
+		client: "http://localhost:3000",
+		server: "http://localhost:3000/api",
 	};
 	const { data: session } = useSession();
 

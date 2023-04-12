@@ -50,7 +50,7 @@
 	],
 	"theme_color": "#007acc",
 	"background_color": "#007acc",
-	"start_url": "https://markdownstudio.tech",
+	"start_url": "http://localhost:3000",
 	"display": "standalone",
 	"description": "The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML.",
 	"categories": [

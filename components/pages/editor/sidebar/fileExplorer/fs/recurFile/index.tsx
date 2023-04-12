@@ -25,13 +25,14 @@ const EditorFile: React.FC<Props> = ({
 		<>
 			{files?.map((file) => (
 				<GenButton
-					key={`file-${file}`}
+					key={`file-${file.fileName}`}
 					props={{
 						label: `File: ${file.fileName}`,
 						className: styles.rootFile,
 						onClick: () => {
 							setEditorState({
 								id: file._id.toString(),
+								name: file.fileName,
 								pid: folder._id.toString(),
 								path: `${prev}/${currPath}`,
 							});

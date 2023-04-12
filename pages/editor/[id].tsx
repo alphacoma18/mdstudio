@@ -20,9 +20,11 @@ import { NextPageWithLayout } from "../_app";
 import styles from "./index.module.css";
 const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 	const { setProjectState, setEditorState } = useContext(ContextEditor);
+	const initialData = data.fileSystem.files[0];
 	useEffect(() => {
 		setEditorState({
-			id: data.fileSystem.files[0]._id.toString(),
+			id: initialData._id.toString(),
+			name: initialData.fileName,
 			pid: data.fileSystem._id.toString(),
 			path: "/",
 		});
@@ -33,7 +35,7 @@ const EditorPage: NextPageWithLayout<{ data: ITreeProject }> = ({ data }) => {
 		<main className={styles.main}>
 			<GenMeta
 				props={{
-					title: `${data.projectName} | Markdown Studio`,
+					title: `${data.projectName}`,
 					description: `${data.projectDescription}`,
 				}}
 			/>

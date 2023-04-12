@@ -1,16 +1,20 @@
+import ContextEditor from "@/context/editor";
+import { useContext } from "react";
 import styles from "./index.module.css";
-
 const EditorCredits: React.FC = () => {
+	const { editorState, projectState } = useContext(ContextEditor);
 	return (
 		<section className={styles.section}>
 			<div className={styles.flexItem}>
 				<span className={styles.version}>
-					<i className="icon-rocket"></i>
-					{/* Version: Dev */}
+					<code>
+						<i className="icon-rocket"></i>
+						{projectState.projectName}<i className="icon-doc-text"></i>
+						{editorState.name}
+					</code>
 				</span>
 				<span className={styles.credits}>
-					<i className="icon-certificate"></i>
-					{/* Copyright © 2023 Alpha Romer N. Coma. All rights reserved. */}
+					{/* <i className="icon-certificate"></i> */}
 				</span>
 			</div>
 			<div className={styles.flexItem}>
