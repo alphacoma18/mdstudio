@@ -46,12 +46,24 @@
 			"src": "/android-chrome-512x512.png",
 			"sizes": "512x512",
 			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
 		}
 	],
 	"theme_color": "#007acc",
 	"background_color": "#007acc",
 	"start_url": "https://markdownstudio.tech",
 	"display": "standalone",
+	"dir": "ltr",
+	"lang": "en",
+	"orientation": "any",
+	"$schema": "https://schema.org/WebApplication",
+	"display_override": ["standalone", "minimal-ui", "fullscreen"],
+	"scope": "/",
 	"description": "The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML.",
 	"categories": [
 		"productivity",
@@ -61,12 +73,440 @@
 		"markdown",
 		"html",
 		"no-code",
+		"social",
+		"personalization",
 		"website-builder",
 		"website-publisher",
 		"website",
 		"blog",
 		"documentation",
 		"wiki"
+	],
+	"screenshots": [
+		{
+			"src": "/screenshot/dark/desktop/create_project.png",
+			"sizes": "1440x900",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/desktop/dashboard.png",
+			"sizes": "1440x900",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/desktop/editor.png",
+			"sizes": "1440x900",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/desktop/fs.png",
+			"sizes": "1440x900",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/desktop/home.png",
+			"sizes": "1440x900",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/desktop/side_by_side.png",
+			"sizes": "1440x900",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/desktop/signin.png",
+			"sizes": "1440x900",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/desktop/signout.png",
+			"sizes": "1440x900",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "android",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/laptop/create_project.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/laptop/dashboard.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/laptop/editor.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/laptop/fs.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/laptop/home.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/laptop/preview.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/laptop/signin.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/laptop/signout.png",
+			"sizes": "800x1280",
+			"platform": "chromeos",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/laptop/create_project.png",
+			"sizes": "800x1280",
+			"platform": "ipados",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/laptop/dashboard.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/laptop/editor.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/laptop/fs.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/laptop/home.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/laptop/preview.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/laptop/signin.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/laptop/signout.png",
+			"sizes": "1440x900",
+			"platform": "ipados",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "ios",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "kaios",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "chrome_web_store",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "play",
+			"label": "Sign Out"
+		},
+		{
+			"src": "/screenshot/dark/mobile/create_project.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Create Project"
+		},
+		{
+			"src": "/screenshot/dark/mobile/dashboard.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Dashboard"
+		},
+		{
+			"src": "/screenshot/dark/mobile/editor.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Editor"
+		},
+		{
+			"src": "/screenshot/dark/mobile/fs.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "File Explorer"
+		},
+		{
+			"src": "/screenshot/dark/mobile/home.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Home"
+		},
+		{
+			"src": "/screenshot/dark/mobile/preview.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Side by Side"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signin.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Sign In"
+		},
+		{
+			"src": "/screenshot/dark/mobile/signout.png",
+			"sizes": "414x736",
+			"platform": "itunes",
+			"label": "Sign Out"
+		}
 	],
 	"shortcuts": [
 		{

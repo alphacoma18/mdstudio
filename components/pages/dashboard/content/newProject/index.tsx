@@ -1,7 +1,8 @@
+import handleAxios from "@/axios";
+import GenButton from "@/gen/button";
 import GenForm from "@/gen/form";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import handleAxios from "@/axios";
 interface Props {
 	props: {
 		isActive: boolean;
@@ -76,7 +77,15 @@ export default ({ props: { isActive, setIsActive } }: Props) => {
 				value={projectDescription}
 				onChange={(e) => setProjectDescription(e.currentTarget.value)}
 			/>
-			<button className="inputBtn btnPseudoBC">Create Project</button>
+			<GenButton
+				props={{
+					label: "Create Project",
+					className: "inputBtn btnPseudoBC",
+					type: "submit",
+				}}
+			>
+				Create Project
+			</GenButton>
 			<hr />
 			<details>
 				<summary>What is a project?</summary>
