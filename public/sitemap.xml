@@ -8,8 +8,14 @@
 
 
 <url>
-  <loc>http://localhost:3000/</loc>
-  <lastmod>2023-03-05T14:37:37+00:00</lastmod>
+  <loc>https://markdownstudio.tech/</loc>
+  <lastmod>2023-04-19T15:35:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://markdownstudio.tech/auth/signin</loc>
+  <lastmod>2023-04-19T15:35:07+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 

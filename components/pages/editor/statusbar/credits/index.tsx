@@ -6,10 +6,11 @@ const EditorCredits: React.FC = () => {
 	return (
 		<section className={styles.section}>
 			<div className={styles.flexItem}>
-				<span className={styles.version}>
-					<code>
+				<span>
+					<code className={styles.path}>
 						<i className="icon-rocket"></i>
-						{projectState.projectName}<i className="icon-doc-text"></i>
+						{projectState.projectName}
+						<i className="icon-doc-text"></i>
 						{editorState.name}
 					</code>
 				</span>

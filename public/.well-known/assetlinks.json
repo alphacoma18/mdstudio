@@ -1,0 +1,12 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "tech.markdownstudio.twa",
+			"sha256_cert_fingerprints": [
+				"C1:7C:38:33:A4:63:CE:CE:AD:66:24:C1:35:DE:4D:93:C1:1D:A7:6B:27:C6:35:AC:E4:63:D0:E6:7D:D2:4B:A2"
+			]
+		}
+	}
+]
