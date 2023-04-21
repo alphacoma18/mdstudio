@@ -14,11 +14,11 @@ const withPWA = require('next-pwa')({
   runtimeCaching,
   cacheOnFrontEndNav: process.env.NODE_ENV === 'production',
   fallbacks: {
-    document: '/_offline',
+    document: '/src/pages/_offline.tsx',
     image: '/android-chrome-512x512.png',
-    font: '/fonts/fallback.woff2',
-    audio: '',
-    video: ''
+    // font: '',
+    // audio: '',
+    // video: ''
   },
   buildExcludes: [/middleware-manifest.json$/],
   skipWaiting: true,
@@ -65,6 +65,8 @@ module.exports = withPWA({
     ]
   },
   env: {
+    HOST_URL: 'http://localhost:3000',
+    API_URL: 'http://localhost:3000/api',
     MIN_NOT_EMPTY_STRING_LENGTH: 1,
     MAX_FILE_NAME_LENGTH: 20,
     MAX_PROJECT_NAME_LENGTH: 20,
