@@ -221,6 +221,7 @@ img {
 .inputBtn {
 	border: var(--border-blue);
 	border-radius: var(--br-md);
+	color: var(--color) !important;
 	padding: var(--pd-md);
 	text-align: center;
 	width: 100%;
@@ -232,7 +233,7 @@ img {
 
 .btnPseudoBC:is(:hover, :focus, :active) {
 	background: var(--bg-blue);
-	color: var(--color-white);
+	color: var(--color-white) !important;
 }
 
 .btnPseudoO:is(:hover, :focus, :active) {

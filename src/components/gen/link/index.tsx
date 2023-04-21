@@ -1,13 +1,14 @@
 import Link from "next/link";
-interface Props {
+type TLink = `/${string}` | `#${string}`;
+export interface ILink {
 	props: {
-		href: string;
+		href: TLink;
 		label: string;
 		className?: string;
 	};
 	children: React.ReactNode;
 }
-const GenLink: React.FC<Props> = ({ children, props }) => {
+const GenLink: React.FC<ILink> = ({ children, props }) => {
 	const { href, label, className } = props;
 	return (
 		<Link

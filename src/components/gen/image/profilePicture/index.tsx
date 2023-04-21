@@ -1,18 +1,20 @@
 import ContextGlobal from "@/context/_global";
 import GenLink from "@/gen/link";
+import { OmitNest } from "@/utils/omit";
 import { useContext } from "react";
 import GenImage, { IImage } from "..";
 import styles from "./index.module.css";
-interface Props {
-	props: {
+type Props = OmitNest<
+	IImage,
+	{
+		props: Omit<IImage["props"], "src" | "alt">;
 		isCircle?: boolean;
-		height: IImage["props"]["height"];
-		width: IImage["props"]["width"];
-		className?: string;
-	};
-}
+	}
+>;
+
 const GenProfilePicture: React.FC<Props> = ({
-	props: { isCircle, height, width, className },
+	props: { height, width, className },
+	isCircle,
 }) => {
 	const { session } = useContext(ContextGlobal);
 	if (!session)
@@ -27,17 +29,23 @@ const GenProfilePicture: React.FC<Props> = ({
 			</GenLink>
 		);
 	return (
-		<GenImage
-			props={{
-				src: session.user.image,
-				height: height,
-				width: width,
-				alt: `User: ${session.user.name}`,
-				className: `${styles.profilePicture} ${
-					isCircle ? styles.circled : ""
-				} ${className ? className : ""}`,
-			}}
-		></GenImage>
+		<>
+			{session.user.image ? (
+				<GenImage
+					props={{
+						src: session.user.image,
+						height,
+						width,
+						alt: `User: ${session.user.name}`,
+						className: `${styles.profilePicture} ${
+							isCircle ? styles.circled : ""
+						} ${(className ??= "")}`,
+					}}
+				></GenImage>
+			) : (
+				<i className="Eicon-user-circle"></i>
+			)}
+		</>
 	);
 };
 export default GenProfilePicture;

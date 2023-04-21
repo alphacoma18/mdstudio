@@ -1,9 +1,3 @@
-interface Params {
-	url: string;
-}
-export default function html(params: Params) {
-	const { url } = params;
-	return `
 <body
 	style="
 		padding: 0;
@@ -93,7 +87,3 @@ export default function html(params: Params) {
 		</div>
 	</div>
 </body>
-
-
-`;
-}

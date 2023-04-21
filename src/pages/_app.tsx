@@ -41,7 +41,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					name="description"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
 				/>
-				<meta name="url" content={process.env.HOST_URL} />
+				<meta name="url" content={host} />
 				<meta
 					name="abstract"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
@@ -64,7 +64,6 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="rating" content="General" />
 				<meta name="subject" content="Markdown Publisher" />
 				<meta name="topic" content="Markdown Publisher" />
-
 				{/* Robot Meta Tags */}
 				<meta name="robots" content="all" />
 				<meta name="Googlebot" content="all" />
@@ -72,10 +71,8 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="Baiduspider" content="all" />
 				<meta name="YandexBot" content="all" />
 				<meta name="revisit-after" content="2 days" />
-
 				{/* Open Graph Meta Tags */}
 				<meta property="og:title" content="Markdown Studio - MD Unleashed" />
-
 				<meta
 					property="og:description"
 					content="The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
@@ -95,7 +92,12 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="og:country-name" content="Philippines" />
 				<meta property="og:email" content="alphacoma18@gmail.com" />
 				<meta property="og:locale:alternative" content="ja_JP" />
+				<meta property="fb:app_id" content="5945161925561758" />
+				<meta property="fb:pages" content="104838309260260" />
+				{/* https://developers.facebook.com/docs/instant-articles/crawler-ingestion/ */}
+				{/* <meta property="ia:markup_url" content="{URL}"></meta> */}
 
+				
 				{/* Twitter Meta Tags */}
 				<meta
 					property="twitter:title"
@@ -105,13 +107,12 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					property="twitter:description"
 					content="The modern customizable, and cross-platform blogging/note-taking/publishing platform using Markdown/HTML."
 				/>
+
+				{/* switch to twitter app card */}
 				<meta property="twitter:url" content={host} />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:app:country" content="EN" />
-				<meta
-					name="twitter:image"
-					content={`${host}/logo/og_blue.png`}
-				/>
+				<meta name="twitter:image" content={`${host}/logo/og_blue.png`} />
 				<meta name="twitter:image:type" content="image/png" />
 				<meta name="twitter:image:alt" content="Logo of Markdown Studio" />
 				<meta name="twitter:image:width" content="1200" />
@@ -119,9 +120,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="twitter:site" content="@senodesuzo" />
 				<meta name="twitter:creator" content="@senodesuzo" />
 				<link rel="canonical" href={host} />
-
 				{/* Icons and browser stuff */}
-
 				{/* Do not put this meta tag if you want to work and debug with next.js on mobile
 				Also check of node.exe is not blocked 
 				steps:
@@ -129,12 +128,10 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				2. allow an app through firewall
 				3. allow node.exe on public
 				*/}
-
 				{/* <meta
 					httpEquiv="Content-Security-Policy"
 					content="upgrade-insecure-requests"
 				/> */}
-
 				<meta name="mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-title" content="Markdown Studio" />
@@ -148,7 +145,6 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				<meta name="msapplication-tap-highlight" content="no" />
 				<meta name="theme-color" content="#007acc" />
 				<meta name="format-detection" content="telephone=no" />
-
 				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
@@ -179,7 +175,12 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 					href="/favicon-16x16.png"
 				/>
 				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007acc" />
-				<link rel="manifest" href="/manifest.webmanifest" />
+				<link
+					rel="manifest"
+					href="/manifest.webmanifest"
+					crossOrigin="use-credentials"
+				/>
+				<link rel="shortcut icon" href="/favicon.ico" />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover"

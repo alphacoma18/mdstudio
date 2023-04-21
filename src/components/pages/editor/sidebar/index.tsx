@@ -54,10 +54,10 @@ export default memo(() => {
 					<GenButton props={{ label: "Sidebar: profile" }}>
 						<GenProfilePicture
 							props={{
-								isCircle: true,
 								height: 40,
 								width: 40,
 							}}
+							isCircle={true}
 						></GenProfilePicture>
 					</GenButton>
 					<GenButton

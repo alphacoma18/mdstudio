@@ -1,4 +1,4 @@
-interface Props {
+export interface IButton {
 	props: {
 		label: string;
 		onClick?: () => void;
@@ -8,7 +8,7 @@ interface Props {
 	children?: React.ReactNode;
 }
 
-const GenButton: React.FC<Props> = ({ props, children }) => {
+const GenButton: React.FC<IButton> = ({ props, children }) => {
 	const { label, onClick, className, type = "button" } = props;
 	return (
 		<button

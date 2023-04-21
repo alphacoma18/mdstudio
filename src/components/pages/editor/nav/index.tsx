@@ -1,5 +1,5 @@
 import ContextEditor from "@/context/editor";
-import GenButton from "@/gen/button";
+import GenButton, { IButton } from "@/gen/button";
 import GenLink from "@/gen/link";
 import GenLogo from "@/gen/logo";
 import GenReload from "@/gen/reload";
@@ -33,31 +33,81 @@ export default memo(() => {
 					<i className={"icon-home"}></i>
 					<span>Home</span>
 				</GenLink>
-				<GenButton props={{ label: "Nav: settings" }}>
-					<i className={"icon-wrench"}></i>
-					<span>Tools</span>
-				</GenButton>
-				<GenButton props={{ label: "Nav: help" }}>
-					<i className={"icon-help-circled"}></i>
-					<span>Help</span>
-				</GenButton>
-				<GenButton props={{ label: "Nav: share" }}>
-					<i className={"icon-share-squared"}></i>
-					<span>Share</span>
-				</GenButton>
-				<GenButton props={{ label: "Nav: download" }}>
-					<i className={"icon-download"}></i>
-					<span>Download</span>
-				</GenButton>
-				<GenButton props={{ label: "Nav: preview" }}>
-					<i className={"icon-eye"}></i>
-					<span>Preview</span>
-				</GenButton>
-				<GenButton props={{ label: "Nav: publish" }}>
-					<i className={"icon-publish"}></i>
-					<span>Publish</span>
-				</GenButton>
+				{buttons.map((button, index) => (
+					<GenButton key={index} props={button.props}>
+						{button.children}
+					</GenButton>
+				))}
 			</div>
 		</nav>
 	);
 });
+
+const buttons: IButton[] = [
+	{
+		props: {
+			label: "Nav: settings",
+		},
+		children: (
+			<>
+				<i className="icon-wrench"></i>
+				<span>Tools</span>
+			</>
+		),
+	},
+	{
+		props: {
+			label: "Nav: help",
+		},
+		children: (
+			<>
+				<i className="icon-help-circled"></i>
+				<span>Help</span>
+			</>
+		),
+	},
+	{
+		props: {
+			label: "Nav: share",
+		},
+		children: (
+			<>
+				<i className="icon-share-squared"></i>
+				<span>Share</span>
+			</>
+		),
+	},
+	{
+		props: {
+			label: "Nav: download",
+		},
+		children: (
+			<>
+				<i className="icon-download"></i>
+				<span>Download</span>
+			</>
+		),
+	},
+	{
+		props: {
+			label: "Nav: preview",
+		},
+		children: (
+			<>
+				<i className="icon-eye"></i>
+				<span>Preview</span>
+			</>
+		),
+	},
+	{
+		props: {
+			label: "Nav: publish",
+		},
+		children: (
+			<>
+				<i className="icon-publish"></i>
+				<span>Publish</span>
+			</>
+		),
+	},
+];
