@@ -1,6 +1,7 @@
 import db_projects, { mongooseId } from "@/db/projects/flat";
 import clientPromise from "@/db/projects/mongo";
-import html from "@/utils/mailer/email";
+import Mailer, { serverDetails } from "@/utils/mailer";
+import emailSignin from "@/utils/mailer/templates/signin";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
@@ -10,46 +11,18 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import TwitterProvider from "next-auth/providers/twitter";
-import nodeMailer from "nodemailer";
 export const authOptions: NextAuthOptions = {
 	adapter: MongoDBAdapter(clientPromise),
 	providers: [
 		EmailProvider({
-			server: {
-				name: process.env.HOST_URL,
-				host: process.env.EMAIL_SERVER_HOST,
-				port: +process.env.EMAIL_SERVER_PORT,
-				// DO NOT SET TO TRUE
-				// https://nodemailer.com/smtp/ on secure: false,
-				secure: false,
-				auth: {
-					user: process.env.EMAIL_USER,
-					pass: process.env.EMAIL_PASSWORD,
-				},
-				from: process.env.EMAIL_USER,
-				opportunisticTLS: true,
-				requireTLS: true,
-				priority: "high",
-				connectionTimeout: 5 * 60 * 1000,
-				greetingTimeout: 5 * 60 * 1000,
-			},
-			from: `MD Studio Team <${process.env.EMAIL_USER}>`,
-			sendVerificationRequest({
-				identifier: email,
-				url,
-				provider: { server, from },
-			}) {
-				(async () => {
-					console.log("Sending email to", email, "with url", url, "from", from);
-
-					const transporter = nodeMailer.createTransport(server);
-					return await transporter.sendMail({
-						from,
-						to: email,
-						subject: "Sign in to Markdown Studio",
-						html: html({ url }),
-					});
-				})();
+			server: serverDetails,
+			from: serverDetails.from,
+			async sendVerificationRequest({ identifier: email, url }) {
+				await Mailer({
+					recipient: email,
+					subject: "Sign in to Markdown Studio",
+					html: emailSignin({ url }),
+				});
 			},
 		}),
 		GoogleProvider({
@@ -121,7 +94,7 @@ export const authOptions: NextAuthOptions = {
 			session.user.userId = user.id;
 			return session;
 		},
-		async jwt({ token, user, account, profile, isNewUser }) {
+		async jwt({ token, user, account, profile }) {
 			return token;
 		},
 	},
@@ -134,7 +107,7 @@ export const authOptions: NextAuthOptions = {
 	},
 	theme: {
 		colorScheme: "auto",
-		brandColor: "#1a2632",
+		brandColor: "#007acc",
 		logo: `${process.env.HOST_URL}/android-chrome-256x256.png`,
 		buttonText: "#007acc",
 	},

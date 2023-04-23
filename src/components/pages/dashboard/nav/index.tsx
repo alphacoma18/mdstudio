@@ -54,7 +54,7 @@ const links: ILink[] = [
 				props={{
 					height: 50,
 					width: 50,
-			}}
+				}}
 			/>
 		),
 	},

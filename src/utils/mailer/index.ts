@@ -2,36 +2,41 @@ import nodeMailer from "nodemailer";
 interface MailerOptions {
 	recipient: string;
 	subject: string;
-	text?: string;
 	html?: string;
 }
+export const serverDetails = {
+	host: process.env.EMAIL_SERVER_HOST,
+	port: +process.env.EMAIL_SERVER_PORT,
+	// DO NOT SET TO TRUE
+	// https://nodemailer.com/smtp/ on secure: false,
+	secure: false,
+	auth: {
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASSWORD,
+	},
+	from: `MD Studio Team <${process.env.EMAIL_USER}>`,
+	opportunisticTLS: true,
+	priority: "high",
+	connectionTimeout: 10 * 60 * 1000, // 10 minutes
+	greetingTimeout: 5 * 60 * 1000, // 5 minutes
+} as const;
+
 export default async function Mailer({
 	recipient,
 	subject,
-	text,
 	html,
 }: MailerOptions) {
 	try {
-		const transporter = nodeMailer.createTransport({
-			host: process.env.EMAIL_SERVER_HOST,
-			port: +process.env.EMAIL_SERVER_PORT,
-			secure: true,
-			auth: {
-				user: process.env.EMAIL_USER,
-				pass: process.env.EMAIL_PASSWORD,
-			},
-		});
+		const transporter = nodeMailer.createTransport(serverDetails);
 		const info = await transporter.sendMail({
-			from: process.env.EMAIL_USER,
 			to: recipient,
 			subject,
-			text,
 			html,
 		});
+		console.log("Message sent: %s", info.messageId);
+
 		if (info.rejected.length > 0) throw new Error("Email not sent");
-		return true;
 	} catch (error) {
 		console.error(error);
-		return false;
 	}
 }

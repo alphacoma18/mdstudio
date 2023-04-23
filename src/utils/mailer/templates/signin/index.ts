@@ -1,7 +1,7 @@
 interface Params {
 	url: string;
 }
-export default function html(params: Params) {
+export default function emailSignin(params: Params) {
 	const { url } = params;
 	return `
 <body

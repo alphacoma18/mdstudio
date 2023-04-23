@@ -12,7 +12,6 @@
 		"plugin:prettier/recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:n/recommended",
 		"plugin:@next/next/recommended",
 		"prettier",
 		"next/core-web-vitals"
@@ -24,18 +23,9 @@
 		"sourceType": "module",
 		"project": "./tsconfig.json"
 	},
-	"plugins": [
-		"react",
-		"promise",
-		"import",
-		"@typescript-eslint",
-		"prettier"
-	],
+	"plugins": ["react", "import", "@typescript-eslint", "prettier"],
 	"rules": {
 		"quotes": "off",
-		"n/no-unsupported-features/es-syntax": "off",
-		"n/no-missing-import": "off",
-		"n/no-extraneous-import": "off",
 		"import/no-anonymous-default-export": [
 			"error",
 			{
@@ -81,6 +71,7 @@
 			{
 				"endOfLine": "auto"
 			}
-		]
+		],
+		"no-var": "warn"
 	}
 }

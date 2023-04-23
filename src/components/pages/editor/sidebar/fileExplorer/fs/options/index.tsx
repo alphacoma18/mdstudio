@@ -7,7 +7,7 @@ const EditorFSOptions = () => {
 				label: "Options",
 				onClick: () => console.log("Options"),
 				className: `icon-cog ${styles.options}`,
-				type: "button"
+				type: "button",
 			}}
 		/>
 	);

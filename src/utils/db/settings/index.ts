@@ -10,9 +10,7 @@ class FolderSettings {
 	_id!: Types.ObjectId;
 }
 // use 60/30/10 rule
-class Theme {
-    
-}
+class Theme {}
 class ProjectSettings {
 	@prop({ index: true, unique: true, required: true })
 	_id!: Types.ObjectId;

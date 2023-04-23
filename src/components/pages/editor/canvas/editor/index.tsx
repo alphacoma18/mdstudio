@@ -53,7 +53,7 @@ export default memo(() => {
 	}, [content, editorState.id, projectState._id]);
 
 	useEffect(() => {
-		(async () => {			
+		(async () => {
 			const getRes = getContent(editorState.id);
 			if (!prevFileId) {
 				const getResData = await getRes;

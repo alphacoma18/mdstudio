@@ -10,7 +10,8 @@ interface Props {
 }
 const GenMeta: React.FC<Props> = ({ props }) => {
 	const { asPath: url } = useRouter();
-	let { title, description } = props;
+	let { title } = props;
+	const { description } = props;
 	title += " | Markdown Studio";
 	return (
 		<Head>

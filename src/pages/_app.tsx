@@ -97,7 +97,6 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 				{/* https://developers.facebook.com/docs/instant-articles/crawler-ingestion/ */}
 				{/* <meta property="ia:markup_url" content="{URL}"></meta> */}
 
-				
 				{/* Twitter Meta Tags */}
 				<meta
 					property="twitter:title"

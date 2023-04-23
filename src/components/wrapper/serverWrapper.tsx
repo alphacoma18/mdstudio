@@ -1,10 +1,10 @@
 import { authOptions, getServerSession } from "@/exports/getServerSession";
+import GenError from "@/utils/gen/error";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Session } from "next-auth";
-import GenError from "@/utils/gen/error";
 
 const methods = ["GET", "POST", "PUT", "DELETE"] as const;
-type TMethod = typeof methods[number];
+type TMethod = (typeof methods)[number];
 const serverWrapper = (
 	fn: (
 		req: NextApiRequest,
