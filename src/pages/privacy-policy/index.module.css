@@ -1,0 +1,28 @@
+.section {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .9rem;
+    margin: 0 auto;
+    padding: 1rem;
+    width: clamp(0ch, 100%, 85ch);
+}
+
+.list > li {
+    margin: 1rem 0;
+}
+
+.list > li::marker,
+.list > li > p {
+    font-weight: bold;
+}
+
+.list > li > span {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        font-size: .8rem;
+    }
+}

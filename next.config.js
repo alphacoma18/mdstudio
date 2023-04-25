@@ -14,8 +14,8 @@ const withPWA = require('next-pwa')({
   runtimeCaching,
   cacheOnFrontEndNav: process.env.NODE_ENV === 'production',
   fallbacks: {
-    document: '/src/pages/_offline.tsx',
     image: '/android-chrome-512x512.png',
+    // document: '/pages/_offline.tsx',
     // font: '',
     // audio: '',
     // video: ''

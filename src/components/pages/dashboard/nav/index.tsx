@@ -46,21 +46,6 @@ const links: ILink[] = [
 	{
 		props: {
 			href: "/",
-			label: "Navigate to home page",
-			className: "mobileOnly",
-		},
-		children: (
-			<GenProfilePicture
-				props={{
-					height: 50,
-					width: 50,
-				}}
-			/>
-		),
-	},
-	{
-		props: {
-			href: "/",
 			label: "Navigate to inbox",
 		},
 		children: (
@@ -74,12 +59,13 @@ const links: ILink[] = [
 		props: {
 			href: "/auth/signout",
 			label: "Sign out",
+			className: "omit",
 		},
 		children: (
 			<GenProfilePicture
 				props={{
-					height: 40,
-					width: 40,
+					height: 45,
+					width: 45,
 				}}
 				isCircle={true}
 			/>

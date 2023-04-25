@@ -5,18 +5,19 @@ export interface ILink {
 		href: TLink;
 		label: string;
 		className?: string;
+		isHighlighted?: boolean;
 	};
 	children: React.ReactNode;
 }
 const GenLink: React.FC<ILink> = ({ children, props }) => {
-	const { href, label, className } = props;
+	const { href, label, className, isHighlighted } = props;
 	return (
 		<Link
 			href={href}
 			title={label}
 			hrefLang="en-us"
 			aria-label={label}
-			className={className}
+			className={`${className ?? ""} ${isHighlighted ? "highlight" : ""}`}
 		>
 			{children}
 		</Link>

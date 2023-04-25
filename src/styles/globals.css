@@ -161,7 +161,6 @@ button {
 a,
 i {
 	color: inherit;
-	text-decoration: none;
 }
 
 hr {
@@ -178,12 +177,36 @@ img {
 	max-width: 100%;
 }
 
+ul,
+ol {
+	margin: 0 0 0 1rem;
+}
 
 /* Custom Global Styles */
-.hr-white {
-	background: var(--bg-white);
-	border: 1px solid var(--bg-white);
-	color: var(--color-white);
+/* Custom Global Styles */
+/* Custom Global Styles */
+/* Custom Global Styles */
+/* Custom Global Styles */
+
+.textCenter {
+	text-align: center;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: var(--fw-bold);
+}
+
+.anchor,
+.highlight {
+	color: var(--color-blue);
 }
 
 .imageAnchor {
@@ -243,7 +266,6 @@ img {
 .mobileOnly {
 	display: none !important;
 }
-
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;
