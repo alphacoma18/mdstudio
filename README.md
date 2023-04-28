@@ -1,39 +1,42 @@
-# [Markdown Studio](process.)
+<a src="https://markdownstudio.tech">
+ <img src="https://markdownstudio.tech/logo/og_blue.png"></img>
+</a>
+---
 
 ## What is Markdown Studio?
 
-Markdown Studio is a simple yet modern and extensive cross-platform Markdown publisher and publishing application. Featuring your most beloved features such as...
+Markdown Studio is your modern note-taking & blogging application built on bleeding edge technologies and standards. It's packed with features that make it the perfect tool for anyone who wants to take notes, write blog posts, or create other types of content.
 
-- 🌒 Awesome Dark mode / Night Mode feature
-- ✍️ Integrated Grammarly Support
-- 😍 GitHub Flavored Markdown Support
-- 💪 Cross-Platform Installation Support
-- ☕️ Automatic Syntax Highlighting
-- 👀 Extensive View Modes such as...
-  - 📝 Edit Mode
-  - 📖 Preview Mode
-  - 📄 Split Mode
-  - 📚 Read Mode
-  - 🖥️ Full-Screen Mode
-- Mobile Friendly
-- And SO Much More!
+- 🚫 No Ads or In-App Purchases
+- 📊 Multi-Project Dashboard
+- 🌑 Awesome Dark Mode
+- 📝 Integrated Spell Checker
+- 💻 Cross-Platform Installation Support
+- 📈 Automatic Syntax Highlighting
+- 💾 Seamless Auto-save
+- 👀 Extensive View Modes
+- 💡 And SO Much More!
 
 ## Why would you use this?
 
-Perhaps you want to write a blog post, or a personal or promotional web page, or maybe you just want to write something on the go (without an account/anonymously) that you will use for a presentation or project later. Markdown Studio is built specially with purpose and extensibility in mind, and is designed to be as simple as possible to use, while still being powerful enough to be used for any purpose.
-
-## How do I use it?
-
-Markdown Studio offers a built-in Markdown tool bar that allows you to easily format your text, and grammarly support for grammar and spelling checks. You can also use the built-in keyboard shortcuts to format your text and switch between view modes. Markdown Studio also offers a built-in file manager that allows you to easily create, open, save, and delete multiple files if logged in.
+Markdown Studio is the perfect tool for anyone who wants to take notes, write blog posts, or create other types of content. It's powerful, flexible, and easy to use.
 
 ## Planned Future Features
 
 - [x] ~~Support for HTML~~
-- [x] ~~Several Secure Login Methods~~
-- [ ] Local Autosave Feature
-- [ ] Multi-Language Support
-- [ ] Collaborative Editing using web sockets
-- [ ] Downloadable and Shareable Content
-- [ ] Customizable Themes
-- [ ] Extensive Settings Menu
-- [ ] Commenting and Discussion Feature
+- [x] ~~Several secure login methods~~
+- [ ] Image and media upload
+- [ ] Local only projects
+- [ ] Multi-language support
+- [ ] Collaborative editing using web sockets
+- [ ] Downloadable and shareable content
+- [ ] Customizable themes
+- [ ] Extensive settings menu
+- [ ] Commenting and discussion feature
+- [ ] AI Writer Integration
+
+## Application Links
+
+- [GitHub](https://github.com/alphacoma18/mdstudio)
+- [Web App](https://markdownstudio.tech)
+- [Google Play Store](https://play.google.com/store/apps/details?id=tech.markdownstudio.twa)

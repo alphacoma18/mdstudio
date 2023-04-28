@@ -6,6 +6,10 @@
     width: clamp(0ch, 100%, 85ch);
 }
 
+.section a {
+    text-decoration: underline;
+}
+
 .list > li {
     margin: 1rem 0;
 }
