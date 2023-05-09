@@ -51,3 +51,6 @@ next-env.d.ts
 
 # rest client
 .rest
+
+#unlighthouse
+.unlighthouse
