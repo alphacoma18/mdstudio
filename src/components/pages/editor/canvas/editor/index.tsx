@@ -3,16 +3,8 @@ import ContextGlobal from "@/context/_global";
 import ContextEditor from "@/context/editor";
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
-import dynamic from "next/dynamic";
 import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
-import styles from "./index.module.css";
-const SimpleMdeReact = dynamic(
-	async () => await import("react-simplemde-editor"),
-	{
-		ssr: false,
-	}
-);
-
+import SimpleMDE from "react-simplemde-editor";
 async function postContent(projectId: string, fileId: string, content: string) {
 	return handleAxios({
 		url: `editor/update/${fileId}`,
@@ -143,12 +135,10 @@ export default memo(() => {
 		} as Options;
 	}, [isHandheld]);
 	return (
-		<SimpleMdeReact
-			value={content}
+		<SimpleMDE
 			onChange={(value) => setContent(value)}
-			placeholder="Type or paste your markdown here..."
+			value={content}
 			options={mdOptions}
-			className={`${styles.editor} kf-fade-in-fast`}
 		/>
 	);
 });

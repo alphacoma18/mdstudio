@@ -1,7 +1,12 @@
 import { TFlatFileSystem } from "./flat";
 import { ITreeFolder, TTreeFileSystem } from "./tree";
 
-export default function toTree(data: TFlatFileSystem): ITreeFolder {
+function isTFlatFileSystem(pet: TFlatFileSystem | any): pet is TFlatFileSystem {
+	return (pet as TFlatFileSystem)[0]._id !== undefined;
+}
+
+export default function toTree(data: TFlatFileSystem | any): ITreeFolder {
+	if (!isTFlatFileSystem(data)) throw new Error("Invalid Tree Conversion");
 	const arrMap: Map<string, ITreeFolder> = new Map();
 	const arr: TTreeFileSystem = [],
 		dataLen = data.length;
