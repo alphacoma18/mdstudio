@@ -5,14 +5,14 @@ interface IBody {
 	projectName: string;
 	projectDescription: string;
 }
-export default serverWrapper(async (req, res, session) => {
+export default serverWrapper(async (req, res, sessionUser) => {
 	const { projectName, projectDescription }: IBody = req.body;
 	if (projectName.length < 1 || projectName.length > 20)
 		throw new GenError("Invalid project name", 400);
 	const _id = mongooseId(),
 		rootId = mongooseId();
 	await db_projects.updateOne(
-		{ userId: mongooseId(session.user.userId) },
+		{ userId: mongooseId(sessionUser.userId) },
 		{
 			$push: {
 				projects: {

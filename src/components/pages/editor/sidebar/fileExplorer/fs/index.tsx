@@ -1,5 +1,4 @@
 import { ITreeFolder } from "@/db/projects/tree";
-import { memo } from "react";
 import styles from "./index.module.css";
 import EditorFile from "./recurFile";
 import EditorFolder from "./recurFolder";
@@ -33,4 +32,4 @@ const EditorFS: React.FC<Props> = ({ folder }) => {
 	);
 };
 
-export default memo(EditorFS);
+export default EditorFS;

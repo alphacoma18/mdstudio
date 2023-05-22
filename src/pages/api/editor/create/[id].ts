@@ -16,7 +16,7 @@ export default serverWrapper(async (req, res, session) => {
 	const data = await db_projects
 		.findOneAndUpdate(
 			{
-				userId: mongooseId(session.user.userId),
+				userId: mongooseId(session.userId),
 				"projects._id": _id,
 			},
 			{

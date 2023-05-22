@@ -9,7 +9,7 @@ export default serverWrapper(async (req, res, session) => {
 			{
 				$match: {
 					$and: [
-						{ userId: mongooseId(session.user.userId) },
+						{ userId: mongooseId(session.userId) },
 						{ "projects.fileSystem._id": mongooseId(id as string) },
 					],
 				},

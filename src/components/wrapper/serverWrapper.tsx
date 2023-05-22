@@ -9,7 +9,7 @@ const serverWrapper = (
 	fn: (
 		req: NextApiRequest,
 		res: NextApiResponse,
-		session: Session,
+		sessionUser: Session["user"],
 		method: TMethod
 	) => Promise<void>
 ) => {
@@ -17,10 +17,11 @@ const serverWrapper = (
 		try {
 			const session = await getServerSession(req, res, authOptions);
 			if (!session) throw new GenError("Unauthorized", 401);
-			const { method } = req;
+			const { user } = session,
+				{ method } = req;
 			if (!method || !methods.includes(method as TMethod))
 				throw new GenError("Method Not Allowed", 405);
-			await fn(req, res, session, method as TMethod);
+			await fn(req, res, user, method as TMethod);
 		} catch (e) {
 			console.error(e);
 			if (e instanceof GenError)
