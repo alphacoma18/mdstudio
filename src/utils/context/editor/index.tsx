@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useReducer, useState, useRef } from "react";
-import { IBarState, IContextEditor, IEditorState, TBarState } from "./type";
 import usePrevious from "@/utils/hooks/usePrevious";
+import { ReactNode, createContext, useReducer, useState } from "react";
+import { IBarState, IContextEditor, IEditorState, TBarState } from "./type";
 const ContextEditor = createContext<IContextEditor>({} as IContextEditor);
 export default ContextEditor;
 interface Props {

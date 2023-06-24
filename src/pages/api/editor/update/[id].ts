@@ -1,5 +1,5 @@
-import db_projects, { isObjectId, mongooseId } from "@/db/projects/flat";
 import serverWrapper from "@/components/wrapper/serverWrapper";
+import db_projects, { isObjectId, mongooseId } from "@/db/projects/flat";
 import GenError from "@/utils/gen/error";
 interface IBody {
 	projectId: string;
@@ -11,7 +11,7 @@ export default serverWrapper(async (req, res, session) => {
 	if (!isObjectId(id)) throw new GenError("Invalid project id", 400);
 	await db_projects.updateOne(
 		{
-			userId: mongooseId(session!.user.userId),
+			userId: mongooseId(session.userId),
 		},
 		{
 			$set: {

@@ -4,7 +4,7 @@
 // pages\api\editor\update\[id].ts
 await db_projects.findOneAndUpdate(
  {
-  userId: mongooseId(session!.user.userId),
+  userId: mongooseId(session!.userId),
   "projects.fileSystem._id": mongooseId(id as string),
  },
  {
@@ -22,7 +22,7 @@ await db_projects.findOneAndUpdate(
 await db_projects
  .updateOne(
   {
-   userId: mongooseId(session!.user.userId),
+   userId: mongooseId(session!userId),
   },
   {
    $set: {
