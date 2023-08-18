@@ -67,7 +67,11 @@
 	--tr-opacity: opacity 100ms ease-in-out;
 }
 
-::-moz-selection,
+::-moz-selection {
+	background: var(--bg-blue);
+	color: var(--color-white);
+}
+
 ::selection,
 ::target-text {
 	background: var(--bg-blue);
@@ -267,6 +271,7 @@ ol {
 .mobileOnly {
 	display: none !important;
 }
+
 @media screen and (max-width: 480px) {
 	.inputThick {
 		height: 32px;

@@ -3,17 +3,18 @@ import { ITreeFolder } from "@/db/projects/tree";
 import GenButton from "@/gen/button";
 import { useContext, useState } from "react";
 import styles from "../index.module.css";
-import EditorFile from "../recurFile";
 import EditorFSOptions from "../options";
+import EditorFile from "../recurFile";
 interface Props {
 	props: {
 		folder: ITreeFolder;
 		parent: string;
 		name: string;
+		handleToggle(): void;
 	};
 }
 const EditorFolder: React.FC<Props> = ({
-	props: { folder, parent: prev, name },
+	props: { folder, parent: prev, name, handleToggle },
 }) => {
 	const { setEditorState } = useContext(ContextEditor);
 	const [open, setOpen] = useState<boolean>(false);
@@ -41,8 +42,11 @@ const EditorFolder: React.FC<Props> = ({
 						<i className="icon-folder"></i>
 					)}
 					{name}
-					<EditorFSOptions />
-					{/* <i className={`icon-cog ${styles.cog}`}></i> */}
+					<EditorFSOptions
+						props={{
+							handleToggle,
+						}}
+					/>
 				</GenButton>
 				{open && (
 					<div className={styles.indent}>
@@ -52,6 +56,7 @@ const EditorFolder: React.FC<Props> = ({
 								folder,
 								parent: `${prev}/${name}`,
 								currPath: name,
+								handleToggle,
 							}}
 						/>
 
@@ -62,6 +67,7 @@ const EditorFolder: React.FC<Props> = ({
 									parent: `${prev}/${name}`,
 									name: folder.folderName,
 									folder,
+									handleToggle,
 								}}
 							/>
 						))}

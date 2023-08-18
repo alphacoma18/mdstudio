@@ -12,10 +12,11 @@ interface Props {
 		folder: ITreeFolder;
 		parent: string;
 		currPath: string;
+		handleToggle(): void;
 	};
 }
 const EditorFile: React.FC<Props> = ({
-	props: { files, folder, parent: prev, currPath },
+	props: { files, folder, parent: prev, currPath, handleToggle },
 }) => {
 	const {
 		device: { isHandheld },
@@ -42,8 +43,11 @@ const EditorFile: React.FC<Props> = ({
 				>
 					<i className="icon-doc-text"></i>
 					{file.fileName}
-					<EditorFSOptions />
-					{/* <i className={`icon-cog ${styles.cog}`}></i> */}
+					<EditorFSOptions
+						props={{
+							handleToggle,
+						}}
+					/>
 				</GenButton>
 			))}
 		</>

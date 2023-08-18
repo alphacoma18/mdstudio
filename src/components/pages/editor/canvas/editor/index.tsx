@@ -1,26 +1,11 @@
-import handleAxios from "@/axios";
 import ContextGlobal from "@/context/_global";
 import ContextEditor from "@/context/editor";
 import DOMPurify from "dompurify";
 import { Options } from "easymde";
 import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
 import SimpleMDE from "react-simplemde-editor";
-async function postContent(projectId: string, fileId: string, content: string) {
-	return handleAxios({
-		url: `editor/update/${fileId}`,
-		method: "post",
-		payload: {
-			projectId,
-			content,
-		},
-	});
-}
-async function getContent(fileId: string) {
-	return handleAxios({
-		url: `editor/get/${fileId}`,
-		method: "get",
-	});
-}
+import { postMDContent, getMDContent } from "@/utils/axios/md";
+
 export default memo(() => {
 	const changeRef = useRef<boolean>(false);
 	const {
@@ -38,7 +23,7 @@ export default memo(() => {
 		const timeoutID = setTimeout(async () => {
 			console.log("saving...");
 			// Insert content into CURRENT file
-			await postContent(projectState._id.toString(), editorState.id, content);
+			await postMDContent(projectState._id.toString(), editorState.id, content);
 			console.log("saved");
 		}, +process.env.AUTO_SAVE_INTERVAL);
 		return () => clearTimeout(timeoutID);
@@ -46,14 +31,14 @@ export default memo(() => {
 
 	useEffect(() => {
 		(async () => {
-			const getRes = getContent(editorState.id);
+			const getRes = getMDContent(editorState.id);
 			if (!prevFileId) {
 				const getResData = await getRes;
 				if (!getResData) return;
 				setContent(getResData.data.content);
 			} else {
 				// Insert content into PREVIOUS file
-				const postRes = postContent(
+				const postRes = postMDContent(
 					projectState._id.toString(),
 					prevFileId,
 					content

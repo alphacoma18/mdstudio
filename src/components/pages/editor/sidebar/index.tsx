@@ -5,7 +5,8 @@ import GenProfilePicture from "@/gen/image/profilePicture";
 import { memo, useContext } from "react";
 import { EditorFileExplorer } from "..";
 import styles from "./index.module.css";
-
+import handleAxios from "@/utils/axios";
+import 
 export default memo(() => {
 	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
 	const {
@@ -34,7 +35,12 @@ export default memo(() => {
 						<i className={"icon-search"}></i>
 					</GenButton>
 
-					<GenButton props={{ label: "Sidebar: save" }}>
+					<GenButton
+						props={{
+							label: "Sidebar: save",
+							onClick: () => {},
+						}}
+					>
 						<i className={"icon-floppy"}></i>
 					</GenButton>
 

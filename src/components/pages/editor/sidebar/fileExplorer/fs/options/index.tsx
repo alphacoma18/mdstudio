@@ -1,11 +1,16 @@
 import GenButton from "@/gen/button";
 import styles from "./index.module.css";
-const EditorFSOptions = () => {
+interface Props {
+	props: {
+		handleToggle(): void;
+	};
+}
+const EditorFSOptions: React.FC<Props> = ({ props: { handleToggle } }) => {
 	return (
 		<GenButton
 			props={{
 				label: "Options",
-				onClick: () => console.log("Options"),
+				onClick: handleToggle,
 				className: `icon-cog ${styles.options}`,
 				type: "button",
 			}}
