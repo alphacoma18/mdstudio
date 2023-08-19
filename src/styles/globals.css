@@ -57,13 +57,8 @@
 	--tr-opacity: opacity 100ms ease-in-out;
 }
 
-::-moz-selection {
-	background: var(--bg-blue);
-	color: var(--color-white);
-}
-
-::selection,
-::target-text {
+::-moz-selection,
+::selection {
 	background: var(--bg-blue);
 	color: var(--color-white);
 }
