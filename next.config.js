@@ -65,8 +65,8 @@ module.exports = withPWA({
     ]
   },
   env: {
-    HOST_URL: 'http://localhost:3000',
-    API_URL: 'http://localhost:3000/api',
+    HOST_URL: process.env.NEXTAUTH_URL,
+    API_URL: `${process.env.NEXTAUTH_URL}/api`,
     MIN_NOT_EMPTY_STRING_LENGTH: 1,
     MAX_FILE_NAME_LENGTH: 20,
     MAX_PROJECT_NAME_LENGTH: 20,
