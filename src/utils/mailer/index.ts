@@ -5,7 +5,8 @@ interface MailerOptions {
 	html?: string;
 }
 export const serverDetails = {
-	host: "smtp.markdownstudio.tech",
+	service: "gmail",
+	host: "smtp.gmail.com",
 	port: 587,
 	pool: true,
 	tls: {
@@ -14,10 +15,9 @@ export const serverDetails = {
 	// DO NOT SET TO TRUE
 	// https://nodemailer.com/smtp/ on secure: false,
 	// secure: false,
-	secure: false,
 	auth: {
-		user: "alpha@markdownstudio.tech",
-		pass: "fD@WuCxo4",
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASSWORD,
 	},
 	from: `MD Studio Team <${process.env.EMAIL_USER}>`,
 	opportunisticTLS: true,
@@ -32,27 +32,7 @@ export default async function Mailer({
 	html,
 }: MailerOptions) {
 	try {
-		const transporter = createTransport({
-			host: "smtp.markdownstudio.tech",
-			port: 587,
-			pool: true,
-			tls: {
-				rejectUnauthorized: false,
-			},
-			// DO NOT SET TO TRUE
-			// https://nodemailer.com/smtp/ on secure: false,
-			// secure: false,
-			secure: false,
-			auth: {
-				user: "alpha@markdownstudio.tech",
-				pass: "fD@WuCxo4",
-			},
-			from: `MD Studio Team <${process.env.EMAIL_USER}>`,
-			opportunisticTLS: true,
-			priority: "high",
-			connectionTimeout: 10 * 60 * 1000, // 10 minutes
-			greetingTimeout: 5 * 60 * 1000, // 5 minutes
-		});
+		const transporter = createTransport(serverDetails);
 		const info = await transporter.sendMail({
 			to: recipient,
 			subject,

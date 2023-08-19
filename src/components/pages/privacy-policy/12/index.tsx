@@ -95,8 +95,8 @@ const PrivacyPolicy12: React.FC = () => {
 				found in this privacy notice.
 			</p>
 			<p>
-				You may contact us by email at alpha@markdownstudio.tech, or by
-				referring to the contact details at the bottom of this document.
+				You may contact us by email at markdownstudio@gmail.com, or by referring
+				to the contact details at the bottom of this document.
 			</p>
 			<p>
 				If you are using an authorized agent to exercise your right to opt out
@@ -228,7 +228,7 @@ const PrivacyPolicy12: React.FC = () => {
 			</ul>
 			<p>
 				To exercise these rights, you can contact us by email at
-				alpha@markdownstudio.tech, or by referring to the contact details at the
+				markdownstudio@gmail.com, or by referring to the contact details at the
 				bottom of this document. If you have a complaint about how we handle
 				your data, we would like to hear from you.
 			</p>

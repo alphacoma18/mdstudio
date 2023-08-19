@@ -17,9 +17,9 @@ export const authOptions: NextAuthOptions = {
 		EmailProvider({
 			server: serverDetails,
 			from: serverDetails.from,
-			async sendVerificationRequest({ identifier: email, url }) {
+			async sendVerificationRequest({ identifier: emailAddr, url }) {
 				await Mailer({
-					recipient: email,
+					recipient: emailAddr,
 					subject: "Sign in to Markdown Studio",
 					html: emailSignin({ url }),
 				});
