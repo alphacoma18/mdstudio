@@ -3,7 +3,7 @@ import { useState } from "react";
 const useDeviceType = () => {
 	const getDeviceType = (
 		handheld: IContextGlobal["device"]["type"],
-		desktop: IContextGlobal["device"]["type"]
+		desktop: IContextGlobal["device"]["type"],
 	): IContextGlobal["device"] => {
 		return {
 			type: window.innerWidth <= 768 ? handheld : desktop,

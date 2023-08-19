@@ -29,7 +29,7 @@ export default serverWrapper(async (req, res, session) => {
 			],
 			// Note: THIS IS IMPORTANT
 			strict: false,
-		}
+		},
 	);
 	res.json({ OK: true });
 });

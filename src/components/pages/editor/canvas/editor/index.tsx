@@ -41,7 +41,7 @@ export default memo(() => {
 				const postRes = postMDContent(
 					projectState._id.toString(),
 					prevFileId,
-					content
+					content,
 				);
 				const [getResData, postResData] = await Promise.all([getRes, postRes]);
 				if (!getResData || !postResData) return;

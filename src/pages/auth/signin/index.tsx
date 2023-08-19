@@ -42,7 +42,7 @@ const AuthSignIn: NextPage<
 };
 export default AuthSignIn;
 export const getServerSideProps: GetServerSideProps = async (
-	context: CtxOrReq | undefined
+	context: CtxOrReq | undefined,
 ) => {
 	const providers = await getProviders();
 	const csrfToken = await getCsrfToken(context);

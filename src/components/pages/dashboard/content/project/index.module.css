@@ -1,11 +1,11 @@
 .projectTitle {
-    color: inherit;
-    font-weight: var(--fw-bold);
+	color: inherit;
+	font-weight: var(--fw-bold);
 }
 .project {
-    border: 1px solid var(--color-blue);
-    border-radius: var(--br-md);
-    box-shadow: var(--bs-full);
-    padding: var(--pd-lg);
-    position: relative;
+	border: 1px solid var(--color-blue);
+	border-radius: var(--br-md);
+	box-shadow: var(--bs-full);
+	padding: var(--pd-lg);
+	position: relative;
 }

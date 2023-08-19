@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 function useDarkMode(): [
 	boolean,
-	(value: boolean | ((val: boolean) => boolean)) => void
+	(value: boolean | ((val: boolean) => boolean)) => void,
 ] {
 	const [enabledState, setEnabledState] = useLocalStorage<boolean>(
 		"dark-mode-enabled",
-		false
+		false,
 	);
 
 	// See if user has set a browser or OS preference for dark mode.
@@ -23,7 +23,7 @@ function useDarkMode(): [
 			if (typeof window !== "undefined") {
 				window.localStorage.setItem(
 					"theme-preference",
-					prev ? "light" : "dark"
+					prev ? "light" : "dark",
 				);
 			}
 			return prev;

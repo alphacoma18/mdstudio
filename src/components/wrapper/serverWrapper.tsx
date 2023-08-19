@@ -10,8 +10,8 @@ const serverWrapper = (
 		req: NextApiRequest,
 		res: NextApiResponse,
 		sessionUser: Session["user"],
-		method: TMethod
-	) => Promise<void>
+		method: TMethod,
+	) => Promise<void>,
 ) => {
 	return async (req: NextApiRequest, res: NextApiResponse) => {
 		try {

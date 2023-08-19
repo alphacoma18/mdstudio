@@ -212,7 +212,7 @@ function MyApp(props: AppPropsWithLayout & AppProps<{ session: Session }>) {
 							<Analytics />
 						</main>
 					</ContextProviderGlobal>
-				</SessionProvider>
+				</SessionProvider>,
 			)}
 		</>
 	);

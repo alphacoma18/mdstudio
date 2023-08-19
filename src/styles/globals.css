@@ -43,20 +43,10 @@
 
 	--fw-bold: bold;
 
-	--ff-mono: "JetBrains Mono-Regular", ui-monospace,
-		Menlo,
-		Monaco,
-		"Cascadia Mono",
-		"Segoe UI Mono",
-		"Roboto Mono",
-		"Oxygen Mono",
-		"Ubuntu Monospace",
-		"Source Code Pro",
-		"Fira Mono",
-		"Droid Sans Mono",
-		"Courier New",
-		monospace;
-
+	--ff-mono: "JetBrains Mono-Regular", ui-monospace, Menlo, Monaco,
+		"Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
+		"Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono",
+		"Courier New", monospace;
 
 	--gap-sm: 0.2rem;
 	--gap-md: 0.4rem;
@@ -176,7 +166,6 @@ hr {
 	margin: 0.4rem auto;
 	width: 100%;
 }
-
 
 img {
 	max-width: 100%;

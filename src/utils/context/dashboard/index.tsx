@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useState } from "react";
 import { IContextDashboard } from "./type";
 const ContextDashboard = createContext<IContextDashboard>(
-	{} as IContextDashboard
+	{} as IContextDashboard,
 );
 export default ContextDashboard;
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 export const ContextProviderDashboard: React.FC<Props> = ({ children }) => {
 	const [projects, setProjects] = useState<IContextDashboard["projects"]>(
-		[] as IContextDashboard["projects"]
+		[] as IContextDashboard["projects"],
 	);
 	return (
 		<ContextDashboard.Provider

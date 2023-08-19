@@ -37,7 +37,7 @@ export default serverWrapper(async (req, res, sessionUser) => {
 					],
 				},
 			},
-		}
+		},
 	);
 	res.json({ id: _id.toString() });
 });

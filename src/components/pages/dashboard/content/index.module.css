@@ -39,9 +39,7 @@
 	min-height: 100vh;
 }
 
-
 @media screen and (max-width: 768px) {
-
 	.section,
 	.sectionNone {
 		width: 100%;
@@ -49,7 +47,6 @@
 }
 
 @media screen and (max-width: 480px) {
-
 	.section,
 	.sectionNone {
 		grid-template-columns: 1fr;

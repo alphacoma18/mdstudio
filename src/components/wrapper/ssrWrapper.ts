@@ -3,14 +3,14 @@ import { GetServerSidePropsContext } from "next";
 import { Session, getServerSession } from "next-auth";
 import GenError from "@/utils/gen/error";
 const ssrWrapper = (
-	fn: (context: GetServerSidePropsContext, session: Session) => Promise<any>
+	fn: (context: GetServerSidePropsContext, session: Session) => Promise<any>,
 ) => {
 	return async (context: GetServerSidePropsContext) => {
 		try {
 			const session = await getServerSession(
 				context.req,
 				context.res,
-				authOptions
+				authOptions,
 			);
 			if (!session) throw new GenError("Unauthorized", 401);
 			return await fn(context, session);

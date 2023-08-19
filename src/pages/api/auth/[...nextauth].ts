@@ -52,7 +52,7 @@ export const authOptions: NextAuthOptions = {
 								client_id: process.env.LINKEDIN_ID,
 								client_secret: process.env.LINKEDIN_SECRET,
 							},
-						}
+						},
 					);
 					return {
 						tokens: response,

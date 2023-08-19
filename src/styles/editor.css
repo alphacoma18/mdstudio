@@ -802,22 +802,26 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-toolbar .easymde-dropdown {
-	background: linear-gradient(to bottom right,
-			var(--canvas-bg) 0,
-			var(--canvas-bg) 84%,
-			var(--bg-blue) 50%,
-			var(--bg-blue) 100%);
+	background: linear-gradient(
+		to bottom right,
+		var(--canvas-bg) 0,
+		var(--canvas-bg) 84%,
+		var(--bg-blue) 50%,
+		var(--bg-blue) 100%
+	);
 	border: 0;
 	border-radius: 0;
 	position: relative;
 }
 
 .editor-toolbar .easymde-dropdown:hover {
-	background: linear-gradient(to bottom right,
-			var(--bg-blue) 0,
-			var(--bg-blue) 84%,
-			var(--bg-3) 50%,
-			var(--bg-3) 100%);
+	background: linear-gradient(
+		to bottom right,
+		var(--bg-blue) 0,
+		var(--bg-blue) 84%,
+		var(--bg-3) 50%,
+		var(--bg-3) 100%
+	);
 }
 
 .easymde-dropdown-content {

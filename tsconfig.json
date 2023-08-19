@@ -29,7 +29,7 @@
 			"@/axios": ["./src/utils/axios/index.ts"],
 			// "@/public/*": ["public/*"],
 			// "@/styles/*": ["src/styles/*"],
-			"@/types/*": ["./src/types/*"],
+			"@/types/*": ["./src/types/*"]
 		}
 	},
 	"include": [

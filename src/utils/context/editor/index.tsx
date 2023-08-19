@@ -12,7 +12,7 @@ export const ContextProviderEditor: React.FC<Props> = ({ children }) => {
 	>({} as IContextEditor["projectState"]);
 
 	const [editorState, setEditorState] = useState<IEditorState>(
-		{} as IEditorState
+		{} as IEditorState,
 	);
 
 	const prevFileId = usePrevious(editorState.id || "");
