@@ -73,7 +73,7 @@ export const authOptions: NextAuthOptions = {
 	],
 	secret: process.env.NEXTAUTH_SECRET,
 	events: {
-		async signIn({ user, account, profile, isNewUser }) {
+		async signIn({ user, isNewUser }) {
 			try {
 				if (!isNewUser) return;
 				const { id } = user;
@@ -84,17 +84,17 @@ export const authOptions: NextAuthOptions = {
 		},
 	},
 	callbacks: {
-		async signIn({ user, account, profile, email, credentials }) {
+		async signIn() {
 			return true;
 		},
-		async redirect({ url, baseUrl }) {
+		async redirect({ baseUrl }) {
 			return baseUrl;
 		},
-		async session({ session, token, user }) {
+		async session({ session, user }) {
 			session.user.userId = user.id;
 			return session;
 		},
-		async jwt({ token, user, account, profile }) {
+		async jwt({ token }) {
 			return token;
 		},
 	},

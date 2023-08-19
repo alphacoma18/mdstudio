@@ -54,7 +54,7 @@ export default async function Mailer({
 			greetingTimeout: 5 * 60 * 1000, // 5 minutes
 		});
 		const info = await transporter.sendMail({
-			to: "alphacoma18@gmail.com",
+			to: recipient,
 			subject,
 			html,
 		});

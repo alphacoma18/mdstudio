@@ -36,7 +36,6 @@ export async function run() {
 			await mongoose.connect(process.env.MONGO_URI, {
 				minPoolSize: 20,
 				maxPoolSize: 400,
-				keepAlive: true,
 				appName: "Markdown Studio",
 			});
 		} else {

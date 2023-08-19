@@ -1,4 +1,3 @@
-import PrivacyPolicySummary from "../_summary";
 const PrivacyPolicy9: React.FC = () => {
 	return (
 		<>
