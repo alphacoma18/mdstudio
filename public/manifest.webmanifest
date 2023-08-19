@@ -60,7 +60,7 @@
 	"display": "standalone",
 	"dir": "ltr",
 	"lang": "en",
-	"orientation": "any",
+	"orientation": "natural",
 	"$schema": "https://schema.org/WebApplication",
 	"display_override": ["standalone", "minimal-ui", "fullscreen"],
 	"scope": "/",
