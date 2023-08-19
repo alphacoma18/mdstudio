@@ -5,8 +5,6 @@ import GenProfilePicture from "@/gen/image/profilePicture";
 import { memo, useContext } from "react";
 import { EditorFileExplorer } from "..";
 import styles from "./index.module.css";
-import handleAxios from "@/utils/axios";
-import 
 export default memo(() => {
 	const { isLightTheme, setIsLightTheme } = useContext(ContextGlobal);
 	const {

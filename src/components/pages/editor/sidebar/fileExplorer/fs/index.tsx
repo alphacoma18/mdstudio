@@ -3,18 +3,18 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import EditorFile from "./recurFile";
 import EditorFolder from "./recurFolder";
-import EditorFileSetting from "./setting";
+// import EditorFileSetting from "./setting";
 interface Props {
 	folder: ITreeFolder;
 }
 const EditorFS: React.FC<Props> = ({ folder }) => {
-	const [isToggled, setIsToggled] = useState<boolean>(false);
+	const [, setIsToggled] = useState<boolean>(false);
 	function handleToggle() {
 		setIsToggled((prev) => !prev);
 	}
 	return (
 		<section className={styles.folder}>
-			{isToggled && <EditorFileSetting />}
+			{/* {isToggled && <EditorFileSetting />} */}
 			<EditorFile
 				props={{
 					files: folder.files,
