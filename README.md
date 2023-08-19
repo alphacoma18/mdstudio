@@ -1,7 +1,6 @@
 <a src="https://markdownstudio.tech">
  <img src="https://markdownstudio.tech/logo/og_blue.png"></img>
 </a>
----
 
 ## What is Markdown Studio?
 
@@ -40,3 +39,8 @@ Markdown Studio is the perfect tool for anyone who wants to take notes, write bl
 - [GitHub](https://github.com/alphacoma18/mdstudio)
 - [Web App](https://markdownstudio.tech)
 - [Google Play Store](https://play.google.com/store/apps/details?id=tech.markdownstudio.twa)
+
+## App Notes
+
+- For app news, refer to [NEWS.md](./NEWS.md)
+- For app backlog, refer to [TODO.md](./TODO.md)

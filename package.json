@@ -4,7 +4,7 @@
 	"description": "The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML.",
 	"main": "next.config.js",
 	"repository": "https://github.com/alphacoma18/mdstudio.git",
-	"author": "Alpha Coma <400829150120@r3-1.deped.gov.ph>",
+	"author": "Alpha Romer Coma <400829150120@r3-1.deped.gov.ph>",
 	"license": "UNLICENSED",
 	"scripts": {
 		"dev": "next dev",
