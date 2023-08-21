@@ -26,7 +26,7 @@ class FlatFolder {
 	@prop({ index: true, unique: true, required: true })
 	_id!: Types.ObjectId;
 
-	@prop({ index: true, unique: true, required: true })
+	@prop({ unique: true, required: true })
 	folderName!: string;
 
 	@prop({ required: true })
@@ -43,6 +43,7 @@ class FlatProject {
 
 	@prop({
 		unique: true,
+		required: true,
 		minlength: process.env.MIN_NOT_EMPTY_STRING_LENGTH,
 		maxlength: process.env.MAX_PROJECT_NAME_LENGTH,
 	})
@@ -56,7 +57,7 @@ class FlatProject {
 	@prop()
 	isPublished!: boolean;
 
-	@prop({ index: true })
+	@prop({ index: true, required: true })
 	fileSystem!: (File | FlatFolder)[];
 }
 
@@ -71,7 +72,7 @@ class FlatProjects {
 	})
 	userId!: Types.ObjectId;
 
-	@prop()
+	@prop({ index: true, unique: true, required: true })
 	projects!: FlatProject[];
 }
 
