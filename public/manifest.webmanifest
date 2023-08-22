@@ -52,6 +52,12 @@
 			"sizes": "512x512",
 			"type": "image/png",
 			"purpose": "any"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
 		}
 	],
 	"theme_color": "#007acc",
@@ -60,26 +66,38 @@
 	"display": "standalone",
 	"dir": "ltr",
 	"lang": "en",
+	"handle_links": "preferred",
 	"$schema": "https://schema.org/WebApplication",
-	"display_override": ["standalone", "minimal-ui", "fullscreen"],
+	"display_override": [
+		"standalone",
+		"minimal-ui",
+		"fullscreen",
+		"window-controls-overlay",
+		"browser"
+	],
+	"launch_handler": {
+		"client_mode": ["auto", "navigate-existing"]
+	},
+	"edge_side_panel": {
+		"preferred_width": 400
+	},
+	"scope_extensions": [
+		{ "origin": "markdownstudio.tech" },
+		{ "origin": "www.markdownstudio.tech" }
+	],
+	"id": "/",
+	"orientation": "portrait-primary",
 	"scope": "/",
 	"description": "The modern and cross-platform blogging/note-taking/publishing platform using Markdown/HTML.",
 	"categories": [
-		"productivity",
-		"tools",
-		"utilities",
-		"notes",
-		"markdown",
-		"html",
-		"no-code",
-		"social",
+		"education",
+		"entertainment",
+		"lifestyle",
+		"news",
 		"personalization",
-		"website-builder",
-		"website-publisher",
-		"website",
-		"blog",
-		"documentation",
-		"wiki"
+		"productivity",
+		"social",
+		"utilities"
 	],
 	"screenshots": [
 		{

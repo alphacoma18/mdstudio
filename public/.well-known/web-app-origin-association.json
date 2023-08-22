@@ -1,0 +1,8 @@
+{
+	"web_apps": {
+		"https://markdownstudio.tech": {
+			"scope": "/",
+			"authorize": ["intercept-links"]
+		}
+	}
+}
