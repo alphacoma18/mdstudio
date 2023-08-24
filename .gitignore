@@ -54,3 +54,10 @@ next-env.d.ts
 
 #unlighthouse
 .unlighthouse
+
+
+## PWA deployments
+**/pwa/playstore/**/*
+**/pwa/microsoft/**/*
+**/pwa/playstore/*
+**/pwa/microsoft/*
