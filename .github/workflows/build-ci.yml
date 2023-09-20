@@ -3,25 +3,25 @@ name: Next Continuous Integration
 on:
   push:
     branches:
-      - prod
+      - master
   pull_request:
     branches:
-      - prod
+      - master
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           # Fetch all commits
 
-      - name: Set Node.js 16.x
+      - name: Set Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
 
       - name: Run install
         uses: borales/actions-yarn@v4
@@ -29,22 +29,21 @@ jobs:
           cmd: install # will run `yarn install` command
 
       - name: Lint Code Base
-        uses: github/super-linter@v4
+        uses: github/super-linter@v5
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: "prod"
+          DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           LINTER_RULES_PATH: /
           CSS_FILE_NAME: .stylelintrc.json
           VALIDATE_TYPESCRIPT_STANDARD: false
 
-      - run: yarn install --immutable --immutable-cache --check-cache
-      - run: yarn run debug
+      - run: yarn add --immutable --immutable-cache --check-cache
 
       - name: next cache
         id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        run: echo "dir=$(yarn config get cacheFolder)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
@@ -60,8 +59,8 @@ jobs:
         with:
           branch: master
           tag_prefix: "v"
-          major_pattern: "BREAKING CHANGE:"
-          minor_pattern: "feat:"
+          major_pattern: "BREAKING CHANGE"
+          minor_pattern: "feat"
           format: "v${major}.${minor}.${patch}-prerelease${increment}"
           # fix is the default pattern so we don't need to specify it
 
