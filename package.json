@@ -67,6 +67,7 @@
 		"husky": "^8.0.0",
 		"kill-port": "^2.0.1",
 		"loader-utils": "^3.2.1",
+		"next-sitemap": "^4.2.3",
 		"prettier": "^3.0.3",
 		"stylelint": "^15.10.3",
 		"stylelint-config-prettier": "^9.0.5",
