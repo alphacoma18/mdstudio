@@ -5,7 +5,29 @@
 
 version: 2
 updates:
-  - package-ecosystem: "yarn" # See documentation for possible values
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      time: "09:00"
+      day: "monday"
+      timezone: "Asia/Manila"
+    target-branch: "develop"
+    labels:
+      - "github-actions"
+    reviewers:
+      - "alphacoma18"
+
+  - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+      time: "09:00"
+      day: "monday"
+      timezone: "Asia/Manila"
+    target-branch: "develop"
+    labels:
+      - "yarn"
+      - "dependencies"
+    reviewers:
+      - "alphacoma18"
