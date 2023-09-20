@@ -1,4 +1,4 @@
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://markdownstudio.tech/sitemap.xml
 User-agent: *
 Allow: /*
 Disallow: /api/*
