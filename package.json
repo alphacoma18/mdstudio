@@ -33,7 +33,7 @@
 		"mongodb": "^6.2.0",
 		"mongoose": "^7.6.3",
 		"next": "^14.0.0",
-		"next-auth": "^4.24.4",
+		"next-auth": "^4.24.5",
 		"next-pwa": "^5.6.0",
 		"nextjs-fonts": "^0.22.0",
 		"nextjs-progressbar": "^0.0.16",
