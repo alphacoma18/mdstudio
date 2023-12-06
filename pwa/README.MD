@@ -24,7 +24,7 @@ This README contains instructions on how to deploy the PWA to various platforms.
 
 1. BubbleWrap is already installed in the project with the package name `@bubblewrap/cli`.
 2. Run `cd pwa/playstore`
-3. Run `bubblewrap init --manifest=https://**markdownstudio.tech**/manifest.webmanifest`
+3. Run `bubblewrap init --manifest=https://markdownstudio.tech/manifest.webmanifest`
 4. Consult with the project lead for the keystore and key password.
 5. **KEYSTORE AND KEYSTORE PASSWORD MUST BE THE SAME**
 6. Run `bubblewrap build`
